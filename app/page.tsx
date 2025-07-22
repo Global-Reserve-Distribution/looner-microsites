@@ -4,9 +4,11 @@ import Footer from 'components/layout/footer';
 
 export const metadata = {
   description:
-    'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
+    'Premium THC beverages and cannabis-infused drinks. Discover LOONER\'s collection of craft cannabis beverages with fast shipping.',
   openGraph: {
-    type: 'website'
+    type: 'website',
+    title: 'LOONER THC Beverages - Premium Cannabis Drinks',
+    description: 'Premium THC beverages and cannabis-infused drinks. Discover LOONER\'s collection of craft cannabis beverages.'
   }
 };
 

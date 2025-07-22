@@ -3,6 +3,16 @@
 @plugin "@tailwindcss/container-queries";
 @plugin "@tailwindcss/typography";
 
+/* LOONER THC Beverages Brand Colors */
+:root {
+  --color-cannabis-green: 142 69% 38%;
+  --color-cannabis-light: 142 69% 58%;
+  --color-cannabis-dark: 142 69% 28%;
+  --color-beverage-blue: 220 89% 45%;
+  --color-beverage-light: 220 89% 65%;
+  --color-accent-orange: 35 84% 55%;
+}
+
 @layer base {
   *,
   ::after,

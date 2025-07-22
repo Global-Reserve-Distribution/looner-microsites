@@ -4,8 +4,8 @@ import { defaultSort, sorting } from 'lib/constants';
 import { getProducts } from 'lib/shopify';
 
 export const metadata = {
-  title: 'Search',
-  description: 'Search for products in the store.'
+  title: 'Search THC Beverages',
+  description: 'Search our premium collection of cannabis-infused beverages and THC drinks. Find your perfect cannabis beverage.'
 };
 
 export default async function SearchPage(props: {

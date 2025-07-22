@@ -65,14 +65,23 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
 
 ## Recent Changes
 - July 22, 2025: Initial project setup and dependency installation
-- Installed Node.js 20 and all project dependencies via pnpm
+- Installed Node.js 20 and all project dependencies via pnpm  
 - Analyzed project structure and Shopify integration setup
+- Configured Shopify environment variables (store domain, access token, revalidation secret)
+- Customized branding for LOONER THC Beverages:
+  - Updated site name and metadata descriptions
+  - Created cannabis-themed logo with leaf icon
+  - Added brand color palette (cannabis green, beverage blue, accent orange)
+  - Updated welcome toast and selection colors for green theme
+- Server compilation in progress with Turbopack enabled
 
 ## Next Steps
-1. Configure Shopify environment variables
-2. Start development server
-3. Test Shopify API connectivity
-4. Customize for LOONER THC beverages brand
+1. ✅ Configure Shopify environment variables - COMPLETED
+2. ✅ Start development server - IN PROGRESS (Turbopack compilation)
+3. Test Shopify API connectivity once server is ready
+4. ✅ Customize for LOONER THC beverages brand - COMPLETED
+5. Set up product collections and test cart functionality
+6. Optimize for mobile and performance testing
 
 ## User Preferences
 *No specific user preferences recorded yet*
