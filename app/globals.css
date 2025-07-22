@@ -5,12 +5,27 @@
 
 /* LOONER THC Beverages Brand Colors */
 :root {
-  --color-cannabis-green: 142 69% 38%;
-  --color-cannabis-light: 142 69% 58%;
-  --color-cannabis-dark: 142 69% 28%;
-  --color-beverage-blue: 220 89% 45%;
-  --color-beverage-light: 220 89% 65%;
-  --color-accent-orange: 35 84% 55%;
+  /* Cannabis Green Palette */
+  --cannabis-primary: hsl(142, 69%, 38%);
+  --cannabis-light: hsl(142, 69%, 58%);
+  --cannabis-accent: hsl(142, 39%, 68%);
+  --cannabis-dark: hsl(142, 69%, 28%);
+  
+  /* THC Indicator Colors */
+  --thc-low: hsl(120, 60%, 70%);
+  --thc-medium: hsl(120, 61%, 50%);
+  --thc-high: hsl(120, 61%, 34%);
+  
+  /* Supporting Colors */
+  --earth-brown: hsl(25, 55%, 40%);
+  --natural-cream: hsl(60, 29%, 96%);
+  --warning-orange: hsl(33, 100%, 50%);
+  
+  /* Text & Background */
+  --text-primary: hsl(210, 24%, 16%);
+  --text-secondary: hsl(210, 14%, 53%);
+  --background: hsl(0, 0%, 100%);
+  --surface: hsl(210, 20%, 98%);
 }
 
 @layer base {
