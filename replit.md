@@ -77,11 +77,19 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
-2. ✅ Start development server - IN PROGRESS (Turbopack compilation)
-3. Test Shopify API connectivity once server is ready
+2. ✅ Start development server - COMPLETED (manual start working)
+3. ✅ Test Shopify API connectivity - WORKING (server accessible)
 4. ✅ Customize for LOONER THC beverages brand - COMPLETED
-5. Set up product collections and test cart functionality
-6. Optimize for mobile and performance testing
+5. ⚠️ Configure run button workflow - IN PROGRESS
+6. Set up product collections and test cart functionality
+7. Optimize for mobile and performance testing
+
+## Run Configuration
+The application uses:
+- Command: `pnpm run dev` (starts Next.js with Turbopack)
+- Port: 3000 (configured in .replit)
+- Server accessible at http://localhost:3000
+- Manual start works, workflow configuration needed for run button
 
 ## User Preferences
 *No specific user preferences recorded yet*
