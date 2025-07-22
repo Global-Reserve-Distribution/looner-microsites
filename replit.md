@@ -92,7 +92,8 @@ The application uses:
 - Manual start works, workflow configuration needed for run button
 
 ## User Preferences
-*No specific user preferences recorded yet*
+- Focus on functionality over inventory/stock concerns
+- Prioritize working features and user experience
 
 ## Development Notes
 - Uses pnpm as package manager

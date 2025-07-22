@@ -6,3 +6,15 @@ channel = "stable-24_05"
 [[ports]]
 localPort = 3000
 externalPort = 80
+
+[workflows]
+runButton = "run"
+
+[[workflows.workflow]]
+name = "run"
+mode = "sequential"
+author = 43663170
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "pnpm run dev"
