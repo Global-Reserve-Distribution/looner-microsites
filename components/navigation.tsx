@@ -31,6 +31,14 @@ export function Navigation() {
             Shop
           </Link>
           <Link 
+            href="/product" 
+            className={`font-medium transition-colors ${
+              pathname === '/product' ? 'text-cannabis-600' : 'text-gray-600 hover:text-cannabis-600'
+            }`}
+          >
+            Product
+          </Link>
+          <Link 
             href="/about" 
             className={`font-medium transition-colors ${
               pathname === '/about' ? 'text-cannabis-600' : 'text-gray-600 hover:text-cannabis-600'
