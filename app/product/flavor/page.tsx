@@ -7,6 +7,7 @@ import { FlavorHero } from '../../../components/FlavorHero';
 import { LifestyleImageGrid } from '../../../components/LifestyleImageGrid';
 import { FlavorPickerTabs } from '../../../components/FlavorPickerTabs';
 import { PurchaseOptions } from '../../../components/PurchaseOptions';
+import { FlavorBackground } from '../../../components/FlavorBackground';
 import { fetchProducts } from '../../../lib/shopify/server-actions';
 
 function getTagEmoji(tag: string): string {
@@ -161,7 +162,10 @@ export default function FlavorPage() {
   }
 
   return (
-    <main className={`min-h-screen ${selectedFlavor?.bgColor || 'bg-white'} transition-all duration-500`}>
+    <main className="relative overflow-hidden min-h-screen transition-all duration-500">
+      <FlavorBackground color={selectedFlavor?.primaryColor || '#FFE5B4'} />
+      
+      <div className="relative z-10">
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-6 max-w-7xl mx-auto">
         {/* Left Column - Product Image & Lifestyle */}
@@ -171,7 +175,7 @@ export default function FlavorPage() {
             <div 
               className="rounded-3xl p-16 aspect-square flex items-center justify-center relative overflow-hidden"
               style={{
-                backgroundColor: selectedFlavor?.primaryColor || '#f3f4f6'
+                backgroundColor: selectedFlavor?.secondaryColor || '#f3f4f6'
               }}
             >
               {selectedFlavor?.images[0] ? (
@@ -249,14 +253,14 @@ export default function FlavorPage() {
         >
           <path
             d="M0,40 C200,20 400,60 600,40 C800,20 1000,60 1200,40 L1200,80 L0,80 Z"
-            fill={selectedFlavor?.secondaryColor || '#CCFBF1'}
+            fill={selectedFlavor?.primaryColor || '#CCFBF1'}
           />
         </svg>
 
         <div 
           className="py-16" 
           style={{
-            backgroundColor: selectedFlavor?.secondaryColor || '#CCFBF1'
+            backgroundColor: selectedFlavor?.primaryColor || '#CCFBF1'
           }}
         >
           <div className="max-w-7xl mx-auto px-6">
@@ -389,6 +393,7 @@ export default function FlavorPage() {
             fill="#4ECDC4"
           />
         </svg>
+      </div>
       </div>
     </main>
   );

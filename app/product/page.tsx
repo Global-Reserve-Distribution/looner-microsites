@@ -127,7 +127,7 @@ export default async function ProductLandingPage() {
           </div>
 
           {/* Right Side - Product Info & Selector */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8">d
             {/* Product Header */}
             <div>
               <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
