@@ -229,6 +229,140 @@ export default function FlavorPage() {
           />
         </div>
       </div>
+      
+      {/* Product Information Section with Wavy Borders */}
+      <div className="relative">
+        {/* Top Wavy Border */}
+        <svg
+          className="w-full h-16"
+          viewBox="0 0 1200 80"
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <path
+            d="M0,40 C200,20 400,60 600,40 C800,20 1000,60 1200,40 L1200,80 L0,80 Z"
+            fill="#B2F5EA"
+          />
+        </svg>
+
+        <div className="bg-teal-100 py-16">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            
+            {/* Product Description */}
+            <div className="lg:col-span-1">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">{selectedFlavor?.title}</h2>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                Experience the perfect balance of refreshing taste and premium cannabis infusion. 
+                Each can is carefully crafted with natural cane sugar and features our signature 
+                blend that delivers consistent effects every time.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Made with the finest ingredients in Minnesota, our beverages offer a clean, 
+                smooth experience that's perfect for any occasion. Whether you're relaxing 
+                at home or socializing with friends, LOONER delivers quality you can trust.
+              </p>
+            </div>
+
+            {/* Nutrition Facts */}
+            <div className="lg:col-span-1">
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 text-center border-b-2 border-gray-900 pb-2">
+                  Nutrition Facts
+                </h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between border-b border-gray-200 pb-1">
+                    <span>Serving Size</span>
+                    <span className="font-medium">1 can (12 fl oz)</span>
+                  </div>
+                  <div className="flex justify-between border-b border-gray-200 pb-1">
+                    <span>Calories</span>
+                    <span className="font-medium">45</span>
+                  </div>
+                  <div className="flex justify-between border-b border-gray-200 pb-1">
+                    <span>Total Sugars</span>
+                    <span className="font-medium">8g</span>
+                  </div>
+                  <div className="flex justify-between border-b border-gray-200 pb-1">
+                    <span>Sodium</span>
+                    <span className="font-medium">15mg</span>
+                  </div>
+                  <div className="flex justify-between border-b-2 border-gray-900 pb-2 pt-2">
+                    <span className="font-bold">THC Content</span>
+                    <span className="font-bold">10mg</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Features Grid */}
+            <div className="lg:col-span-1">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-sm">
+                    <span className="text-2xl">🌿</span>
+                  </div>
+                  <h4 className="font-semibold text-gray-900 text-sm mb-1">Cannabis Infused</h4>
+                  <p className="text-xs text-gray-600">Premium THC extract</p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-sm">
+                    <span className="text-2xl">🌱</span>
+                  </div>
+                  <h4 className="font-semibold text-gray-900 text-sm mb-1">Non GMO</h4>
+                  <p className="text-xs text-gray-600">Natural ingredients</p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-sm">
+                    <span className="text-2xl">🍯</span>
+                  </div>
+                  <h4 className="font-semibold text-gray-900 text-sm mb-1">Less Sugar</h4>
+                  <p className="text-xs text-gray-600">Only 8g per can</p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-sm">
+                    <span className="text-2xl">📍</span>
+                  </div>
+                  <h4 className="font-semibold text-gray-900 text-sm mb-1">Made in Minnesota</h4>
+                  <p className="text-xs text-gray-600">Locally crafted</p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-sm">
+                    <span className="text-2xl">✨</span>
+                  </div>
+                  <h4 className="font-semibold text-gray-900 text-sm mb-1">High Quality</h4>
+                  <p className="text-xs text-gray-600">Lab tested purity</p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-sm">
+                    <span className="text-2xl">🎯</span>
+                  </div>
+                  <h4 className="font-semibold text-gray-900 text-sm mb-1">Consistent</h4>
+                  <p className="text-xs text-gray-600">Reliable effects</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Wavy Border */}
+        <svg
+          className="w-full h-16"
+          viewBox="0 0 1200 80"
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <path
+            d="M0,0 L0,40 C200,60 400,20 600,40 C800,60 1000,20 1200,40 L1200,0 Z"
+            fill="#B2F5EA"
+          />
+        </svg>
+      </div>
 
       {/* Simple Wavy Footer Bar */}
       <div className="relative h-24 overflow-hidden">

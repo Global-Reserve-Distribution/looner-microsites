@@ -158,6 +158,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Single-color SVG-based wavy pattern in teal (#4ECDC4)
   - Clean, minimal design without decorative elements
   - Fixed TypeScript errors for tag parameter typing and LifestyleImageGrid undefined values
+- **PRODUCT INFORMATION SECTION** (July 23, 2025): Added teal section with wavy borders
+  - Product description, nutrition facts, and feature icons in 3-column layout
+  - Wavy SVG borders at top and bottom of teal background section
+  - Mock nutrition data and feature highlights matching cannabis product focus
+  - Positioned as middle section between main product selection and footer
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
