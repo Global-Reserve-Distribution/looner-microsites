@@ -86,6 +86,13 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - ProductHeroSection: Large format product imagery with thumbnail gallery
   - OlipopProductPage: Complete page layout combining all components
   - Updated Tailwind config with cannabis color palette variables
+- **MAJOR FIX** (July 23, 2025): Resolved Next.js 15 server/client component separation errors
+  - Complete refactor of Shopify integration to resolve "use cache" runtime errors
+  - Created comprehensive server actions architecture (lib/shopify/server-actions.ts)
+  - Separated server-only code into dedicated cache and fetch modules
+  - Updated 20+ files to use new server action pattern instead of direct Shopify imports
+  - Successfully eliminated all client/server component boundary violations
+  - Application now runs without compilation errors on localhost:3000
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
@@ -96,8 +103,10 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
 6. ✅ Implement FlavorSelectorGrid component - COMPLETED
 7. ✅ Build StickyProductPanel with THC content - COMPLETED  
 8. ✅ Implement cannabis-themed design system - COMPLETED
-9. Set up product collections and test cart functionality
-10. Optimize for mobile and performance testing
+9. ✅ Fix Next.js 15 server/client component errors - COMPLETED
+10. Set up product collections and test cart functionality
+11. Optimize for mobile and performance testing
+12. Add cannabis-specific features (dosage calculator, compliance notices, age verification)
 
 ## Run Configuration
 The application uses:

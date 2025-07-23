@@ -2,7 +2,7 @@
 
 import { Product } from 'lib/shopify/types';
 import { ProductProvider } from 'components/product/product-context';
-import FlavorSelectorGrid from './flavor-selector-grid';
+import FlavorSelectorGridServer from './flavor-selector-grid-server';
 import StickyProductPanel from './sticky-product-panel';
 import ProductHeroSection from './product-hero-section';
 import THCContentBadge from './thc-content-badge';
@@ -52,7 +52,7 @@ export default function OlipopProductPage({ product }: OlipopProductPageProps) {
 
           {/* Flavor Selector Grid - Full Width */}
           <div className="mt-16 pt-16 border-t border-gray-200">
-            <FlavorSelectorGrid 
+            <FlavorSelectorGridServer 
               activeHandle={product.handle}
               collectionHandle="thc-beverages"
             />

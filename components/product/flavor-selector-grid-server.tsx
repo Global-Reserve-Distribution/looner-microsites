@@ -1,10 +1,7 @@
-'use client';
-
 import { Product } from 'lib/shopify/types';
 import { fetchCollectionProducts } from 'lib/shopify/server-actions';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 
 interface FlavorGridItem {
@@ -16,62 +13,48 @@ interface FlavorGridItem {
   available: boolean;
 }
 
-interface FlavorSelectorGridProps {
+interface FlavorSelectorGridServerProps {
   activeHandle: string;
   collectionHandle?: string;
-  onSelect?: (handle: string) => void;
 }
 
-export default function FlavorSelectorGrid({ 
+export default async function FlavorSelectorGridServer({ 
   activeHandle, 
-  collectionHandle = 'thc-beverages',
-  onSelect 
-}: FlavorSelectorGridProps) {
-  const [products, setProducts] = useState<FlavorGridItem[]>([]);
-  const [loading, setLoading] = useState(true);
+  collectionHandle = 'thc-beverages'
+}: FlavorSelectorGridServerProps) {
+  let products: FlavorGridItem[] = [];
+  let loading = false;
 
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const collection = await fetchCollectionProducts(collectionHandle);
-        
-        const flavorItems: FlavorGridItem[] = collection.map((product: Product) => {
-          // Extract THC content from product tags or metafields
-          const thcTag = product.tags.find(tag => tag.includes('THC'));
-          const thcContent = thcTag ? thcTag.replace('THC-', '') + 'mg' : '5mg';
-          
-          return {
-            handle: product.handle,
-            title: product.title,
-            featuredImage: product.images[0]?.url || '',
-            thcContent,
-            price: `$${product.priceRange.minVariantPrice.amount}`,
-            available: product.availableForSale
-          };
-        });
-        
-        setProducts(flavorItems);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
+  try {
+    const collection = await fetchCollectionProducts(collectionHandle);
+    
+    products = collection.map((product: Product) => {
+      // Extract THC content from product tags or metafields
+      const thcTag = product.tags.find(tag => tag.includes('THC'));
+      const thcContent = thcTag ? thcTag.replace('THC-', '') + 'mg' : '5mg';
+      
+      return {
+        handle: product.handle,
+        title: product.title,
+        featuredImage: product.images[0]?.url || '',
+        thcContent,
+        price: `$${product.priceRange.minVariantPrice.amount}`,
+        available: product.availableForSale
+      };
+    });
+  } catch (error) {
+    console.error('Error fetching products:', error);
+  }
 
-    fetchProducts();
-  }, [collectionHandle]);
-
-  if (loading) {
+  if (products.length === 0) {
     return (
       <div className="w-full">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-cannabis-primary">Choose Your Flavor</h2>
           <p className="text-text-secondary mt-2">Select from our premium THC beverage collection</p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {[...Array(8)].map((_, i) => (
-            <div key={i} className="aspect-square bg-surface animate-pulse rounded-lg"></div>
-          ))}
+        <div className="text-center py-12 text-text-secondary">
+          <p>No products found in this collection.</p>
         </div>
       </div>
     );
@@ -89,7 +72,6 @@ export default function FlavorSelectorGrid({
           <Link
             key={item.handle}
             href={`/product/${item.handle}`}
-            onClick={() => onSelect?.(item.handle)}
             className={clsx(
               'group relative aspect-square rounded-lg overflow-hidden transition-all duration-300',
               'border-2 hover:scale-105 hover:shadow-lg',
