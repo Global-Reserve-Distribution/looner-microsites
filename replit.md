@@ -142,6 +142,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Tags now display as centered text with emoji above and underline below
   - Grid layout (2 cols on mobile, 4 cols on desktop) for better organization
   - Enhanced emoji mapping for cannabis-specific terms and quality indicators
+- **SHOPIFY TAGS INTEGRATION** (July 23, 2025): Now pulling tags directly from Shopify products
+  - Updated transformProductsToFlavors to use product.tags from Shopify instead of hardcoded tags
+  - Fallback to default tags if no Shopify tags are available
+  - Real product tags now display in flavor picker and product pages
+  - Case-insensitive THC content detection for variety pack displays
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

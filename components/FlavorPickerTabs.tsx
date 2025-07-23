@@ -52,7 +52,7 @@ export function FlavorPickerTabs({ flavors, varieties = [], selectedTitle, onSel
         <div className="grid grid-cols-5 gap-2 max-h-[400px] overflow-y-auto pr-2">
           {allFlavors.map((flavor, index) => {
             const isSelected = flavor.title === selectedTitle;
-            const thcContent = flavor.tags.find(tag => tag.includes('THC')) || '10mg THC';
+            const thcContent = flavor.tags.find(tag => tag.toLowerCase().includes('thc')) || '10mg THC';
             
             return (
               <button
@@ -120,7 +120,7 @@ export function FlavorPickerTabs({ flavors, varieties = [], selectedTitle, onSel
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-1">{variety.title}</h3>
                 <p className="text-sm text-gray-600">Variety pack</p>
-                <p className="text-xs text-cannabis-600 mt-2">{variety.tags.find(tag => tag.includes('THC')) || '10mg THC'}</p>
+                <p className="text-xs text-cannabis-600 mt-2">{variety.tags.find(tag => tag.toLowerCase().includes('thc')) || '10mg THC'}</p>
               </button>
             ))
           ) : (
