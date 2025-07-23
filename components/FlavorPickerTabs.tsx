@@ -18,27 +18,8 @@ interface FlavorPickerTabsProps {
 export function FlavorPickerTabs({ flavors, varieties = [], selectedTitle, onSelect }: FlavorPickerTabsProps) {
   const [activeTab, setActiveTab] = useState<'flavors' | 'packs'>('flavors');
 
-  // Extended flavor list for display
-  const allFlavors = [
-    ...flavors,
-    { title: 'Cherry Cola', bgColor: 'bg-red-100', thc: '10mg' },
-    { title: 'Strawberry Vanilla', bgColor: 'bg-pink-100', thc: '5mg' },
-    { title: 'Cream Soda', bgColor: 'bg-blue-100', thc: '15mg' },
-    { title: 'Vintage Cola', bgColor: 'bg-purple-100', thc: '7.5mg' },
-    { title: 'Classic Root Beer', bgColor: 'bg-orange-200', thc: '10mg' },
-    { title: 'Crisp Apple', bgColor: 'bg-green-100', thc: '12.5mg' },
-    { title: 'Peaches & Cream', bgColor: 'bg-peach-100', thc: '5mg' },
-    { title: 'Birch Bark', bgColor: 'bg-green-200', thc: '7.5mg' },
-    { title: 'Orange Squeeze', bgColor: 'bg-orange-300', thc: '10mg' },
-    { title: 'Ginger Ale', bgColor: 'bg-yellow-100', thc: '5mg' },
-    { title: 'Lemon Lime', bgColor: 'bg-lime-100', thc: '7.5mg' },
-    { title: 'Doctor Goodwin', bgColor: 'bg-brown-100', thc: '10mg' },
-    { title: 'Ginger Lemon', bgColor: 'bg-yellow-200', thc: '5mg' },
-    { title: 'Tropical Punch', bgColor: 'bg-cyan-100', thc: '12.5mg' },
-    { title: 'Cherry Vanilla', bgColor: 'bg-pink-200', thc: '7.5mg' },
-    { title: 'Banana Cream', bgColor: 'bg-yellow-100', thc: '10mg' },
-    { title: 'Watermelon Lime', bgColor: 'bg-green-100', thc: '5mg' }
-  ];
+  // Use only real flavors from Shopify
+  const allFlavors = flavors;
 
   return (
     <div>
@@ -70,23 +51,18 @@ export function FlavorPickerTabs({ flavors, varieties = [], selectedTitle, onSel
       {activeTab === 'flavors' && (
         <div className="grid grid-cols-5 gap-2 max-h-[400px] overflow-y-auto pr-2">
           {allFlavors.map((flavor, index) => {
-            const flavorObj = flavors.find(f => f.title === flavor.title);
             const isSelected = flavor.title === selectedTitle;
+            const thcContent = flavor.tags.find(tag => tag.includes('THC')) || '10mg THC';
             
             return (
               <button
                 key={`${flavor.title}-${index}`}
-                onClick={() => {
-                  if (flavorObj) {
-                    onSelect(flavorObj);
-                  }
-                }}
-                disabled={!flavorObj}
+                onClick={() => onSelect(flavor)}
                 className={`
                   group relative rounded-lg transition-all duration-200 transform
                   ${isSelected 
                     ? 'ring-2 ring-offset-1 ring-gray-800 shadow-md scale-105' 
-                    : flavorObj ? 'hover:scale-105 cursor-pointer' : 'opacity-50 cursor-not-allowed'
+                    : 'hover:scale-105 cursor-pointer'
                   }
                 `}
               >
@@ -94,14 +70,22 @@ export function FlavorPickerTabs({ flavors, varieties = [], selectedTitle, onSel
                   p-3 rounded-lg h-full flex flex-col items-center justify-center aspect-[3/4] relative overflow-hidden
                   ${flavor.bgColor} ${isSelected ? '' : 'opacity-95 hover:opacity-100'}
                 `}>
-                  {/* Can Icon */}
+                  {/* Product Image or Fallback */}
                   <div className="mb-2 relative z-10">
-                    <div className="w-10 h-14 bg-white/40 backdrop-blur-sm rounded-md shadow-md flex items-center justify-center">
-                      <div className="text-gray-800 text-center">
-                        <div className="text-[7px] font-bold">LOONER</div>
-                        <div className="text-[5px] mt-0.5">{(flavor as any).thc || '10mg'}</div>
+                    {flavor.images && flavor.images[0] ? (
+                      <img 
+                        src={flavor.images[0]} 
+                        alt={flavor.title}
+                        className="w-10 h-14 object-contain rounded-md shadow-md"
+                      />
+                    ) : (
+                      <div className="w-10 h-14 bg-white/40 backdrop-blur-sm rounded-md shadow-md flex items-center justify-center">
+                        <div className="text-gray-800 text-center">
+                          <div className="text-[7px] font-bold">LOONER</div>
+                          <div className="text-[5px] mt-0.5">{thcContent.replace(' THC', '')}</div>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
 
                   {/* Flavor Name */}

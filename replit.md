@@ -125,12 +125,18 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added missing Tailwind color classes (lime, cyan, brown) for flavor backgrounds
 - **SHOPIFY INTEGRATION UPDATE** (July 23, 2025): Enhanced flavor page with real Shopify data
   - Integrated real Shopify product fetching via fetchProducts server action
-  - Added dynamic flavor transformation from Shopify products to component format
+  - Added dynamic flavor transformation from Shopify products to component format  
   - Implemented loading states and error handling for flavor data
   - Added URL parameter support for specific flavor selection
   - Enhanced SEO with dynamic meta tags for individual flavors
   - Added variety pack support with Shopify tag filtering
   - Automatic THC content extraction from product descriptions
+- **FLAVOR PICKER CLEANUP** (July 23, 2025): Removed fake flavors and added product images
+  - Removed all mock/fake flavors from flavor picker grid
+  - Now displays only real Shopify products in flavor selection
+  - Added product images to flavor picker cards when available
+  - Fallback to branded LOONER can design when no image exists
+  - Automatic THC content display from real product data
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
