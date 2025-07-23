@@ -13,7 +13,7 @@ import { fetchProducts } from '../../../lib/shopify/server-actions';
 function transformProductsToFlavors(products: any[]) {
   return products.map((product, index) => ({
     title: product.title,
-    tags: ['High Fiber', 'Non GMO', 'Less Sugar', extractThcContent(product)],
+    tags: ['Cannabis Infused', 'Made with Cane Sugar', 'Made in Minnesota', 'High Quality'],
     bgColor: getFlavorBgClass(product.title, index),
     images: [
       product.featuredImage?.url || '',
