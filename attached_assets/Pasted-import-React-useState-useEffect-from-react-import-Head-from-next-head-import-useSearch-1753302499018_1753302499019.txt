@@ -1,0 +1,124 @@
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
+import { useSearchParams } from 'next/navigation';
+import { getFlavorsFromShopify } from '@/lib/getFlavorsFromShopify';
+import { FlavorHero } from '@/components/FlavorHero';
+import { LifestyleImageGrid } from '@/components/LifestyleImageGrid';
+import { FlavorPickerTabs } from '@/components/FlavorPickerTabs';
+import { PurchaseOptions } from '@/components/PurchaseOptions';
+
+export async function getStaticProps() {
+  try {
+    const flavors = await getFlavorsFromShopify();
+    return {
+      props: { flavors },
+      revalidate: 60
+    };
+  } catch (error) {
+    console.error('Error loading flavors:', error);
+    return {
+      props: { flavors: [] },
+      revalidate: 60
+    };
+  }
+}
+
+export default function FlavorPage({ flavors }: { flavors: any[] }) {
+  const searchParams = useSearchParams();
+  const slug = searchParams.get('flavor');
+
+  const [selectedFlavor, setSelectedFlavor] = useState<any | null>(null);
+  const [selectedVariant, setSelectedVariant] = useState<any | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!flavors || flavors.length === 0) return;
+
+    const defaultFlavor = flavors.find(f =>
+      f.title.toLowerCase().replace(/\s+/g, '-') === slug
+    ) || flavors[0];
+
+    setSelectedFlavor(defaultFlavor);
+    setSelectedVariant(defaultFlavor.variants[0]);
+    setLoading(false);
+  }, [slug, flavors]);
+
+  const varietyPacks = flavors.filter(f => f.tags.includes('Variety'));
+  const regularFlavors = flavors.filter(f => !f.tags.includes('Variety'));
+
+  if (!flavors || flavors.length === 0) {
+    return (
+      <main className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="text-center">
+          <h1 className="text-2xl font-semibold text-gray-800">Flavors unavailable</h1>
+          <p className="text-gray-500">Please try again later.</p>
+        </div>
+      </main>
+    );
+  }
+
+  return (
+    <main className={`min-h-screen ${selectedFlavor?.bgColor || 'bg-white'} transition-all duration-500`}>
+      <Head>
+        <title>{selectedFlavor?.title || 'Loading...'} | Try Our Flavors</title>
+        <meta name="description" content={`Enjoy the refreshing taste of ${selectedFlavor?.title || 'our signature flavors'}, a better-for-you beverage.`} />
+        {selectedFlavor && (
+          <>
+            <meta property="og:title" content={`${selectedFlavor.title} | Try Our Flavors`} />
+            <meta property="og:description" content={`Enjoy the refreshing taste of ${selectedFlavor.title}, a better-for-you beverage.`} />
+            <meta property="og:image" content={selectedFlavor.images[0]} />
+            <meta property="og:type" content="website" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={`${selectedFlavor.title} | Try Our Flavors`} />
+            <meta name="twitter:description" content={`Enjoy the refreshing taste of ${selectedFlavor.title}, a better-for-you beverage.`} />
+            <meta name="twitter:image" content={selectedFlavor.images[0]} />
+          </>
+        )}
+      </Head>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 max-w-7xl mx-auto">
+        <div className="space-y-6">
+          {loading || !selectedFlavor ? (
+            <div className="h-64 bg-gray-200 rounded-xl animate-pulse" />
+          ) : (
+            <>
+              <FlavorHero flavor={selectedFlavor} />
+              <LifestyleImageGrid images={selectedFlavor.images.slice(1)} />
+            </>
+          )}
+        </div>
+
+        <div className="space-y-8">
+          {loading || !selectedFlavor ? (
+            <>
+              <div className="h-6 w-1/2 bg-gray-200 rounded animate-pulse" />
+              <div className="h-4 w-1/3 bg-gray-100 rounded animate-pulse" />
+              <div className="h-24 bg-gray-100 rounded-xl animate-pulse" />
+            </>
+          ) : (
+            <>
+              <h1 className="text-4xl font-serif text-gray-900">{selectedFlavor.title}</h1>
+              <p className="text-gray-600">The perfect blend of sweet & tart.</p>
+
+              <FlavorPickerTabs
+                flavors={regularFlavors}
+                varieties={varietyPacks}
+                selectedTitle={selectedFlavor.title}
+                onSelect={(flavor) => {
+                  setSelectedFlavor(flavor);
+                  setSelectedVariant(flavor.variants[0]);
+                }}
+              />
+
+              <PurchaseOptions
+                flavor={selectedFlavor}
+                variant={selectedVariant}
+                onVariantChange={setSelectedVariant}
+              />
+            </>
+          )}
+        </div>
+      </div>
+    </main>
+  );
+}

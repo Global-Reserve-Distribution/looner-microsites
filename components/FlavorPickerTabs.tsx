@@ -10,11 +10,12 @@ interface Flavor {
 
 interface FlavorPickerTabsProps {
   flavors: Flavor[];
+  varieties?: Flavor[];
   selectedTitle: string;
   onSelect: (flavor: Flavor) => void;
 }
 
-export function FlavorPickerTabs({ flavors, selectedTitle, onSelect }: FlavorPickerTabsProps) {
+export function FlavorPickerTabs({ flavors, varieties = [], selectedTitle, onSelect }: FlavorPickerTabsProps) {
   const [activeTab, setActiveTab] = useState<'flavors' | 'packs'>('flavors');
 
   // Extended flavor list for display
@@ -123,32 +124,51 @@ export function FlavorPickerTabs({ flavors, selectedTitle, onSelect }: FlavorPic
       {/* Variety Packs */}
       {activeTab === 'packs' && (
         <div className="grid grid-cols-3 gap-4">
-          <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-6 text-center">
-            <div className="w-20 h-20 mx-auto mb-4 bg-white/50 rounded-xl flex items-center justify-center">
-              <span className="text-3xl">🎉</span>
-            </div>
-            <h3 className="font-semibold text-gray-900 mb-1">Variety Pack</h3>
-            <p className="text-sm text-gray-600">Mix of 6 flavors</p>
-            <p className="text-xs text-cannabis-600 mt-2">5-10mg THC</p>
-          </div>
-          
-          <div className="bg-gradient-to-br from-blue-100 to-green-100 rounded-xl p-6 text-center">
-            <div className="w-20 h-20 mx-auto mb-4 bg-white/50 rounded-xl flex items-center justify-center">
-              <span className="text-3xl">🌈</span>
-            </div>
-            <h3 className="font-semibold text-gray-900 mb-1">Fruit Pack</h3>
-            <p className="text-sm text-gray-600">All fruit flavors</p>
-            <p className="text-xs text-cannabis-600 mt-2">5mg THC</p>
-          </div>
-          
-          <div className="bg-gradient-to-br from-orange-100 to-yellow-100 rounded-xl p-6 text-center">
-            <div className="w-20 h-20 mx-auto mb-4 bg-white/50 rounded-xl flex items-center justify-center">
-              <span className="text-3xl">🔥</span>
-            </div>
-            <h3 className="font-semibold text-gray-900 mb-1">Strong Pack</h3>
-            <p className="text-sm text-gray-600">High potency mix</p>
-            <p className="text-xs text-cannabis-600 mt-2">10-15mg THC</p>
-          </div>
+          {varieties.length > 0 ? (
+            varieties.map((variety) => (
+              <button
+                key={variety.title}
+                onClick={() => onSelect(variety)}
+                className={`${variety.bgColor} rounded-xl p-6 text-center transition-all hover:scale-105`}
+              >
+                <div className="w-20 h-20 mx-auto mb-4 bg-white/50 rounded-xl flex items-center justify-center">
+                  <span className="text-3xl">🎉</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-1">{variety.title}</h3>
+                <p className="text-sm text-gray-600">Variety pack</p>
+                <p className="text-xs text-cannabis-600 mt-2">{variety.tags.find(tag => tag.includes('THC')) || '10mg THC'}</p>
+              </button>
+            ))
+          ) : (
+            <>
+              <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-6 text-center">
+                <div className="w-20 h-20 mx-auto mb-4 bg-white/50 rounded-xl flex items-center justify-center">
+                  <span className="text-3xl">🎉</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-1">Variety Pack</h3>
+                <p className="text-sm text-gray-600">Mix of 6 flavors</p>
+                <p className="text-xs text-cannabis-600 mt-2">5-10mg THC</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-blue-100 to-green-100 rounded-xl p-6 text-center">
+                <div className="w-20 h-20 mx-auto mb-4 bg-white/50 rounded-xl flex items-center justify-center">
+                  <span className="text-3xl">🌈</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-1">Fruit Pack</h3>
+                <p className="text-sm text-gray-600">All fruit flavors</p>
+                <p className="text-xs text-cannabis-600 mt-2">5mg THC</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-orange-100 to-yellow-100 rounded-xl p-6 text-center">
+                <div className="w-20 h-20 mx-auto mb-4 bg-white/50 rounded-xl flex items-center justify-center">
+                  <span className="text-3xl">🔥</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-1">Strong Pack</h3>
+                <p className="text-sm text-gray-600">High potency mix</p>
+                <p className="text-xs text-cannabis-600 mt-2">10-15mg THC</p>
+              </div>
+            </>
+          )}
         </div>
       )}
     </div>
