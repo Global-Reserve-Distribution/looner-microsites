@@ -5,10 +5,15 @@ import type { Product } from '../../lib/shopify/types';
 
 interface InteractiveFlavorSelectorProps {
   products: Product[];
+  selectedProductTitle?: string;
 }
 
-export function InteractiveFlavorSelector({ products }: InteractiveFlavorSelectorProps) {
-  const [selectedFlavor, setSelectedFlavor] = useState<string | null>(null);
+export function InteractiveFlavorSelector({ products, selectedProductTitle }: InteractiveFlavorSelectorProps) {
+  const [activeTab, setActiveTab] = useState<'flavors' | 'packs'>('flavors');
+  
+  // Set initial selected flavor based on the current product
+  const defaultFlavor = selectedProductTitle?.toLowerCase().includes('cherry') ? 'cherry-cola' : 'orange-cream';
+  const [selectedFlavor, setSelectedFlavor] = useState<string>(defaultFlavor);
   const [hoveredFlavor, setHoveredFlavor] = useState<string | null>(null);
 
   // Create flavor data from products or use defaults
@@ -62,6 +67,35 @@ export function InteractiveFlavorSelector({ products }: InteractiveFlavorSelecto
     return colors[index % colors.length];
   }
 
+  function getFlavorBgColor(title: string): string {
+    const titleLower = title.toLowerCase();
+    if (titleLower.includes('orange cream')) return '#FFB366';
+    if (titleLower.includes('orange')) return '#FFA500';
+    if (titleLower.includes('cherry cola')) return '#EE6A6A';
+    if (titleLower.includes('cherry')) return '#DC143C';
+    if (titleLower.includes('strawberry vanilla')) return '#FFB5C5';
+    if (titleLower.includes('strawberry')) return '#FFB5C5';
+    if (titleLower.includes('cream soda')) return '#87CEEB';
+    if (titleLower.includes('vanilla')) return '#E6E6FA';
+    if (titleLower.includes('vintage cola') || titleLower.includes('classic cola')) return '#DDA0DD';
+    if (titleLower.includes('cola')) return '#8B4513';
+    if (titleLower.includes('root beer')) return '#D2691E';
+    if (titleLower.includes('grape')) return '#9370DB';
+    if (titleLower.includes('apple')) return '#FFB6C1';
+    if (titleLower.includes('peaches')) return '#FFDAB9';
+    if (titleLower.includes('ridge rush') || titleLower.includes('birch')) return '#90EE90';
+    if (titleLower.includes('lemon lime')) return '#F0E68C';
+    if (titleLower.includes('lemon')) return '#FFFF99';
+    if (titleLower.includes('lime')) return '#32CD32';
+    if (titleLower.includes('ginger ale')) return '#98FB98';
+    if (titleLower.includes('ginger')) return '#FFD700';
+    if (titleLower.includes('doctor')) return '#D2B48C';
+    if (titleLower.includes('tropical punch')) return '#87CEFA';
+    if (titleLower.includes('banana')) return '#FFFFE0';
+    if (titleLower.includes('watermelon')) return '#FFB6C1';
+    return '#E0E0E0';
+  }
+
   function getGradientColors(title: string, index: number): { from: string; to: string } {
     const titleLower = title.toLowerCase();
     if (titleLower.includes('orange')) return { from: 'from-orange-300', to: 'to-orange-500' };
@@ -113,130 +147,115 @@ export function InteractiveFlavorSelector({ products }: InteractiveFlavorSelecto
   }
 
   return (
-    <div className="relative -mx-6 px-6 py-12 bg-gradient-to-br from-cream-100 via-cream-50 to-white rounded-3xl">
-      {/* Section Header */}
-      <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Choose Your Flavor Experience</h2>
-        <p className="text-lg text-gray-600">Select from our premium THC-infused beverages</p>
+    <div>
+      {/* Tabs */}
+      <div className="flex gap-8 mb-8">
+        <button 
+          onClick={() => setActiveTab('flavors')}
+          className={`pb-3 text-lg font-semibold transition-all ${
+            activeTab === 'flavors' 
+              ? 'text-gray-900 border-b-2 border-gray-900' 
+              : 'text-gray-400 hover:text-gray-600'
+          }`}
+        >
+          Our Flavors
+        </button>
+        <button 
+          onClick={() => setActiveTab('packs')}
+          className={`pb-3 text-lg font-semibold transition-all ${
+            activeTab === 'packs' 
+              ? 'text-gray-900 border-b-2 border-gray-900' 
+              : 'text-gray-400 hover:text-gray-600'
+          }`}
+        >
+          Variety Packs
+        </button>
       </div>
 
-      {/* Main Flavor Grid */}
-      <div className="grid grid-cols-4 gap-4 mb-8 max-w-6xl mx-auto">
-        {flavors.map((flavor) => (
-          <button
-            key={flavor.id}
-            onClick={() => setSelectedFlavor(flavor.id)}
-            onMouseEnter={() => setHoveredFlavor(flavor.id)}
-            onMouseLeave={() => setHoveredFlavor(null)}
-            className={`
-              group relative overflow-hidden rounded-2xl transition-all duration-300 transform
-              ${selectedFlavor === flavor.id 
-                ? 'scale-105 shadow-2xl ring-4 ring-cannabis-500 ring-offset-2' 
-                : 'hover:scale-105 hover:shadow-xl'
-              }
-            `}
-          >
-            {/* Gradient Background */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${flavor.gradientFrom} ${flavor.gradientTo} opacity-90`}></div>
-            
-            {/* Content Container */}
-            <div className="relative z-10 p-6 h-full flex flex-col">
-              {/* Can Visualization */}
-              <div className="mb-4 relative">
-                <div className="w-24 h-32 mx-auto">
+      {/* Flavor Grid */}
+      {activeTab === 'flavors' && (
+        <div className="grid grid-cols-5 gap-2">
+          {flavors.map((flavor) => (
+            <button
+              key={flavor.id}
+              onClick={() => setSelectedFlavor(flavor.id)}
+              onMouseEnter={() => setHoveredFlavor(flavor.id)}
+              onMouseLeave={() => setHoveredFlavor(null)}
+              className={`
+                group relative rounded-lg transition-all duration-200 transform
+                ${selectedFlavor === flavor.id 
+                  ? 'ring-2 ring-offset-1 ring-gray-800 shadow-md scale-105' 
+                  : 'hover:scale-105'
+                }
+              `}
+            >
+              {/* Flavor Card */}
+              <div className={`
+                p-3 rounded-lg h-full flex flex-col items-center justify-center aspect-[3/4] relative overflow-hidden
+                ${selectedFlavor === flavor.id ? '' : 'opacity-95 hover:opacity-100'}
+              `} style={{backgroundColor: getFlavorBgColor(flavor.name)}}>
+                {/* Can Icon */}
+                <div className="mb-2 relative z-10">
                   {flavor.image ? (
                     <img 
                       src={flavor.image} 
                       alt={flavor.name}
-                      className="w-full h-full object-contain filter drop-shadow-lg"
+                      className="w-10 h-14 object-contain drop-shadow-md"
                     />
                   ) : (
-                    <div className="w-full h-full bg-white/20 backdrop-blur-sm rounded-2xl shadow-xl flex flex-col items-center justify-center border-2 border-white/30">
-                      <div className="text-white text-center">
-                        <div className="text-lg font-bold mb-2">LOONER</div>
-                        <div className="bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-bold">
-                          {flavor.thc}
-                        </div>
-                        <div className="text-xs mt-2 px-2">THC</div>
+                    <div className="w-10 h-14 bg-white/40 backdrop-blur-sm rounded-md shadow-md flex items-center justify-center">
+                      <div className="text-white/90 text-center">
+                        <div className="text-[7px] font-bold">LOONER</div>
+                        <div className="text-[5px] mt-0.5">{flavor.thc}</div>
                       </div>
                     </div>
                   )}
                 </div>
 
-                {/* Selection Checkmark */}
-                {selectedFlavor === flavor.id && (
-                  <div className="absolute -top-2 -right-2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg">
-                    <svg className="w-6 h-6 text-cannabis-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                )}
-              </div>
-
-              {/* Flavor Info */}
-              <div className="text-white text-center flex-grow flex flex-col justify-end">
-                <h3 className="text-lg font-bold mb-1">
+                {/* Flavor Name */}
+                <h3 className="text-[10px] font-semibold text-gray-900 text-center leading-tight z-10 px-1">
                   {flavor.name}
                 </h3>
-                <p className="text-sm opacity-90 mb-2">
-                  {flavor.thc} THC
-                </p>
-                {(hoveredFlavor === flavor.id || selectedFlavor === flavor.id) && (
-                  <p className="text-xs opacity-80 mt-1">
-                    {flavor.description}
-                  </p>
-                )}
-              </div>
-            </div>
 
-            {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </button>
-        ))}
-      </div>
-
-      {/* Selected Flavor Detail */}
-      {selectedFlavor && (
-        <div className="mt-8 p-8 bg-white rounded-2xl shadow-xl border border-gray-100 max-w-2xl mx-auto">
-          <div className="flex items-center gap-6">
-            {/* Large Can Preview */}
-            <div className={`w-32 h-40 rounded-xl bg-gradient-to-br ${flavors.find(f => f.id === selectedFlavor)?.gradientFrom} ${flavors.find(f => f.id === selectedFlavor)?.gradientTo} p-4 flex items-center justify-center`}>
-              <div className="bg-white/20 backdrop-blur-sm rounded-lg w-full h-full flex flex-col items-center justify-center text-white">
-                <div className="font-bold text-lg">LOONER</div>
-                <div className="text-sm">{flavors.find(f => f.id === selectedFlavor)?.thc}</div>
-              </div>
-            </div>
-            
-            {/* Selection Details */}
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-12 h-12 bg-cannabis-100 rounded-xl flex items-center justify-center">
-                  <svg className="w-7 h-7 text-cannabis-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    {flavors.find(f => f.id === selectedFlavor)?.name}
-                  </h3>
-                  <p className="text-gray-600">
-                    {flavors.find(f => f.id === selectedFlavor)?.description}
-                  </p>
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-20">
+                  <div className="absolute top-1 right-1 w-4 h-4 bg-white rounded-full"></div>
+                  <div className="absolute bottom-1 left-1 w-3 h-3 bg-white rounded-full"></div>
                 </div>
               </div>
-              
-              <div className="flex gap-3 mt-4">
-                <span className="bg-cannabis-100 text-cannabis-800 px-4 py-2 rounded-full text-sm font-semibold">
-                  {flavors.find(f => f.id === selectedFlavor)?.thc} THC
-                </span>
-                <span className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold">
-                  Lab Tested
-                </span>
-                <span className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold">
-                  Fast Acting
-                </span>
-              </div>
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Variety Packs */}
+      {activeTab === 'packs' && (
+        <div className="grid grid-cols-3 gap-4">
+          <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-6 text-center">
+            <div className="w-20 h-20 mx-auto mb-4 bg-white/50 rounded-xl flex items-center justify-center">
+              <span className="text-3xl">🎉</span>
             </div>
+            <h3 className="font-semibold text-gray-900 mb-1">Variety Pack</h3>
+            <p className="text-sm text-gray-600">Mix of 6 flavors</p>
+            <p className="text-xs text-cannabis-600 mt-2">5-10mg THC</p>
+          </div>
+          
+          <div className="bg-gradient-to-br from-blue-100 to-green-100 rounded-xl p-6 text-center">
+            <div className="w-20 h-20 mx-auto mb-4 bg-white/50 rounded-xl flex items-center justify-center">
+              <span className="text-3xl">🌈</span>
+            </div>
+            <h3 className="font-semibold text-gray-900 mb-1">Fruit Pack</h3>
+            <p className="text-sm text-gray-600">All fruit flavors</p>
+            <p className="text-xs text-cannabis-600 mt-2">5mg THC</p>
+          </div>
+          
+          <div className="bg-gradient-to-br from-orange-100 to-yellow-100 rounded-xl p-6 text-center">
+            <div className="w-20 h-20 mx-auto mb-4 bg-white/50 rounded-xl flex items-center justify-center">
+              <span className="text-3xl">🔥</span>
+            </div>
+            <h3 className="font-semibold text-gray-900 mb-1">Strong Pack</h3>
+            <p className="text-sm text-gray-600">High potency mix</p>
+            <p className="text-xs text-cannabis-600 mt-2">10-15mg THC</p>
           </div>
         </div>
       )}

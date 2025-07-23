@@ -11,8 +11,9 @@ export function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
   const [purchaseOption, setPurchaseOption] = useState<'one-time' | 'subscription'>('one-time');
   const [quantity, setQuantity] = useState(1);
 
-  const basePrice = parseFloat(product.priceRange.minVariantPrice.amount);
+  const basePrice = parseFloat(product.priceRange.minVariantPrice.amount) || 35.99;
   const subscriptionPrice = basePrice * 0.85; // 15% discount for subscription
+  const packSize = '12 cans';
 
   return (
     <div className="space-y-6">
@@ -46,7 +47,7 @@ export function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
               </div>
               <div>
                 <div className="font-semibold text-gray-800">One-Time Purchase</div>
-                <div className="text-sm text-gray-600">12 Cans</div>
+                <div className="text-sm text-gray-500">{packSize}</div>
               </div>
             </div>
             <div className="text-right">
@@ -90,7 +91,7 @@ export function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
                     Save 15%
                   </span>
                 </div>
-                <div className="text-sm text-gray-600">12 Cans</div>
+                <div className="text-sm text-gray-500">{packSize}</div>
               </div>
             </div>
             <div className="text-right">
@@ -128,44 +129,15 @@ export function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
         </label>
       </div>
 
-      {/* Quantity Selector and Add to Cart */}
-      <div className="flex items-center gap-4">
-        <div className="flex items-center border border-gray-300 rounded-full">
-          <button 
-            onClick={() => setQuantity(Math.max(1, quantity - 1))}
-            className="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-cannabis-600 transition-colors"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clipRule="evenodd" />
-            </svg>
-          </button>
-          
-          <div className="w-12 text-center font-semibold">
-            {quantity}
-          </div>
-          
-          <button 
-            onClick={() => setQuantity(quantity + 1)}
-            className="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-cannabis-600 transition-colors"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
-            </svg>
-          </button>
-        </div>
-
-        <button className="flex-1 bg-cannabis-600 text-white py-4 px-6 rounded-full font-semibold text-lg hover:bg-cannabis-700 transition-colors">
-          Add to Cart
-        </button>
-      </div>
-
-      {/* Find in Store */}
-      <button className="w-full text-cannabis-600 py-3 px-6 rounded-full border border-cannabis-300 font-semibold hover:bg-cannabis-50 transition-colors flex items-center justify-center gap-2">
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-        </svg>
-        Find Me In Store
+      {/* Add to Cart Button */}
+      <button className="w-full bg-green-700 text-white py-4 px-6 rounded-full font-semibold text-lg hover:bg-green-800 transition-colors shadow-lg">
+        Add to Cart
       </button>
+
+      {/* Delivery Info */}
+      <div className="text-center text-sm text-gray-600">
+        {packSize} delivered one time
+      </div>
     </div>
   );
 }
