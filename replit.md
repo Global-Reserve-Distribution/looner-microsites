@@ -198,6 +198,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Page starts immediately with animated background and product content
   - Implemented conditional navigation system that hides header specifically on flavor page
   - Created ConditionalNavigation component to manage navigation visibility by route
+- **METAFIELDS DEBUGGING** (July 23, 2025): Enhanced color metafields fetching for Professor Pepper flavor
+  - Updated GraphQL fragment to fetch both underscore and space-separated metafield key formats
+  - Enhanced extractColorMetafields function to handle "Primary Color" vs "primary_color" naming
+  - Added debug logging to troubleshoot metafields not appearing for Professor Pepper flavor
+  - Shopify metafields show #7D3F49 (primary) and #CB6777 (secondary) but not displaying on site
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
