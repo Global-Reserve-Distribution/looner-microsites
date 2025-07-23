@@ -191,6 +191,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Applied blur effects (60px) and opacity (15%) for subtle, organic background appearance
   - 0.6s ease-in-out transitions with AnimatePresence for seamless flavor switching
   - Fixed JSX structure errors and proper z-index layering for content above background
+- **STANDALONE LANDING PAGE** (July 23, 2025): Removed navigation to create microsite landing page
+  - Created custom layout for /product/flavor route without navigation header
+  - Flavor page now functions as standalone microsite landing page
+  - Removed header navigation and top padding to maximize content space
+  - Page starts immediately with animated background and product content
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
