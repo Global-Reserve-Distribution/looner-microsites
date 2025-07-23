@@ -136,13 +136,22 @@ export default function FlavorPage() {
     async function loadFlavors() {
       try {
         const products = await fetchProducts({ sortKey: "BEST_SELLING" });
+        console.log("All products fetched:", products.length);
+        console.log("Product titles:", products.map(p => p.title));
+        
         const allTransformedFlavors = transformProductsToFlavors(products);
+        console.log("All transformed flavors:", allTransformedFlavors.length);
+        console.log("All flavor titles:", allTransformedFlavors.map(f => f.title));
+        console.log("All flavor tags:", allTransformedFlavors.map(f => f.tags));
         
         // Filter to show only soda category items
         const sodaFlavors = allTransformedFlavors.filter(flavor => 
           flavor.tags.some((tag: string) => tag.toLowerCase().includes('soda')) ||
           flavor.title.toLowerCase().includes('soda')
         );
+        
+        console.log("Soda flavors found:", sodaFlavors.length);
+        console.log("Soda flavor titles:", sodaFlavors.map(f => f.title));
         
         setFlavors(sodaFlavors);
 
