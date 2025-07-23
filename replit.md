@@ -198,13 +198,6 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Page starts immediately with animated background and product content
   - Implemented conditional navigation system that hides header specifically on flavor page
   - Created ConditionalNavigation component to manage navigation visibility by route
-- **FRONTEND COLOR GENERATION** (July 23, 2025): Added intelligent color determination system
-  - Created generateColorsFromProduct function with flavor-based color palettes
-  - 20+ predefined color combinations for citrus, berry, tropical, mint, and classic flavors
-  - Keyword detection system (lemon, strawberry, mint, etc.) for automatic color matching
-  - Cannabis-themed colors for THC/hemp related products
-  - Fallback color rotation system using 6 default palettes with index-based selection
-  - Enhanced extractColorMetafields to use generated colors when Shopify metafields unavailable
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

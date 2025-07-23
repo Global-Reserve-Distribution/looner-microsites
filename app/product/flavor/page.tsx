@@ -24,99 +24,22 @@ function getTagEmoji(tag: string): string {
   return '✨';
 }
 
-// Generate colors based on product name/title
-function generateColorsFromProduct(productTitle: string, index: number): { primary: string; secondary: string } {
-  const title = productTitle.toLowerCase();
-  
-  // Color palettes for different flavor profiles
-  const flavorColors: Record<string, { primary: string; secondary: string }> = {
-    // Citrus flavors
-    lemon: { primary: '#FEF08A', secondary: '#FEF3C7' },
-    lime: { primary: '#BEF264', secondary: '#D9F99D' },
-    orange: { primary: '#FED7AA', secondary: '#FEDD7E' },
-    grapefruit: { primary: '#FCA5A5', secondary: '#FECACA' },
-    
-    // Berry flavors
-    strawberry: { primary: '#F9A8D4', secondary: '#FBB6CE' },
-    cherry: { primary: '#F87171', secondary: '#FCA5A5' },
-    grape: { primary: '#C084FC', secondary: '#DDD6FE' },
-    blueberry: { primary: '#93C5FD', secondary: '#BFDBFE' },
-    raspberry: { primary: '#EC4899', secondary: '#F9A8D4' },
-    
-    // Tropical flavors
-    mango: { primary: '#FBBF24', secondary: '#FCD34D' },
-    pineapple: { primary: '#FACC15', secondary: '#FDE047' },
-    coconut: { primary: '#F3F4F6', secondary: '#F9FAFB' },
-    passion: { primary: '#F59E0B', secondary: '#FBBF24' },
-    
-    // Mint and herbs
-    mint: { primary: '#6EE7B7', secondary: '#A7F3D0' },
-    basil: { primary: '#84CC16', secondary: '#A3E635' },
-    
-    // Classic soda flavors
-    cola: { primary: '#92400E', secondary: '#B45309' },
-    root: { primary: '#78350F', secondary: '#92400E' },
-    vanilla: { primary: '#FEF7CD', secondary: '#FFFBEB' },
-    
-    // Cannabis themed
-    cannabis: { primary: '#16A34A', secondary: '#22C55E' },
-    hemp: { primary: '#15803D', secondary: '#16A34A' },
-  };
-  
-  // Default fallback colors
-  const defaultColors: { primary: string; secondary: string }[] = [
-    { primary: '#10B981', secondary: '#6EE7B7' }, // Emerald
-    { primary: '#3B82F6', secondary: '#93C5FD' }, // Blue
-    { primary: '#8B5CF6', secondary: '#C4B5FD' }, // Violet
-    { primary: '#EF4444', secondary: '#FCA5A5' }, // Red
-    { primary: '#F59E0B', secondary: '#FCD34D' }, // Amber
-    { primary: '#06B6D4', secondary: '#67E8F9' }, // Cyan
-  ];
-  
-  // Check for specific flavor keywords
-  for (const [flavor, colors] of Object.entries(flavorColors)) {
-    if (title.includes(flavor)) {
-      return colors;
-    }
-  }
-  
-  // Cannabis-specific terms
-  if (title.includes('thc') || title.includes('cannabis') || title.includes('hemp')) {
-    return { primary: '#16A34A', secondary: '#22C55E' };
-  }
-  
-  // Use default palette with index rotation
-  const colorIndex = Math.abs(index) % defaultColors.length;
-  return defaultColors[colorIndex] || defaultColors[0];
-}
-
-// Extract color metafields from Shopify product or generate them
-function extractColorMetafields(product: any, index: number) {
+// Extract color metafields from Shopify product
+function extractColorMetafields(product: any) {
   const metafields = product.metafields || [];
   const primaryColorField = metafields.find((field: any) => field && field.key === 'primary_color');
   const secondaryColorField = metafields.find((field: any) => field && field.key === 'secondary_color');
   
-  // If we have metafield colors, use them
-  if (primaryColorField?.value && secondaryColorField?.value) {
-    return {
-      primaryColor: primaryColorField.value,
-      secondaryColor: secondaryColorField.value
-    };
-  }
-  
-  // Otherwise generate colors based on product characteristics  
-  const generatedColors = generateColorsFromProduct(product.title, index);
-  
   return {
-    primaryColor: primaryColorField?.value || generatedColors.primary,
-    secondaryColor: secondaryColorField?.value || generatedColors.secondary
+    primaryColor: primaryColorField?.value || null,
+    secondaryColor: secondaryColorField?.value || null
   };
 }
 
 // Transform Shopify products to flavor format
 function transformProductsToFlavors(products: any[]) {
   return products.map((product, index) => {
-    const { primaryColor, secondaryColor } = extractColorMetafields(product, index);
+    const { primaryColor, secondaryColor } = extractColorMetafields(product);
     
     return {
       title: product.title,
