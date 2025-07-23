@@ -25,8 +25,9 @@ function getTagEmoji(tag: string): string {
 
 // Extract color metafields from Shopify product
 function extractColorMetafields(product: any) {
-  const primaryColorField = product.metafields?.find((field: any) => field.key === 'primary_color');
-  const secondaryColorField = product.metafields?.find((field: any) => field.key === 'secondary_color');
+  const metafields = product.metafields || [];
+  const primaryColorField = metafields.find((field: any) => field && field.key === 'primary_color');
+  const secondaryColorField = metafields.find((field: any) => field && field.key === 'secondary_color');
   
   return {
     primaryColor: primaryColorField?.value || null,
