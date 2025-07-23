@@ -42,6 +42,7 @@ function transformProductsToFlavors(products: any[]) {
     
     return {
       title: product.title,
+      description: product.description || '',
       tags: product.tags || ['Cannabis Infused', 'Made with Cane Sugar', 'Made in Minnesota', 'High Quality'],
       bgColor: primaryColor ? `bg-[${primaryColor}]` : getFlavorBgClass(product.title, index),
       primaryColor: primaryColor,
@@ -264,42 +265,40 @@ export default function FlavorPage() {
             {/* Product Description */}
             <div className="lg:col-span-1">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">{selectedFlavor?.title}</h2>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Experience the perfect balance of refreshing taste and premium cannabis infusion. 
-                Each can is carefully crafted with natural cane sugar and features our signature 
-                blend that delivers consistent effects every time.
-              </p>
               <p className="text-gray-700 leading-relaxed">
-                Made with the finest ingredients in Minnesota, our beverages offer a clean, 
-                smooth experience that's perfect for any occasion. Whether you're relaxing 
-                at home or socializing with friends, LOONER delivers quality you can trust.
+                {selectedFlavor?.description || 'Experience the perfect balance of refreshing taste and premium cannabis infusion. Each can is carefully crafted with natural cane sugar and features our signature blend that delivers consistent effects every time.'}
               </p>
             </div>
 
             {/* Nutrition Facts */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-gray-900 mb-4 text-center border-b-2 border-gray-900 pb-2">
+              <div 
+                className="rounded-lg p-6 shadow-sm text-white"
+                style={{
+                  backgroundColor: selectedFlavor?.primaryColor || '#4B5563'
+                }}
+              >
+                <h3 className="text-lg font-bold text-white mb-4 text-center border-b-2 border-white pb-2">
                   Nutrition Facts
                 </h3>
                 <div className="space-y-2 text-sm">
-                  <div className="flex justify-between border-b border-gray-200 pb-1">
+                  <div className="flex justify-between border-b border-white/30 pb-1">
                     <span>Serving Size</span>
                     <span className="font-medium">1 can (12 fl oz)</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-200 pb-1">
+                  <div className="flex justify-between border-b border-white/30 pb-1">
                     <span>Calories</span>
                     <span className="font-medium">45</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-200 pb-1">
+                  <div className="flex justify-between border-b border-white/30 pb-1">
                     <span>Total Sugars</span>
                     <span className="font-medium">8g</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-200 pb-1">
+                  <div className="flex justify-between border-b border-white/30 pb-1">
                     <span>Sodium</span>
                     <span className="font-medium">15mg</span>
                   </div>
-                  <div className="flex justify-between border-b-2 border-gray-900 pb-2 pt-2">
+                  <div className="flex justify-between border-b-2 border-white pb-2 pt-2">
                     <span className="font-bold">THC Content</span>
                     <span className="font-bold">10mg</span>
                   </div>

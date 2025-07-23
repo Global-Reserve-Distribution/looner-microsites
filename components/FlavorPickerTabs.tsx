@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 interface Flavor {
   title: string;
+  description?: string;
   tags: string[];
   bgColor: string;
   primaryColor?: string;

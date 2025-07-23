@@ -179,6 +179,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Secondary color used for teal information section and wavy borders for consistent theming
   - Fallback colors maintained when metafields are not present
   - Fixed null metafields error with proper defensive programming and null checking
+- **COLOR SCHEME AND CONTENT UPDATE** (July 23, 2025): Refined color usage and added real product descriptions
+  - Updated nutrition facts section to use primary color background with white text
+  - Main information section continues to use secondary color for wavy borders and background
+  - Product description now uses real Shopify product description instead of placeholder text
+  - Enhanced visual contrast with white text on primary color backgrounds
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
