@@ -136,13 +136,20 @@ export default function FlavorPage() {
     async function loadFlavors() {
       try {
         const products = await fetchProducts({ sortKey: "BEST_SELLING" });
-        const transformedFlavors = transformProductsToFlavors(products);
-        setFlavors(transformedFlavors);
+        const allTransformedFlavors = transformProductsToFlavors(products);
+        
+        // Filter to show only soda category items
+        const sodaFlavors = allTransformedFlavors.filter(flavor => 
+          flavor.tags.some((tag: string) => tag.toLowerCase().includes('soda')) ||
+          flavor.title.toLowerCase().includes('soda')
+        );
+        
+        setFlavors(sodaFlavors);
 
         const defaultFlavor =
-          transformedFlavors.find(
+          sodaFlavors.find(
             (f) => f.title.toLowerCase().replace(/\s+/g, "-") === slug,
-          ) || transformedFlavors[0];
+          ) || sodaFlavors[0];
 
         setSelectedFlavor(defaultFlavor);
         setSelectedVariant(defaultFlavor?.variants[0]);
@@ -156,8 +163,8 @@ export default function FlavorPage() {
     loadFlavors();
   }, [slug]);
 
-  const varietyPacks = flavors.filter((f) => f.tags.includes("Variety"));
-  const regularFlavors = flavors.filter((f) => !f.tags.includes("Variety"));
+  const varietyPacks = flavors.filter((f) => f.tags.some((tag: string) => tag.toLowerCase().includes("variety")));
+  const regularFlavors = flavors.filter((f) => !f.tags.some((tag: string) => tag.toLowerCase().includes("variety")));
 
   if (loading) {
     return (
