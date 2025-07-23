@@ -4,6 +4,8 @@ interface Flavor {
   title: string;
   tags: string[];
   bgColor: string;
+  primaryColor?: string;
+  secondaryColor?: string;
   images: string[];
   variants: Array<{ id: string; title: string; price: number }>;
 }
@@ -66,10 +68,15 @@ export function FlavorPickerTabs({ flavors, varieties = [], selectedTitle, onSel
                   }
                 `}
               >
-                <div className={`
-                  p-3 rounded-lg h-full flex flex-col items-center justify-center aspect-[3/4] relative overflow-hidden
-                  ${flavor.bgColor} ${isSelected ? '' : 'opacity-95 hover:opacity-100'}
-                `}>
+                <div 
+                  className={`
+                    p-3 rounded-lg h-full flex flex-col items-center justify-center aspect-[3/4] relative overflow-hidden
+                    ${isSelected ? '' : 'opacity-95 hover:opacity-100'}
+                  `}
+                  style={{
+                    backgroundColor: flavor.primaryColor || '#f3f4f6'
+                  }}
+                >
                   {/* Product Image or Fallback */}
                   <div className="mb-2 relative z-10">
                     {flavor.images && flavor.images[0] ? (

@@ -172,6 +172,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Changed wavy border SVG fill from #B2F5EA to #CCFBF1 to match section background
   - Updated main section background to use consistent #CCFBF1 color
   - Now appears as single cohesive teal section instead of separate blue sections
+- **SHOPIFY COLOR METAFIELDS INTEGRATION** (July 23, 2025): Added support for primary and secondary color metafields
+  - Extended Shopify GraphQL fragment to fetch custom.primary_color and custom.secondary_color metafields
+  - Updated product transformation to extract and use color metafields from Shopify
+  - Primary color now used for main product background instead of hardcoded Tailwind classes
+  - Secondary color used for teal information section and wavy borders for consistent theming
+  - Fallback colors maintained when metafields are not present
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

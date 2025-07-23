@@ -23,29 +23,46 @@ function getTagEmoji(tag: string): string {
   return '✨';
 }
 
+// Extract color metafields from Shopify product
+function extractColorMetafields(product: any) {
+  const primaryColorField = product.metafields?.find((field: any) => field.key === 'primary_color');
+  const secondaryColorField = product.metafields?.find((field: any) => field.key === 'secondary_color');
+  
+  return {
+    primaryColor: primaryColorField?.value || null,
+    secondaryColor: secondaryColorField?.value || null
+  };
+}
+
 // Transform Shopify products to flavor format
 function transformProductsToFlavors(products: any[]) {
-  return products.map((product, index) => ({
-    title: product.title,
-    tags: product.tags || ['Cannabis Infused', 'Made with Cane Sugar', 'Made in Minnesota', 'High Quality'],
-    bgColor: getFlavorBgClass(product.title, index),
-    images: [
-      product.featuredImage?.url || '',
-      ...product.images.slice(0, 3).map((img: any) => img.url)
-    ],
-    variants: [
-      { 
-        id: `${product.handle}-12`, 
-        title: '12 Cans', 
-        price: parseFloat(product.priceRange.minVariantPrice.amount) || 35.99 
-      },
-      { 
-        id: `${product.handle}-24`, 
-        title: '24 Cans', 
-        price: (parseFloat(product.priceRange.minVariantPrice.amount) || 35.99) * 1.8 
-      }
-    ]
-  }));
+  return products.map((product, index) => {
+    const { primaryColor, secondaryColor } = extractColorMetafields(product);
+    
+    return {
+      title: product.title,
+      tags: product.tags || ['Cannabis Infused', 'Made with Cane Sugar', 'Made in Minnesota', 'High Quality'],
+      bgColor: primaryColor ? `bg-[${primaryColor}]` : getFlavorBgClass(product.title, index),
+      primaryColor: primaryColor,
+      secondaryColor: secondaryColor,
+      images: [
+        product.featuredImage?.url || '',
+        ...product.images.slice(0, 3).map((img: any) => img.url)
+      ],
+      variants: [
+        { 
+          id: `${product.handle}-12`, 
+          title: '12 Cans', 
+          price: parseFloat(product.priceRange.minVariantPrice.amount) || 35.99 
+        },
+        { 
+          id: `${product.handle}-24`, 
+          title: '24 Cans', 
+          price: (parseFloat(product.priceRange.minVariantPrice.amount) || 35.99) * 1.8 
+        }
+      ]
+    };
+  });
 }
 
 function extractThcContent(product: any): string {
@@ -149,7 +166,12 @@ export default function FlavorPage() {
         <div className="space-y-8">
           {/* Large Product Image */}
           <div className="relative">
-            <div className={`${selectedFlavor?.bgColor || 'bg-gray-100'} rounded-3xl p-16 aspect-square flex items-center justify-center relative overflow-hidden`}>
+            <div 
+              className="rounded-3xl p-16 aspect-square flex items-center justify-center relative overflow-hidden"
+              style={{
+                backgroundColor: selectedFlavor?.primaryColor || '#f3f4f6'
+              }}
+            >
               {selectedFlavor?.images[0] ? (
                 <img 
                   src={selectedFlavor.images[0]} 
@@ -225,11 +247,16 @@ export default function FlavorPage() {
         >
           <path
             d="M0,40 C200,20 400,60 600,40 C800,20 1000,60 1200,40 L1200,80 L0,80 Z"
-            fill="#CCFBF1"
+            fill={selectedFlavor?.secondaryColor || '#CCFBF1'}
           />
         </svg>
 
-        <div className="py-16" style={{backgroundColor: '#CCFBF1'}}>
+        <div 
+          className="py-16" 
+          style={{
+            backgroundColor: selectedFlavor?.secondaryColor || '#CCFBF1'
+          }}
+        >
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             
@@ -344,7 +371,7 @@ export default function FlavorPage() {
         >
           <path
             d="M0,0 L0,40 C200,60 400,20 600,40 C800,60 1000,20 1200,40 L1200,0 Z"
-            fill="#CCFBF1"
+            fill={selectedFlavor?.secondaryColor || '#CCFBF1'}
           />
         </svg>
       </div>
