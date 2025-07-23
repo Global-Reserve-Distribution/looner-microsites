@@ -12,7 +12,7 @@ interface FlavorHeroProps {
 export function FlavorHero({ flavor }: FlavorHeroProps) {
   return (
     <div className="relative">
-      {/* Main Product Image */}
+      {/* Main Product Image - Simple display, tags moved to main layout */}
       <div className={`${flavor.bgColor} rounded-3xl p-12 aspect-square flex items-center justify-center relative overflow-hidden`}>
         {flavor.images[0] ? (
           <img 
@@ -41,17 +41,6 @@ export function FlavorHero({ flavor }: FlavorHeroProps) {
             </div>
           </div>
         )}
-      </div>
-
-      {/* Tags - Horizontal Badge Style */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-        {flavor.tags.map((tag) => (
-          <div key={tag} className="text-center">
-            <div className="text-2xl mb-2">{getTagEmoji(tag)}</div>
-            <div className="font-medium text-gray-800 text-sm">{tag}</div>
-            <div className="h-0.5 bg-gray-800 mt-2 mx-auto w-8"></div>
-          </div>
-        ))}
       </div>
     </div>
   );

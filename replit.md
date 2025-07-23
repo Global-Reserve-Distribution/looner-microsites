@@ -147,6 +147,13 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Fallback to default tags if no Shopify tags are available
   - Real product tags now display in flavor picker and product pages
   - Case-insensitive THC content detection for variety pack displays
+- **OLIPOP LAYOUT REDESIGN** (July 23, 2025): Restructured page to match Olipop layout exactly
+  - Large product image takes full left column with bigger padding and max-width constraints
+  - Product tags moved below main image in horizontal badge style
+  - Lifestyle images positioned below tags in left column
+  - Right column now contains product title, description, flavor selector, and purchase options
+  - Increased spacing and typography sizing to match reference design
+  - Simplified FlavorHero component to focus on product image display only
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
