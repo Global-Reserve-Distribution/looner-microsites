@@ -1,5 +1,6 @@
 import { GeistSans } from 'geist/font/sans';
 import { Toaster } from 'sonner';
+import { Navigation } from '../components/navigation';
 import './globals.css';
 
 const { SITE_NAME } = process.env;
@@ -24,7 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.variable}>
       <body className="bg-white text-black selection:bg-cannabis-300 antialiased">
-        {children}
+        <Navigation />
+        <main className="pt-20">
+          {children}
+        </main>
         <Toaster closeButton />
       </body>
     </html>
