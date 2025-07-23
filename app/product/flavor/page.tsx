@@ -1,0 +1,78 @@
+'use client';
+
+import React, { useState } from 'react';
+import { FlavorHero } from '../../../components/FlavorHero';
+import { LifestyleImageGrid } from '../../../components/LifestyleImageGrid';
+import { FlavorPickerTabs } from '../../../components/FlavorPickerTabs';
+import { PurchaseOptions } from '../../../components/PurchaseOptions';
+
+const MOCK_FLAVORS = [
+  {
+    title: 'Classic Grape',
+    tags: ['High Fiber', 'Non GMO', 'Less Sugar', '10mg THC'],
+    bgColor: 'bg-purple-100',
+    images: [
+      '/images/classic-grape-can.png',
+      '/images/grape-1.jpg',
+      '/images/grape-2.jpg',
+      '/images/grape-3.jpg'
+    ],
+    variants: [
+      { id: 'var1', title: '12 Cans', price: 35.99 },
+      { id: 'var2', title: '24 Cans', price: 65.99 }
+    ]
+  },
+  {
+    title: 'Orange Cream',
+    tags: ['High Fiber', 'Non GMO', '5mg THC'],
+    bgColor: 'bg-orange-100',
+    images: [
+      '/images/orange-cream-can.png',
+      '/images/orange-1.jpg',
+      '/images/orange-2.jpg',
+      '/images/orange-3.jpg'
+    ],
+    variants: [
+      { id: 'var3', title: '12 Cans', price: 35.99 },
+      { id: 'var4', title: '24 Cans', price: 65.99 }
+    ]
+  }
+];
+
+export default function FlavorPage() {
+  const [selectedFlavor, setSelectedFlavor] = useState(MOCK_FLAVORS[0]);
+  const [selectedVariant, setSelectedVariant] = useState(selectedFlavor.variants[0]);
+
+  return (
+    <main className={`min-h-screen ${selectedFlavor.bgColor} transition-all duration-500`}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 max-w-7xl mx-auto">
+        {/* Left: Can image + tags + lifestyle grid */}
+        <div className="space-y-6">
+          <FlavorHero flavor={selectedFlavor} />
+          <LifestyleImageGrid images={selectedFlavor.images.slice(1)} />
+        </div>
+
+        {/* Right: Title + picker + variants + CTAs */}
+        <div className="space-y-8">
+          <h1 className="text-4xl font-serif text-gray-900">{selectedFlavor.title}</h1>
+          <p className="text-gray-600">The perfect blend of sweet & tart.</p>
+
+          <FlavorPickerTabs
+            flavors={MOCK_FLAVORS}
+            selectedTitle={selectedFlavor.title}
+            onSelect={(flavor: typeof MOCK_FLAVORS[0]) => {
+              setSelectedFlavor(flavor);
+              setSelectedVariant(flavor.variants[0]);
+            }}
+          />
+
+          <PurchaseOptions
+            flavor={selectedFlavor}
+            variant={selectedVariant}
+            onVariantChange={setSelectedVariant}
+          />
+        </div>
+      </div>
+    </main>
+  );
+}

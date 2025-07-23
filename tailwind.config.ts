@@ -79,6 +79,15 @@ const config = {
           500: '#ea580c',
           600: '#dc2626'
         },
+        lime: {
+          100: '#E6FF99',
+        },
+        cyan: {
+          100: '#87CEEB',
+        },
+        brown: {
+          100: '#D2B48C',
+        },
         cannabis: {
           50: '#f0fdf4',
           100: '#dcfce7',
