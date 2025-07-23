@@ -104,9 +104,9 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
 7. ✅ Build StickyProductPanel with THC content - COMPLETED  
 8. ✅ Implement cannabis-themed design system - COMPLETED
 9. ✅ Fix Next.js 15 server/client component errors - COMPLETED
-10. Set up product collections and test cart functionality
-11. Optimize for mobile and performance testing
-12. Add cannabis-specific features (dosage calculator, compliance notices, age verification)
+10. ✅ Create one-page landing site with top-to-bottom scroll - COMPLETED
+11. Add cannabis-specific features (dosage calculator, compliance notices, age verification)
+12. Optimize for mobile and performance testing
 
 ## Run Configuration
 The application uses:
