@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Head from 'next/head';
+
 import { useSearchParams } from 'next/navigation';
 import { FlavorHero } from '../../../components/FlavorHero';
 import { LifestyleImageGrid } from '../../../components/LifestyleImageGrid';
@@ -143,22 +143,6 @@ export default function FlavorPage() {
 
   return (
     <main className={`min-h-screen ${selectedFlavor?.bgColor || 'bg-white'} transition-all duration-500`}>
-      <Head>
-        <title>{selectedFlavor?.title || 'Loading...'} | LOONER THC Beverages</title>
-        <meta name="description" content={`Enjoy the refreshing taste of ${selectedFlavor?.title || 'our signature flavors'}, a premium THC-infused beverage.`} />
-        {selectedFlavor && (
-          <>
-            <meta property="og:title" content={`${selectedFlavor.title} | LOONER THC Beverages`} />
-            <meta property="og:description" content={`Enjoy the refreshing taste of ${selectedFlavor.title}, a premium THC-infused beverage.`} />
-            <meta property="og:image" content={selectedFlavor.images[0]} />
-            <meta property="og:type" content="website" />
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content={`${selectedFlavor.title} | LOONER THC Beverages`} />
-            <meta name="twitter:description" content={`Enjoy the refreshing taste of ${selectedFlavor.title}, a premium THC-infused beverage.`} />
-            <meta name="twitter:image" content={selectedFlavor.images[0]} />
-          </>
-        )}
-      </Head>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-6 max-w-7xl mx-auto">
         {/* Left Column - Product Image & Lifestyle */}
@@ -345,6 +329,7 @@ export default function FlavorPage() {
                   <h4 className="font-semibold text-gray-900 text-sm mb-1">Consistent</h4>
                   <p className="text-xs text-gray-600">Reliable effects</p>
                 </div>
+              </div>
               </div>
             </div>
           </div>
