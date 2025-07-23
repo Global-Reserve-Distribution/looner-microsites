@@ -43,14 +43,13 @@ export function FlavorHero({ flavor }: FlavorHeroProps) {
         )}
       </div>
 
-      {/* Tags */}
-      <div className="flex gap-3 mt-6">
+      {/* Tags - Horizontal Badge Style */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
         {flavor.tags.map((tag) => (
-          <div key={tag} className="bg-white rounded-xl px-6 py-3 shadow-sm">
-            <div className="flex items-center gap-3">
-              <span className="text-xl">{getTagEmoji(tag)}</span>
-              <span className="font-medium text-gray-800">{tag}</span>
-            </div>
+          <div key={tag} className="text-center">
+            <div className="text-2xl mb-2">{getTagEmoji(tag)}</div>
+            <div className="font-medium text-gray-800 text-sm">{tag}</div>
+            <div className="h-0.5 bg-gray-800 mt-2 mx-auto w-8"></div>
           </div>
         ))}
       </div>
@@ -60,9 +59,14 @@ export function FlavorHero({ flavor }: FlavorHeroProps) {
 
 function getTagEmoji(tag: string): string {
   const tagLower = tag.toLowerCase();
+  if (tagLower.includes('cannabis') || tagLower.includes('infused')) return '🌿';
+  if (tagLower.includes('made') || tagLower.includes('cane')) return '🎯';
+  if (tagLower.includes('iconic') || tagLower.includes('flavor')) return '⭐';
+  if (tagLower.includes('made in') || tagLower.includes('minnesota')) return '📍';
+  if (tagLower.includes('high') || tagLower.includes('quality')) return '✨';
   if (tagLower.includes('fiber')) return '🌾';
   if (tagLower.includes('gmo')) return '🌱';
-  if (tagLower.includes('sugar')) return '🍭';
+  if (tagLower.includes('sugar')) return '🍯';
   if (tagLower.includes('thc')) return '🌿';
   return '✨';
 }

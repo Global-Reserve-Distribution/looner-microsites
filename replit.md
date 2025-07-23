@@ -137,6 +137,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added product images to flavor picker cards when available
   - Fallback to branded LOONER can design when no image exists
   - Automatic THC content display from real product data
+- **TAG DESIGN UPDATE** (July 23, 2025): Replaced pill-style tags with horizontal badge design
+  - Updated FlavorHero component to use horizontal badge layout instead of pill tags
+  - Tags now display as centered text with emoji above and underline below
+  - Grid layout (2 cols on mobile, 4 cols on desktop) for better organization
+  - Enhanced emoji mapping for cannabis-specific terms and quality indicators
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
