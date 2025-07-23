@@ -37,10 +37,10 @@ function extractColorMetafields(product: any) {
   }
   
   const primaryColorField = metafields.find(
-    (field: any) => field && field.key === "primary_color",
+    (field: any) => field && field.key === "primary_color" && field.namespace === "custom",
   );
   const secondaryColorField = metafields.find(
-    (field: any) => field && field.key === "secondary_color",
+    (field: any) => field && field.key === "secondary_color" && field.namespace === "custom",
   );
 
   return {

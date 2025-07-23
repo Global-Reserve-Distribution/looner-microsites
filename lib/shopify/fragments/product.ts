@@ -63,6 +63,7 @@ const productFragment = /* GraphQL */ `
       key
       value
       type
+      namespace
     }
   }
   ${imageFragment}

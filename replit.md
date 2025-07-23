@@ -203,6 +203,7 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Enhanced extractColorMetafields function to handle "Primary Color" vs "primary_color" naming
   - Added debug logging to troubleshoot metafields not appearing for Professor Pepper flavor
   - Shopify metafields show #7D3F49 (primary) and #CB6777 (secondary) but not displaying on site
+  - Fixed metafields query to properly match custom.primary_color and custom.secondary_color namespace structure
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
