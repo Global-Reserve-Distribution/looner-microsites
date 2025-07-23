@@ -192,7 +192,7 @@ export default function FlavorPage() {
 
           {/* Product Tags */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {selectedFlavor?.tags.map((tag) => (
+            {selectedFlavor?.tags.map((tag: string) => (
               <div key={tag} className="text-center">
                 <div className="text-2xl mb-2">{getTagEmoji(tag)}</div>
                 <div className="font-medium text-gray-800 text-sm">{tag}</div>
@@ -228,6 +228,21 @@ export default function FlavorPage() {
             onVariantChange={setSelectedVariant}
           />
         </div>
+      </div>
+
+      {/* Simple Wavy Footer Bar */}
+      <div className="relative h-24 overflow-hidden">
+        <svg
+          className="absolute bottom-0 w-full h-full"
+          viewBox="0 0 1200 200"
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <path
+            d="M0,120 C200,140 400,100 600,120 C800,140 1000,100 1200,120 L1200,200 L0,200 Z"
+            fill="#4ECDC4"
+          />
+        </svg>
       </div>
     </main>
   );
