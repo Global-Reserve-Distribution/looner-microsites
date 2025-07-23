@@ -225,11 +225,11 @@ export default function FlavorPage() {
         >
           <path
             d="M0,40 C200,20 400,60 600,40 C800,20 1000,60 1200,40 L1200,80 L0,80 Z"
-            fill="#B2F5EA"
+            fill="#CCFBF1"
           />
         </svg>
 
-        <div className="bg-teal-100 py-16">
+        <div className="py-16" style={{backgroundColor: '#CCFBF1'}}>
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             
@@ -344,7 +344,7 @@ export default function FlavorPage() {
         >
           <path
             d="M0,0 L0,40 C200,60 400,20 600,40 C800,60 1000,20 1200,40 L1200,0 Z"
-            fill="#B2F5EA"
+            fill="#CCFBF1"
           />
         </svg>
       </div>
