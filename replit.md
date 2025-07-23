@@ -196,6 +196,8 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Flavor page now functions as standalone microsite landing page
   - Removed header navigation and top padding to maximize content space
   - Page starts immediately with animated background and product content
+  - Implemented conditional navigation system that hides header specifically on flavor page
+  - Created ConditionalNavigation component to manage navigation visibility by route
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

@@ -1,6 +1,6 @@
 import { GeistSans } from 'geist/font/sans';
 import { Toaster } from 'sonner';
-import { Navigation } from '../components/navigation';
+import { ConditionalNavigation } from '../components/conditional-navigation';
 import './globals.css';
 
 const { SITE_NAME } = process.env;
@@ -25,10 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.variable}>
       <body className="bg-white text-black selection:bg-cannabis-300 antialiased">
-        <Navigation />
-        <main className="pt-20">
+        <ConditionalNavigation>
           {children}
-        </main>
+        </ConditionalNavigation>
         <Toaster closeButton />
       </body>
     </html>
