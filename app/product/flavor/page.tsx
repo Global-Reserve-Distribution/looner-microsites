@@ -28,32 +28,19 @@ function getTagEmoji(tag: string): string {
 
 // Extract color metafields from Shopify product
 function extractColorMetafields(product: any) {
-  // Handle the new edges/node structure from GraphQL
-  const metafieldsEdges = product.metafields?.edges || [];
-  const metafields = metafieldsEdges.map((edge: any) => edge.node);
+  const metafields = product.metafields || [];
   
   // Debug: Log metafields to see what's actually returned
   if (product.title?.includes("Professor Pepper")) {
     console.log("Professor Pepper metafields:", metafields);
-    console.log("All metafield keys:", metafields.map((m: any) => m?.key));
+    console.log("Product title:", product.title);
   }
   
-  // Try various naming conventions for color metafields
   const primaryColorField = metafields.find(
-    (field: any) => field && (
-      field.key === "primary_color" || 
-      field.key === "Primary Color" ||
-      field.key === "primaryColor" ||
-      field.key?.toLowerCase().includes("primary")
-    ),
+    (field: any) => field && field.key === "primary_color",
   );
   const secondaryColorField = metafields.find(
-    (field: any) => field && (
-      field.key === "secondary_color" || 
-      field.key === "Secondary Color" ||
-      field.key === "secondaryColor" ||
-      field.key?.toLowerCase().includes("secondary")
-    ),
+    (field: any) => field && field.key === "secondary_color",
   );
 
   return {

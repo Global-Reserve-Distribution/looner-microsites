@@ -56,15 +56,13 @@ const productFragment = /* GraphQL */ `
     }
     tags
     updatedAt
-    metafields(first: 20) {
-      edges {
-        node {
-          key
-          value
-          type
-          namespace
-        }
-      }
+    metafields(identifiers: [
+      {namespace: "custom", key: "primary_color"},
+      {namespace: "custom", key: "secondary_color"}
+    ]) {
+      key
+      value
+      type
     }
   }
   ${imageFragment}
