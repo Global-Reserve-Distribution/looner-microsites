@@ -213,7 +213,7 @@ export default function ProductPage() {
   // Intersection observer for purchase button
   const purchaseButtonRef = useRef<HTMLDivElement>(null);
   const { isVisible: isPurchaseButtonVisible } = useIntersectionObserver({
-    ref: purchaseButtonRef,
+    ref: purchaseButtonRef as React.RefObject<Element>,
   });
 
   const handleAddToCart = async (merchandiseId: string, quantity: number) => {
@@ -339,16 +339,16 @@ export default function ProductPage() {
   // Since no products have "bundle" tags, show variety packs based on specific naming patterns
   const varietyPacks = flavors.filter((f) => {
     const title = f.title.toLowerCase();
-    const tags = (f.tags || []).map(tag => tag.toLowerCase());
-    const hasSoda = tags.some(tag => tag.includes("soda"));
+    const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
+    const hasSoda = tags.some((tag: string) => tag.includes("soda"));
     // Look for variety/pack/bundle in title OR use first 3 flavors as variety pack examples
     const isVarietyByName = title.includes("variety") || title.includes("pack") || title.includes("bundle") || title.includes("mix");
     return hasSoda && isVarietyByName;
   });
   const regularFlavors = flavors.filter((f) => {
-    const tags = (f.tags || []).map(tag => tag.toLowerCase());
+    const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
     // Exclude bundle items from regular flavors
-    return !tags.some(tag => tag.includes("bundle"));
+    return !tags.some((tag: string) => tag.includes("bundle"));
   });
 
   if (loading) {

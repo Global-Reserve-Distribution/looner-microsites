@@ -6,6 +6,7 @@ import Image from "next/image";
 interface Flavor {
   title: string;
   description: string;
+  shortDescription?: string;
   images: string[];
   primaryColor: string;
   secondaryColor: string;
@@ -15,7 +16,7 @@ interface Flavor {
 
 interface Props {
   allFlavors: Flavor[];
-  currentFlavor: string;
+  currentFlavor: Flavor | null;
   onSelectFlavor: (flavor: Flavor) => void;
 }
 
@@ -43,7 +44,7 @@ export function RecommendedFlavors({
     }
   }, [hoveredIndex]);
   const recommended = allFlavors.filter(
-    (f) => f.title.toLowerCase() !== currentFlavor.toLowerCase(),
+    (f) => f.title.toLowerCase() !== (currentFlavor?.title || '').toLowerCase(),
   );
 
   return (
