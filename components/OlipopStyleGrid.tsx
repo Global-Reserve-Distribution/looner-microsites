@@ -72,23 +72,38 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
         </div>
       </div>
 
-      {/* Bottom section: Additional images with secondary colors */}
-      <div className="grid grid-cols-3 gap-4 w-full">
+      {/* Middle section: Full-width card with multiple products */}
+      <div className="w-full">
         <div
-          className="rounded-2xl h-48 flex items-center justify-center"
+          className="rounded-2xl h-40 flex items-center justify-center gap-8 px-8"
           style={{
             backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
           }}
         >
-          {selectedFlavor?.images?.[1] || selectedFlavor?.images?.[0] ? (
-            <img
-              src={selectedFlavor.images[1] || selectedFlavor.images[0]}
-              alt={selectedFlavor.title}
-              className="w-20 h-28 object-contain drop-shadow-lg"
-            />
-          ) : null}
+          {/* Three product cans arranged horizontally */}
+          {[0, 1, 2].map((index) => (
+            <div key={index} className="flex items-center justify-center">
+              {selectedFlavor?.images?.[0] ? (
+                <img
+                  src={selectedFlavor.images[0]}
+                  alt={selectedFlavor.title}
+                  className="w-16 h-20 object-contain drop-shadow-lg transform rotate-12"
+                  style={{
+                    transform: `rotate(${index === 1 ? '0deg' : index === 0 ? '-12deg' : '12deg'})`,
+                  }}
+                />
+              ) : (
+                <div className="w-16 h-20 bg-white/20 rounded-lg flex items-center justify-center">
+                  <span className="text-xs text-gray-600">LOONER</span>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
+      </div>
 
+      {/* Bottom section: Two half-width cards */}
+      <div className="grid grid-cols-2 gap-4 w-full">
         <div
           className="rounded-2xl h-48 flex items-center justify-center"
           style={{
@@ -96,24 +111,37 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
           }}
         >
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-800">Premium</h3>
-            <p className="text-sm text-gray-600">Cannabis Soda</p>
+            <h3 className="text-3xl font-bold text-white">Better than</h3>
+            <h3 className="text-3xl font-bold text-white">Dessert</h3>
           </div>
         </div>
         
         <div
-          className="rounded-2xl h-48 flex items-center justify-center"
+          className="rounded-2xl h-48 flex items-center justify-center relative overflow-hidden"
           style={{
             backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
           }}
         >
-          {selectedFlavor?.images?.[2] || selectedFlavor?.images?.[0] ? (
-            <img
-              src={selectedFlavor.images[2] || selectedFlavor.images[0]}
-              alt={selectedFlavor.title}
-              className="w-20 h-28 object-contain drop-shadow-lg"
-            />
-          ) : null}
+          <div className="flex items-center gap-4">
+            {/* Glass with liquid */}
+            <div className="w-12 h-20 bg-white/30 rounded-lg flex items-end">
+              <div 
+                className="w-full h-3/4 rounded-b-lg"
+                style={{
+                  backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
+                  opacity: 0.7
+                }}
+              ></div>
+            </div>
+            {/* Product can */}
+            {selectedFlavor?.images?.[0] && (
+              <img
+                src={selectedFlavor.images[0]}
+                alt={selectedFlavor.title}
+                className="w-16 h-20 object-contain drop-shadow-lg"
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
