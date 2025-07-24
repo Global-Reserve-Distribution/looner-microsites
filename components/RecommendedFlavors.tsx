@@ -107,23 +107,39 @@ export function RecommendedFlavors({
                     )}
                   </div>
 
-                  {/* Product Name and Rating - Animate up on hover */}
-                  <div className={`px-6 pb-6 text-center absolute bottom-0 left-0 right-0 transition-transform duration-500 ${
+                  {/* Product Name and Rating with Wave - Animate up on hover */}
+                  <div className={`absolute bottom-0 left-0 right-0 transition-transform duration-500 ${
                     isHovered && (animationPhase === 'waveDown' || animationPhase === 'complete')
                       ? 'translate-y-[-65%]' 
                       : 'translate-y-0'
                   }`}
                   style={{ 
-                    backgroundColor: secondary,
                     transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
                   }}>
-                    <h3 className="font-bold text-gray-900 text-lg mb-2 leading-tight">
-                      {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
-                    </h3>
+                    {/* Wavy Top Border */}
+                    <svg 
+                      className="w-full h-6" 
+                      viewBox="0 0 400 24" 
+                      fill="none"
+                    >
+                      <path 
+                        d="M0,12 C100,0 300,24 400,12 L400,0 L0,0 Z" 
+                        fill={secondary}
+                      />
+                    </svg>
+                    
+                    <div 
+                      className="px-6 pb-6 pt-2 text-center"
+                      style={{ backgroundColor: secondary }}
+                    >
+                      <h3 className="font-bold text-gray-900 text-lg mb-2 leading-tight">
+                        {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
+                      </h3>
 
-                    <div className="flex items-center justify-center text-gray-800">
-                      <span className="text-sm">★★★★</span>
-                      <span className="text-sm text-gray-600">☆</span>
+                      <div className="flex items-center justify-center text-gray-800">
+                        <span className="text-sm">★★★★</span>
+                        <span className="text-sm text-gray-600">☆</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -178,10 +194,10 @@ export function RecommendedFlavors({
                         />
                       </div>
 
-                      {/* Product Image */}
-                      {canImage ? (
+                      {/* Different Product Image for Hover State */}
+                      {(flavor.images[1] || canImage) ? (
                         <Image
-                          src={canImage}
+                          src={flavor.images[1] || canImage || ''}
                           alt={flavor.title}
                           width={160}
                           height={200}
@@ -198,43 +214,46 @@ export function RecommendedFlavors({
                       )}
                     </div>
 
-                    {/* Wavy Divider */}
-                    <svg
-                      className="w-full h-6 -mt-1"
-                      viewBox="0 0 400 24"
-                      fill="none"
-                      style={{ backgroundColor: primary }}
-                    >
-                      <path
-                        d="M0,12 C100,24 300,0 400,12 L400,24 L0,24 Z"
-                        fill={secondary}
-                      />
-                    </svg>
-
                     {/* Bottom Section with Content - 60% height */}
                     <div
-                      className="p-6 pt-2 text-center flex flex-col justify-center"
+                      className="text-center flex flex-col justify-center absolute bottom-0 left-0 right-0"
                       style={{ 
-                        backgroundColor: secondary,
                         height: '60%'
                       }}
                     >
-                      <h3 className="font-bold text-gray-900 text-lg mb-2 leading-tight">
-                        {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
-                      </h3>
+                      {/* Wavy Top Border */}
+                      <svg 
+                        className="w-full h-6 absolute top-0 left-0" 
+                        viewBox="0 0 400 24" 
+                        fill="none"
+                      >
+                        <path 
+                          d="M0,12 C100,0 300,24 400,12 L400,0 L0,0 Z" 
+                          fill={secondary}
+                        />
+                      </svg>
+                      
+                      <div 
+                        className="p-6 pt-8 flex flex-col justify-center h-full"
+                        style={{ backgroundColor: secondary }}
+                      >
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 leading-tight">
+                          {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
+                        </h3>
 
-                      <p className="text-gray-700 text-sm mb-4 leading-relaxed">
-                        {flavor.description || "A boldly refreshing collision of flavors."}
-                      </p>
+                        <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                          {flavor.description || "A boldly refreshing collision of flavors."}
+                        </p>
 
-                      <div className="flex items-center justify-center mb-4 text-gray-800">
-                        <span className="text-sm">★★★★</span>
-                        <span className="text-sm text-gray-400">☆</span>
+                        <div className="flex items-center justify-center mb-4 text-gray-800">
+                          <span className="text-sm">★★★★</span>
+                          <span className="text-sm text-gray-400">☆</span>
+                        </div>
+
+                        <button className="bg-white text-gray-800 px-6 py-2 rounded-full font-medium text-sm shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-200">
+                          + Add 12 Pack
+                        </button>
                       </div>
-
-                      <button className="bg-white text-gray-800 px-6 py-2 rounded-full font-medium text-sm shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-200">
-                        + Add 12 Pack
-                      </button>
                     </div>
                   </div>
               </div>
