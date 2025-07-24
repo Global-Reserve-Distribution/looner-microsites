@@ -76,37 +76,45 @@ export function FlavorPickerVariants({
     return (
       <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-3xl">
         {/* Tab Navigation */}
-        <div className="flex space-x-4 mb-6 justify-center">
+        <div className="flex mb-0 justify-center">
           <button 
             onClick={() => setActiveTab('flavors')}
-            className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+            className={`px-6 py-3 text-sm font-medium transition-all relative ${
               activeTab === 'flavors' 
-                ? 'bg-orange-100 text-orange-800' 
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-white text-gray-800 rounded-t-lg border-t border-l border-r border-gray-200 z-10' 
+                : 'bg-gray-200 text-gray-600 hover:bg-gray-300 rounded-t-lg border-t border-l border-r border-gray-300'
             }`}
+            style={{
+              marginBottom: activeTab === 'flavors' ? '-1px' : '0'
+            }}
           >
             Our Flavors
           </button>
           <button 
             onClick={() => setActiveTab('packs')}
-            className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+            className={`px-6 py-3 text-sm font-medium transition-all relative ${
               activeTab === 'packs' 
-                ? 'bg-orange-100 text-orange-800' 
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-white text-gray-800 rounded-t-lg border-t border-l border-r border-gray-200 z-10' 
+                : 'bg-gray-200 text-gray-600 hover:bg-gray-300 rounded-t-lg border-t border-l border-r border-gray-300'
             }`}
+            style={{
+              marginBottom: activeTab === 'packs' ? '-1px' : '0'
+            }}
           >
             Variety Packs
           </button>
         </div>
         
-        <div className="grid grid-cols-4 gap-3">
+        {/* Content Area with tab connection */}
+        <div className="bg-white border border-gray-200 rounded-lg rounded-tl-none rounded-tr-none p-6">
+          <div className="grid grid-cols-4 gap-3">
         {(activeTab === 'flavors' ? flavors : flavors.filter(f => f.title.toLowerCase().includes('variety') || f.title.toLowerCase().includes('pack'))).map((flavor, index) => (
           <button
             key={flavor.title}
             onClick={() => onFlavorSelect(flavor)}
             className={`
-              relative group bg-white rounded-2xl overflow-hidden transition-all duration-300
-              hover:scale-[1.02] hover:shadow-xl border-2
+              relative group bg-white rounded-xl overflow-hidden transition-all duration-300
+              hover:scale-[1.02] hover:shadow-xl border-2 aspect-square
               ${selectedFlavor?.title === flavor.title 
                 ? 'border-green-400 shadow-lg scale-[1.02]' 
                 : 'border-gray-200 hover:border-gray-300'
@@ -115,7 +123,7 @@ export function FlavorPickerVariants({
           >
             {/* Top Half - Primary Color Background */}
             <div 
-              className="h-24 w-full flex items-center justify-center"
+              className="h-2/3 w-full flex items-center justify-center"
               style={{
                 backgroundColor: flavor.primaryColor || '#8B5CF6'
               }}
@@ -125,26 +133,27 @@ export function FlavorPickerVariants({
                 <img
                   src={flavor.images[0]}
                   alt={flavor.title}
-                  className="w-16 h-20 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                  className="w-12 h-16 object-cover drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
                 />
               ) : (
-                <div className="w-12 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+                <div className="w-10 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
                   <span className="text-white text-xs font-bold">LOONER</span>
                 </div>
               )}
             </div>
             
-            {/* Bottom Half - White Background */}
-            <div className="p-4 bg-white">
+            {/* Bottom Third - White Background */}
+            <div className="h-1/3 p-2 bg-white flex items-center justify-center">
               {/* Flavor Name Only */}
               <div className="text-center">
-                <h4 className="font-bold text-gray-900 text-sm leading-tight">
+                <h4 className="font-bold text-gray-900 text-xs leading-tight">
                   {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                 </h4>
               </div>
             </div>
           </button>
         ))}
+        </div>
       </div>
     </div>
   );
