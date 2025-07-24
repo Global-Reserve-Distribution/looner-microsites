@@ -211,6 +211,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated filtering to use actual Shopify category field when available
   - Maintained fallback to Storefront API and title/tag matching for resilience
   - Enhanced debugging to show category vs title-based filtering results
+- **FLAVOR PICKER DESIGN VARIATIONS** (July 24, 2025): Created multiple design variants for flavor selection
+  - Built 4 distinct flavor picker designs: Olipop-exact, Premium, Minimal, and Gradient Galaxy
+  - Created FlavorPickerVariants component with switchable design modes
+  - Added demo page at /flavor-variants to showcase all variations
+  - Integrated variant selector into main flavor page with real-time switching
+  - Olipop variant matches reference design exactly with proper color scheme and layout
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { FlavorHero } from "../../../components/FlavorHero";
 import { LifestyleImageGrid } from "../../../components/LifestyleImageGrid";
 import { FlavorPickerTabs } from "../../../components/FlavorPickerTabs";
+import { FlavorPickerVariants } from "../../../components/FlavorPickerVariants";
 import { PurchaseOptions } from "../../../components/PurchaseOptions";
 import { FlavorBackground } from "../../../components/FlavorBackground";
 import { fetchProducts, fetchProductsWithAdminCategories } from "../../../lib/shopify/server-actions";
@@ -178,6 +179,7 @@ export default function FlavorPage() {
   const [selectedFlavor, setSelectedFlavor] = useState<any | null>(null);
   const [selectedVariant, setSelectedVariant] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
+  const [pickerVariant, setPickerVariant] = useState<"olipop" | "premium" | "minimal" | "gradient">("olipop");
 
   useEffect(() => {
     async function loadFlavors() {
@@ -366,14 +368,42 @@ export default function FlavorPage() {
               </p>
             </div>
 
-            <FlavorPickerTabs
+            {/* Design Variant Selector */}
+            <div className="flex justify-center mb-6">
+              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-2">
+                <div className="flex space-x-1">
+                  {[
+                    { key: "olipop" as const, name: "Olipop" },
+                    { key: "premium" as const, name: "Premium" },
+                    { key: "minimal" as const, name: "Minimal" },
+                    { key: "gradient" as const, name: "Galaxy" }
+                  ].map((variant) => (
+                    <button
+                      key={variant.key}
+                      onClick={() => setPickerVariant(variant.key)}
+                      className={`
+                        px-4 py-2 rounded-xl font-medium transition-all duration-200 text-sm
+                        ${pickerVariant === variant.key
+                          ? 'bg-white text-gray-900 shadow-lg'
+                          : 'text-white/80 hover:text-white hover:bg-white/10'
+                        }
+                      `}
+                    >
+                      {variant.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <FlavorPickerVariants
               flavors={regularFlavors}
-              varieties={varietyPacks}
-              selectedTitle={selectedFlavor?.title}
-              onSelect={(flavor) => {
+              selectedFlavor={selectedFlavor}
+              onFlavorSelect={(flavor) => {
                 setSelectedFlavor(flavor);
                 setSelectedVariant(flavor.variants[0]);
               }}
+              variant={pickerVariant}
             />
 
             <PurchaseOptions
