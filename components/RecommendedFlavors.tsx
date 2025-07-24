@@ -38,7 +38,8 @@ export function RecommendedFlavors({
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         {recommended.map((flavor, index) => {
           const canImage = flavor.images[0];
-          const primary = flavor.primaryColor || "#FFB6C1";
+          const primary = flavor.primaryColor || "#A855F7";
+          const secondary = flavor.secondaryColor || "#E9D5FF";
 
           return (
             <div
@@ -48,20 +49,27 @@ export function RecommendedFlavors({
             >
               <div 
                 className="rounded-3xl p-6 flex flex-col items-center text-center aspect-[3/4]"
-                style={{ backgroundColor: primary }}
+                style={{ backgroundColor: secondary }}
               >
-                {/* Product Image */}
-                <div className="flex-1 flex items-center justify-center mb-4">
+                {/* Product Image with Circle Background */}
+                <div className="flex-1 flex items-center justify-center mb-4 relative">
+                  {/* Circle Background */}
+                  <div 
+                    className="absolute w-40 h-40 rounded-full opacity-80"
+                    style={{ backgroundColor: primary }}
+                  />
+                  
+                  {/* Product Image */}
                   {canImage ? (
                     <Image
                       src={canImage}
                       alt={flavor.title}
                       width={120}
                       height={160}
-                      className="h-32 w-auto object-contain drop-shadow-lg"
+                      className="h-32 w-auto object-contain drop-shadow-lg relative z-10"
                     />
                   ) : (
-                    <div className="w-20 h-32 bg-white/20 rounded-lg flex items-center justify-center">
+                    <div className="w-20 h-32 bg-white/20 rounded-lg flex items-center justify-center relative z-10">
                       <span className="text-white text-sm font-bold">LOONER</span>
                     </div>
                   )}

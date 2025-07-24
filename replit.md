@@ -331,6 +331,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Cards use 3:4 aspect ratio with rounded-3xl corners matching Olipop aesthetic
   - Centered product images with proper drop shadows and scaling
   - Product names display prominently with star ratings below
+- **CIRCLE BACKGROUND FOR PRODUCT IMAGES** (July 24, 2025): Enhanced recommendation cards with circle elements
+  - Added circular background element behind product images using primaryColor
+  - Updated card backgrounds to use secondaryColor for better contrast
+  - Circle positioned with absolute positioning and z-index layering
+  - Product images maintain relative z-10 positioning above circle background
+  - Matches Olipop reference design with proper color hierarchy and visual depth
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
