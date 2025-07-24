@@ -32,9 +32,9 @@ export function MobileHeader({ backgroundColor = 'white' }: MobileHeaderProps) {
           <button
             onClick={toggleMenu}
             className="p-2 text-gray-700 hover:text-gray-900 transition-colors"
-            aria-label="Open menu"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            <Menu size={24} />
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
           {/* Logo */}

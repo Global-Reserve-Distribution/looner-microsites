@@ -44,57 +44,40 @@ export function StickyCartFooter({
   const hasItems = totalQuantity > 0;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-50 md:hidden">
-      <div className="flex items-center justify-between max-w-md mx-auto">
-        {/* Product Preview */}
-        <div className="flex items-center space-x-3 flex-1">
-          {productImage ? (
-            <img 
-              src={productImage} 
-              alt={productTitle}
-              className="w-12 h-12 object-contain rounded-lg bg-gray-100"
-            />
-          ) : (
-            <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-              <Image 
-                src="/logo.png" 
-                alt="LOONER Cannabis Co" 
-                width={32} 
-                height={32} 
-                className="w-8 h-8 object-contain"
-              />
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 z-50 md:hidden">
+      <div className="flex items-center gap-3 max-w-md mx-auto">
+        {/* Product Info - No Image */}
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center justify-between">
+            <div className="flex-1 min-w-0">
+              <h4 className="text-sm font-medium text-gray-900 truncate">
+                {productTitle}
+              </h4>
+              <p className="text-xs text-gray-500">
+                {hasItems ? `${totalQuantity} in cart` : 'One time purchase'}
+              </p>
             </div>
-          )}
-          
-          <div className="flex-1 min-w-0">
-            <h4 className="text-sm font-medium text-gray-900 truncate">
-              {productTitle}
-            </h4>
-            <p className="text-xs text-gray-500">
-              {hasItems ? `${totalQuantity} in cart` : 'One time purchase'}
-            </p>
-          </div>
-          
-          <div className="text-right">
-            <p className="text-sm font-bold text-gray-900">
-              {productPrice}
-            </p>
+            <div className="text-right ml-2">
+              <p className="text-sm font-bold text-gray-900">
+                {productPrice}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Add to Cart Button */}
-      <div className="mt-3">
-        <AddToCartButton
-          merchandiseId={merchandiseId}
-          quantity={1}
-          productTitle={productTitle}
-          productPrice={productPrice}
-          variant="sticky"
-          className="w-full"
-        >
-          {hasItems ? 'Add Another' : 'Add to Cart'}
-        </AddToCartButton>
+        {/* Add to Cart Button - Compact */}
+        <div className="shrink-0">
+          <AddToCartButton
+            merchandiseId={merchandiseId}
+            quantity={1}
+            productTitle={productTitle}
+            productPrice={productPrice}
+            variant="compact"
+            className="px-4 py-2 text-sm"
+          >
+            {hasItems ? 'Add More' : 'Add to Cart'}
+          </AddToCartButton>
+        </div>
       </div>
 
       {/* Cart Total (if items exist) */}

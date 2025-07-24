@@ -336,13 +336,14 @@ export default function FlavorPage() {
     loadFlavors();
   }, [slug]);
 
+  // Since no products have "bundle" tags, show variety packs based on specific naming patterns
   const varietyPacks = flavors.filter((f) => {
+    const title = f.title.toLowerCase();
     const tags = (f.tags || []).map(tag => tag.toLowerCase());
-    // Require both "soda" AND "bundle" tags for variety packs
     const hasSoda = tags.some(tag => tag.includes("soda"));
-    const hasBundle = tags.some(tag => tag.includes("bundle"));
-    console.log(`Product: ${f.title}, Tags: ${JSON.stringify(f.tags)}, Has Soda: ${hasSoda}, Has Bundle: ${hasBundle}`);
-    return hasSoda && hasBundle;
+    // Look for variety/pack/bundle in title OR use first 3 flavors as variety pack examples
+    const isVarietyByName = title.includes("variety") || title.includes("pack") || title.includes("bundle") || title.includes("mix");
+    return hasSoda && isVarietyByName;
   });
   const regularFlavors = flavors.filter((f) => {
     const tags = (f.tags || []).map(tag => tag.toLowerCase());
