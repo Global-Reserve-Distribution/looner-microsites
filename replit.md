@@ -337,6 +337,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Circle positioned with absolute positioning and z-index layering
   - Product images maintain relative z-10 positioning above circle background
   - Matches Olipop reference design with proper color hierarchy and visual depth
+- **ENLARGED PRODUCT IMAGES** (July 24, 2025): Increased image size for better visibility
+  - Increased product image height from h-32 to h-40 for more prominent display
+  - Updated image dimensions from 120x160 to 160x200 for better quality
+  - Enhanced fallback LOONER logo size and text for consistency
+  - Images now fill the circle background more effectively
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

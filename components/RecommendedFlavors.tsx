@@ -64,13 +64,13 @@ export function RecommendedFlavors({
                     <Image
                       src={canImage}
                       alt={flavor.title}
-                      width={120}
-                      height={160}
-                      className="h-32 w-auto object-contain drop-shadow-lg relative z-10"
+                      width={160}
+                      height={200}
+                      className="h-40 w-auto object-contain drop-shadow-lg relative z-10"
                     />
                   ) : (
-                    <div className="w-20 h-32 bg-white/20 rounded-lg flex items-center justify-center relative z-10">
-                      <span className="text-white text-sm font-bold">LOONER</span>
+                    <div className="w-24 h-40 bg-white/20 rounded-lg flex items-center justify-center relative z-10">
+                      <span className="text-white text-base font-bold">LOONER</span>
                     </div>
                   )}
                 </div>
