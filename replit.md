@@ -342,6 +342,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated image dimensions from 120x160 to 160x200 for better quality
   - Enhanced fallback LOONER logo size and text for consistency
   - Images now fill the circle background more effectively
+- **OLIPOP-STYLE IMAGE OVERFLOW** (July 24, 2025): Adjusted proportions to match reference design
+  - Reduced circle size from w-40 h-40 to w-36 h-36
+  - Increased image height from h-40 to h-44 creating subtle overflow effect
+  - Product images now extend slightly beyond circle boundaries like authentic Olipop cards
+  - Creates proper visual hierarchy with image prominence over background elements
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

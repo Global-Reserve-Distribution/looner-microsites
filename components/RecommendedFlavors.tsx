@@ -55,7 +55,7 @@ export function RecommendedFlavors({
                 <div className="flex-1 flex items-center justify-center mb-4 relative">
                   {/* Circle Background */}
                   <div 
-                    className="absolute w-40 h-40 rounded-full opacity-80"
+                    className="absolute w-36 h-36 rounded-full opacity-80"
                     style={{ backgroundColor: primary }}
                   />
                   
@@ -66,10 +66,10 @@ export function RecommendedFlavors({
                       alt={flavor.title}
                       width={160}
                       height={200}
-                      className="h-40 w-auto object-contain drop-shadow-lg relative z-10"
+                      className="h-44 w-auto object-contain drop-shadow-lg relative z-10"
                     />
                   ) : (
-                    <div className="w-24 h-40 bg-white/20 rounded-lg flex items-center justify-center relative z-10">
+                    <div className="w-24 h-44 bg-white/20 rounded-lg flex items-center justify-center relative z-10">
                       <span className="text-white text-base font-bold">LOONER</span>
                     </div>
                   )}
