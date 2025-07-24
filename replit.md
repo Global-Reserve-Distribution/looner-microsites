@@ -257,6 +257,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Changed tab container from w-1/2 to w-full for complete width coverage
   - Tabs now span the entire width of the content area below
   - Maintained equal distribution of tab space using flex-1
+- **WHITE TAB BACKGROUND AND OLIPOP CARD LAYOUT** (July 24, 2025): Updated styling to match Olipop reference
+  - Changed selected tab background from orange to white for cleaner appearance
+  - Updated content area background from orange to white to match selected tab
+  - Restructured flavor cards to match Olipop layout: top half colored with image, bottom half white with text
+  - Changed card proportions from 2/3-1/3 to equal 1/2-1/2 split for better balance
+  - Increased text size and adjusted padding for better readability matching reference design
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

@@ -26,7 +26,7 @@ export function FlavorPickerVariants({
             onClick={() => setActiveTab('flavors')}
             className={`flex-1 py-3 text-sm font-medium transition-all rounded-t-xl border-t border-l border-r relative ${
               activeTab === 'flavors' 
-                ? 'bg-orange-50 text-orange-800 border-orange-200 z-10' 
+                ? 'bg-white text-gray-800 border-gray-200 z-10' 
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border-gray-300'
             }`}
             style={{
@@ -39,7 +39,7 @@ export function FlavorPickerVariants({
             onClick={() => setActiveTab('packs')}
             className={`flex-1 py-3 text-sm font-medium transition-all rounded-t-xl border-t border-l border-r relative ${
               activeTab === 'packs' 
-                ? 'bg-orange-50 text-orange-800 border-orange-200 z-10' 
+                ? 'bg-white text-gray-800 border-gray-200 z-10' 
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border-gray-300'
             }`}
             style={{
@@ -52,7 +52,7 @@ export function FlavorPickerVariants({
       </div>
       
       {/* Content Area with Tab Connection */}
-      <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6">
         <div className="grid grid-cols-4 gap-3">
         {(activeTab === 'flavors' ? flavors : flavors.filter(f => f.title.toLowerCase().includes('variety') || f.title.toLowerCase().includes('pack'))).map((flavor, index) => (
           <button
@@ -67,9 +67,9 @@ export function FlavorPickerVariants({
               }
             `}
           >
-            {/* Top Half - Primary Color Background */}
+            {/* Top Half - Primary Color Background with Image */}
             <div 
-              className="h-2/3 w-full flex items-center justify-center"
+              className="h-1/2 w-full flex items-center justify-center rounded-t-xl"
               style={{
                 backgroundColor: flavor.primaryColor || '#8B5CF6'
               }}
@@ -79,20 +79,20 @@ export function FlavorPickerVariants({
                 <img
                   src={flavor.images[0]}
                   alt={flavor.title}
-                  className="w-12 h-16 object-cover drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                  className="w-16 h-20 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
                 />
               ) : (
-                <div className="w-10 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                <div className="w-12 h-16 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
                   <span className="text-white text-xs font-bold">LOONER</span>
                 </div>
               )}
             </div>
             
-            {/* Bottom Third - White Background */}
-            <div className="h-1/3 p-2 bg-white flex items-center justify-center">
-              {/* Flavor Name Only */}
+            {/* Bottom Half - White Background with Text */}
+            <div className="h-1/2 p-3 bg-white flex items-center justify-center rounded-b-xl">
+              {/* Flavor Name */}
               <div className="text-center">
-                <h4 className="font-bold text-gray-900 text-xs leading-tight">
+                <h4 className="font-bold text-gray-900 text-sm leading-tight">
                   {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                 </h4>
               </div>
