@@ -64,6 +64,7 @@ function transformProductsToFlavors(products: any[]) {
         "High Quality",
       ],
       productType: product.productType || "",
+      vendor: product.vendor || "",
       bgColor: primaryColor
         ? `bg-[${primaryColor}]`
         : getFlavorBgClass(product.title, index),
@@ -139,24 +140,29 @@ export default function FlavorPage() {
         console.log("Starting to fetch products...");
         const products = await fetchProducts({ sortKey: "BEST_SELLING" });
         console.log("Products received:", products?.length || 0);
-        console.log("First product:", products?.[0]);
+        console.log("First product structure:", products?.[0]);
+        console.log("All product fields:", products?.[0] ? Object.keys(products[0]) : []);
         
         const allTransformedFlavors = transformProductsToFlavors(products);
         console.log("Transformed flavors:", allTransformedFlavors?.length || 0);
         
-        // Filter to show beverages/drinks - check multiple fields for maximum compatibility
+        // Filter to show soda products based on your Shopify admin categories
+        // Since Storefront API doesn't have category field, we'll use tags and titles
         let filteredFlavors = allTransformedFlavors.filter(flavor => {
-          const productType = (flavor.productType || '').toLowerCase();
           const title = (flavor.title || '').toLowerCase();
           const tags = (flavor.tags || []).map((tag: string) => tag.toLowerCase());
           
-          return (
-            productType.includes('soda') ||
-            productType.includes('beverage') ||
-            productType.includes('drink') ||
-            title.includes('soda') ||
-            tags.some((tag: string) => tag.includes('soda') || tag.includes('beverage') || tag.includes('drink'))
-          );
+          // Check for soda-related terms (matching your "Soda" category products)
+          const isSoda = tags.some((tag: string) => tag.includes('soda')) ||
+                         title.includes('soda') ||
+                         title.includes('pepper') ||
+                         title.includes('grape') ||
+                         title.includes('orange') ||
+                         title.includes('lime') ||
+                         title.includes('mule');
+          
+          console.log(`Product: ${flavor.title}, Tags: ${JSON.stringify(flavor.tags)}, Is Soda: ${isSoda}`);
+          return isSoda;
         });
         
         // If no specific beverages found, show all products (fallback)
