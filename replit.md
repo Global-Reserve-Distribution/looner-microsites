@@ -347,6 +347,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Increased image height from h-40 to h-44 creating subtle overflow effect
   - Product images now extend slightly beyond circle boundaries like authentic Olipop cards
   - Creates proper visual hierarchy with image prominence over background elements
+- **INTERACTIVE HOVER STATE** (July 24, 2025): Added Olipop-style hover effects to recommendation cards
+  - Hover state enlarges circle background from w-36 to w-44 and product image from h-44 to h-48
+  - Shows product description text that appears smoothly on hover
+  - Displays "Add 12 Pack" button with white background and subtle shadow
+  - Card aspect ratio adjusts slightly to accommodate additional content
+  - Smooth 300ms transitions for all hover state changes matching Olipop UX
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

@@ -40,22 +40,31 @@ export function RecommendedFlavors({
           const canImage = flavor.images[0];
           const primary = flavor.primaryColor || "#A855F7";
           const secondary = flavor.secondaryColor || "#E9D5FF";
+          const isHovered = hoveredIndex === index;
 
           return (
             <div
               key={flavor.title}
               onClick={() => onSelectFlavor(flavor)}
-              className="cursor-pointer transition-transform duration-200 hover:scale-[1.02]"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className="cursor-pointer transition-all duration-300 hover:scale-[1.02]"
             >
               <div 
-                className="rounded-3xl p-6 flex flex-col items-center text-center aspect-[3/4]"
+                className={`rounded-3xl p-6 flex flex-col items-center text-center transition-all duration-300 ${
+                  isHovered ? 'aspect-[3/4.2]' : 'aspect-[3/4]'
+                }`}
                 style={{ backgroundColor: secondary }}
               >
                 {/* Product Image with Circle Background */}
-                <div className="flex-1 flex items-center justify-center mb-4 relative">
+                <div className={`flex items-center justify-center mb-4 relative transition-all duration-300 ${
+                  isHovered ? 'flex-none' : 'flex-1'
+                }`}>
                   {/* Circle Background */}
                   <div 
-                    className="absolute w-36 h-36 rounded-full opacity-80"
+                    className={`absolute rounded-full opacity-80 transition-all duration-300 ${
+                      isHovered ? 'w-44 h-44' : 'w-36 h-36'
+                    }`}
                     style={{ backgroundColor: primary }}
                   />
                   
@@ -66,10 +75,14 @@ export function RecommendedFlavors({
                       alt={flavor.title}
                       width={160}
                       height={200}
-                      className="h-44 w-auto object-contain drop-shadow-lg relative z-10"
+                      className={`w-auto object-contain drop-shadow-lg relative z-10 transition-all duration-300 ${
+                        isHovered ? 'h-48' : 'h-44'
+                      }`}
                     />
                   ) : (
-                    <div className="w-24 h-44 bg-white/20 rounded-lg flex items-center justify-center relative z-10">
+                    <div className={`bg-white/20 rounded-lg flex items-center justify-center relative z-10 transition-all duration-300 ${
+                      isHovered ? 'w-28 h-48' : 'w-24 h-44'
+                    }`}>
                       <span className="text-white text-base font-bold">LOONER</span>
                     </div>
                   )}
@@ -80,11 +93,25 @@ export function RecommendedFlavors({
                   {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                 </h3>
 
+                {/* Product Description - Only show on hover */}
+                {isHovered && (
+                  <p className="text-gray-700 text-sm mb-3 px-2 leading-relaxed">
+                    {flavor.description || "A modern take on the classic cannabis-infused beverage."}
+                  </p>
+                )}
+
                 {/* Star Rating */}
-                <div className="flex items-center text-gray-800">
+                <div className="flex items-center text-gray-800 mb-3">
                   <span className="text-sm">★★★★</span>
                   <span className="text-sm text-gray-600">☆</span>
                 </div>
+
+                {/* Add Button - Only show on hover */}
+                {isHovered && (
+                  <button className="bg-white text-gray-800 px-6 py-2 rounded-full font-medium text-sm shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-200">
+                    + Add 12 Pack
+                  </button>
+                )}
               </div>
             </div>
           );
