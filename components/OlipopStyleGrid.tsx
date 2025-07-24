@@ -75,7 +75,7 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
       {/* Middle section: Full-width card with multiple products */}
       <div className="w-full">
         <div
-          className="rounded-2xl h-40 flex items-center justify-center gap-8 px-8"
+          className="rounded-2xl h-56 flex items-center justify-center gap-8 px-8"
           style={{
             backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
           }}
@@ -105,19 +105,19 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
       {/* Bottom section: Two half-width cards */}
       <div className="grid grid-cols-2 gap-4 w-full">
         <div
-          className="rounded-2xl h-48 flex items-center justify-center"
+          className="rounded-2xl h-64 flex items-center justify-center"
           style={{
             backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
           }}
         >
           <div className="text-center">
-            <h3 className="text-3xl font-bold text-white">Better than</h3>
-            <h3 className="text-3xl font-bold text-white">Dessert</h3>
+            <h3 className="text-4xl font-bold text-white">Better than</h3>
+            <h3 className="text-4xl font-bold text-white">Dessert</h3>
           </div>
         </div>
         
         <div
-          className="rounded-2xl h-48 flex items-center justify-center relative overflow-hidden"
+          className="rounded-2xl h-64 flex items-center justify-center relative overflow-hidden"
           style={{
             backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
           }}
