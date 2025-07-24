@@ -3,11 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart } from 'lucide-react';
 import { Cart } from '../lib/shopify/cart';
+import { AddToCartButton } from './AddToCartButton';
 
 interface StickyCartFooterProps {
   cart: Cart | null;
   isMainButtonVisible: boolean;
-  onAddToCart: () => void;
+  merchandiseId: string;
   productTitle: string;
   productPrice: string;
   productImage?: string;
@@ -16,7 +17,7 @@ interface StickyCartFooterProps {
 export function StickyCartFooter({ 
   cart, 
   isMainButtonVisible, 
-  onAddToCart, 
+  merchandiseId, 
   productTitle, 
   productPrice,
   productImage 
@@ -76,15 +77,18 @@ export function StickyCartFooter({
       </div>
 
       {/* Add to Cart Button */}
-      <button
-        onClick={onAddToCart}
-        className="w-full mt-3 bg-green-800 hover:bg-green-900 text-white font-medium py-3 px-4 rounded-full transition-colors duration-200 flex items-center justify-center space-x-2"
-      >
-        <ShoppingCart className="w-5 h-5" />
-        <span>
+      <div className="mt-3">
+        <AddToCartButton
+          merchandiseId={merchandiseId}
+          quantity={1}
+          productTitle={productTitle}
+          productPrice={productPrice}
+          variant="sticky"
+          className="w-full"
+        >
           {hasItems ? 'Add Another' : 'Add to Cart'}
-        </span>
-      </button>
+        </AddToCartButton>
+      </div>
 
       {/* Cart Total (if items exist) */}
       {hasItems && cart && (

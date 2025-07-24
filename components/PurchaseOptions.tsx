@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { AddToCartButton } from './AddToCartButton';
 
 interface PurchaseOptionsProps {
   flavor: {
@@ -7,21 +8,14 @@ interface PurchaseOptionsProps {
   };
   variant: { id: string; title: string; price: number };
   onVariantChange: (variant: { id: string; title: string; price: number }) => void;
-  onAddToCart?: (merchandiseId: string, quantity: number) => void;
 }
 
 export const PurchaseOptions = React.forwardRef<HTMLDivElement, PurchaseOptionsProps>(function PurchaseOptions(
-  { flavor, variant, onVariantChange, onAddToCart }, 
+  { flavor, variant, onVariantChange }, 
   ref
 ) {
 
   const [purchaseType, setPurchaseType] = useState<'one-time' | 'subscription'>('one-time');
-
-  const handleAddToCart = () => {
-    if (onAddToCart) {
-      onAddToCart(variant.id, 1);
-    }
-  };
 
   const subscriptionPrice = variant.price * 0.85; // 15% off for subscription
 
@@ -121,12 +115,13 @@ export const PurchaseOptions = React.forwardRef<HTMLDivElement, PurchaseOptionsP
       </div>
 
       {/* Add to Cart */}
-      <button 
-        onClick={handleAddToCart}
-        className="w-full bg-green-800 text-white py-4 px-6 rounded-full font-semibold text-lg hover:bg-green-900 transition-colors shadow-lg"
-      >
-        Add to Cart
-      </button>
+      <AddToCartButton
+        merchandiseId={variant.id}
+        quantity={1}
+        productTitle={flavor?.title}
+        productPrice={`$${variant.price.toFixed(2)}`}
+        variant="primary"
+      />
 
       {/* Delivery Info */}
       {purchaseType === 'subscription' && (
