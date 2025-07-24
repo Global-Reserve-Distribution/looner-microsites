@@ -70,14 +70,37 @@ export function FlavorPickerVariants({
     </div>
   );
 
-  const renderPremiumVariant = () => (
-    <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-3xl">
-      <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-        Choose Your Experience
-      </h3>
-      
-      <div className="grid grid-cols-3 gap-6">
-        {flavors.slice(0, 9).map((flavor, index) => (
+  const renderPremiumVariant = () => {
+    const [activeTab, setActiveTab] = React.useState<'flavors' | 'packs'>('flavors');
+    
+    return (
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-3xl">
+        {/* Tab Navigation */}
+        <div className="flex space-x-4 mb-6 justify-center">
+          <button 
+            onClick={() => setActiveTab('flavors')}
+            className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+              activeTab === 'flavors' 
+                ? 'bg-orange-100 text-orange-800' 
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            }`}
+          >
+            Our Flavors
+          </button>
+          <button 
+            onClick={() => setActiveTab('packs')}
+            className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+              activeTab === 'packs' 
+                ? 'bg-orange-100 text-orange-800' 
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            }`}
+          >
+            Variety Packs
+          </button>
+        </div>
+        
+        <div className="grid grid-cols-4 gap-3">
+        {(activeTab === 'flavors' ? flavors : flavors.filter(f => f.title.toLowerCase().includes('variety') || f.title.toLowerCase().includes('pack'))).map((flavor, index) => (
           <button
             key={flavor.title}
             onClick={() => onFlavorSelect(flavor)}
@@ -125,6 +148,7 @@ export function FlavorPickerVariants({
       </div>
     </div>
   );
+  };
 
   const renderMinimalVariant = () => (
     <div className="bg-white">
