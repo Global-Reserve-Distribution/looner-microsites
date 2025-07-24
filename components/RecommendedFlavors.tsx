@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 interface Flavor {
@@ -25,6 +25,21 @@ export function RecommendedFlavors({
   onSelectFlavor,
 }: Props) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [animationPhase, setAnimationPhase] = useState<'idle' | 'fadeOut' | 'waveDown' | 'complete'>('idle');
+
+  useEffect(() => {
+    if (hoveredIndex !== null) {
+      setAnimationPhase('fadeOut');
+      const timer1 = setTimeout(() => setAnimationPhase('waveDown'), 150);
+      const timer2 = setTimeout(() => setAnimationPhase('complete'), 300);
+      return () => {
+        clearTimeout(timer1);
+        clearTimeout(timer2);
+      };
+    } else {
+      setAnimationPhase('idle');
+    }
+  }, [hoveredIndex]);
   const recommended = allFlavors.filter(
     (f) => f.title.toLowerCase() !== currentFlavor.toLowerCase()
   );
@@ -51,21 +66,72 @@ export function RecommendedFlavors({
               className="cursor-pointer transition-all duration-300 hover:scale-[1.02]"
             >
               <div 
-                className={`rounded-3xl overflow-hidden flex flex-col transition-all duration-300 ${
+                className={`rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative ${
                   isHovered ? 'aspect-[3/4.2]' : 'aspect-[3/4]'
                 }`}
                 style={{ backgroundColor: secondary }}
               >
-                {isHovered ? (
-                  // Hover State Layout
-                  <>
+                {/* Always render both states, control visibility with animations */}
+                
+                {/* Default State - Fade out on hover */}
+                <div className={`absolute inset-0 transition-all duration-200 ${
+                  isHovered && animationPhase !== 'idle' ? 'opacity-0' : 'opacity-100'
+                }`}>
+                  {/* Product Image with Circle Background */}
+                  <div className="flex-1 flex items-center justify-center mb-4 relative p-6">
+                    {/* Circle Background */}
+                    <div 
+                      className={`absolute w-36 h-36 rounded-full transition-all duration-200 ${
+                        isHovered && animationPhase !== 'idle' ? 'opacity-0 scale-110' : 'opacity-80 scale-100'
+                      }`}
+                      style={{ backgroundColor: primary }}
+                    />
+                    
+                    {/* Product Image */}
+                    {canImage ? (
+                      <Image
+                        src={canImage}
+                        alt={flavor.title}
+                        width={160}
+                        height={200}
+                        className={`h-44 w-auto object-contain drop-shadow-lg relative z-10 transition-all duration-200 ${
+                          isHovered && animationPhase !== 'idle' ? 'opacity-0 scale-105' : 'opacity-100 scale-100'
+                        }`}
+                      />
+                    ) : (
+                      <div className={`w-24 h-44 bg-white/20 rounded-lg flex items-center justify-center relative z-10 transition-all duration-200 ${
+                        isHovered && animationPhase !== 'idle' ? 'opacity-0 scale-105' : 'opacity-100 scale-100'
+                      }`}>
+                        <span className="text-white text-base font-bold">LOONER</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Product Name and Rating */}
+                  <div className="px-6 pb-6 text-center">
+                    <h3 className="font-bold text-gray-900 text-lg mb-2 leading-tight">
+                      {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
+                    </h3>
+
+                    <div className="flex items-center justify-center text-gray-800">
+                      <span className="text-sm">★★★★</span>
+                      <span className="text-sm text-gray-600">☆</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Hover State - Animate in */}
+                {isHovered && (
+                  <div className="absolute inset-0 flex flex-col">
                     {/* Top Section with Decorative Background */}
                     <div 
                       className="relative flex-1 flex items-center justify-center p-6"
                       style={{ backgroundColor: primary }}
                     >
-                      {/* Decorative Blob Elements */}
-                      <div className="absolute inset-0 overflow-hidden">
+                      {/* Decorative Blob Elements - Fade in */}
+                      <div className={`absolute inset-0 overflow-hidden transition-opacity duration-300 delay-200 ${
+                        animationPhase === 'complete' ? 'opacity-100' : 'opacity-0'
+                      }`}>
                         <div 
                           className="absolute top-4 left-6 w-8 h-8 rounded-full opacity-30"
                           style={{ backgroundColor: secondary }}
@@ -88,38 +154,56 @@ export function RecommendedFlavors({
                         />
                       </div>
                       
-                      {/* Product Image */}
+                      {/* Product Image - Fade in */}
                       {canImage ? (
                         <Image
                           src={canImage}
                           alt={flavor.title}
                           width={160}
                           height={200}
-                          className="h-48 w-auto object-contain drop-shadow-lg relative z-10"
+                          className={`h-48 w-auto object-contain drop-shadow-lg relative z-10 transition-all duration-300 delay-100 ${
+                            animationPhase === 'complete' ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                          }`}
                         />
                       ) : (
-                        <div className="w-28 h-48 bg-white/20 rounded-lg flex items-center justify-center relative z-10">
+                        <div className={`w-28 h-48 bg-white/20 rounded-lg flex items-center justify-center relative z-10 transition-all duration-300 delay-100 ${
+                          animationPhase === 'complete' ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                        }`}>
                           <span className="text-white text-base font-bold">LOONER</span>
                         </div>
                       )}
                     </div>
 
-                    {/* Wavy Divider */}
-                    <svg 
-                      className="w-full h-6 -mt-1" 
-                      viewBox="0 0 400 24" 
-                      fill="none"
-                      style={{ backgroundColor: primary }}
-                    >
-                      <path 
-                        d="M0,12 C100,24 300,0 400,12 L400,24 L0,24 Z" 
-                        fill={secondary}
-                      />
-                    </svg>
+                    {/* Animated Wavy Divider */}
+                    <div className="relative">
+                      <svg 
+                        className="w-full h-6 -mt-1" 
+                        viewBox="0 0 400 24" 
+                        fill="none"
+                        style={{ backgroundColor: primary }}
+                      >
+                        <path 
+                          d="M0,12 C100,24 300,0 400,12 L400,24 L0,24 Z" 
+                          fill={secondary}
+                          className={`transition-all duration-500 ${
+                            animationPhase === 'waveDown' || animationPhase === 'complete' 
+                              ? 'translate-y-0 opacity-100' 
+                              : '-translate-y-full opacity-0'
+                          }`}
+                          style={{
+                            transformOrigin: 'top',
+                          }}
+                        />
+                      </svg>
+                    </div>
 
-                    {/* Bottom Section with Content */}
+                    {/* Bottom Section with Content - Slide up */}
                     <div 
-                      className="p-6 pt-2 text-center"
+                      className={`p-6 pt-2 text-center transition-all duration-400 delay-200 ${
+                        animationPhase === 'complete' 
+                          ? 'translate-y-0 opacity-100' 
+                          : 'translate-y-4 opacity-0'
+                      }`}
                       style={{ backgroundColor: secondary }}
                     >
                       <h3 className="font-bold text-gray-900 text-lg mb-2 leading-tight">
@@ -139,46 +223,7 @@ export function RecommendedFlavors({
                         + Add 12 Pack
                       </button>
                     </div>
-                  </>
-                ) : (
-                  // Default State Layout
-                  <>
-                    {/* Product Image with Circle Background */}
-                    <div className="flex-1 flex items-center justify-center mb-4 relative p-6">
-                      {/* Circle Background */}
-                      <div 
-                        className="absolute w-36 h-36 rounded-full opacity-80"
-                        style={{ backgroundColor: primary }}
-                      />
-                      
-                      {/* Product Image */}
-                      {canImage ? (
-                        <Image
-                          src={canImage}
-                          alt={flavor.title}
-                          width={160}
-                          height={200}
-                          className="h-44 w-auto object-contain drop-shadow-lg relative z-10"
-                        />
-                      ) : (
-                        <div className="w-24 h-44 bg-white/20 rounded-lg flex items-center justify-center relative z-10">
-                          <span className="text-white text-base font-bold">LOONER</span>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Product Name and Rating */}
-                    <div className="px-6 pb-6 text-center">
-                      <h3 className="font-bold text-gray-900 text-lg mb-2 leading-tight">
-                        {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
-                      </h3>
-
-                      <div className="flex items-center justify-center text-gray-800">
-                        <span className="text-sm">★★★★</span>
-                        <span className="text-sm text-gray-600">☆</span>
-                      </div>
-                    </div>
-                  </>
+                  </div>
                 )}
               </div>
             </div>
