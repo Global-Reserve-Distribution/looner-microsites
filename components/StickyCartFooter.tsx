@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { ShoppingCart } from 'lucide-react';
 import { Cart } from '../lib/shopify/cart';
 import { AddToCartButton } from './AddToCartButton';
-import LogoIcon from './icons/logo';
+import Image from 'next/image';
 
 interface StickyCartFooterProps {
   cart: Cart | null;
@@ -55,8 +55,14 @@ export function StickyCartFooter({
               className="w-12 h-12 object-contain rounded-lg bg-gray-100"
             />
           ) : (
-            <div className="w-12 h-12 bg-gradient-to-b from-green-600 to-green-800 rounded-lg flex items-center justify-center">
-              <LogoIcon className="w-8 h-8 fill-white" />
+            <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+              <Image 
+                src="/logo.png" 
+                alt="LOONER Cannabis Co" 
+                width={32} 
+                height={32} 
+                className="w-8 h-8 object-contain"
+              />
             </div>
           )}
           

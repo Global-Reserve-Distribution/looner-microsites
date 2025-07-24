@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Menu, X, ShoppingCart, User, MapPin } from 'lucide-react';
 import { useCart } from '../hooks/useCart';
-import LogoIcon from './icons/logo';
+import Image from 'next/image';
 
 interface MobileHeaderProps {
   backgroundColor?: string;
@@ -39,7 +39,13 @@ export function MobileHeader({ backgroundColor = 'white' }: MobileHeaderProps) {
 
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <LogoIcon className="w-8 h-8" />
+            <Image 
+              src="/logo.png" 
+              alt="LOONER Cannabis Co" 
+              width={32} 
+              height={32} 
+              className="w-8 h-8 object-contain"
+            />
             <span className="text-xl font-bold text-gray-900">LOONER</span>
           </div>
 
@@ -71,7 +77,13 @@ export function MobileHeader({ backgroundColor = 'white' }: MobileHeaderProps) {
             {/* Drawer Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-200">
               <div className="flex items-center space-x-2">
-                <LogoIcon className="w-8 h-8" />
+                <Image 
+                  src="/logo.png" 
+                  alt="LOONER Cannabis Co" 
+                  width={32} 
+                  height={32} 
+                  className="w-8 h-8 object-contain"
+                />
                 <span className="text-xl font-bold text-gray-900">LOONER</span>
               </div>
               <button
