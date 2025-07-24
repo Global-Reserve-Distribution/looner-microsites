@@ -93,7 +93,8 @@ export const getProductsWithCategoriesQuery = /* GraphQL */ `
           metafields(identifiers: [
             {namespace: "custom", key: "primary_color"},
             {namespace: "custom", key: "secondary_color"},
-            {namespace: "custom", key: "display_name"}
+            {namespace: "custom", key: "display_name"},
+            {namespace: "custom", key: "short_description"}
           ]) {
             key
             value

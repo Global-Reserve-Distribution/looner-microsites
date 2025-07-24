@@ -33,8 +33,8 @@ function getTagEmoji(tag: string): string {
   return "✨";
 }
 
-// Extract color metafields and display name from Shopify product
-function extractColorMetafields(product: any) {
+// Extract metafields from Shopify product
+function extractMetafields(product: any) {
   const metafields = product.metafields || [];
 
   // Debug: Log metafields to see what's actually returned
@@ -55,22 +55,28 @@ function extractColorMetafields(product: any) {
     (field: any) =>
       field && field.key === "display_name" && field.namespace === "custom",
   );
+  const shortDescriptionField = metafields.find(
+    (field: any) =>
+      field && field.key === "short_description" && field.namespace === "custom",
+  );
 
   return {
     primaryColor: primaryColorField?.value || null,
     secondaryColor: secondaryColorField?.value || null,
     displayName: displayNameField?.value || null,
+    shortDescription: shortDescriptionField?.value || null,
   };
 }
 
 // Transform Admin API products to flavor format
 function transformAdminProductsToFlavors(products: any[]) {
   return products.map((product, index) => {
-    const { primaryColor, secondaryColor, displayName } = extractColorMetafields(product);
+    const { primaryColor, secondaryColor, displayName, shortDescription } = extractMetafields(product);
 
     return {
       title: displayName && displayName.trim() !== "" ? displayName : product.title,
       description: product.description || "",
+      shortDescription: shortDescription || null,
       tags: product.tags || [
         "Cannabis Infused",
         "Made with Cane Sugar",
@@ -113,11 +119,12 @@ function transformAdminProductsToFlavors(products: any[]) {
 // Transform Shopify products to flavor format (fallback)
 function transformProductsToFlavors(products: any[]) {
   return products.map((product, index) => {
-    const { primaryColor, secondaryColor, displayName } = extractColorMetafields(product);
+    const { primaryColor, secondaryColor, displayName, shortDescription } = extractMetafields(product);
 
     return {
       title: displayName && displayName.trim() !== "" ? displayName : product.title,
       description: product.description || "",
+      shortDescription: shortDescription || null,
       tags: product.tags || [
         "Cannabis Infused",
         "Made with Cane Sugar",

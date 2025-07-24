@@ -127,7 +127,7 @@ export function RecommendedFlavors({
                       </h3>
 
                       <p className="text-gray-700 text-xs mb-3 leading-relaxed">
-                        {flavor.description || "A boldly refreshing collision of flavors."}
+                        {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
                       </p>
 
                       <div className="flex items-center justify-center mb-3 text-gray-800">
@@ -276,7 +276,7 @@ export function RecommendedFlavors({
                         </h3>
 
                         <p className="text-gray-700 text-sm mb-4 leading-relaxed">
-                          {flavor.description || "A boldly refreshing collision of flavors."}
+                          {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
                         </p>
 
                         <div className="flex items-center justify-center mb-4 text-gray-800">

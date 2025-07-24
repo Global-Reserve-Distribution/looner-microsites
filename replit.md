@@ -399,6 +399,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated product transformation functions to use display_name with fallback to existing title
   - Enhanced extractColorMetafields function to handle display_name extraction
   - Provides clean product names without SKU/variant suffixes when metafield is populated
+- **SHORT DESCRIPTION METAFIELD** (July 24, 2025): Added support for custom.short_description metafield
+  - Added custom.short_description to both Storefront API and Admin API GraphQL queries
+  - Updated RecommendedFlavors component to use shortDescription for card descriptions
+  - Enhanced extractMetafields function (renamed from extractColorMetafields) to handle all custom metafields
+  - Fallback hierarchy: shortDescription → description → default text for "You May Also Like" cards
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
