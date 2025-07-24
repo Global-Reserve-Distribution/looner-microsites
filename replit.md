@@ -379,6 +379,13 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Applied sticky positioning with proper z-index layering
   - Installed lucide-react for consistent iconography
   - Added shopping cart counter and proper hover states throughout
+- **MOBILE CAROUSEL LAYOUT** (July 24, 2025): Implemented responsive mobile carousel for OlipopStyleGrid
+  - Added responsive breakpoints: desktop grid layout (md:hidden/block) vs mobile carousel (md:hidden)
+  - Created horizontal scrolling carousel with 6 distinct cards: main product, 3 tags, multi-product, Better than Dessert, glass+product
+  - Implemented proper card sizing: main product (w-80), tags (w-48), text cards (w-64)
+  - Added hidden scrollbars using custom CSS classes (.scrollbar-hide) for clean mobile UX
+  - Fixed TypeScript errors with proper type annotations for map functions
+  - Maintained consistent color theming from Shopify metafields across mobile and desktop layouts
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
