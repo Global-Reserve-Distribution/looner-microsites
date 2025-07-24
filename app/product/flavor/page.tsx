@@ -346,7 +346,7 @@ export default function FlavorPage() {
 
   return (
     <>
-      <Header backgroundColor={selectedFlavor?.primaryColor || "#FFE5B4"} />
+      <Header backgroundColor="white" />
       <main className="relative overflow-hidden min-h-screen transition-all duration-500">
         <FlavorBackground color={selectedFlavor?.primaryColor || "#FFE5B4"} />
 
