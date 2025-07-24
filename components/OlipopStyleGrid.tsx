@@ -28,12 +28,12 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
 
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pl-4">
       {/* Top section: Main image with tags on the side */}
-      <div className="grid grid-cols-4 gap-4">
-        {/* Large Product Image Card - Takes 3 columns */}
+      <div className="grid grid-cols-[3fr_1fr] gap-4">
+        {/* Large Product Image Card */}
         <div
-          className="col-span-3 rounded-3xl overflow-hidden relative h-96"
+          className="rounded-3xl overflow-hidden relative h-96"
           style={{
             backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
           }}
@@ -54,7 +54,7 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
         </div>
 
         {/* Feature Tags Container - Right column, secondary background */}
-        <div className="col-span-1 h-96 flex flex-col justify-between space-y-4 py-4">
+        <div className="h-96 flex flex-col justify-between space-y-4 py-4">
           {filteredTags.slice(0, 3).map((tag: string, index: number) => (
             <div
               key={tag}
