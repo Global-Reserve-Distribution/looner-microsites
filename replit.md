@@ -337,10 +337,6 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Circle positioned with absolute positioning and z-index layering
   - Product images maintain relative z-10 positioning above circle background
   - Matches Olipop reference design with proper color hierarchy and visual depth
-- **FLIPPED BACKGROUND COLORS** (July 24, 2025): Reversed color scheme for better visual hierarchy
-  - Card background now uses primaryColor for main background
-  - Circle background now uses secondaryColor for contrast
-  - Creates better visual depth with darker main background and lighter circle highlight
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
