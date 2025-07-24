@@ -268,6 +268,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Text section now appears as white overlay at bottom of card using absolute positioning
   - Matches Olipop reference where images take full card space and text overlays at bottom
   - Maintained rounded corners and proper text styling for optimal readability
+- **HALF HEIGHT TEXT SECTIONS** (July 24, 2025): Updated text overlay to match reference proportions
+  - Changed text overlay from minimal padding to half height (h-1/2) for consistent appearance
+  - Text sections now match the proportions seen in Lemon Lime, Professor Pepper, and Root Beer cards
+  - Added flex centering to properly position flavor names within the half-height white section
+  - Maintained proper text sizing and padding for optimal readability
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

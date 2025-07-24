@@ -87,9 +87,9 @@ export function FlavorPickerVariants({
                 </div>
               )}
               
-              {/* Text Overlay at Bottom */}
-              <div className="absolute bottom-0 left-0 right-0 bg-white p-3 rounded-b-xl">
-                <div className="text-center">
+              {/* Text Overlay at Bottom - Half Height */}
+              <div className="absolute bottom-0 left-0 right-0 bg-white h-1/2 flex items-center justify-center rounded-b-xl">
+                <div className="text-center px-2">
                   <h4 className="font-bold text-gray-900 text-sm leading-tight">
                     {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                   </h4>
