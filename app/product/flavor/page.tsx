@@ -336,12 +336,19 @@ export default function FlavorPage() {
     loadFlavors();
   }, [slug]);
 
-  const varietyPacks = flavors.filter((f) =>
-    f.tags.some((tag: string) => tag.toLowerCase().includes("variety")),
-  );
-  const regularFlavors = flavors.filter(
-    (f) => !f.tags.some((tag: string) => tag.toLowerCase().includes("variety")),
-  );
+  const varietyPacks = flavors.filter((f) => {
+    const tags = (f.tags || []).map(tag => tag.toLowerCase());
+    // Require both "soda" AND "bundle" tags for variety packs
+    const hasSoda = tags.some(tag => tag.includes("soda"));
+    const hasBundle = tags.some(tag => tag.includes("bundle"));
+    console.log(`Product: ${f.title}, Tags: ${JSON.stringify(f.tags)}, Has Soda: ${hasSoda}, Has Bundle: ${hasBundle}`);
+    return hasSoda && hasBundle;
+  });
+  const regularFlavors = flavors.filter((f) => {
+    const tags = (f.tags || []).map(tag => tag.toLowerCase());
+    // Exclude bundle items from regular flavors
+    return !tags.some(tag => tag.includes("bundle"));
+  });
 
   if (loading) {
     return (

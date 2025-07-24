@@ -45,6 +45,8 @@ export function MobileHeader({ backgroundColor = 'white' }: MobileHeaderProps) {
               width={40} 
               height={40} 
               className="w-10 h-10 object-contain"
+              priority
+              onError={(e) => console.error('Logo failed to load:', e)}
             />
           </div>
 
@@ -72,7 +74,7 @@ export function MobileHeader({ backgroundColor = 'white' }: MobileHeaderProps) {
           />
           
           {/* Drawer */}
-          <div className="fixed top-0 left-0 w-80 h-full bg-white z-50 transform transition-transform duration-300 ease-in-out md:hidden">
+          <div className={`fixed top-0 left-0 w-80 h-full bg-white z-50 transform transition-transform duration-300 ease-in-out md:hidden ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
             {/* Drawer Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-200">
               <div className="flex items-center">
@@ -82,6 +84,7 @@ export function MobileHeader({ backgroundColor = 'white' }: MobileHeaderProps) {
                   width={32} 
                   height={32} 
                   className="w-8 h-8 object-contain"
+                  priority
                 />
               </div>
               <button
