@@ -286,6 +286,13 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Additional product images and lifestyle cards below tags
   - Replaced left column content (FlavorHero, tags, LifestyleImageGrid) with OlipopStyleGrid
   - Flavor picker remains unchanged in right column for proper functionality
+- **FILTERED TAGS AND OLIPOP POSITIONING** (July 24, 2025): Updated tag layout to match Olipop reference
+  - Filtered out 'Soda' and 'bundle' tags from display
+  - Repositioned tags to right side of large product image matching Olipop layout
+  - Changed to 4-column grid: 3 columns for product image, 1 column for stacked tags
+  - Tags now display vertically stacked on right side like 'High Fiber', 'Non GMO', 'Less Sugar' in reference
+  - Limited to 3 tags maximum for proper vertical spacing
+  - Added dynamic tag emoji mapping and background color rotation
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

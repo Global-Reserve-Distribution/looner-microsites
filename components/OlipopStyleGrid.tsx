@@ -7,11 +7,33 @@ interface OlipopStyleGridProps {
 }
 
 export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
+  // Filter tags to exclude 'Soda' and 'bundle'
+  const filteredTags = selectedFlavor?.tags?.filter((tag: string) => {
+    const tagLower = tag.toLowerCase();
+    return !tagLower.includes('soda') && !tagLower.includes('bundle');
+  }) || [];
+
+  const getTagEmoji = (tag: string): string => {
+    const tagLower = tag.toLowerCase();
+    if (tagLower.includes('thc') || tagLower.includes('cannabis')) return '✨';
+    if (tagLower.includes('cane') || tagLower.includes('sugar')) return '🌿';
+    if (tagLower.includes('high') || tagLower.includes('quality')) return '⭐';
+    if (tagLower.includes('fiber')) return '🌾';
+    if (tagLower.includes('gmo')) return '🌱';
+    if (tagLower.includes('natural')) return '🍃';
+    return '✨';
+  };
+
+  const getTagBackground = (index: number): string => {
+    const backgrounds = ['bg-orange-100', 'bg-green-100', 'bg-blue-100', 'bg-purple-100', 'bg-yellow-100', 'bg-pink-100'];
+    return backgrounds[index % backgrounds.length];
+  };
+
   return (
-    <div className="space-y-6">
-      {/* Large Product Image Card */}
+    <div className="grid grid-cols-4 gap-4">
+      {/* Large Product Image Card - Takes 3 columns */}
       <div 
-        className="rounded-3xl overflow-hidden relative h-96"
+        className="col-span-3 rounded-3xl overflow-hidden relative h-96"
         style={{
           backgroundColor: selectedFlavor?.primaryColor || '#8B5CF6'
         }}
@@ -31,27 +53,17 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
         </div>
       </div>
 
-      {/* Feature Tags Grid */}
-      <div className="grid grid-cols-2 gap-4">
-        <div className="bg-orange-100 rounded-2xl p-4 text-center">
-          <div className="text-2xl mb-2">✨</div>
-          <h3 className="font-bold text-gray-800">10mg THC</h3>
-        </div>
-        
-        <div className="bg-green-100 rounded-2xl p-4 text-center">
-          <div className="text-2xl mb-2">🌿</div>
-          <h3 className="font-bold text-gray-800">Cane Sugar</h3>
-        </div>
-        
-        <div className="bg-blue-100 rounded-2xl p-4 text-center">
-          <div className="text-xl mb-1">⭐</div>
-          <h3 className="font-bold text-gray-800 text-sm">High Quality</h3>
-        </div>
-        
-        <div className="bg-purple-100 rounded-2xl p-4 text-center">
-          <div className="text-xl mb-1">🥤</div>
-          <h3 className="font-bold text-gray-800 text-sm">Soda</h3>
-        </div>
+      {/* Feature Tags - Right column, stacked vertically */}
+      <div className="col-span-1 space-y-4">
+        {filteredTags.slice(0, 3).map((tag: string, index: number) => (
+          <div 
+            key={tag}
+            className={`${getTagBackground(index)} rounded-2xl p-4 text-center h-24 flex flex-col items-center justify-center`}
+          >
+            <div className="text-lg mb-1">{getTagEmoji(tag)}</div>
+            <h3 className="font-bold text-gray-800 text-xs leading-tight">{tag}</h3>
+          </div>
+        ))}
       </div>
 
       {/* Additional Product Images */}
