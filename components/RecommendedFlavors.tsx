@@ -65,7 +65,7 @@ export function RecommendedFlavors({
               onClick={() => onSelectFlavor(flavor)}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+              className="cursor-pointer transition-all duration-300 md:hover:scale-[1.02]"
             >
               <div
                 className="rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[3/4]"
@@ -73,17 +73,23 @@ export function RecommendedFlavors({
               >
                 {/* Always render both states, control visibility with animations */}
 
-                {/* Default State - Always visible but gets masked */}
+                {/* Default State - Shows full content on mobile, minimal on desktop */}
                 <div
                   className={`absolute inset-0 ${
                     !isHovered ? "z-20" : "z-10"
                   }`}
                 >
-                  {/* Product Image with Circle Background */}
-                  <div className="flex-1 flex items-center justify-center relative p-6">
+                  {/* Top Section with Product Image and Circle Background */}
+                  <div 
+                    className="relative flex items-center justify-center p-6"
+                    style={{ 
+                      backgroundColor: secondary,
+                      height: '60%'
+                    }}
+                  >
                     {/* Circle Background */}
                     <div
-                      className="absolute w-36 h-36 rounded-full opacity-80"
+                      className="absolute w-32 h-32 rounded-full"
                       style={{ backgroundColor: primary }}
                     />
 
@@ -92,23 +98,51 @@ export function RecommendedFlavors({
                       <Image
                         src={canImage}
                         alt={flavor.title}
-                        width={160}
-                        height={200}
-                        className="h-44 w-auto object-contain drop-shadow-lg relative z-10"
+                        width={120}
+                        height={150}
+                        className="h-36 w-auto object-contain drop-shadow-lg relative z-10"
                       />
                     ) : (
                       <div
-                        className="w-24 h-44 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
+                        className="w-20 h-36 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
                       >
-                        <span className="text-white text-base font-bold">
+                        <span className="text-white text-sm font-bold">
                           LOONER
                         </span>
                       </div>
                     )}
                   </div>
 
-                  {/* Product Name and Rating with Wave - Animate up on hover */}
-                  <div className={`absolute bottom-0 left-0 right-0 transition-transform duration-500 ${
+                  {/* Bottom Section with Content - Always visible on mobile, hidden on desktop hover */}
+                  <div 
+                    className="absolute bottom-0 left-0 right-0 text-center flex flex-col justify-center md:hidden"
+                    style={{ 
+                      backgroundColor: secondary,
+                      height: '40%'
+                    }}
+                  >
+                    <div className="p-4 flex flex-col justify-center h-full">
+                      <h3 className="font-bold text-gray-900 text-base mb-1 leading-tight">
+                        {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
+                      </h3>
+
+                      <p className="text-gray-700 text-xs mb-3 leading-relaxed">
+                        {flavor.description || "A boldly refreshing collision of flavors."}
+                      </p>
+
+                      <div className="flex items-center justify-center mb-3 text-gray-800">
+                        <span className="text-xs">★★★★</span>
+                        <span className="text-xs text-gray-400">☆</span>
+                      </div>
+
+                      <button className="bg-white text-gray-800 px-4 py-1.5 rounded-full font-medium text-xs shadow-sm border border-gray-200">
+                        + Add 12 Pack
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Desktop minimal bottom section - only shows on desktop */}
+                  <div className={`hidden md:block absolute bottom-0 left-0 right-0 transition-transform duration-500 ${
                     isHovered && (animationPhase === 'waveDown' || animationPhase === 'complete')
                       ? 'translate-y-[-65%]' 
                       : 'translate-y-0'
@@ -144,9 +178,9 @@ export function RecommendedFlavors({
                   </div>
                 </div>
 
-                {/* Hover State - Always rendered but masked */}
+                {/* Hover State - Only active on desktop */}
                 <div 
-                  className={`absolute inset-0 flex flex-col ${
+                  className={`hidden md:block absolute inset-0 flex flex-col ${
                     isHovered ? "z-20" : "z-0"
                   }`}
                   style={{

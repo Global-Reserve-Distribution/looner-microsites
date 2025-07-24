@@ -388,6 +388,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added hidden scrollbars using custom CSS classes (.scrollbar-hide) for clean mobile UX
   - Fixed TypeScript errors with proper type annotations for map functions
   - Maintained consistent color theming from Shopify metafields across mobile and desktop layouts
+- **RECOMMENDATION CARDS REDESIGN** (July 24, 2025): Updated "You May Also Like" cards to match Olipop reference
+  - **Mobile layout**: Shows full content permanently - product image, name, description, rating, and "Add 12 Pack" button
+  - **Desktop layout**: Maintains hover/non-hover state interaction with animated wave reveal effect
+  - Updated default state to show product on colored circle background with content below
+  - Reduced flavor picker from 4 columns to 3 columns to prevent text cramming
+  - Added product name above mobile carousel layout for better information hierarchy
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
