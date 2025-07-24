@@ -8,24 +8,32 @@ interface OlipopStyleGridProps {
 
 export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
   // Filter tags to exclude 'Soda' and 'bundle'
-  const filteredTags = selectedFlavor?.tags?.filter((tag: string) => {
-    const tagLower = tag.toLowerCase();
-    return !tagLower.includes('soda') && !tagLower.includes('bundle');
-  }) || [];
+  const filteredTags =
+    selectedFlavor?.tags?.filter((tag: string) => {
+      const tagLower = tag.toLowerCase();
+      return !tagLower.includes("soda") && !tagLower.includes("bundle");
+    }) || [];
 
   const getTagEmoji = (tag: string): string => {
     const tagLower = tag.toLowerCase();
-    if (tagLower.includes('thc') || tagLower.includes('cannabis')) return '✨';
-    if (tagLower.includes('cane') || tagLower.includes('sugar')) return '🌿';
-    if (tagLower.includes('high') || tagLower.includes('quality')) return '⭐';
-    if (tagLower.includes('fiber')) return '🌾';
-    if (tagLower.includes('gmo')) return '🌱';
-    if (tagLower.includes('natural')) return '🍃';
-    return '✨';
+    if (tagLower.includes("thc") || tagLower.includes("cannabis")) return "✨";
+    if (tagLower.includes("cane") || tagLower.includes("sugar")) return "🌿";
+    if (tagLower.includes("high") || tagLower.includes("quality")) return "⭐";
+    if (tagLower.includes("fiber")) return "🌾";
+    if (tagLower.includes("gmo")) return "🌱";
+    if (tagLower.includes("natural")) return "🍃";
+    return "✨";
   };
 
   const getTagBackground = (index: number): string => {
-    const backgrounds = ['bg-orange-100', 'bg-green-100', 'bg-blue-100', 'bg-purple-100', 'bg-yellow-100', 'bg-pink-100'];
+    const backgrounds = [
+      "bg-orange-100",
+      "bg-green-100",
+      "bg-blue-100",
+      "bg-purple-100",
+      "bg-yellow-100",
+      "bg-pink-100",
+    ];
     return backgrounds[index % backgrounds.length];
   };
 
@@ -34,10 +42,10 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
       {/* Top section: Main image with tags on the side */}
       <div className="grid grid-cols-4 gap-4">
         {/* Large Product Image Card - Takes 3 columns */}
-        <div 
+        <div
           className="col-span-3 rounded-3xl overflow-hidden relative h-96"
           style={{
-            backgroundColor: selectedFlavor?.primaryColor || '#8B5CF6'
+            backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
           }}
         >
           <div className="h-full w-full flex items-center justify-center">
@@ -56,17 +64,19 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
         </div>
 
         {/* Feature Tags Container - Right column, transparent background */}
-        <div className="col-span-1 h-96 flex flex-col justify-between space-y-4 py-4">
+        <div className="col-span-1 h-96 flex flex-col justify-between space-y-4">
           {filteredTags.slice(0, 3).map((tag: string, index: number) => (
-            <div 
+            <div
               key={tag}
               className="rounded-2xl p-3 text-center flex-1 flex flex-col items-center justify-center mx-4"
               style={{
-                backgroundColor: selectedFlavor?.primaryColor || '#8B5CF6'
+                backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
               }}
             >
               <div className="text-lg mb-1 text-white">{getTagEmoji(tag)}</div>
-              <h3 className="font-bold text-white text-xs leading-tight">{tag}</h3>
+              <h3 className="font-bold text-white text-xs leading-tight">
+                {tag}
+              </h3>
             </div>
           ))}
         </div>
@@ -74,10 +84,10 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
 
       {/* Bottom section: Additional images taking full width */}
       <div className="grid grid-cols-2 gap-4 w-full">
-        <div 
+        <div
           className="rounded-2xl h-48 flex items-center justify-center"
           style={{
-            backgroundColor: selectedFlavor?.primaryColor || '#8B5CF6'
+            backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
           }}
         >
           {selectedFlavor?.images?.[0] && (
@@ -88,11 +98,11 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
             />
           )}
         </div>
-        
-        <div 
+
+        <div
           className="rounded-2xl h-48 flex items-center justify-center relative overflow-hidden"
           style={{
-            backgroundColor: selectedFlavor?.secondaryColor || '#A855F7'
+            backgroundColor: selectedFlavor?.secondaryColor || "#A855F7",
           }}
         >
           <div className="absolute inset-0 bg-black/10"></div>
