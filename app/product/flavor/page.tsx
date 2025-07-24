@@ -10,6 +10,7 @@ import { PurchaseOptions } from "../../../components/PurchaseOptions";
 import { FlavorBackground } from "../../../components/FlavorBackground";
 import { OlipopStyleGrid } from "../../../components/OlipopStyleGrid";
 import { RecommendedFlavors } from "../../../components/RecommendedFlavors";
+import { RecommendedFlavors } from "../../../components/RecommendedFlavors";
 import {
   fetchProducts,
   fetchProductsWithAdminCategories,
@@ -193,6 +194,16 @@ export default function FlavorPage() {
             />
           </svg>
         </div>
+
+        {/* Recommended Flavors Section */}
+        <RecommendedFlavors
+          allFlavors={flavors}
+          currentFlavor={selectedFlavor?.title || ""}
+          onSelectFlavor={(flavor) => {
+            setSelectedFlavor(flavor);
+            setSelectedVariant(flavor.variants[0]);
+          }}
+        />
       </div>
     </main>
   );

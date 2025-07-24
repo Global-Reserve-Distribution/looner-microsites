@@ -1,0 +1,123 @@
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+
+interface Props {
+  allFlavors: any[];
+  currentFlavor: string;
+  onSelectFlavor: (flavor: any) => void;
+}
+
+export function RecommendedFlavors({
+  allFlavors,
+  currentFlavor,
+  onSelectFlavor,
+}: Props) {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const recommended = allFlavors.filter(
+    (f) => f.title.toLowerCase() !== currentFlavor.toLowerCase()
+  );
+
+  return (
+    <section className="px-6 max-w-7xl mx-auto py-16">
+      <h2 className="text-3xl font-serif text-gray-900 mb-6">
+        You May Also Like
+      </h2>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        {recommended.map((flavor, index) => {
+          const isHovered = hoveredIndex === index;
+          const canImage = flavor.images?.[0];
+          const lifestyleImage = flavor.images?.[1] || flavor.images?.[0];
+          const primary = flavor.primaryColor || "#FFE4B5";
+
+          return (
+            <div
+              key={flavor.title}
+              onClick={() => onSelectFlavor(flavor)}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className="cursor-pointer transition-transform duration-200 hover:scale-[1.02]"
+            >
+              <div className="rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
+                {isHovered ? (
+                  <>
+                    {/* Lifestyle image */}
+                    <div className="relative">
+                      {lifestyleImage ? (
+                        <Image
+                          src={lifestyleImage}
+                          alt={flavor.title}
+                          width={600}
+                          height={400}
+                          className="w-full h-40 object-cover"
+                        />
+                      ) : (
+                        <div 
+                          className="w-full h-40 flex items-center justify-center"
+                          style={{ backgroundColor: primary }}
+                        >
+                          <span className="text-white text-lg font-bold">LOONER</span>
+                        </div>
+                      )}
+                      <div className="absolute top-2 left-2 bg-white px-2 py-1 text-xs font-medium rounded shadow-sm">
+                        New
+                      </div>
+                    </div>
+
+                    {/* Wavy divider */}
+                    <svg
+                      className="w-full h-6 -mt-1 text-white"
+                      fill={primary}
+                      viewBox="0 0 1440 320"
+                    >
+                      <path d="M0,64L60,74.7C120,85,240,107,360,112C480,117,600,107,720,106.7C840,107,960,117,1080,138.7C1200,160,1320,192,1380,208L1440,224V320H0Z" />
+                    </svg>
+
+                    {/* Info */}
+                    <div className="px-4 py-4 bg-white">
+                      <h3 className="text-lg font-serif">{flavor.title}</h3>
+                      <p className="text-sm text-gray-600 line-clamp-2">
+                        {flavor.description || "Premium cannabis-infused soda with natural flavors"}
+                      </p>
+                      <div className="mt-2 flex justify-between items-center">
+                        <div className="text-sm text-yellow-500">★★★★☆</div>
+                        <button className="text-sm px-3 py-1 bg-black text-white rounded hover:bg-gray-900">
+                          + Add 12 Pack
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="flex flex-col items-center p-4">
+                    {canImage ? (
+                      <Image
+                        src={canImage}
+                        alt={flavor.title}
+                        width={120}
+                        height={160}
+                        className="h-32 object-contain"
+                      />
+                    ) : (
+                      <div 
+                        className="w-24 h-32 rounded-xl flex items-center justify-center"
+                        style={{ backgroundColor: primary }}
+                      >
+                        <span className="text-white text-sm font-bold">LOONER</span>
+                      </div>
+                    )}
+                    <h4 className="mt-4 font-serif text-base text-gray-800 text-center">
+                      {flavor.title}
+                    </h4>
+                    <div className="text-sm text-yellow-500 mt-1">★★★★☆</div>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
