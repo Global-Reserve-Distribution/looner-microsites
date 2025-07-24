@@ -217,6 +217,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added demo page at /flavor-variants to showcase all variations
   - Integrated variant selector into main flavor page with real-time switching
   - Olipop variant matches reference design exactly with proper color scheme and layout
+- **NUTRITION FACTS REDESIGN** (July 24, 2025): Updated nutrition section with black text and outline icons
+  - Changed nutrition facts to white background with black text and black border for better visibility
+  - Replaced emoji icons with black outline SVG icons in horizontal row layout
+  - Repositioned icons underneath nutrition facts panel matching reference design
+  - Updated layout to span two columns for better nutrition facts prominence
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

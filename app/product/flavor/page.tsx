@@ -449,107 +449,115 @@ export default function FlavorPage() {
                 </div>
 
                 {/* Nutrition Facts */}
-                <div className="lg:col-span-1">
-                  <div
-                    className="rounded-lg p-6 shadow-sm text-white"
-                    style={{
-                      backgroundColor:
-                        selectedFlavor?.primaryColor || "#4B5563",
-                    }}
-                  >
-                    <h3 className="text-lg font-bold text-white mb-4 text-center border-b-2 border-white pb-2">
+                <div className="lg:col-span-2">
+                  <div className="bg-white rounded-lg p-6 shadow-sm border-4 border-black">
+                    <h3 className="text-lg font-bold text-black mb-4 text-center border-b-2 border-black pb-2">
                       Nutrition Facts
                     </h3>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between border-b border-white/30 pb-1">
+                    <div className="space-y-2 text-sm text-black">
+                      <div className="flex justify-between border-b border-black/30 pb-1">
                         <span>Serving Size</span>
                         <span className="font-medium">1 can (12 fl oz)</span>
                       </div>
-                      <div className="flex justify-between border-b border-white/30 pb-1">
+                      <div className="flex justify-between border-b border-black/30 pb-1">
                         <span>Calories</span>
                         <span className="font-medium">45</span>
                       </div>
-                      <div className="flex justify-between border-b border-white/30 pb-1">
+                      <div className="flex justify-between border-b border-black/30 pb-1">
                         <span>Total Sugars</span>
                         <span className="font-medium">8g</span>
                       </div>
-                      <div className="flex justify-between border-b border-white/30 pb-1">
+                      <div className="flex justify-between border-b border-black/30 pb-1">
                         <span>Sodium</span>
                         <span className="font-medium">15mg</span>
                       </div>
-                      <div className="flex justify-between border-b-2 border-white pb-2 pt-2">
+                      <div className="flex justify-between border-b-2 border-black pb-2 pt-2">
                         <span className="font-bold">THC Content</span>
                         <span className="font-bold">10mg</span>
                       </div>
                     </div>
                   </div>
-                </div>
-
-                {/* Features Grid */}
-                <div className="lg:col-span-1">
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-sm">
-                        <span className="text-2xl">🌿</span>
+                  
+                  {/* Features Icons Row */}
+                  <div className="mt-8">
+                    <div className="flex justify-center gap-8 flex-wrap">
+                      <div className="text-center">
+                        <div className="w-12 h-12 mx-auto mb-2 flex items-center justify-center">
+                          <svg className="w-8 h-8 stroke-black stroke-2 fill-none" viewBox="0 0 24 24">
+                            <path d="M12 2L14.09 8.26L20 8.26L15.54 12.06L17.64 18.32L12 14.84L6.36 18.32L8.46 12.06L4 8.26L9.91 8.26L12 2Z" />
+                          </svg>
+                        </div>
+                        <h4 className="font-semibold text-gray-900 text-xs mb-1">
+                          Cannabis Infused
+                        </h4>
+                        <p className="text-xs text-gray-600">
+                          Premium THC extract
+                        </p>
                       </div>
-                      <h4 className="font-semibold text-gray-900 text-sm mb-1">
-                        Cannabis Infused
-                      </h4>
-                      <p className="text-xs text-gray-600">
-                        Premium THC extract
-                      </p>
-                    </div>
 
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-sm">
-                        <span className="text-2xl">🌱</span>
+                      <div className="text-center">
+                        <div className="w-12 h-12 mx-auto mb-2 flex items-center justify-center">
+                          <svg className="w-8 h-8 stroke-black stroke-2 fill-none" viewBox="0 0 24 24">
+                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" />
+                          </svg>
+                        </div>
+                        <h4 className="font-semibold text-gray-900 text-xs mb-1">
+                          Non GMO
+                        </h4>
+                        <p className="text-xs text-gray-600">
+                          Natural ingredients
+                        </p>
                       </div>
-                      <h4 className="font-semibold text-gray-900 text-sm mb-1">
-                        Non GMO
-                      </h4>
-                      <p className="text-xs text-gray-600">
-                        Natural ingredients
-                      </p>
-                    </div>
 
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-sm">
-                        <span className="text-2xl">🍯</span>
+                      <div className="text-center">
+                        <div className="w-12 h-12 mx-auto mb-2 flex items-center justify-center">
+                          <svg className="w-8 h-8 stroke-black stroke-2 fill-none" viewBox="0 0 24 24">
+                            <path d="M19 14C19 18.4183 15.4183 22 11 22C6.58172 22 3 18.4183 3 14C3 9.58172 6.58172 6 11 6C15.4183 6 19 9.58172 19 14Z" />
+                            <path d="M8 14L10 16L16 10" />
+                          </svg>
+                        </div>
+                        <h4 className="font-semibold text-gray-900 text-xs mb-1">
+                          Less Sugar
+                        </h4>
+                        <p className="text-xs text-gray-600">Only 8g per can</p>
                       </div>
-                      <h4 className="font-semibold text-gray-900 text-sm mb-1">
-                        Less Sugar
-                      </h4>
-                      <p className="text-xs text-gray-600">Only 8g per can</p>
-                    </div>
 
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-sm">
-                        <span className="text-2xl">📍</span>
+                      <div className="text-center">
+                        <div className="w-12 h-12 mx-auto mb-2 flex items-center justify-center">
+                          <svg className="w-8 h-8 stroke-black stroke-2 fill-none" viewBox="0 0 24 24">
+                            <path d="M15 10.5C16.3807 10.5 17.5 9.38071 17.5 8C17.5 6.61929 16.3807 5.5 15 5.5C13.6193 5.5 12.5 6.61929 12.5 8C12.5 9.38071 13.6193 10.5 15 10.5Z" />
+                            <path d="M12 2C13.5913 2 15.1174 2.63214 16.2426 3.75736C17.3679 4.88258 18 6.4087 18 8C18 11.0981 15.75 16 12 22C8.25 16 6 11.0981 6 8C6 6.4087 6.63214 4.88258 7.75736 3.75736C8.88258 2.63214 10.4087 2 12 2Z" />
+                          </svg>
+                        </div>
+                        <h4 className="font-semibold text-gray-900 text-xs mb-1">
+                          Made in Minnesota
+                        </h4>
+                        <p className="text-xs text-gray-600">Locally crafted</p>
                       </div>
-                      <h4 className="font-semibold text-gray-900 text-sm mb-1">
-                        Made in Minnesota
-                      </h4>
-                      <p className="text-xs text-gray-600">Locally crafted</p>
-                    </div>
 
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-sm">
-                        <span className="text-2xl">✨</span>
+                      <div className="text-center">
+                        <div className="w-12 h-12 mx-auto mb-2 flex items-center justify-center">
+                          <svg className="w-8 h-8 stroke-black stroke-2 fill-none" viewBox="0 0 24 24">
+                            <path d="M9 12L11 14L15 10M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" />
+                          </svg>
+                        </div>
+                        <h4 className="font-semibold text-gray-900 text-xs mb-1">
+                          High Quality
+                        </h4>
+                        <p className="text-xs text-gray-600">Lab tested purity</p>
                       </div>
-                      <h4 className="font-semibold text-gray-900 text-sm mb-1">
-                        High Quality
-                      </h4>
-                      <p className="text-xs text-gray-600">Lab tested purity</p>
-                    </div>
 
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-sm">
-                        <span className="text-2xl">🎯</span>
+                      <div className="text-center">
+                        <div className="w-12 h-12 mx-auto mb-2 flex items-center justify-center">
+                          <svg className="w-8 h-8 stroke-black stroke-2 fill-none" viewBox="0 0 24 24">
+                            <path d="M12 7V13L16 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" />
+                          </svg>
+                        </div>
+                        <h4 className="font-semibold text-gray-900 text-xs mb-1">
+                          Consistent
+                        </h4>
+                        <p className="text-xs text-gray-600">Reliable effects</p>
                       </div>
-                      <h4 className="font-semibold text-gray-900 text-sm mb-1">
-                        Consistent
-                      </h4>
-                      <p className="text-xs text-gray-600">Reliable effects</p>
                     </div>
                   </div>
                 </div>
