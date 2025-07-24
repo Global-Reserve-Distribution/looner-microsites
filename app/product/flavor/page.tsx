@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import { useSearchParams } from "next/navigation";
 import { FlavorHero } from "../../../components/FlavorHero";
@@ -12,10 +12,13 @@ import { FlavorBackground } from "../../../components/FlavorBackground";
 import { OlipopStyleGrid } from "../../../components/OlipopStyleGrid";
 import { RecommendedFlavors } from "../../../components/RecommendedFlavors";
 import { Header } from "../../../components/Header";
+import { StickyCartFooter } from "../../../components/StickyCartFooter";
 import {
   fetchProducts,
   fetchProductsWithAdminCategories,
 } from "../../../lib/shopify/server-actions";
+import { useCart } from "../../../hooks/useCart";
+import { useIntersectionObserver } from "../../../hooks/useIntersectionObserver";
 
 function getTagEmoji(tag: string): string {
   const tagLower = tag.toLowerCase();
@@ -202,6 +205,22 @@ export default function FlavorPage() {
   const [selectedFlavor, setSelectedFlavor] = useState<any | null>(null);
   const [selectedVariant, setSelectedVariant] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Cart functionality
+  const { cart, addToCart, isLoading: cartLoading } = useCart();
+  
+  // Intersection observer for purchase button
+  const purchaseButtonRef = useRef<HTMLDivElement>(null);
+  const { isVisible: isPurchaseButtonVisible } = useIntersectionObserver({
+    ref: purchaseButtonRef,
+  });
+
+  const handleAddToCart = async (merchandiseId: string, quantity: number) => {
+    const success = await addToCart(merchandiseId, quantity);
+    if (success) {
+      console.log('Added to cart successfully!');
+    }
+  };
   const [pickerVariant, setPickerVariant] = useState<
     "olipop" | "premium" | "minimal" | "gradient"
   >("olipop");
@@ -403,9 +422,11 @@ export default function FlavorPage() {
             />
 
             <PurchaseOptions
+              ref={purchaseButtonRef}
               flavor={selectedFlavor}
               variant={selectedVariant}
               onVariantChange={setSelectedVariant}
+              onAddToCart={handleAddToCart}
             />
           </div>
         </div>
@@ -639,6 +660,18 @@ export default function FlavorPage() {
           </svg>
         </div>
       </div>
+
+      {/* Sticky Cart Footer */}
+      {selectedFlavor && selectedVariant && (
+        <StickyCartFooter
+          cart={cart}
+          isMainButtonVisible={isPurchaseButtonVisible}
+          onAddToCart={() => handleAddToCart(selectedVariant.id, 1)}
+          productTitle={selectedFlavor.title}
+          productPrice={`$${selectedVariant.price.toFixed(2)}`}
+          productImage={selectedFlavor.images?.[0]}
+        />
+      )}
       </main>
     </>
   );
