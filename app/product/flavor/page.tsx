@@ -63,6 +63,7 @@ function transformProductsToFlavors(products: any[]) {
         "Made in Minnesota",
         "High Quality",
       ],
+      productType: product.productType || "",
       bgColor: primaryColor
         ? `bg-[${primaryColor}]`
         : getFlavorBgClass(product.title, index),
@@ -138,16 +139,16 @@ export default function FlavorPage() {
         const products = await fetchProducts({ sortKey: "BEST_SELLING" });
         console.log("All products fetched:", products.length);
         console.log("Product titles:", products.map(p => p.title));
+        console.log("Product types:", products.map(p => p.productType));
         
         const allTransformedFlavors = transformProductsToFlavors(products);
         console.log("All transformed flavors:", allTransformedFlavors.length);
         console.log("All flavor titles:", allTransformedFlavors.map(f => f.title));
-        console.log("All flavor tags:", allTransformedFlavors.map(f => f.tags));
+        console.log("All flavor product types:", allTransformedFlavors.map(f => f.productType));
         
-        // Filter to show only soda category items
+        // Filter to show only soda category items using productType
         const sodaFlavors = allTransformedFlavors.filter(flavor => 
-          flavor.tags.some((tag: string) => tag.toLowerCase().includes('soda')) ||
-          flavor.title.toLowerCase().includes('soda')
+          flavor.productType && flavor.productType.toLowerCase().includes('soda')
         );
         
         console.log("Soda flavors found:", sodaFlavors.length);
