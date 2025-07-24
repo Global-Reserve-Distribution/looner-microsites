@@ -274,9 +274,9 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added flex centering to properly position flavor names within the half-height white section
   - Maintained proper text sizing and padding for optimal readability
 - **LARGER PRODUCT IMAGES** (July 24, 2025): Increased image size for better product visibility
-  - Enlarged product images from w-16 h-20 to w-24 h-32 for closer, more detailed view of cans
-  - Increased fallback LOONER logo from w-12 h-16 to w-20 h-24 with larger text
-  - Images now provide better product detail matching Olipop's close-up can presentation
+  - Enlarged product images from w-16 h-20 to w-32 h-40 for maximum detail view of cans
+  - Increased fallback LOONER logo from w-12 h-16 to w-28 h-32 with larger text
+  - Images now provide excellent product detail with prominent can presentation
   - Maintained object-contain scaling and hover effects for smooth interactions
 
 ## Next Steps

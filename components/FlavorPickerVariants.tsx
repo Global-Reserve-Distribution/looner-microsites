@@ -79,11 +79,11 @@ export function FlavorPickerVariants({
                 <img
                   src={flavor.images[0]}
                   alt={flavor.title}
-                  className="w-24 h-32 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                  className="w-32 h-40 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
                 />
               ) : (
-                <div className="w-20 h-24 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                  <span className="text-white text-sm font-bold">LOONER</span>
+                <div className="w-28 h-32 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                  <span className="text-white text-base font-bold">LOONER</span>
                 </div>
               )}
               
