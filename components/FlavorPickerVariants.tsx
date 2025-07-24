@@ -53,7 +53,7 @@ export function FlavorPickerVariants({
       
       {/* Content Area with Tab Connection */}
       <div className="bg-white border border-gray-200 rounded-lg p-6">
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-3 gap-4">
         {(activeTab === 'flavors' ? flavors : flavors.filter(f => f.title.toLowerCase().includes('variety') || f.title.toLowerCase().includes('pack'))).map((flavor, index) => (
           <button
             key={flavor.title}

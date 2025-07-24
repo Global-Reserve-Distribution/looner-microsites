@@ -359,7 +359,7 @@ export default function FlavorPage() {
 
           {/* Right Column - Product Info & Selection */}
           <div className="space-y-8 pl-4">
-            <div>
+            <div className="hidden md:block">
               <h1 className="text-5xl font-serif text-gray-900 mb-4">
                 {selectedFlavor?.title}
               </h1>
