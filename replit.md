@@ -278,13 +278,14 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Increased fallback LOONER logo from w-12 h-16 to w-28 h-32 with larger text
   - Images now provide excellent product detail with prominent can presentation
   - Maintained object-contain scaling and hover effects for smooth interactions
-- **OLIPOP GRID LAYOUT WITH TAG CARDS** (July 24, 2025): Restructured to match Olipop's mixed grid design
-  - Changed from uniform 4-column grid to mixed 6-column grid with varying card sizes
-  - First 4 products display as large 3x2 span cards with bigger images (w-40 h-48)
-  - Added feature tag cards (10mg THC, Cane Sugar, High Quality, Soda, Natural) as smaller grid items
-  - Additional products shown as medium 2x2 span cards for visual hierarchy
-  - Used different rounded corner sizes (rounded-3xl, rounded-2xl) to match Olipop aesthetic
-  - Tag cards use colored backgrounds (orange, green, blue, purple, yellow) with emoji icons
+- **OLIPOP GRID LAYOUT WITH TAG CARDS** (July 24, 2025): Created separate OlipopStyleGrid component for left column
+  - Reverted FlavorPickerVariants to original 4-column grid design as intended
+  - Created new OlipopStyleGrid component with mixed grid layout for left column
+  - Large product image card at top with dynamic color background
+  - Feature tag cards grid (10mg THC, Cane Sugar, High Quality, Soda) with colored backgrounds
+  - Additional product images and lifestyle cards below tags
+  - Replaced left column content (FlavorHero, tags, LifestyleImageGrid) with OlipopStyleGrid
+  - Flavor picker remains unchanged in right column for proper functionality
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
