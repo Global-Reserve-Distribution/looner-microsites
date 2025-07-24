@@ -68,9 +68,7 @@ export function RecommendedFlavors({
               className="cursor-pointer transition-all duration-300 hover:scale-[1.02]"
             >
               <div
-                className={`rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative ${
-                  isHovered ? "aspect-[3/4.2]" : "aspect-[3/4]"
-                }`}
+                className="rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[3/4]"
                 style={{ backgroundColor: secondary }}
               >
                 {/* Always render both states, control visibility with animations */}
@@ -82,7 +80,7 @@ export function RecommendedFlavors({
                   }`}
                 >
                   {/* Product Image with Circle Background */}
-                  <div className="flex-1 flex items-center justify-center mb-4 relative p-6">
+                  <div className="flex-1 flex items-center justify-center relative p-6">
                     {/* Circle Background */}
                     <div
                       className="absolute w-36 h-36 rounded-full opacity-80"
@@ -109,8 +107,16 @@ export function RecommendedFlavors({
                     )}
                   </div>
 
-                  {/* Product Name and Rating */}
-                  <div className="px-6 pb-6 text-center">
+                  {/* Product Name and Rating - Animate up on hover */}
+                  <div className={`px-6 pb-6 text-center absolute bottom-0 left-0 right-0 transition-transform duration-500 ${
+                    isHovered && animationPhase !== 'idle' 
+                      ? 'translate-y-[-100%]' 
+                      : 'translate-y-0'
+                  }`}
+                  style={{ 
+                    backgroundColor: secondary,
+                    transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                  }}>
                     <h3 className="font-bold text-gray-900 text-lg mb-2 leading-tight">
                       {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                     </h3>
@@ -132,7 +138,7 @@ export function RecommendedFlavors({
                       ? animationPhase === 'complete' 
                         ? 'inset(0% 0% 0% 0%)'
                         : animationPhase === 'waveDown'
-                        ? 'inset(0% 0% 40% 0%)'
+                        ? 'inset(0% 0% 50% 0%)'
                         : 'inset(0% 0% 100% 0%)'
                       : 'inset(0% 0% 100% 0%)',
                     transition: 'clip-path 0.45s cubic-bezier(0.4, 0, 0.2, 1)'
