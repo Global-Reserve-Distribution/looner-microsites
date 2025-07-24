@@ -299,6 +299,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Bottom images section now spans full width in 2-column layout below main section
   - Separated layout into distinct top section (image + tags) and bottom section (lifestyle images)
   - Maintained color consistency using primary and secondary colors from Shopify metafields
+- **TAG BACKGROUND REFINEMENT** (July 24, 2025): Updated tag styling for better visual hierarchy
+  - Changed tag container to transparent background instead of colored
+  - Individual tag cards now have the primary color background with white text
+  - Matches Olipop reference where tags have colored backgrounds within transparent container
+  - Improved text contrast using white text on colored tag backgrounds
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

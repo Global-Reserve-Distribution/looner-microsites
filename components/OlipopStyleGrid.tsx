@@ -55,20 +55,18 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
           </div>
         </div>
 
-        {/* Feature Tags Container - Right column, matches main image height */}
-        <div 
-          className="col-span-1 rounded-3xl p-4 h-96 flex flex-col justify-center space-y-4"
-          style={{
-            backgroundColor: selectedFlavor?.primaryColor || '#8B5CF6'
-          }}
-        >
+        {/* Feature Tags Container - Right column, transparent background */}
+        <div className="col-span-1 p-4 h-96 flex flex-col justify-center space-y-4">
           {filteredTags.slice(0, 3).map((tag: string, index: number) => (
             <div 
               key={tag}
-              className="bg-white/90 backdrop-blur-sm rounded-2xl p-3 text-center flex-1 flex flex-col items-center justify-center"
+              className="rounded-2xl p-3 text-center flex-1 flex flex-col items-center justify-center"
+              style={{
+                backgroundColor: selectedFlavor?.primaryColor || '#8B5CF6'
+              }}
             >
-              <div className="text-lg mb-1">{getTagEmoji(tag)}</div>
-              <h3 className="font-bold text-gray-800 text-xs leading-tight">{tag}</h3>
+              <div className="text-lg mb-1 text-white">{getTagEmoji(tag)}</div>
+              <h3 className="font-bold text-white text-xs leading-tight">{tag}</h3>
             </div>
           ))}
         </div>
