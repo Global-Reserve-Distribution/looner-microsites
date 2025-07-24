@@ -293,6 +293,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Tags now display vertically stacked on right side like 'High Fiber', 'Non GMO', 'Less Sugar' in reference
   - Limited to 3 tags maximum for proper vertical spacing
   - Added dynamic tag emoji mapping and background color rotation
+- **ENHANCED OLIPOP LAYOUT STYLING** (July 24, 2025): Improved visual consistency and layout structure
+  - Tag container now matches main image background color and fills full height (h-96)
+  - Individual tags use white/90 background with backdrop blur for contrast
+  - Bottom images section now spans full width in 2-column layout below main section
+  - Separated layout into distinct top section (image + tags) and bottom section (lifestyle images)
+  - Maintained color consistency using primary and secondary colors from Shopify metafields
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
