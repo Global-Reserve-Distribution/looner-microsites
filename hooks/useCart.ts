@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Cart, createCart, addToCart, getCart } from '../lib/shopify/cart';
+import { Cart } from '../lib/shopify/cart';
+import { createCart, addToCart, getCart } from '../lib/shopify/client-cart';
 
 export function useCart() {
   const [cart, setCart] = useState<Cart | null>(null);
