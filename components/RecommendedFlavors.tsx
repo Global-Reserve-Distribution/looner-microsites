@@ -109,8 +109,8 @@ export function RecommendedFlavors({
 
                   {/* Product Name and Rating - Animate up on hover */}
                   <div className={`px-6 pb-6 text-center absolute bottom-0 left-0 right-0 transition-transform duration-500 ${
-                    isHovered && animationPhase !== 'idle' 
-                      ? 'translate-y-[-100%]' 
+                    isHovered && (animationPhase === 'waveDown' || animationPhase === 'complete')
+                      ? 'translate-y-[-50%]' 
                       : 'translate-y-0'
                   }`}
                   style={{ 
@@ -144,10 +144,13 @@ export function RecommendedFlavors({
                     transition: 'clip-path 0.45s cubic-bezier(0.4, 0, 0.2, 1)'
                   }}
                 >
-                    {/* Top Section with Decorative Background */}
+                    {/* Top Section with Decorative Background - 50% height */}
                     <div
-                      className="relative flex-1 flex items-center justify-center p-6"
-                      style={{ backgroundColor: primary }}
+                      className="relative flex items-center justify-center p-6"
+                      style={{ 
+                        backgroundColor: primary,
+                        height: '50%'
+                      }}
                     >
                       {/* Decorative Blob Elements */}
                       <div
@@ -208,18 +211,20 @@ export function RecommendedFlavors({
                       />
                     </svg>
 
-                    {/* Bottom Section with Content */}
+                    {/* Bottom Section with Content - 50% height */}
                     <div
-                      className="p-6 pt-2 text-center"
-                      style={{ backgroundColor: secondary }}
+                      className="p-6 pt-2 text-center flex flex-col justify-center"
+                      style={{ 
+                        backgroundColor: secondary,
+                        height: '50%'
+                      }}
                     >
                       <h3 className="font-bold text-gray-900 text-lg mb-2 leading-tight">
                         {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                       </h3>
 
                       <p className="text-gray-700 text-sm mb-4 leading-relaxed">
-                        {flavor.description ||
-                          "A boldly refreshing collision of flavors."}
+                        {flavor.description || "A boldly refreshing collision of flavors."}
                       </p>
 
                       <div className="flex items-center justify-center mb-4 text-gray-800">
