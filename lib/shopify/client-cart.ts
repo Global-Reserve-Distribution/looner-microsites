@@ -1,11 +1,22 @@
 // Client-side cart functionality that doesn't use server-only imports
 import { Cart, CartItem } from './cart';
 
-const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || '';
-const endpoint = `${domain}/api/2024-07/graphql.json`;
+// Get environment variables and ensure proper format
+const rawDomain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || '';
+// Remove https:// if present and ensure .myshopify.com format
+const domain = rawDomain.replace('https://', '').replace('http://', '');
+const endpoint = `https://${domain}/api/2024-07/graphql.json`;
 const key = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN || '';
 
-console.log('Client cart config:', { domain, endpoint: endpoint.substring(0, 50) + '...', hasKey: !!key });
+console.log('Client cart config:', { domain, endpoint, hasKey: !!key });
+
+// Validate required environment variables
+if (!domain || !key) {
+  console.error('Missing required Shopify environment variables:', {
+    hasDomain: !!domain,
+    hasKey: !!key
+  });
+}
 
 interface ShopifyResponse {
   status: number;
@@ -16,7 +27,13 @@ async function clientShopifyFetch({ query, variables }: {
   query: string; 
   variables?: any; 
 }): Promise<ShopifyResponse> {
+  // Check if we have required environment variables
+  if (!domain || !key) {
+    throw new Error('Missing Shopify environment variables. Please check NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN and NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN');
+  }
+
   try {
+    console.log('Making request to:', endpoint);
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
@@ -29,10 +46,15 @@ async function clientShopifyFetch({ query, variables }: {
       }),
     });
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const body = await response.json();
+    console.log('Shopify response:', body);
 
     if (body.errors) {
-      throw new Error(body.errors[0]?.message ?? 'Unknown error');
+      throw new Error(body.errors[0]?.message ?? 'GraphQL error');
     }
 
     return {

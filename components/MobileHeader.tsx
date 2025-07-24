@@ -38,15 +38,14 @@ export function MobileHeader({ backgroundColor = 'white' }: MobileHeaderProps) {
           </button>
 
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center">
             <Image 
               src="/logo.png" 
               alt="LOONER Cannabis Co" 
-              width={32} 
-              height={32} 
-              className="w-8 h-8 object-contain"
+              width={40} 
+              height={40} 
+              className="w-10 h-10 object-contain"
             />
-            <span className="text-xl font-bold text-gray-900">LOONER</span>
           </div>
 
           {/* Cart Icon */}
@@ -76,7 +75,7 @@ export function MobileHeader({ backgroundColor = 'white' }: MobileHeaderProps) {
           <div className="fixed top-0 left-0 w-80 h-full bg-white z-50 transform transition-transform duration-300 ease-in-out md:hidden">
             {/* Drawer Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-200">
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center">
                 <Image 
                   src="/logo.png" 
                   alt="LOONER Cannabis Co" 
@@ -84,7 +83,6 @@ export function MobileHeader({ backgroundColor = 'white' }: MobileHeaderProps) {
                   height={32} 
                   className="w-8 h-8 object-contain"
                 />
-                <span className="text-xl font-bold text-gray-900">LOONER</span>
               </div>
               <button
                 onClick={closeMenu}

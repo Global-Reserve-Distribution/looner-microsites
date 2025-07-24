@@ -12,6 +12,9 @@ export function useCart() {
   // Initialize cart on mount
   useEffect(() => {
     const initializeCart = async () => {
+      // Only run in browser environment
+      if (typeof window === 'undefined') return;
+      
       try {
         // Check for existing cart ID in localStorage
         const existingCartId = localStorage.getItem('shopify-cart-id');
@@ -23,6 +26,7 @@ export function useCart() {
             return;
           } catch (error) {
             // Cart might be expired, create a new one
+            console.log('Existing cart not found, creating new one');
             localStorage.removeItem('shopify-cart-id');
           }
         }
@@ -33,7 +37,9 @@ export function useCart() {
         localStorage.setItem('shopify-cart-id', newCart.id);
       } catch (err) {
         console.error('Failed to initialize cart:', err);
-        setError(err instanceof Error ? err.message : 'Failed to initialize cart');
+        setError(err instanceof Error ? err.message : 'Cart temporarily unavailable');
+        // Don't fail completely - let the app continue without cart
+        setCart(null);
       }
     };
 
