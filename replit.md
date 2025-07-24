@@ -304,6 +304,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Individual tag cards now have the primary color background with white text
   - Matches Olipop reference where tags have colored backgrounds within transparent container
   - Improved text contrast using white text on colored tag backgrounds
+- **TAG ALIGNMENT WITH IMAGE CONTAINER** (July 24, 2025): Precise positioning to match Olipop layout
+  - Removed padding from tag container and changed justify-center to justify-between
+  - Top tag card now starts at same height as main image container
+  - Bottom tag card now ends at same height as bottom of image container
+  - Added horizontal margin (mx-4) to individual tags for proper spacing
+  - Tags now span full height of image container with equal distribution
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

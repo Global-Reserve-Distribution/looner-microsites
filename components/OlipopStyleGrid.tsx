@@ -56,11 +56,11 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
         </div>
 
         {/* Feature Tags Container - Right column, transparent background */}
-        <div className="col-span-1 p-4 h-96 flex flex-col justify-center space-y-4">
+        <div className="col-span-1 h-96 flex flex-col justify-between">
           {filteredTags.slice(0, 3).map((tag: string, index: number) => (
             <div 
               key={tag}
-              className="rounded-2xl p-3 text-center flex-1 flex flex-col items-center justify-center"
+              className="rounded-2xl p-3 text-center flex-1 flex flex-col items-center justify-center mx-4"
               style={{
                 backgroundColor: selectedFlavor?.primaryColor || '#8B5CF6'
               }}
