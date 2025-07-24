@@ -20,30 +20,40 @@ export function FlavorPickerVariants({
   return (
     <div className="bg-white p-8 rounded-3xl shadow-lg">
       {/* Tab Navigation */}
-      <div className="flex space-x-4 mb-6 justify-center">
-        <button 
-          onClick={() => setActiveTab('flavors')}
-          className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-            activeTab === 'flavors' 
-              ? 'bg-orange-100 text-orange-800' 
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-          }`}
-        >
-          Our Flavors
-        </button>
-        <button 
-          onClick={() => setActiveTab('packs')}
-          className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-            activeTab === 'packs' 
-              ? 'bg-orange-100 text-orange-800' 
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-          }`}
-        >
-          Variety Packs
-        </button>
+      <div className="flex justify-center mb-0">
+        <div className="flex">
+          <button 
+            onClick={() => setActiveTab('flavors')}
+            className={`px-6 py-3 text-sm font-medium transition-all rounded-t-xl border-t border-l border-r relative ${
+              activeTab === 'flavors' 
+                ? 'bg-orange-50 text-orange-800 border-orange-200 z-10' 
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border-gray-300'
+            }`}
+            style={{
+              marginBottom: activeTab === 'flavors' ? '-1px' : '0'
+            }}
+          >
+            Our Flavors
+          </button>
+          <button 
+            onClick={() => setActiveTab('packs')}
+            className={`px-6 py-3 text-sm font-medium transition-all rounded-t-xl border-t border-l border-r relative ${
+              activeTab === 'packs' 
+                ? 'bg-orange-50 text-orange-800 border-orange-200 z-10' 
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border-gray-300'
+            }`}
+            style={{
+              marginBottom: activeTab === 'packs' ? '-1px' : '0'
+            }}
+          >
+            Variety Packs
+          </button>
+        </div>
       </div>
       
-      <div className="grid grid-cols-4 gap-3">
+      {/* Content Area with Tab Connection */}
+      <div className="bg-orange-50 border border-orange-200 rounded-lg rounded-tl-none rounded-tr-none p-6">
+        <div className="grid grid-cols-4 gap-3">
         {(activeTab === 'flavors' ? flavors : flavors.filter(f => f.title.toLowerCase().includes('variety') || f.title.toLowerCase().includes('pack'))).map((flavor, index) => (
           <button
             key={flavor.title}
@@ -89,6 +99,7 @@ export function FlavorPickerVariants({
             </div>
           </button>
         ))}
+        </div>
       </div>
     </div>
   );
