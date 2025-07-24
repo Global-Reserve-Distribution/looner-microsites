@@ -89,7 +89,7 @@ export function RecommendedFlavors({
                   >
                     {/* Circle Background */}
                     <div
-                      className="absolute w-24 h-24 rounded-full"
+                      className="absolute w-20 h-20 rounded-full"
                       style={{ backgroundColor: primary }}
                     />
 
@@ -98,13 +98,13 @@ export function RecommendedFlavors({
                       <Image
                         src={canImage}
                         alt={flavor.title}
-                        width={100}
-                        height={120}
-                        className="h-28 w-auto object-contain drop-shadow-lg relative z-10"
+                        width={80}
+                        height={100}
+                        className="h-24 w-auto object-contain drop-shadow-lg relative z-10"
                       />
                     ) : (
                       <div
-                        className="w-16 h-28 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
+                        className="w-14 h-24 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
                       >
                         <span className="text-white text-xs font-bold">
                           LOONER
