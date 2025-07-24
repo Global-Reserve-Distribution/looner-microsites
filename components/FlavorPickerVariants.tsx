@@ -67,9 +67,9 @@ export function FlavorPickerVariants({
               }
             `}
           >
-            {/* Top Half - Primary Color Background with Image */}
+            {/* Full Height Background with Image */}
             <div 
-              className="h-1/2 w-full flex items-center justify-center rounded-t-xl"
+              className="h-full w-full flex items-center justify-center rounded-xl relative"
               style={{
                 backgroundColor: flavor.primaryColor || '#8B5CF6'
               }}
@@ -86,15 +86,14 @@ export function FlavorPickerVariants({
                   <span className="text-white text-xs font-bold">LOONER</span>
                 </div>
               )}
-            </div>
-            
-            {/* Bottom Half - White Background with Text */}
-            <div className="h-1/2 p-3 bg-white flex items-center justify-center rounded-b-xl">
-              {/* Flavor Name */}
-              <div className="text-center">
-                <h4 className="font-bold text-gray-900 text-sm leading-tight">
-                  {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
-                </h4>
+              
+              {/* Text Overlay at Bottom */}
+              <div className="absolute bottom-0 left-0 right-0 bg-white p-3 rounded-b-xl">
+                <div className="text-center">
+                  <h4 className="font-bold text-gray-900 text-sm leading-tight">
+                    {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
+                  </h4>
+                </div>
               </div>
             </div>
           </button>

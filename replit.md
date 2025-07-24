@@ -263,6 +263,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Restructured flavor cards to match Olipop layout: top half colored with image, bottom half white with text
   - Changed card proportions from 2/3-1/3 to equal 1/2-1/2 split for better balance
   - Increased text size and adjusted padding for better readability matching reference design
+- **FULL HEIGHT IMAGES WITH OVERLAY TEXT** (July 24, 2025): Implemented Olipop-style card design
+  - Changed cards to use full height colored background with product images
+  - Text section now appears as white overlay at bottom of card using absolute positioning
+  - Matches Olipop reference where images take full card space and text overlays at bottom
+  - Maintained rounded corners and proper text styling for optimal readability
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
