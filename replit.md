@@ -238,6 +238,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Changed cards from tall rectangles to perfect squares (aspect-square) for better visual balance
   - Adjusted card proportions: 2/3 colored top section, 1/3 white bottom section for flavor name
   - Reduced text size and image dimensions to fit square format while maintaining readability
+- **SIMPLIFIED TAB LAYOUT** (July 24, 2025): Removed inner box and placed tabs directly on outer card
+  - Removed inner square container and extra borders for cleaner appearance
+  - Tabs now sit directly on the main rounded corner white card background
+  - Changed tab styling back to simple rounded-full buttons with orange/gray backgrounds
+  - Maintained square aspect ratio cards with proper proportions for flavor display
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
