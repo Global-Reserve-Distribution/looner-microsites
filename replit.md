@@ -222,6 +222,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Replaced emoji icons with black outline SVG icons in horizontal row layout
   - Repositioned icons underneath nutrition facts panel matching reference design
   - Updated layout to span two columns for better nutrition facts prominence
+- **FLAVOR PICKER SIMPLIFICATION** (July 24, 2025): Streamlined to premium cards only with cleaner design
+  - Removed variant selector - now only shows premium card design
+  - Removed 10mg THC badge, color dots, and product descriptions from cards
+  - Implemented split-card design with primary color top half and white bottom half
+  - Product image positioned in colored top section with flavor name in white bottom section
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

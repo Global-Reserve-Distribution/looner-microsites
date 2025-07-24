@@ -82,57 +82,42 @@ export function FlavorPickerVariants({
             key={flavor.title}
             onClick={() => onFlavorSelect(flavor)}
             className={`
-              relative group bg-white rounded-2xl p-6 transition-all duration-300
-              hover:scale-102 hover:shadow-xl border-2
+              relative group bg-white rounded-2xl overflow-hidden transition-all duration-300
+              hover:scale-[1.02] hover:shadow-xl border-2
               ${selectedFlavor?.title === flavor.title 
-                ? 'border-green-400 shadow-lg scale-102' 
+                ? 'border-green-400 shadow-lg scale-[1.02]' 
                 : 'border-gray-200 hover:border-gray-300'
               }
             `}
           >
-            {/* Gradient Background */}
+            {/* Top Half - Primary Color Background */}
             <div 
-              className="absolute inset-0 rounded-2xl opacity-10"
+              className="h-24 w-full flex items-center justify-center"
               style={{
-                background: `linear-gradient(135deg, ${flavor.primaryColor || '#8B5CF6'}, ${flavor.secondaryColor || '#06B6D4'})`
+                backgroundColor: flavor.primaryColor || '#8B5CF6'
               }}
-            />
-            
-            {/* Content */}
-            <div className="relative z-10">
-              {/* THC Badge */}
-              <div className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-bold">
-                10mg THC
-              </div>
-              
+            >
               {/* Product Image */}
-              <div className="h-24 flex items-center justify-center mb-4">
-                {flavor.images?.[0] ? (
-                  <img
-                    src={flavor.images[0]}
-                    alt={flavor.title}
-                    className="w-16 h-20 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
-                  />
-                ) : (
-                  <div className="w-12 h-16 bg-gradient-to-b from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">LOONER</span>
-                  </div>
-                )}
-              </div>
-              
-              {/* Flavor Info */}
+              {flavor.images?.[0] ? (
+                <img
+                  src={flavor.images[0]}
+                  alt={flavor.title}
+                  className="w-16 h-20 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                />
+              ) : (
+                <div className="w-12 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+                  <span className="text-white text-xs font-bold">LOONER</span>
+                </div>
+              )}
+            </div>
+            
+            {/* Bottom Half - White Background */}
+            <div className="p-4 bg-white">
+              {/* Flavor Name Only */}
               <div className="text-center">
-                <h4 className="font-bold text-gray-900 mb-1 text-sm leading-tight">
+                <h4 className="font-bold text-gray-900 text-sm leading-tight">
                   {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                 </h4>
-                <p className="text-xs text-gray-600 mb-3">Premium Cannabis Soda</p>
-                
-                {/* Features */}
-                <div className="flex justify-center space-x-1">
-                  <span className="inline-block w-2 h-2 bg-green-400 rounded-full"></span>
-                  <span className="inline-block w-2 h-2 bg-blue-400 rounded-full"></span>
-                  <span className="inline-block w-2 h-2 bg-orange-400 rounded-full"></span>
-                </div>
               </div>
             </div>
           </button>
