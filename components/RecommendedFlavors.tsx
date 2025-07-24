@@ -68,7 +68,7 @@ export function RecommendedFlavors({
               className="cursor-pointer transition-all duration-300 md:hover:scale-[1.02]"
             >
               <div
-                className="rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[3/4]"
+                className="rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[3/5]"
                 style={{ backgroundColor: secondary }}
               >
                 {/* Always render both states, control visibility with animations */}
@@ -81,15 +81,15 @@ export function RecommendedFlavors({
                 >
                   {/* Top Section with Product Image and Circle Background */}
                   <div 
-                    className="relative flex items-center justify-center p-6"
+                    className="relative flex items-center justify-center p-4"
                     style={{ 
                       backgroundColor: secondary,
-                      height: '60%'
+                      height: '50%'
                     }}
                   >
                     {/* Circle Background */}
                     <div
-                      className="absolute w-32 h-32 rounded-full"
+                      className="absolute w-24 h-24 rounded-full"
                       style={{ backgroundColor: primary }}
                     />
 
@@ -98,15 +98,15 @@ export function RecommendedFlavors({
                       <Image
                         src={canImage}
                         alt={flavor.title}
-                        width={120}
-                        height={150}
-                        className="h-36 w-auto object-contain drop-shadow-lg relative z-10"
+                        width={100}
+                        height={120}
+                        className="h-28 w-auto object-contain drop-shadow-lg relative z-10"
                       />
                     ) : (
                       <div
-                        className="w-20 h-36 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
+                        className="w-16 h-28 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
                       >
-                        <span className="text-white text-sm font-bold">
+                        <span className="text-white text-xs font-bold">
                           LOONER
                         </span>
                       </div>
@@ -118,24 +118,24 @@ export function RecommendedFlavors({
                     className="absolute bottom-0 left-0 right-0 text-center flex flex-col justify-center md:hidden"
                     style={{ 
                       backgroundColor: secondary,
-                      height: '40%'
+                      height: '50%'
                     }}
                   >
-                    <div className="p-4 flex flex-col justify-center h-full">
-                      <h3 className="font-bold text-gray-900 text-base mb-1 leading-tight">
+                    <div className="p-3 flex flex-col justify-center h-full">
+                      <h3 className="font-bold text-gray-900 text-sm mb-1 leading-tight">
                         {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                       </h3>
 
-                      <p className="text-gray-700 text-xs mb-3 leading-relaxed">
+                      <p className="text-gray-700 text-xs mb-2 leading-relaxed">
                         {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
                       </p>
 
-                      <div className="flex items-center justify-center mb-3 text-gray-800">
+                      <div className="flex items-center justify-center mb-2 text-gray-800">
                         <span className="text-xs">★★★★</span>
                         <span className="text-xs text-gray-400">☆</span>
                       </div>
 
-                      <button className="bg-white text-gray-800 px-4 py-1.5 rounded-full font-medium text-xs shadow-sm border border-gray-200">
+                      <button className="bg-white text-gray-800 px-3 py-1 rounded-full font-medium text-xs shadow-sm border border-gray-200">
                         + Add 12 Pack
                       </button>
                     </div>
