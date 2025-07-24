@@ -364,14 +364,25 @@ export default function FlavorPage() {
         <FlavorBackground color={selectedFlavor?.primaryColor || "#FFE5B4"} />
 
       <div className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 px-4 py-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-4 lg:gap-8 px-4 py-4 lg:py-6 max-w-7xl mx-auto">
           {/* Left Column - Olipop Style Grid */}
-          <div className="space-y-8">
+          <div className="space-y-4 lg:space-y-8">
             <OlipopStyleGrid selectedFlavor={selectedFlavor} />
           </div>
 
           {/* Right Column - Product Info & Selection */}
-          <div className="space-y-8">
+          <div className="space-y-4 lg:space-y-8">
+            {/* Mobile Product Title */}
+            <div className="block md:hidden">
+              <h1 className="text-3xl font-serif text-gray-900 mb-2">
+                {selectedFlavor?.title}
+              </h1>
+              <p className="text-lg text-gray-600 mb-4">
+                The perfect blend of sweet & tart.
+              </p>
+            </div>
+
+            {/* Desktop Product Title */}
             <div className="hidden md:block">
               <h1 className="text-5xl font-serif text-gray-900 mb-4">
                 {selectedFlavor?.title}
@@ -421,19 +432,19 @@ export default function FlavorPage() {
             }}
           >
             <div className="max-w-7xl mx-auto px-4">
-              <div className="grid grid-cols-3 gap-12 items-start">
-                {/* Product Description - 2/3 width */}
-                <div className="col-span-2">
-                  <h2 className="text-4xl font-bold text-gray-900 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 items-start">
+                {/* Product Description - 2/3 width on desktop, full width on mobile */}
+                <div className="md:col-span-2">
+                  <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-8">
                     {selectedFlavor?.title}
                   </h2>
-                  <div className="space-y-6 text-gray-700">
-                    <p className="text-lg leading-relaxed">
+                  <div className="space-y-4 md:space-y-6 text-gray-700">
+                    <p className="text-base md:text-lg leading-relaxed">
                       {selectedFlavor?.description ||
                         "Crack open a swift kick of boldly refreshing flavors. This flavor is a head-on collision of ingredients like rich plums, sweet prunes, and zesty tart cherries with a touch of pure vanilla extract for a true soda enigma the Doctor would actually order."}
                     </p>
-                    <div className="space-y-4">
-                      <p className="text-base">
+                    <div className="space-y-3 md:space-y-4">
+                      <p className="text-sm md:text-base">
                         <strong className="text-gray-900">Ingredients:</strong>{" "}
                         Carbonated Water, OLISMART (Cassava Root Fiber, Chicory
                         Root Inulin, Jerusalem Artichoke Inulin, Nopal Cactus*,
@@ -443,18 +454,18 @@ export default function FlavorPage() {
                         Tart Cherry Juice Concentrate, Stevia Leaf*, Himalayan
                         Pink Salt, Green Tea Caffeine*, Malic Acid.
                       </p>
-                      <p className="text-sm text-gray-600">*Extract</p>
+                      <p className="text-xs md:text-sm text-gray-600">*Extract</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Nutrition Facts - 1/3 width */}
-                <div className="col-span-1">
-                  <div className="bg-white rounded-lg p-6 shadow-sm border-4 border-black">
-                    <h3 className="text-lg font-bold text-black mb-4 text-center border-b-2 border-black pb-2">
+                {/* Nutrition Facts - 1/3 width on desktop, full width on mobile */}
+                <div className="md:col-span-1 mt-6 md:mt-0">
+                  <div className="bg-white rounded-lg p-4 md:p-6 shadow-sm border-2 md:border-4 border-black">
+                    <h3 className="text-base md:text-lg font-bold text-black mb-3 md:mb-4 text-center border-b-2 border-black pb-2">
                       Nutrition Facts
                     </h3>
-                    <div className="space-y-2 text-sm text-black">
+                    <div className="space-y-1 md:space-y-2 text-xs md:text-sm text-black">
                       <div className="flex justify-between border-b border-black/30 pb-1">
                         <span>Serving Size</span>
                         <span className="font-medium">1 can (12 fl oz)</span>
@@ -483,7 +494,7 @@ export default function FlavorPage() {
               </div>
 
               {/* Feature Icons Row - Full Width Below Both Sections */}
-              <div className="w-full flex justify-center items-center gap-6 mt-16">
+              <div className="w-full flex justify-center items-center gap-4 md:gap-6 mt-8 md:mt-16">
                 <div className="text-center">
                   <div className="w-12 h-12 mx-auto mb-2 flex items-center justify-center">
                     <svg
