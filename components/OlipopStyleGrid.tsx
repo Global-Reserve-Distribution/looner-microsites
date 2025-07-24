@@ -56,7 +56,7 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
         </div>
 
         {/* Feature Tags Container - Right column, transparent background */}
-        <div className="col-span-1 h-96 flex flex-col justify-between">
+        <div className="col-span-1 h-96 flex flex-col justify-between space-y-4 py-4">
           {filteredTags.slice(0, 3).map((tag: string, index: number) => (
             <div 
               key={tag}

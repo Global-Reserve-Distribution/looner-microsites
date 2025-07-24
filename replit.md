@@ -310,6 +310,10 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Bottom tag card now ends at same height as bottom of image container
   - Added horizontal margin (mx-4) to individual tags for proper spacing
   - Tags now span full height of image container with equal distribution
+- **TAG SPACING REFINEMENT** (July 24, 2025): Added vertical gaps between tag cards
+  - Added space-y-4 and py-4 to create proper vertical spacing between tag cards
+  - Maintains alignment with image container while providing visual separation
+  - Matches Olipop reference design with clean gaps between each tag card
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
