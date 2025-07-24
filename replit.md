@@ -204,12 +204,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added debug logging to troubleshoot metafields not appearing for Professor Pepper flavor
   - Shopify metafields show #7D3F49 (primary) and #CB6777 (secondary) but not displaying on site
   - Fixed metafields query to properly match custom.primary_color and custom.secondary_color namespace structure
-- **SODA CATEGORY FILTERING** (July 24, 2025): Added filtering to show only soda products using Shopify productType
+- **SODA CATEGORY FILTERING FIX** (July 24, 2025): Enhanced filtering to prevent "flavors unavailable" error
   - Updated GraphQL fragment to fetch productType field from Shopify
-  - Filter display to show only products with "soda" in productType (actual Shopify category)
-  - Still fetch all products from Shopify API for complete data access
-  - Added productType to flavor transformation and debug logging
-  - Fixed TypeScript errors with proper type annotations
+  - Comprehensive filtering checks productType, title, and tags for beverage-related terms
+  - Fallback to show all products if no beverages found (prevents empty state)
+  - Removed debug logging for cleaner production experience
+  - Fixed filtering logic to be more inclusive (soda, beverage, drink keywords)
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

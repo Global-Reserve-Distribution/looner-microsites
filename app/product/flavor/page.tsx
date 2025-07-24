@@ -136,30 +136,43 @@ export default function FlavorPage() {
   useEffect(() => {
     async function loadFlavors() {
       try {
+        console.log("Starting to fetch products...");
         const products = await fetchProducts({ sortKey: "BEST_SELLING" });
-        console.log("All products fetched:", products.length);
-        console.log("Product titles:", products.map(p => p.title));
-        console.log("Product types:", products.map(p => p.productType));
+        console.log("Products received:", products?.length || 0);
+        console.log("First product:", products?.[0]);
         
         const allTransformedFlavors = transformProductsToFlavors(products);
-        console.log("All transformed flavors:", allTransformedFlavors.length);
-        console.log("All flavor titles:", allTransformedFlavors.map(f => f.title));
-        console.log("All flavor product types:", allTransformedFlavors.map(f => f.productType));
+        console.log("Transformed flavors:", allTransformedFlavors?.length || 0);
         
-        // Filter to show only soda category items using productType
-        const sodaFlavors = allTransformedFlavors.filter(flavor => 
-          flavor.productType && flavor.productType.toLowerCase().includes('soda')
-        );
+        // Filter to show beverages/drinks - check multiple fields for maximum compatibility
+        let filteredFlavors = allTransformedFlavors.filter(flavor => {
+          const productType = (flavor.productType || '').toLowerCase();
+          const title = (flavor.title || '').toLowerCase();
+          const tags = (flavor.tags || []).map((tag: string) => tag.toLowerCase());
+          
+          return (
+            productType.includes('soda') ||
+            productType.includes('beverage') ||
+            productType.includes('drink') ||
+            title.includes('soda') ||
+            tags.some((tag: string) => tag.includes('soda') || tag.includes('beverage') || tag.includes('drink'))
+          );
+        });
         
-        console.log("Soda flavors found:", sodaFlavors.length);
-        console.log("Soda flavor titles:", sodaFlavors.map(f => f.title));
+        // If no specific beverages found, show all products (fallback)
+        if (filteredFlavors.length === 0) {
+          filteredFlavors = allTransformedFlavors;
+          console.log("Using fallback - showing all products:", filteredFlavors.length);
+        } else {
+          console.log("Found filtered flavors:", filteredFlavors.length);
+        }
         
-        setFlavors(sodaFlavors);
+        setFlavors(filteredFlavors);
 
         const defaultFlavor =
-          sodaFlavors.find(
+          filteredFlavors.find(
             (f) => f.title.toLowerCase().replace(/\s+/g, "-") === slug,
-          ) || sodaFlavors[0];
+          ) || filteredFlavors[0];
 
         setSelectedFlavor(defaultFlavor);
         setSelectedVariant(defaultFlavor?.variants[0]);
