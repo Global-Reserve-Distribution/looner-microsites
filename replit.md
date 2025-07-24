@@ -325,6 +325,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Hover state reveals lifestyle images with wavy SVG transitions
   - Click functionality to switch between flavors with smooth state updates
   - Positioned below nutrition facts section before footer for optimal user flow
+- **OLIPOP-STYLE RECOMMENDATION CARDS** (July 24, 2025): Updated cards to match Olipop reference design
+  - Simplified card design with colored backgrounds matching primary flavor colors
+  - Removed complex hover states in favor of clean, static card layout
+  - Cards use 3:4 aspect ratio with rounded-3xl corners matching Olipop aesthetic
+  - Centered product images with proper drop shadows and scaling
+  - Product names display prominently with star ratings below
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
