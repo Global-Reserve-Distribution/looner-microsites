@@ -191,13 +191,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Applied blur effects (60px) and opacity (15%) for subtle, organic background appearance
   - 0.6s ease-in-out transitions with AnimatePresence for seamless flavor switching
   - Fixed JSX structure errors and proper z-index layering for content above background
-- **STANDALONE LANDING PAGE** (July 23, 2025): Removed navigation to create microsite landing page
-  - Created custom layout for /product/flavor route without navigation header
-  - Flavor page now functions as standalone microsite landing page
-  - Removed header navigation and top padding to maximize content space
-  - Page starts immediately with animated background and product content
-  - Implemented conditional navigation system that hides header specifically on flavor page
-  - Created ConditionalNavigation component to manage navigation visibility by route
+- **PRODUCT PAGE CONSOLIDATION** (July 24, 2025): Moved flavor page to main /product route
+  - Consolidated /product/flavor content into main /product route for simpler navigation
+  - Updated all import paths from ../../../ to ../../ for component references
+  - Removed /product/flavor directory completely to eliminate route duplication
+  - Main product page now serves as the comprehensive flavor selection and purchase experience
+  - Maintained all functionality: Olipop-style layout, flavor selection, cart integration, mobile responsiveness
 - **METAFIELDS DEBUGGING** (July 23, 2025): Enhanced color metafields fetching for Professor Pepper flavor
   - Updated GraphQL fragment to fetch both underscore and space-separated metafield key formats
   - Enhanced extractColorMetafields function to handle "Primary Color" vs "primary_color" naming
