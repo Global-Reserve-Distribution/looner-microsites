@@ -391,50 +391,44 @@ export default function FlavorPage() {
         <FlavorBackground color={selectedFlavor?.primaryColor || "#FFE5B4"} />
 
       <div className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-4 lg:gap-8 px-4 py-4 lg:py-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-4 lg:gap-8 py-4 lg:py-6 max-w-7xl mx-auto">
           {/* Left Column - Olipop Style Grid */}
-          <div className="space-y-4 lg:space-y-8">
+          <div className="space-y-4 lg:space-y-8 px-4 lg:px-0">
             <OlipopStyleGrid selectedFlavor={selectedFlavor} />
           </div>
 
           {/* Right Column - Product Info & Selection */}
           <div className="space-y-4 lg:space-y-8">
-            {/* Mobile Product Title */}
-            <div className="block md:hidden">
-              <h1 className="text-3xl font-serif text-gray-900 mb-2">
-                {selectedFlavor?.title}
+            {/* Product Title - Responsive sizing with consistent margins */}
+            <div className="px-4 lg:px-0">
+              <h1 className="text-3xl lg:text-5xl font-serif text-gray-900 mb-2 lg:mb-4">
+                {selectedFlavor?.displayName || selectedFlavor?.title}
               </h1>
-              <p className="text-lg text-gray-600 mb-4">
-                The perfect blend of sweet & tart.
+              <p className="text-lg lg:text-xl text-gray-600 mb-4 lg:mb-6">
+                {selectedFlavor?.shortDescription || "The perfect blend of sweet & tart."}
               </p>
             </div>
 
-            {/* Desktop Product Title */}
-            <div className="hidden md:block">
-              <h1 className="text-5xl font-serif text-gray-900 mb-4">
-                {selectedFlavor?.title}
-              </h1>
-              <p className="text-xl text-gray-600">
-                The perfect blend of sweet & tart.
-              </p>
+            <div className="px-4 lg:px-0">
+              <FlavorPickerVariants
+                flavors={regularFlavors}
+                selectedFlavor={selectedFlavor}
+                onFlavorSelect={(flavor) => {
+                  setSelectedFlavor(flavor);
+                  setSelectedVariant(flavor.variants[0]);
+                }}
+                variant="premium"
+              />
             </div>
 
-            <FlavorPickerVariants
-              flavors={regularFlavors}
-              selectedFlavor={selectedFlavor}
-              onFlavorSelect={(flavor) => {
-                setSelectedFlavor(flavor);
-                setSelectedVariant(flavor.variants[0]);
-              }}
-              variant="premium"
-            />
-
-            <PurchaseOptions
-              ref={purchaseButtonRef}
-              flavor={selectedFlavor}
-              variant={selectedVariant}
-              onVariantChange={setSelectedVariant}
-            />
+            <div className="px-4 lg:px-0">
+              <PurchaseOptions
+                ref={purchaseButtonRef}
+                flavor={selectedFlavor}
+                variant={selectedVariant}
+                onVariantChange={setSelectedVariant}
+              />
+            </div>
           </div>
         </div>
 
@@ -463,8 +457,8 @@ export default function FlavorPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 items-start">
                 {/* Product Description - 2/3 width on desktop, full width on mobile */}
                 <div className="md:col-span-2">
-                  <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-8">
-                    {selectedFlavor?.title}
+                  <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 md:mb-8">
+                    About {selectedFlavor?.displayName || selectedFlavor?.title}
                   </h2>
                   <div className="space-y-4 md:space-y-6 text-gray-700">
                     <p className="text-base md:text-lg leading-relaxed">
