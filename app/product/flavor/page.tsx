@@ -10,7 +10,6 @@ import { PurchaseOptions } from "../../../components/PurchaseOptions";
 import { FlavorBackground } from "../../../components/FlavorBackground";
 import { OlipopStyleGrid } from "../../../components/OlipopStyleGrid";
 import { RecommendedFlavors } from "../../../components/RecommendedFlavors";
-import { RecommendedFlavors } from "../../../components/RecommendedFlavors";
 import {
   fetchProducts,
   fetchProductsWithAdminCategories,
