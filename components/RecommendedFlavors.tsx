@@ -110,7 +110,7 @@ export function RecommendedFlavors({
                   {/* Product Name and Rating - Animate up on hover */}
                   <div className={`px-6 pb-6 text-center absolute bottom-0 left-0 right-0 transition-transform duration-500 ${
                     isHovered && (animationPhase === 'waveDown' || animationPhase === 'complete')
-                      ? 'translate-y-[-50%]' 
+                      ? 'translate-y-[-65%]' 
                       : 'translate-y-0'
                   }`}
                   style={{ 
@@ -138,18 +138,18 @@ export function RecommendedFlavors({
                       ? animationPhase === 'complete' 
                         ? 'inset(0% 0% 0% 0%)'
                         : animationPhase === 'waveDown'
-                        ? 'inset(0% 0% 50% 0%)'
+                        ? 'inset(0% 0% 35% 0%)'
                         : 'inset(0% 0% 100% 0%)'
                       : 'inset(0% 0% 100% 0%)',
                     transition: 'clip-path 0.45s cubic-bezier(0.4, 0, 0.2, 1)'
                   }}
                 >
-                    {/* Top Section with Decorative Background - 50% height */}
+                    {/* Top Section with Decorative Background - 40% height */}
                     <div
                       className="relative flex items-center justify-center p-6"
                       style={{ 
                         backgroundColor: primary,
-                        height: '50%'
+                        height: '40%'
                       }}
                     >
                       {/* Decorative Blob Elements */}
@@ -211,12 +211,12 @@ export function RecommendedFlavors({
                       />
                     </svg>
 
-                    {/* Bottom Section with Content - 50% height */}
+                    {/* Bottom Section with Content - 60% height */}
                     <div
                       className="p-6 pt-2 text-center flex flex-col justify-center"
                       style={{ 
                         backgroundColor: secondary,
-                        height: '50%'
+                        height: '60%'
                       }}
                     >
                       <h3 className="font-bold text-gray-900 text-lg mb-2 leading-tight">
