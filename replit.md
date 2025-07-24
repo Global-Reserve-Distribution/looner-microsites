@@ -273,6 +273,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Text sections now match the proportions seen in Lemon Lime, Professor Pepper, and Root Beer cards
   - Added flex centering to properly position flavor names within the half-height white section
   - Maintained proper text sizing and padding for optimal readability
+- **LARGER PRODUCT IMAGES** (July 24, 2025): Increased image size for better product visibility
+  - Enlarged product images from w-16 h-20 to w-24 h-32 for closer, more detailed view of cans
+  - Increased fallback LOONER logo from w-12 h-16 to w-20 h-24 with larger text
+  - Images now provide better product detail matching Olipop's close-up can presentation
+  - Maintained object-contain scaling and hover effects for smooth interactions
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
