@@ -314,12 +314,6 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added space-y-4 and py-4 to create proper vertical spacing between tag cards
   - Maintains alignment with image container while providing visual separation
   - Matches Olipop reference design with clean gaps between each tag card
-- **RECOMMENDED FLAVORS COMPONENT** (July 24, 2025): Added "You May Also Like" section
-  - Created RecommendedFlavors component with hover effects and lifestyle images
-  - Interactive cards that show product images by default, lifestyle content on hover
-  - Wavy divider effects and star ratings matching premium soda aesthetic
-  - Grid layout (2-4 columns responsive) filtering out current flavor from recommendations
-  - Integrated below product information section for enhanced product discovery
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

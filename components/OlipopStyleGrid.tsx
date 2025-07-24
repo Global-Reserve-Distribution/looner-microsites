@@ -9,7 +9,7 @@ interface OlipopStyleGridProps {
 export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
   // Filter tags to exclude 'Soda' and 'bundle'
   const filteredTags =
-    selectedFlavor?.tags?.filter((tag: any) => {
+    selectedFlavor?.tags?.filter((tag: string) => {
       const tagLower = tag.toLowerCase();
       return !tagLower.includes("soda") && !tagLower.includes("bundle");
     }) || [];
@@ -34,7 +34,7 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
       "bg-yellow-100",
       "bg-pink-100",
     ];
-    return backgrounds[index % backgrounds.length] || "bg-gray-100";
+    return backgrounds[index % backgrounds.length];
   };
 
   return (

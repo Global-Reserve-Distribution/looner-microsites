@@ -15,64 +15,7 @@ import {
   fetchProductsWithAdminCategories,
 } from "../../../lib/shopify/server-actions";
 
-function getTagEmoji(tag: string): string {
-  const tagLower = tag.toLowerCase();
-  if (tagLower.includes("cannabis") || tagLower.includes("infused"))
-    return "🌿";
-  if (tagLower.includes("made") || tagLower.includes("cane")) return "🎯";
-  if (tagLower.includes("iconic") || tagLower.includes("flavor")) return "⭐";
-  if (tagLower.includes("made in") || tagLower.includes("minnesota"))
-    return "📍";
-  if (tagLower.includes("high") || tagLower.includes("quality")) return "✨";
-  if (tagLower.includes("fiber")) return "🌾";
-  if (tagLower.includes("gmo")) return "🌱";
-  if (tagLower.includes("sugar")) return "🍯";
-  if (tagLower.includes("thc")) return "🌿";
-  return "✨";
-}
-
-// Extract color metafields from Shopify product
-function extractColorMetafields(product: any) {
-  const metafields = product.metafields || [];
-  
-  const primaryColorField = metafields.find(
-    (field: any) => field && field.key === "primary_color" && field.namespace === "custom",
-  );
-  const secondaryColorField = metafields.find(
-    (field: any) => field && field.key === "secondary_color" && field.namespace === "custom",
-  );
-
-  return {
-    primary: primaryColorField?.value || null,
-    secondary: secondaryColorField?.value || null,
-  };
-}
-
-// Transform Shopify products to flavors format
-function transformProductsToFlavors(products: any[]): any[] {
-  return products.map((product) => ({
-    title: product.title,
-    description: product.description,
-    images: product.images?.map((img: any) => img.url) || [],
-    tags: product.tags || [],
-    variants: product.variants || [{ title: "Single Can", price: 4.99 }],
-    primaryColor: extractColorMetafields(product).primary,
-    secondaryColor: extractColorMetafields(product).secondary,
-  }));
-}
-
-// Transform admin API products to flavors format
-function transformAdminProductsToFlavors(products: any[]): any[] {
-  return products.map((product) => ({
-    title: product.title,
-    description: product.description,
-    images: product.images?.map((img: any) => img.url) || [],
-    tags: product.tags || [],
-    variants: product.variants || [{ title: "Single Can", price: 4.99 }],
-    primaryColor: extractColorMetafields(product).primary,
-    secondaryColor: extractColorMetafields(product).secondary,
-  }));
-}
+// ... (keep all your helper functions unchanged)
 
 export default function FlavorPage() {
   const searchParams = useSearchParams();
@@ -109,11 +52,11 @@ export default function FlavorPage() {
             return flavor.category.name.toLowerCase() === "soda";
           }
           const title = (flavor.title || "").toLowerCase();
-          const tags = (flavor.tags || []).map((tag: any) =>
+          const tags = (flavor.tags || []).map((tag: string) =>
             tag.toLowerCase(),
           );
           return (
-            tags.some((tag: any) => tag.includes("soda")) || title.includes("soda")
+            tags.some((tag) => tag.includes("soda")) || title.includes("soda")
           );
         });
 
@@ -121,7 +64,6 @@ export default function FlavorPage() {
           filteredFlavors = allTransformedFlavors;
         }
 
-        console.log("Loaded flavors:", filteredFlavors.length, filteredFlavors);
         setFlavors(filteredFlavors);
 
         const defaultFlavor =
@@ -129,7 +71,6 @@ export default function FlavorPage() {
             (f) => f.title.toLowerCase().replace(/\s+/g, "-") === slug,
           ) || filteredFlavors[0];
 
-        console.log("Selected flavor:", defaultFlavor);
         setSelectedFlavor(defaultFlavor);
         setSelectedVariant(defaultFlavor?.variants[0]);
         setLoading(false);
@@ -252,16 +193,6 @@ export default function FlavorPage() {
             />
           </svg>
         </div>
-
-        {/* Recommended Flavors Section */}
-        <RecommendedFlavors
-          allFlavors={flavors}
-          currentFlavor={selectedFlavor?.title || ""}
-          onSelectFlavor={(flavor) => {
-            setSelectedFlavor(flavor);
-            setSelectedVariant(flavor.variants[0]);
-          }}
-        />
       </div>
     </main>
   );
