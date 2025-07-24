@@ -4,9 +4,16 @@ import React from 'react';
 import { ShoppingBag, User, MapPin } from 'lucide-react';
 import Link from 'next/link';
 
-export function Header() {
+interface HeaderProps {
+  backgroundColor?: string;
+}
+
+export function Header({ backgroundColor = "transparent" }: HeaderProps) {
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header 
+      className="sticky top-0 z-50"
+      style={{ backgroundColor }}
+    >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Left Navigation */}
