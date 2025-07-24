@@ -149,50 +149,53 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
       {/* Mobile Carousel Layout */}
       <div className="md:hidden">
         <div className="flex overflow-x-auto gap-4 pb-4 -mx-4 px-4 scrollbar-hide">
-          {/* Main product card */}
-          <div
-            className="flex-shrink-0 w-80 rounded-2xl h-80 flex items-center justify-center"
-            style={{
-              backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
-            }}
-          >
-            {selectedFlavor?.images?.[0] ? (
-              <img
-                src={selectedFlavor.images[0]}
-                alt={selectedFlavor.title}
-                className="w-32 h-48 object-contain drop-shadow-2xl"
-              />
-            ) : (
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2 text-white">
-                  LOONER
-                </div>
-                <div className="text-lg text-white/80">
-                  Cannabis Co.
-                </div>
+          {/* First card: Main product image with tags combined */}
+          <div className="flex-shrink-0 w-80">
+            <div className="grid grid-rows-[1fr_auto] gap-3 h-80">
+              {/* Large Product Image - Top section */}
+              <div
+                className="rounded-2xl flex items-center justify-center"
+                style={{
+                  backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+                }}
+              >
+                {selectedFlavor?.images?.[0] ? (
+                  <img
+                    src={selectedFlavor.images[0]}
+                    alt={selectedFlavor.title}
+                    className="w-28 h-40 object-contain drop-shadow-2xl"
+                  />
+                ) : (
+                  <div className="text-center">
+                    <div className="text-3xl font-bold mb-1 text-white">
+                      LOONER
+                    </div>
+                    <div className="text-sm text-white/80">
+                      Cannabis Co.
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-
-          {/* Tag cards */}
-          {filteredTags.slice(0, 3).map((tag: string, index: number) => (
-            <div
-              key={index}
-              className="flex-shrink-0 w-48 rounded-2xl h-80 flex items-center justify-center"
-              style={{
-                backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
-              }}
-            >
-              <div className="text-center">
-                <div className="text-3xl mb-3">
-                  {getTagEmoji(tag)}
-                </div>
-                <div className="text-gray-800 font-bold text-base">
-                  {tag}
-                </div>
+              
+              {/* Tag cards - Bottom section in grid */}
+              <div className="grid grid-cols-3 gap-2 h-20">
+                {filteredTags.slice(0, 3).map((tag: string, index: number) => (
+                  <div
+                    key={index}
+                    className="rounded-xl flex flex-col items-center justify-center text-center p-2"
+                    style={{
+                      backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+                    }}
+                  >
+                    <div className="text-lg mb-1">{getTagEmoji(tag)}</div>
+                    <div className="text-gray-800 font-semibold text-xs leading-tight">
+                      {tag}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
 
           {/* Multiple products card */}
           <div

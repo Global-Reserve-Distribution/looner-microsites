@@ -381,8 +381,10 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added shopping cart counter and proper hover states throughout
 - **MOBILE CAROUSEL LAYOUT** (July 24, 2025): Implemented responsive mobile carousel for OlipopStyleGrid
   - Added responsive breakpoints: desktop grid layout (md:hidden/block) vs mobile carousel (md:hidden)
-  - Created horizontal scrolling carousel with 6 distinct cards: main product, 3 tags, multi-product, Better than Dessert, glass+product
-  - Implemented proper card sizing: main product (w-80), tags (w-48), text cards (w-64)
+  - Created horizontal scrolling carousel with 4 distinct cards matching Olipop reference
+  - **First card combines main product image and tags**: Large product image on top with 3x1 tag grid below
+  - Remaining cards: multi-product showcase, "Better than Dessert" text, glass+product combination
+  - Implemented proper card sizing: combined card (w-80), multi-product (w-80), text cards (w-64)
   - Added hidden scrollbars using custom CSS classes (.scrollbar-hide) for clean mobile UX
   - Fixed TypeScript errors with proper type annotations for map functions
   - Maintained consistent color theming from Shopify metafields across mobile and desktop layouts
