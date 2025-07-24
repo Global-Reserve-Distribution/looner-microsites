@@ -356,14 +356,14 @@ export default function FlavorPage() {
         <FlavorBackground color={selectedFlavor?.primaryColor || "#FFE5B4"} />
 
       <div className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 px-6 py-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 px-4 py-6 max-w-7xl mx-auto">
           {/* Left Column - Olipop Style Grid */}
-          <div className="space-y-8 -ml-4">
+          <div className="space-y-8">
             <OlipopStyleGrid selectedFlavor={selectedFlavor} />
           </div>
 
           {/* Right Column - Product Info & Selection */}
-          <div className="space-y-8 pl-4">
+          <div className="space-y-8">
             <div className="hidden md:block">
               <h1 className="text-5xl font-serif text-gray-900 mb-4">
                 {selectedFlavor?.title}
@@ -412,7 +412,7 @@ export default function FlavorPage() {
               backgroundColor: selectedFlavor?.primaryColor || "#CCFBF1",
             }}
           >
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="max-w-7xl mx-auto px-4">
               <div className="grid grid-cols-3 gap-12 items-start">
                 {/* Product Description - 2/3 width */}
                 <div className="col-span-2">

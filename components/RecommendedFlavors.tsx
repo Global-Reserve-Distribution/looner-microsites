@@ -47,7 +47,7 @@ export function RecommendedFlavors({
   );
 
   return (
-    <section className="px-6 max-w-7xl mx-auto py-16">
+    <section className="px-4 max-w-7xl mx-auto py-16">
       <h2 className="text-3xl font-serif text-gray-900 mb-6">
         You May Also Like
       </h2>

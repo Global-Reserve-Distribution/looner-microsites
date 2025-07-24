@@ -28,7 +28,7 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
   return (
     <div>
       {/* Desktop Layout */}
-      <div className="hidden md:block space-y-6 pl-4">
+      <div className="hidden md:block space-y-6">
         {/* Top section: Main image with tags on the side */}
         <div className="grid grid-cols-[3fr_1fr] gap-4">
           {/* Large Product Image Card */}
