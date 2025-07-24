@@ -49,14 +49,14 @@ export function RecommendedFlavors({
             >
               <div 
                 className="rounded-3xl p-6 flex flex-col items-center text-center aspect-[3/4]"
-                style={{ backgroundColor: secondary }}
+                style={{ backgroundColor: primary }}
               >
                 {/* Product Image with Circle Background */}
                 <div className="flex-1 flex items-center justify-center mb-4 relative">
                   {/* Circle Background */}
                   <div 
                     className="absolute w-40 h-40 rounded-full opacity-80"
-                    style={{ backgroundColor: primary }}
+                    style={{ backgroundColor: secondary }}
                   />
                   
                   {/* Product Image */}
