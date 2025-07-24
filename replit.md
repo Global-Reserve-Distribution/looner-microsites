@@ -410,6 +410,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Fixed visual gap in tab layout by removing rounded corners from content container where tabs connect
   - Triggered cache revalidation to ensure updated Shopify tag changes are reflected immediately
   - Improved debugging output to show tag-based vs title-based filtering decisions
+- **DESKTOP RECOMMENDATION CARDS UPDATE** (July 24, 2025): Updated desktop cards to match mobile layout
+  - Changed desktop non-hover state to show content permanently like mobile version
+  - Desktop cards now display product name, description, rating, and button by default
+  - Removed minimal desktop layout in favor of consistent mobile-desktop appearance
+  - Maintains hover animations while providing full information visibility at all times
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
