@@ -248,6 +248,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Active tab background matches content area with orange theme and seamless border connection
   - Inactive tabs have gray background and proper hover states
   - Content area has matching orange background with border integration
+- **REMOVED OUTER CARD AND RESIZED TABS** (July 24, 2025): Simplified layout structure
+  - Removed white outer card container and shadow for cleaner presentation
+  - Resized tabs to half width of content area using flexbox layout
+  - Each tab now uses flex-1 to equally divide the available tab space
+  - Maintained proper tab connection to content area without outer padding
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

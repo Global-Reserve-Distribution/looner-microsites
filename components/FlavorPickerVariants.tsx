@@ -18,13 +18,13 @@ export function FlavorPickerVariants({
   const [activeTab, setActiveTab] = React.useState<'flavors' | 'packs'>('flavors');
   
   return (
-    <div className="bg-white p-8 rounded-3xl shadow-lg">
+    <div>
       {/* Tab Navigation */}
       <div className="flex justify-center mb-0">
-        <div className="flex">
+        <div className="flex w-1/2">
           <button 
             onClick={() => setActiveTab('flavors')}
-            className={`px-6 py-3 text-sm font-medium transition-all rounded-t-xl border-t border-l border-r relative ${
+            className={`flex-1 py-3 text-sm font-medium transition-all rounded-t-xl border-t border-l border-r relative ${
               activeTab === 'flavors' 
                 ? 'bg-orange-50 text-orange-800 border-orange-200 z-10' 
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border-gray-300'
@@ -37,7 +37,7 @@ export function FlavorPickerVariants({
           </button>
           <button 
             onClick={() => setActiveTab('packs')}
-            className={`px-6 py-3 text-sm font-medium transition-all rounded-t-xl border-t border-l border-r relative ${
+            className={`flex-1 py-3 text-sm font-medium transition-all rounded-t-xl border-t border-l border-r relative ${
               activeTab === 'packs' 
                 ? 'bg-orange-50 text-orange-800 border-orange-200 z-10' 
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border-gray-300'
@@ -52,7 +52,7 @@ export function FlavorPickerVariants({
       </div>
       
       {/* Content Area with Tab Connection */}
-      <div className="bg-orange-50 border border-orange-200 rounded-lg rounded-tl-none rounded-tr-none p-6">
+      <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
         <div className="grid grid-cols-4 gap-3">
         {(activeTab === 'flavors' ? flavors : flavors.filter(f => f.title.toLowerCase().includes('variety') || f.title.toLowerCase().includes('pack'))).map((flavor, index) => (
           <button
