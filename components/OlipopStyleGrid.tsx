@@ -25,17 +25,7 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
     return "✨";
   };
 
-  const getTagBackground = (index: number): string => {
-    const backgrounds = [
-      "bg-orange-100",
-      "bg-green-100",
-      "bg-blue-100",
-      "bg-purple-100",
-      "bg-yellow-100",
-      "bg-pink-100",
-    ];
-    return backgrounds[index % backgrounds.length];
-  };
+
 
   return (
     <div className="space-y-6">
@@ -45,7 +35,7 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
         <div
           className="col-span-3 rounded-3xl overflow-hidden relative h-96"
           style={{
-            backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
+            backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
           }}
         >
           <div className="h-full w-full flex items-center justify-center">
@@ -63,18 +53,18 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
           </div>
         </div>
 
-        {/* Feature Tags Container - Right column, transparent background */}
-        <div className="col-span-1 h-96 flex flex-col justify-between space-y-4">
+        {/* Feature Tags Container - Right column, secondary background */}
+        <div className="col-span-1 h-96 flex flex-col justify-between space-y-4 py-4">
           {filteredTags.slice(0, 3).map((tag: string, index: number) => (
             <div
               key={tag}
-              className="rounded-2xl p-3 text-center flex-1 flex flex-col items-center justify-center mx-4"
+              className="rounded-2xl p-4 text-center flex-1 flex flex-col items-center justify-center"
               style={{
-                backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
+                backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
               }}
             >
-              <div className="text-lg mb-1 text-white">{getTagEmoji(tag)}</div>
-              <h3 className="font-bold text-white text-xs leading-tight">
+              <div className="text-2xl mb-1">{getTagEmoji(tag)}</div>
+              <h3 className="font-bold text-gray-800 text-sm leading-tight">
                 {tag}
               </h3>
             </div>
@@ -82,34 +72,48 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
         </div>
       </div>
 
-      {/* Bottom section: Additional images taking full width */}
-      <div className="grid grid-cols-2 gap-4 w-full">
+      {/* Bottom section: Additional images with secondary colors */}
+      <div className="grid grid-cols-3 gap-4 w-full">
         <div
           className="rounded-2xl h-48 flex items-center justify-center"
           style={{
-            backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
+            backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
           }}
         >
-          {selectedFlavor?.images?.[0] && (
+          {selectedFlavor?.images?.[1] || selectedFlavor?.images?.[0] ? (
             <img
-              src={selectedFlavor.images[0]}
+              src={selectedFlavor.images[1] || selectedFlavor.images[0]}
               alt={selectedFlavor.title}
               className="w-20 h-28 object-contain drop-shadow-lg"
             />
-          )}
+          ) : null}
         </div>
 
         <div
-          className="rounded-2xl h-48 flex items-center justify-center relative overflow-hidden"
+          className="rounded-2xl h-48 flex items-center justify-center"
           style={{
-            backgroundColor: selectedFlavor?.secondaryColor || "#A855F7",
+            backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
           }}
         >
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="relative z-10 text-center text-white">
-            <h3 className="text-xl font-bold">Premium</h3>
-            <p className="text-sm">Cannabis Soda</p>
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-gray-800">Premium</h3>
+            <p className="text-sm text-gray-600">Cannabis Soda</p>
           </div>
+        </div>
+        
+        <div
+          className="rounded-2xl h-48 flex items-center justify-center"
+          style={{
+            backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+          }}
+        >
+          {selectedFlavor?.images?.[2] || selectedFlavor?.images?.[0] ? (
+            <img
+              src={selectedFlavor.images[2] || selectedFlavor.images[0]}
+              alt={selectedFlavor.title}
+              className="w-20 h-28 object-contain drop-shadow-lg"
+            />
+          ) : null}
         </div>
       </div>
     </div>

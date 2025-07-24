@@ -348,7 +348,7 @@ export default function FlavorPage() {
       <FlavorBackground color={selectedFlavor?.primaryColor || "#FFE5B4"} />
 
       <div className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 max-w-7xl mx-auto">
           {/* Left Column - Olipop Style Grid */}
           <div className="space-y-8">
             <OlipopStyleGrid selectedFlavor={selectedFlavor} />
