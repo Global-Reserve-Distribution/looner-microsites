@@ -52,9 +52,14 @@ export function FlavorPickerVariants({
       </div>
       
       {/* Content Area with Tab Connection */}
-      <div className="bg-white border border-gray-200 rounded-lg p-6">
+      <div className="bg-white border border-gray-200 rounded-b-lg p-6">
         <div className="grid grid-cols-3 gap-4">
-        {(activeTab === 'flavors' ? flavors : flavors.filter(f => f.title.toLowerCase().includes('variety') || f.title.toLowerCase().includes('pack'))).map((flavor, index) => (
+        {(activeTab === 'flavors' ? flavors : flavors.filter(f => {
+          const tags = f.tags || [];
+          const hasBundle = tags.some((tag: string) => tag.toLowerCase().includes('bundle'));
+          const hasSoda = tags.some((tag: string) => tag.toLowerCase().includes('soda'));
+          return hasBundle && hasSoda;
+        })).map((flavor, index) => (
           <button
             key={flavor.title}
             onClick={() => onFlavorSelect(flavor)}

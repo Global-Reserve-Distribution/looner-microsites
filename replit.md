@@ -404,6 +404,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated RecommendedFlavors component to use shortDescription for card descriptions
   - Enhanced extractMetafields function (renamed from extractColorMetafields) to handle all custom metafields
   - Fallback hierarchy: shortDescription → description → default text for "You May Also Like" cards
+- **TAG FILTERING AND CACHE FIXES** (July 24, 2025): Fixed tag-based filtering and cache invalidation issues
+  - Updated variety packs tab to require both "Soda" AND "bundle" tags for proper filtering
+  - Enhanced main flavor filtering to prioritize "soda" tag over title-based matching for accuracy
+  - Fixed visual gap in tab layout by removing rounded corners from content container where tabs connect
+  - Triggered cache revalidation to ensure updated Shopify tag changes are reflected immediately
+  - Improved debugging output to show tag-based vs title-based filtering decisions
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

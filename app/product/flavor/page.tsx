@@ -270,8 +270,9 @@ export default function FlavorPage() {
             tag.toLowerCase(),
           );
 
-          const isSoda =
-            tags.some((tag: string) => tag.includes("soda")) ||
+          // Check for 'soda' tag first, then fallback to title matching
+          const hasSodaTag = tags.some((tag: string) => tag.includes("soda"));
+          const isSodaByTitle =
             title.includes("soda") ||
             title.includes("pepper") ||
             title.includes("grape") ||
@@ -279,8 +280,10 @@ export default function FlavorPage() {
             title.includes("lime") ||
             title.includes("mule");
 
+          const isSoda = hasSodaTag || isSodaByTitle;
+
           console.log(
-            `Product: ${flavor.title}, Tags: ${JSON.stringify(flavor.tags)}, Is Soda: ${isSoda}`,
+            `Product: ${flavor.title}, Tags: ${JSON.stringify(flavor.tags)}, Has Soda Tag: ${hasSodaTag}, Is Soda by Title: ${isSodaByTitle}, Final: ${isSoda}`,
           );
           return isSoda;
         });
