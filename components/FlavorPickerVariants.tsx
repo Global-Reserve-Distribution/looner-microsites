@@ -54,12 +54,19 @@ export function FlavorPickerVariants({
       {/* Content Area with Tab Connection */}
       <div className="bg-white border border-gray-200 rounded-b-lg p-6">
         <div className="grid grid-cols-3 gap-4">
-        {(activeTab === 'flavors' ? flavors : flavors.filter(f => {
-          const tags = f.tags || [];
-          const hasBundle = tags.some((tag: string) => tag.toLowerCase().includes('bundle'));
-          const hasSoda = tags.some((tag: string) => tag.toLowerCase().includes('soda'));
-          return hasBundle && hasSoda;
-        })).map((flavor, index) => (
+        {(activeTab === 'flavors' 
+          ? flavors.filter(f => {
+              const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
+              const hasBundle = tags.some((tag: string) => tag.includes('bundle'));
+              return !hasBundle; // Exclude bundle items from flavors tab
+            })
+          : flavors.filter(f => {
+              const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
+              const hasBundle = tags.some((tag: string) => tag.includes('bundle'));
+              const hasSoda = tags.some((tag: string) => tag.includes('soda'));
+              return hasBundle && hasSoda; // Only show items with BOTH bundle AND soda tags
+            })
+        ).map((flavor, index) => (
           <button
             key={flavor.title}
             onClick={() => onFlavorSelect(flavor)}

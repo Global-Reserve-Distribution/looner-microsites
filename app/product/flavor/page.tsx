@@ -255,6 +255,19 @@ export default function FlavorPage() {
 
         // Filter to show soda products using real category data when available
         let filteredFlavors = allTransformedFlavors.filter((flavor) => {
+          const tags = (flavor.tags || []).map((tag: string) =>
+            tag.toLowerCase(),
+          );
+
+          // Exclude any products with 'bundle' tag from main flavors
+          const hasBundle = tags.some((tag: string) => tag.includes("bundle"));
+          if (hasBundle) {
+            console.log(
+              `Product: ${flavor.title} excluded from flavors (has bundle tag)`,
+            );
+            return false;
+          }
+
           // If we have real category data from Admin API, use it
           if (flavor.category?.name) {
             const categoryName = flavor.category.name.toLowerCase();
@@ -264,28 +277,13 @@ export default function FlavorPage() {
             return categoryName === "soda";
           }
 
-          // Fallback to title/tag matching for Storefront API
-          const title = (flavor.title || "").toLowerCase();
-          const tags = (flavor.tags || []).map((tag: string) =>
-            tag.toLowerCase(),
-          );
-
-          // Check for 'soda' tag first, then fallback to title matching
+          // For Storefront API, ONLY use tag matching - no title fallback
           const hasSodaTag = tags.some((tag: string) => tag.includes("soda"));
-          const isSodaByTitle =
-            title.includes("soda") ||
-            title.includes("pepper") ||
-            title.includes("grape") ||
-            title.includes("orange") ||
-            title.includes("lime") ||
-            title.includes("mule");
-
-          const isSoda = hasSodaTag || isSodaByTitle;
 
           console.log(
-            `Product: ${flavor.title}, Tags: ${JSON.stringify(flavor.tags)}, Has Soda Tag: ${hasSodaTag}, Is Soda by Title: ${isSodaByTitle}, Final: ${isSoda}`,
+            `Product: ${flavor.title}, Tags: ${JSON.stringify(flavor.tags)}, Has Soda Tag: ${hasSodaTag}`,
           );
-          return isSoda;
+          return hasSodaTag;
         });
 
         // If no specific beverages found, show all products (fallback)
