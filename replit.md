@@ -394,6 +394,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated default state to show product on colored circle background with content below
   - Reduced flavor picker from 4 columns to 3 columns to prevent text cramming
   - Added product name above mobile carousel layout for better information hierarchy
+- **DISPLAY NAME METAFIELD** (July 24, 2025): Added support for custom.display_name metafield
+  - Added custom.display_name to both Storefront API and Admin API GraphQL queries
+  - Updated product transformation functions to use display_name with fallback to existing title
+  - Enhanced extractColorMetafields function to handle display_name extraction
+  - Provides clean product names without SKU/variant suffixes when metafield is populated
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

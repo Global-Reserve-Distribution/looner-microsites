@@ -33,7 +33,7 @@ function getTagEmoji(tag: string): string {
   return "✨";
 }
 
-// Extract color metafields from Shopify product
+// Extract color metafields and display name from Shopify product
 function extractColorMetafields(product: any) {
   const metafields = product.metafields || [];
 
@@ -51,20 +51,25 @@ function extractColorMetafields(product: any) {
     (field: any) =>
       field && field.key === "secondary_color" && field.namespace === "custom",
   );
+  const displayNameField = metafields.find(
+    (field: any) =>
+      field && field.key === "display_name" && field.namespace === "custom",
+  );
 
   return {
     primaryColor: primaryColorField?.value || null,
     secondaryColor: secondaryColorField?.value || null,
+    displayName: displayNameField?.value || null,
   };
 }
 
 // Transform Admin API products to flavor format
 function transformAdminProductsToFlavors(products: any[]) {
   return products.map((product, index) => {
-    const { primaryColor, secondaryColor } = extractColorMetafields(product);
+    const { primaryColor, secondaryColor, displayName } = extractColorMetafields(product);
 
     return {
-      title: product.title,
+      title: displayName && displayName.trim() !== "" ? displayName : product.title,
       description: product.description || "",
       tags: product.tags || [
         "Cannabis Infused",
@@ -108,10 +113,10 @@ function transformAdminProductsToFlavors(products: any[]) {
 // Transform Shopify products to flavor format (fallback)
 function transformProductsToFlavors(products: any[]) {
   return products.map((product, index) => {
-    const { primaryColor, secondaryColor } = extractColorMetafields(product);
+    const { primaryColor, secondaryColor, displayName } = extractColorMetafields(product);
 
     return {
-      title: product.title,
+      title: displayName && displayName.trim() !== "" ? displayName : product.title,
       description: product.description || "",
       tags: product.tags || [
         "Cannabis Infused",

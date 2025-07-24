@@ -60,7 +60,8 @@ const productFragment = /* GraphQL */ `
     updatedAt
     metafields(identifiers: [
       {namespace: "custom", key: "primary_color"},
-      {namespace: "custom", key: "secondary_color"}
+      {namespace: "custom", key: "secondary_color"},
+      {namespace: "custom", key: "display_name"}
     ]) {
       key
       value
