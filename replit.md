@@ -253,6 +253,10 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Resized tabs to half width of content area using flexbox layout
   - Each tab now uses flex-1 to equally divide the available tab space
   - Maintained proper tab connection to content area without outer padding
+- **FULL WIDTH TABS** (July 24, 2025): Expanded tabs to span full width
+  - Changed tab container from w-1/2 to w-full for complete width coverage
+  - Tabs now span the entire width of the content area below
+  - Maintained equal distribution of tab space using flex-1
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

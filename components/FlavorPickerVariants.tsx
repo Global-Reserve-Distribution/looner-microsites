@@ -21,7 +21,7 @@ export function FlavorPickerVariants({
     <div>
       {/* Tab Navigation */}
       <div className="flex justify-center mb-0">
-        <div className="flex w-1/2">
+        <div className="flex w-full">
           <button 
             onClick={() => setActiveTab('flavors')}
             className={`flex-1 py-3 text-sm font-medium transition-all rounded-t-xl border-t border-l border-r relative ${
