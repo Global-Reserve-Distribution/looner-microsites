@@ -11,6 +11,7 @@ import { PurchaseOptions } from "../../../components/PurchaseOptions";
 import { FlavorBackground } from "../../../components/FlavorBackground";
 import { OlipopStyleGrid } from "../../../components/OlipopStyleGrid";
 import { RecommendedFlavors } from "../../../components/RecommendedFlavors";
+import { Header } from "../../../components/Header";
 import {
   fetchProducts,
   fetchProductsWithAdminCategories,
@@ -344,8 +345,10 @@ export default function FlavorPage() {
   }
 
   return (
-    <main className="relative overflow-hidden min-h-screen transition-all duration-500">
-      <FlavorBackground color={selectedFlavor?.primaryColor || "#FFE5B4"} />
+    <>
+      <Header />
+      <main className="relative overflow-hidden min-h-screen transition-all duration-500">
+        <FlavorBackground color={selectedFlavor?.primaryColor || "#FFE5B4"} />
 
       <div className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 px-6 py-6 max-w-7xl mx-auto">
@@ -610,6 +613,7 @@ export default function FlavorPage() {
           </svg>
         </div>
       </div>
-    </main>
+      </main>
+    </>
   );
 }
