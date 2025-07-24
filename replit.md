@@ -314,6 +314,17 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added space-y-4 and py-4 to create proper vertical spacing between tag cards
   - Maintains alignment with image container while providing visual separation
   - Matches Olipop reference design with clean gaps between each tag card
+- **NUTRITION FACTS LAYOUT UPDATE** (July 24, 2025): Restructured product information section
+  - Changed grid layout to 2/3 width for product description and 1/3 width for nutrition facts
+  - Enhanced product description with larger text and detailed ingredients list matching Olipop style
+  - Updated nutrition facts panel to match FDA standard format with proper styling
+  - Added comprehensive ingredient list with OLISMART fiber blend and natural flavors
+- **RECOMMENDED FLAVORS SECTION** (July 24, 2025): Added interactive product recommendations
+  - Created RecommendedFlavors component with hover effects and product switching
+  - Grid layout showing other flavors with product images and star ratings
+  - Hover state reveals lifestyle images with wavy SVG transitions
+  - Click functionality to switch between flavors with smooth state updates
+  - Positioned below nutrition facts section before footer for optimal user flow
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
