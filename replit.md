@@ -204,12 +204,13 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added debug logging to troubleshoot metafields not appearing for Professor Pepper flavor
   - Shopify metafields show #7D3F49 (primary) and #CB6777 (secondary) but not displaying on site
   - Fixed metafields query to properly match custom.primary_color and custom.secondary_color namespace structure
-- **SHOPIFY STOREFRONT API LIMITATION DISCOVERY** (July 24, 2025): Found category field not available in Storefront API
-  - Discovered Shopify Storefront API does not expose product category field (only Admin API has it)
-  - Updated filtering strategy to match specific soda product names from Shopify admin
-  - Filter now matches products like "Wild Grape", "Sweet Orange", "Professor Pepper", "Mocktail Mule", "Lemon Lime"
-  - Added comprehensive debugging to identify exact product structure and available fields
-  - Implemented fallback to show all products if no soda matches found
+- **SHOPIFY ADMIN API INTEGRATION** (July 24, 2025): Implemented Admin API for real category access
+  - Created comprehensive Admin API client (lib/shopify/admin-api.ts) with GraphQL queries
+  - Added SHOPIFY_ADMIN_ACCESS_TOKEN environment variable support
+  - Implemented fetchProductsWithAdminCategories server action for real category data
+  - Updated filtering to use actual Shopify category field when available
+  - Maintained fallback to Storefront API and title/tag matching for resilience
+  - Enhanced debugging to show category vs title-based filtering results
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

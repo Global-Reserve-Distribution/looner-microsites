@@ -8,7 +8,7 @@ import { LifestyleImageGrid } from "../../../components/LifestyleImageGrid";
 import { FlavorPickerTabs } from "../../../components/FlavorPickerTabs";
 import { PurchaseOptions } from "../../../components/PurchaseOptions";
 import { FlavorBackground } from "../../../components/FlavorBackground";
-import { fetchProducts } from "../../../lib/shopify/server-actions";
+import { fetchProducts, fetchProductsWithAdminCategories } from "../../../lib/shopify/server-actions";
 
 function getTagEmoji(tag: string): string {
   const tagLower = tag.toLowerCase();
@@ -49,7 +49,51 @@ function extractColorMetafields(product: any) {
   };
 }
 
-// Transform Shopify products to flavor format
+// Transform Admin API products to flavor format
+function transformAdminProductsToFlavors(products: any[]) {
+  return products.map((product, index) => {
+    const { primaryColor, secondaryColor } = extractColorMetafields(product);
+
+    return {
+      title: product.title,
+      description: product.description || "",
+      tags: product.tags || [
+        "Cannabis Infused",
+        "Made with Cane Sugar",
+        "Made in Minnesota",
+        "High Quality",
+      ],
+      productType: product.productType || "",
+      vendor: product.vendor || "",
+      category: product.category || null,
+      bgColor: primaryColor
+        ? `bg-[${primaryColor}]`
+        : getFlavorBgClass(product.title, index),
+      primaryColor: primaryColor,
+      secondaryColor: secondaryColor,
+      images: [
+        product.featuredImage?.url || "",
+        ...(product.images?.edges || []).slice(0, 3).map((edge: any) => edge.node.url),
+      ],
+      variants: [
+        {
+          id: `${product.handle}-12`,
+          title: "12 Cans",
+          price: parseFloat(product.priceRangeV2?.minVariantPrice?.amount) || 35.99,
+        },
+        {
+          id: `${product.handle}-24`,
+          title: "24 Cans",
+          price:
+            (parseFloat(product.priceRangeV2?.minVariantPrice?.amount) || 35.99) *
+            1.8,
+        },
+      ],
+    };
+  });
+}
+
+// Transform Shopify products to flavor format (fallback)
 function transformProductsToFlavors(products: any[]) {
   return products.map((product, index) => {
     const { primaryColor, secondaryColor } = extractColorMetafields(product);
@@ -65,6 +109,7 @@ function transformProductsToFlavors(products: any[]) {
       ],
       productType: product.productType || "",
       vendor: product.vendor || "",
+      category: null,
       bgColor: primaryColor
         ? `bg-[${primaryColor}]`
         : getFlavorBgClass(product.title, index),
@@ -137,22 +182,44 @@ export default function FlavorPage() {
   useEffect(() => {
     async function loadFlavors() {
       try {
-        console.log("Starting to fetch products...");
-        const products = await fetchProducts({ sortKey: "BEST_SELLING" });
-        console.log("Products received:", products?.length || 0);
-        console.log("First product structure:", products?.[0]);
-        console.log("All product fields:", products?.[0] ? Object.keys(products[0]) : []);
+        console.log("Starting to fetch products with Admin API...");
         
-        const allTransformedFlavors = transformProductsToFlavors(products);
-        console.log("Transformed flavors:", allTransformedFlavors?.length || 0);
+        // Try Admin API first for real category data
+        let allTransformedFlavors: any[] = [];
+        try {
+          const adminProducts = await fetchProductsWithAdminCategories();
+          console.log("Admin API products received:", adminProducts?.length || 0);
+          console.log("Admin product categories:", adminProducts?.map(p => p.category?.name).filter(Boolean));
+          
+          if (adminProducts.length > 0) {
+            allTransformedFlavors = transformAdminProductsToFlavors(adminProducts);
+          }
+        } catch (adminError) {
+          console.log("Admin API failed, falling back to Storefront API:", adminError);
+        }
         
-        // Filter to show soda products based on your Shopify admin categories
-        // Since Storefront API doesn't have category field, we'll use tags and titles
+        // Fallback to Storefront API if Admin API fails
+        if (allTransformedFlavors.length === 0) {
+          const storefrontProducts = await fetchProducts({ sortKey: "BEST_SELLING" });
+          console.log("Storefront API products received:", storefrontProducts?.length || 0);
+          allTransformedFlavors = transformProductsToFlavors(storefrontProducts);
+        }
+        
+        console.log("Total transformed flavors:", allTransformedFlavors?.length || 0);
+        
+        // Filter to show soda products using real category data when available
         let filteredFlavors = allTransformedFlavors.filter(flavor => {
+          // If we have real category data from Admin API, use it
+          if (flavor.category?.name) {
+            const categoryName = flavor.category.name.toLowerCase();
+            console.log(`Product: ${flavor.title}, Category: ${flavor.category.name}, Is Soda: ${categoryName === 'soda'}`);
+            return categoryName === 'soda';
+          }
+          
+          // Fallback to title/tag matching for Storefront API
           const title = (flavor.title || '').toLowerCase();
           const tags = (flavor.tags || []).map((tag: string) => tag.toLowerCase());
           
-          // Check for soda-related terms (matching your "Soda" category products)
           const isSoda = tags.some((tag: string) => tag.includes('soda')) ||
                          title.includes('soda') ||
                          title.includes('pepper') ||

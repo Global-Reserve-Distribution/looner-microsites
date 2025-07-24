@@ -6,6 +6,7 @@ import { cookies, headers } from 'next/headers';
 import { TAGS } from 'lib/constants';
 import { revalidateTag } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
+import { fetchProductsWithCategories, AdminProduct } from './admin-api';
 
 // Server action to fetch a single product
 export async function fetchProduct(handle: string): Promise<Product | undefined> {
@@ -52,6 +53,17 @@ export async function fetchProducts(params: {
     return products;
   } catch (error) {
     console.error('Error fetching products:', error);
+    return [];
+  }
+}
+
+// New function to fetch products with categories using Admin API
+export async function fetchProductsWithAdminCategories(): Promise<AdminProduct[]> {
+  try {
+    const products = await fetchProductsWithCategories();
+    return products;
+  } catch (error) {
+    console.error('Error fetching products with admin categories:', error);
     return [];
   }
 }
