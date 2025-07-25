@@ -53,14 +53,14 @@ export function RecommendedFlavors({
               className="cursor-pointer transition-all duration-300 hover:scale-[1.02]"
             >
               <div
-                className="rounded-2xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[4/5]"
+                className="rounded-2xl overflow-hidden flex flex-col transition-all duration-300 relative md:aspect-[4/5]"
                 style={{ backgroundColor: secondary }}
               >
                 {/* Default state - always visible on mobile, hover toggle on desktop */}
                 <div className={`absolute inset-0 flex flex-col transition-opacity duration-300 ${isHovered ? 'md:opacity-0' : 'opacity-100'}`}>
                   {/* Top Section - Responsive sizing */}
                   <div 
-                    className="relative flex items-center justify-center h-24 md:h-32 p-3 md:p-4"
+                    className="relative flex items-center justify-center h-28 md:h-32 p-3 md:p-4"
                     style={{ backgroundColor: secondary }}
                   >
                     {/* Circle Background */}
@@ -89,41 +89,39 @@ export function RecommendedFlavors({
                     )}
                   </div>
 
-                  {/* Bottom Section - Fixed layout with text starting higher */}
+                  {/* Bottom Section - Flexible layout on mobile, fixed on desktop */}
                   <div 
-                    className="flex-1 flex flex-col"
+                    className="flex flex-col md:flex-1"
                     style={{ backgroundColor: secondary }}
                   >
-                    {/* Fixed content area with responsive spacing */}
-                    <div className="px-3 md:px-4 pt-2 pb-2 md:pb-3 flex flex-col h-full">
+                    {/* Content area with responsive spacing */}
+                    <div className="px-3 md:px-4 pt-2 pb-3 md:pb-3 flex flex-col md:h-full min-h-[120px]">
                       {/* Product Name */}
-                      <div className="h-5 md:h-6 flex items-center justify-center">
-                        <h3 className="font-bold text-gray-900 text-xs md:text-sm text-center leading-tight line-clamp-1">
+                      <div className="flex items-center justify-center mb-2">
+                        <h3 className="font-bold text-gray-900 text-xs md:text-sm text-center leading-tight">
                           {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                         </h3>
                       </div>
 
                       {/* Description */}
-                      <div className="h-8 md:h-10 flex items-start justify-center overflow-hidden mt-1">
-                        <p className="text-gray-700 text-xs text-center leading-tight px-1 line-clamp-2">
-                          {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
+                      <div className="flex items-start justify-center mb-2">
+                        <p className="text-gray-700 text-xs text-center leading-tight px-1 line-clamp-3">
+                          {(flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors.").substring(0, 60)}
+                          {(flavor.shortDescription || flavor.description || "").length > 60 ? "..." : ""}
                         </p>
                       </div>
 
                       {/* Star Rating */}
-                      <div className="h-4 md:h-5 flex items-center justify-center mt-1">
+                      <div className="flex items-center justify-center mb-3">
                         <div className="flex items-center text-gray-800">
                           <span className="text-xs md:text-sm">★★★★</span>
                           <span className="text-xs md:text-sm text-gray-400">☆</span>
                         </div>
                       </div>
 
-                      {/* Spacer */}
-                      <div className="flex-1 min-h-[2px] md:min-h-[4px]"></div>
-
                       {/* Button */}
-                      <div className="h-7 md:h-8 flex items-center justify-center">
-                        <button className="bg-white text-gray-800 px-3 md:px-4 py-1 md:py-1.5 rounded-full font-medium text-xs md:text-sm shadow-sm border border-gray-200">
+                      <div className="flex items-center justify-center">
+                        <button className="bg-white text-gray-800 px-3 md:px-4 py-2 md:py-1.5 rounded-full font-medium text-xs md:text-sm shadow-sm border border-gray-200">
                           + Add 12 Pack
                         </button>
                       </div>
