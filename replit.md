@@ -480,6 +480,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Fixed issue where all products were showing in flavors tab after allProducts integration
   - Added debug logging to track soda vs bundle filtering decisions
   - Flavors tab now correctly shows only soda products, excluding variety packs and bundles
+- **MAIN PRODUCT IMAGE ENLARGEMENT** (July 25, 2025): Significantly increased main product image size
+  - Enlarged main product image from w-75 to w-80 h-80 (320x320px) for better container utilization
+  - Updated fallback LOONER logo from w-40 h-52 to w-72 h-80 with larger text (text-4xl)
+  - Image now fills much more of the available space in the left column container
+  - Enhanced visual prominence of the primary product display
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

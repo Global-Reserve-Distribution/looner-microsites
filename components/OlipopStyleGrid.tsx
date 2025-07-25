@@ -43,11 +43,11 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
                 <img
                   src={selectedFlavor.images[0]}
                   alt={selectedFlavor.title}
-                  className="w-75 object-contain drop-shadow-2xl"
+                  className="w-80 h-80 object-contain drop-shadow-2xl"
                 />
               ) : (
-                <div className="w-40 h-52 bg-white/20 rounded-3xl flex items-center justify-center backdrop-blur-sm">
-                  <span className="text-white text-2xl font-bold">LOONER</span>
+                <div className="w-72 h-80 bg-white/20 rounded-3xl flex items-center justify-center backdrop-blur-sm">
+                  <span className="text-white text-4xl font-bold">LOONER</span>
                 </div>
               )}
             </div>
