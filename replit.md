@@ -563,6 +563,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Reduced product image size from w-40 h-48 to w-24 h-32 for better proportions
   - Updated text overlay from half height to third height for better space utilization
   - Decreased text size from text-sm to text-xs and reduced padding for compact layout
+- **QUANTITY SELECTOR INTEGRATION** (July 25, 2025): Added quantity selector next to add to cart button
+  - Created quantity selector with minus/plus buttons matching Olipop reference design
+  - Rounded pill-shaped design with border styling and hover effects
+  - Positioned side-by-side with add to cart button in flex layout
+  - Integrated quantity state management with AddToCartButton component
+  - Prevents quantity from going below 1 with disabled state on minus button
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

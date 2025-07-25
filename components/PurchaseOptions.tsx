@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { AddToCartButton } from './AddToCartButton';
+import { Minus, Plus } from 'lucide-react';
 
 interface PurchaseOptionsProps {
   flavor: {
@@ -16,6 +17,7 @@ export const PurchaseOptions = React.forwardRef<HTMLDivElement, PurchaseOptionsP
 ) {
 
   const [purchaseType, setPurchaseType] = useState<'one-time' | 'subscription'>('one-time');
+  const [quantity, setQuantity] = useState(1);
 
   // Add null checks for variant
   if (!flavor || !variant) {
@@ -123,14 +125,39 @@ export const PurchaseOptions = React.forwardRef<HTMLDivElement, PurchaseOptionsP
         </label>
       </div>
 
-      {/* Add to Cart */}
-      <AddToCartButton
-        merchandiseId={variant.id}
-        quantity={1}
-        productTitle={flavor?.title}
-        productPrice={`$${variant.price.toFixed(2)}`}
-        variant="primary"
-      />
+      {/* Quantity Selector and Add to Cart */}
+      <div className="flex gap-3 items-center">
+        {/* Quantity Selector */}
+        <div className="flex items-center bg-white border-2 border-gray-200 rounded-full px-1 py-1">
+          <button
+            onClick={() => setQuantity(Math.max(1, quantity - 1))}
+            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+            disabled={quantity <= 1}
+          >
+            <Minus size={16} className="text-gray-600" />
+          </button>
+          <span className="px-4 py-1 text-lg font-semibold text-gray-900 min-w-[3rem] text-center">
+            {quantity}
+          </span>
+          <button
+            onClick={() => setQuantity(quantity + 1)}
+            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+          >
+            <Plus size={16} className="text-gray-600" />
+          </button>
+        </div>
+
+        {/* Add to Cart Button */}
+        <div className="flex-1">
+          <AddToCartButton
+            merchandiseId={variant.id}
+            quantity={quantity}
+            productTitle={flavor?.title}
+            productPrice={`$${variant.price.toFixed(2)}`}
+            variant="primary"
+          />
+        </div>
+      </div>
 
       {/* Delivery Info */}
       {purchaseType === 'subscription' && (
