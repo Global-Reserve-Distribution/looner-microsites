@@ -515,6 +515,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Reduced grid gap from gap-6 to gap-3 for tighter card arrangement
   - Reduced container padding from p-8 to p-6 for more compact layout
   - Cards now have better visual cohesion with appropriate spacing between elements
+- **SIGNIFICANTLY ENLARGED FLAVOR CARDS** (July 25, 2025): Matched Olipop tile size for proper visual impact
+  - Changed from 3-column to 2-column grid layout for much larger individual tiles
+  - Increased aspect ratio from [4/5] to [5/6] for better proportions matching Olipop reference
+  - Enlarged product images from w-40 h-48 to w-48 h-56 for maximum visual impact
+  - Increased text size from text-base to text-lg and enhanced padding for better readability
+  - Updated border radius to rounded-3xl for premium appearance matching reference design
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

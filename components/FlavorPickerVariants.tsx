@@ -52,8 +52,8 @@ export function FlavorPickerVariants({
       </div>
       
       {/* Content Area with Tab Connection */}
-      <div className="bg-white border border-gray-200 rounded-b-lg p-6">
-        <div className="grid grid-cols-3 gap-3">
+      <div className="bg-white border border-gray-200 rounded-b-lg p-8">
+        <div className="grid grid-cols-2 gap-4">
         {(activeTab === 'flavors' 
           ? flavors.filter(f => {
               const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
@@ -87,8 +87,8 @@ export function FlavorPickerVariants({
             key={flavor.title}
             onClick={() => onFlavorSelect(flavor)}
             className={`
-              relative group bg-white rounded-2xl overflow-hidden transition-all duration-300
-              hover:scale-[1.02] hover:shadow-xl border-2 aspect-[4/5]
+              relative group bg-white rounded-3xl overflow-hidden transition-all duration-300
+              hover:scale-[1.02] hover:shadow-xl border-2 aspect-[5/6]
               ${selectedFlavor?.title === flavor.title 
                 ? 'border-green-400 shadow-lg scale-[1.02]' 
                 : 'border-gray-200 hover:border-gray-300'
@@ -97,28 +97,28 @@ export function FlavorPickerVariants({
           >
             {/* Full Height Background with Image */}
             <div 
-              className="h-full w-full flex items-center justify-center rounded-2xl relative"
+              className="h-full w-full flex items-center justify-center rounded-3xl relative"
               style={{
                 backgroundColor: flavor.primaryColor || '#8B5CF6'
               }}
             >
-              {/* Product Image - Larger */}
+              {/* Product Image - Much Larger */}
               {flavor.images?.[0] ? (
                 <img
                   src={flavor.images[0]}
                   alt={flavor.title}
-                  className="w-40 h-48 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                  className="w-48 h-56 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
                 />
               ) : (
-                <div className="w-36 h-40 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                  <span className="text-white text-lg font-bold">LOONER</span>
+                <div className="w-44 h-48 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                  <span className="text-white text-xl font-bold">LOONER</span>
                 </div>
               )}
               
               {/* Text Overlay at Bottom - Half Height */}
-              <div className="absolute bottom-0 left-0 right-0 bg-white h-1/2 flex items-center justify-center rounded-b-2xl">
-                <div className="text-center px-3 py-2">
-                  <h4 className="font-bold text-gray-900 text-base leading-tight">
+              <div className="absolute bottom-0 left-0 right-0 bg-white h-1/2 flex items-center justify-center rounded-b-3xl">
+                <div className="text-center px-4 py-3">
+                  <h4 className="font-bold text-gray-900 text-lg leading-tight">
                     {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                   </h4>
                 </div>
