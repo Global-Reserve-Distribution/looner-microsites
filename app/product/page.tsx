@@ -466,7 +466,7 @@ export default function ProductPage() {
           style={{ backgroundColor: selectedFlavor?.secondaryColor || '#CCFBF1' }}
         >
           {/* Wavy top border */}
-          <div className="absolute top-0 left-0 right-0 h-8 overflow-hidden">
+          <div className="absolute -top-1 left-0 right-0 h-8 overflow-hidden z-10">
             <svg
               viewBox="0 0 1200 120"
               preserveAspectRatio="none"
@@ -474,7 +474,7 @@ export default function ProductPage() {
             >
               <path
                 d="M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 L1200,0 L0,0 Z"
-                fill={selectedFlavor?.secondaryColor || '#CCFBF1'}
+                fill="white"
               />
             </svg>
           </div>
@@ -550,7 +550,7 @@ export default function ProductPage() {
           </div>
 
           {/* Wavy bottom border */}
-          <div className="absolute bottom-0 left-0 right-0 h-8 overflow-hidden rotate-180">
+          <div className="absolute -bottom-1 left-0 right-0 h-8 overflow-hidden rotate-180 z-10">
             <svg
               viewBox="0 0 1200 120"
               preserveAspectRatio="none"
@@ -558,7 +558,7 @@ export default function ProductPage() {
             >
               <path
                 d="M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 L1200,0 L0,0 Z"
-                fill={selectedFlavor?.secondaryColor || '#CCFBF1'}
+                fill="white"
               />
             </svg>
           </div>
