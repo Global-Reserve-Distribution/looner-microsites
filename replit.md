@@ -442,6 +442,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Enhanced main product title to use shortDescription fallback hierarchy: shortDescription → description → default text
   - Eliminated navigation overlay conflicts causing multiple headers to appear simultaneously
   - Streamlined mobile layout with single header display and consistent product information
+- **SHOPIFY STORE DOMAIN UPDATE** (July 25, 2025): Corrected store domain configuration
+  - Updated SHOPIFY_STORE_DOMAIN from "looner-cannabis-co.myshopify.com" to "looner-cannabis-com.myshopify.com"
+  - Updated both .env.local and secret environment variables for consistency
+  - Fixed client-side and server-side Shopify API connections to use correct domain
+  - Ensures proper product data fetching and cart functionality with updated store URL
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
