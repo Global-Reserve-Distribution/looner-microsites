@@ -102,6 +102,15 @@ export function FlavorPickerVariants({
                 backgroundColor: flavor.primaryColor || '#8B5CF6'
               }}
             >
+              {/* Best Seller Tag - Olipop Style */}
+              {flavor.showBestSellerTag && (
+                <div className="absolute top-2 left-2 z-20">
+                  <div className="bg-orange-500 text-white px-2 py-1 rounded text-xs font-bold uppercase shadow-lg">
+                    New
+                  </div>
+                </div>
+              )}
+              
               {/* Product Image - Larger */}
               {flavor.images?.[0] ? (
                 <img
