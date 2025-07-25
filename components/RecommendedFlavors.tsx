@@ -32,12 +32,11 @@ export function RecommendedFlavors({
   );
 
   return (
-    <section className="px-4 max-w-7xl mx-auto py-16">
-      <h2 className="text-3xl font-serif text-gray-900 mb-6">
-        You May Also Like
+    <div className="max-w-[1180px] mx-auto">
+      <h2 className="mb-10 text-center font-display capitalize text-4xl md:text-5xl font-extrabold">
+        You may also like
       </h2>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="collection-group-grid scroll-mt-80 pb-10 lg:scroll-mt-32 lg:pb-[60px] grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {recommended.map((flavor, index) => {
           const canImage = flavor.images[0];
           const primary = flavor.primaryColor || "#A855F7";
@@ -109,7 +108,7 @@ export function RecommendedFlavors({
 
                       {/* Button */}
                       <div className="flex w-full items-center justify-center">
-                        <button className="px-3 text-xs h-7 w-full border-none rounded-full bg-white text-gray-800 hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white active:bg-gray-800 active:text-white flex items-center justify-center relative box-border font-medium shadow-sm">
+                        <button className="px-3 text-xs h-7 w-full border-none rounded-[50px] bg-white text-[#0B3835] hover:bg-[#0B3835] hover:text-white focus:bg-[#0B3835] focus:text-white active:bg-[#0B3835] active:text-white flex items-center justify-center relative box-border font-medium whitespace-nowrap transition-all duration-150">
                           + Add 12 Pack
                         </button>
                       </div>
@@ -123,6 +122,6 @@ export function RecommendedFlavors({
           );
         })}
       </div>
-    </section>
+    </div>
   );
 }
