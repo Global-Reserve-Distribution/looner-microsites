@@ -601,11 +601,13 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Hover state features: colored top section with decorative blobs, wavy SVG divider, enhanced content layout
   - Mobile remains static with no hover effects - shows optimized compact layout permanently
   - Smooth opacity transitions (300ms) between default and hover states on desktop only
-- **WAVY BORDERS VISIBILITY FIX** (July 25, 2025): Enhanced wavy SVG borders on product information section
-  - Updated wavy borders to use white fill instead of matching background color for better visibility
-  - Adjusted positioning with -top-1 and -bottom-1 to ensure proper overlap with background sections
-  - Added z-10 layering to ensure wavy borders appear above other elements
-  - Wavy borders now clearly visible on both mobile and desktop matching Olipop reference design
+- **OLIPOP-STYLE WAVY BACKGROUND** (July 25, 2025): Redesigned product information section to match Olipop reference exactly
+  - Replaced separate wavy borders with single SVG background covering entire section
+  - Wavy colored background flows naturally from white sections above and below
+  - Top wave transitions from white background into colored product information area
+  - Bottom wave transitions from colored section back to white for recommendations
+  - Content positioned with relative z-10 layering above wavy SVG background
+  - Matches authentic Olipop design where waves are part of the colored background itself
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

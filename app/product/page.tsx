@@ -460,26 +460,29 @@ export default function ProductPage() {
           </div>
         </div>
 
-        {/* Product Information Section with Teal Background */}
-        <div 
-          className="px-4 lg:px-0 mt-8 lg:mt-16 relative"
-          style={{ backgroundColor: selectedFlavor?.secondaryColor || '#CCFBF1' }}
-        >
-          {/* Wavy top border */}
-          <div className="absolute -top-1 left-0 right-0 h-8 overflow-hidden z-10">
-            <svg
-              viewBox="0 0 1200 120"
-              preserveAspectRatio="none"
-              className="w-full h-full"
-            >
-              <path
-                d="M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 L1200,0 L0,0 Z"
-                fill="white"
-              />
-            </svg>
-          </div>
+        {/* Product Information Section with Wavy Background - Olipop Style */}
+        <div className="px-4 lg:px-0 mt-8 lg:mt-16 relative">
+          {/* Wavy background SVG - extends from white to colored section */}
+          <svg
+            viewBox="0 0 1200 800"
+            preserveAspectRatio="none"
+            className="absolute inset-0 w-full h-full"
+          >
+            {/* White background at top */}
+            <rect x="0" y="0" width="1200" height="120" fill="white" />
+            {/* Wavy colored section */}
+            <path
+              d="M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 L1200,800 L0,800 Z"
+              fill={selectedFlavor?.secondaryColor || '#CCFBF1'}
+            />
+            {/* Bottom wavy transition back to white */}
+            <path
+              d="M0,680 C200,740 400,620 600,680 C800,740 1000,620 1200,680 L1200,800 L0,800 Z"
+              fill="white"
+            />
+          </svg>
 
-          <div className="max-w-7xl mx-auto py-12 lg:py-16">
+          <div className="relative z-10 max-w-7xl mx-auto py-12 lg:py-16">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
               {/* Product Description - 2/3 width */}
               <div className="lg:col-span-2">
@@ -549,19 +552,6 @@ export default function ProductPage() {
             </div>
           </div>
 
-          {/* Wavy bottom border */}
-          <div className="absolute -bottom-1 left-0 right-0 h-8 overflow-hidden rotate-180 z-10">
-            <svg
-              viewBox="0 0 1200 120"
-              preserveAspectRatio="none"
-              className="w-full h-full"
-            >
-              <path
-                d="M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 L1200,0 L0,0 Z"
-                fill="white"
-              />
-            </svg>
-          </div>
         </div>
 
         {/* Recommended Flavors Section */}
