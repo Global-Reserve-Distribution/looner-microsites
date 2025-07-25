@@ -579,6 +579,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Changed flex container from items-center to items-stretch for proper alignment
   - Removed py-4 from AddToCartButton primary variant to rely on fixed height
   - Both quantity selector and button now have consistent visual appearance
+- **MAIN IMAGE BADGE STYLING REVERT** (July 25, 2025): Restored original "Bestseller" badge for main product images
+  - Reverted main product image badges back to rounded-full styling with "Bestseller" text
+  - Kept corner "Best" styling only for flavor picker tiles as intended
+  - Main image badges positioned at top-4 left-4 with full "Bestseller" text for better visibility
+  - Maintained distinction between main product display and flavor picker tile badge styles
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
