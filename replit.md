@@ -474,6 +474,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Expanded bottom section to use remaining space with flex-1
   - Changed content alignment from justify-center to justify-start for higher text positioning
   - Text content now utilizes more of the available vertical space in recommendation cards
+- **FLAVORS TAB FILTERING FIX** (July 25, 2025): Restored proper soda-only filtering to flavors tab
+  - Enhanced filtering logic to require both "soda" tag AND exclude "bundle" tag for flavors tab
+  - Added category-based filtering support for Admin API products with category data
+  - Fixed issue where all products were showing in flavors tab after allProducts integration
+  - Added debug logging to track soda vs bundle filtering decisions
+  - Flavors tab now correctly shows only soda products, excluding variety packs and bundles
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

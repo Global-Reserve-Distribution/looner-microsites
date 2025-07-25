@@ -58,7 +58,19 @@ export function FlavorPickerVariants({
           ? flavors.filter(f => {
               const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
               const hasBundle = tags.some((tag: string) => tag.includes('bundle'));
-              return !hasBundle; // Exclude bundle items from flavors tab
+              const hasSoda = tags.some((tag: string) => tag.includes('soda'));
+              
+              // Only show products that have soda tag AND don't have bundle tag
+              const isSodaFlavor = hasSoda && !hasBundle;
+              
+              // If we have real category data from Admin API, use it
+              if (f.category?.name) {
+                const categoryName = f.category.name.toLowerCase();
+                return categoryName === 'soda' && !hasBundle;
+              }
+              
+              console.log(`Flavor filter - Product: ${f.title}, Tags: ${JSON.stringify(f.tags)}, HasSoda: ${hasSoda}, HasBundle: ${hasBundle}, IsSodaFlavor: ${isSodaFlavor}`);
+              return isSodaFlavor;
             })
           : flavors.filter(f => {
               const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
