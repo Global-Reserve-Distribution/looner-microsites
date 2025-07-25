@@ -609,12 +609,13 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated nutrition facts panel to match FDA standard format with proper border styling
   - Added authentic Olipop feature icons grid with 2-column mobile, flex desktop layout
   - Dynamic color theming using selectedFlavor secondaryColor for all wave fills and backgrounds
-- **MOBILE RECOMMENDATION CARDS BUTTON VISIBILITY FIX** (July 25, 2025): Adjusted card content heights to ensure buttons are always visible
-  - Reduced top image section from h-28 to h-24 to provide more space for content
-  - Optimized content heights: title (h-4), description (h-6), rating (h-3), button (h-8)
-  - Reduced text truncation to 45 characters for better fit in compact mobile layout
-  - Added minimum spacer height (min-h-[4px]) to ensure button has adequate bottom space
-  - All recommendation cards now show complete content including visible "Add 12 Pack" buttons
+- **OLIPOP-EXACT RECOMMENDATION CARDS** (July 25, 2025): Rebuilt recommendation cards using authentic Olipop HTML structure
+  - Implemented CSS Grid with grid-template-rows: max-content 1fr for proper layout distribution
+  - Top section (image container): natural height with centered product image and circular background
+  - Bottom section (text container): fills remaining space with title, description, rating, and button
+  - Removed hover states and complex animations for cleaner, more consistent appearance
+  - Button styling matches Olipop: white background with gray text and hover state transitions
+  - All cards now use identical structure and spacing matching the reference design exactly
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
