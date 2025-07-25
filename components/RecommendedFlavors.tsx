@@ -49,19 +49,19 @@ export function RecommendedFlavors({
               className="cursor-pointer transition-all duration-300 hover:scale-[1.02]"
             >
               <div
-                className="rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[3/5]"
+                className="rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[3/4]"
                 style={{ backgroundColor: secondary }}
               >
-                {/* Fixed layout structure for consistent alignment */}
+                {/* Compact layout structure for consistent alignment */}
                 <div className="absolute inset-0 flex flex-col">
-                  {/* Top Section - Fixed height for product image */}
+                  {/* Top Section - Compact height for product image */}
                   <div 
-                    className="relative flex items-center justify-center h-32 p-4"
+                    className="relative flex items-center justify-center h-24 p-3"
                     style={{ backgroundColor: secondary }}
                   >
                     {/* Circle Background */}
                     <div
-                      className="absolute w-20 h-20 rounded-full"
+                      className="absolute w-16 h-16 rounded-full"
                       style={{ backgroundColor: primary }}
                     />
 
@@ -70,13 +70,13 @@ export function RecommendedFlavors({
                       <Image
                         src={canImage}
                         alt={flavor.title}
-                        width={80}
-                        height={100}
-                        className="h-24 w-auto object-contain drop-shadow-lg relative z-10"
+                        width={60}
+                        height={75}
+                        className="h-20 w-auto object-contain drop-shadow-lg relative z-10"
                       />
                     ) : (
                       <div
-                        className="w-14 h-24 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
+                        className="w-12 h-20 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
                       >
                         <span className="text-white text-xs font-bold">
                           LOONER
@@ -85,36 +85,36 @@ export function RecommendedFlavors({
                     )}
                   </div>
 
-                  {/* Bottom Section - Structured with fixed positioning */}
+                  {/* Bottom Section - Compact with smaller text */}
                   <div 
-                    className="flex-1 flex flex-col p-4"
+                    className="flex-1 flex flex-col px-3 py-2"
                     style={{ backgroundColor: secondary }}
                   >
-                    {/* Product Name - Fixed height */}
-                    <div className="h-8 flex items-center justify-center mb-2">
-                      <h3 className="font-bold text-gray-900 text-sm text-center leading-tight">
+                    {/* Product Name - Smaller text */}
+                    <div className="h-6 flex items-center justify-center mb-1">
+                      <h3 className="font-bold text-gray-900 text-xs text-center leading-tight">
                         {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                       </h3>
                     </div>
 
-                    {/* Description - Fixed height */}
-                    <div className="h-12 flex items-start justify-center mb-3">
-                      <p className="text-gray-700 text-xs text-center leading-relaxed">
+                    {/* Description - Smaller text and height */}
+                    <div className="h-8 flex items-start justify-center mb-2">
+                      <p className="text-gray-700 text-xs text-center leading-tight px-1">
                         {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
                       </p>
                     </div>
 
-                    {/* Star Rating - Fixed height */}
-                    <div className="h-6 flex items-center justify-center mb-3">
+                    {/* Star Rating - Smaller */}
+                    <div className="h-4 flex items-center justify-center mb-2">
                       <div className="flex items-center text-gray-800">
                         <span className="text-xs">★★★★</span>
                         <span className="text-xs text-gray-400">☆</span>
                       </div>
                     </div>
 
-                    {/* Button - Fixed position at bottom */}
-                    <div className="flex-1 flex items-end justify-center">
-                      <button className="bg-white text-gray-800 px-3 py-1.5 rounded-full font-medium text-xs shadow-sm border border-gray-200">
+                    {/* Button - Smaller and compact */}
+                    <div className="flex-1 flex items-end justify-center pb-1">
+                      <button className="bg-white text-gray-800 px-2 py-1 rounded-full font-medium text-xs shadow-sm border border-gray-200">
                         + Add 12 Pack
                       </button>
                     </div>
