@@ -25,90 +25,255 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
     return "✨";
   };
 
-  const getTagBackground = (index: number): string => {
-    const backgrounds = [
-      "bg-orange-100",
-      "bg-green-100",
-      "bg-blue-100",
-      "bg-purple-100",
-      "bg-yellow-100",
-      "bg-pink-100",
-    ];
-    return backgrounds[index % backgrounds.length];
-  };
-
   return (
-    <div className="space-y-6">
-      {/* Top section: Main image with tags on the side */}
-      <div className="grid grid-cols-4 gap-4">
-        {/* Large Product Image Card - Takes 3 columns */}
-        <div
-          className="col-span-3 rounded-3xl overflow-hidden relative h-96"
-          style={{
-            backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
-          }}
-        >
-          <div className="h-full w-full flex items-center justify-center">
-            {selectedFlavor?.images?.[0] ? (
-              <img
-                src={selectedFlavor.images[0]}
-                alt={selectedFlavor.title}
-                className="w-48 h-64 object-contain drop-shadow-2xl"
-              />
-            ) : (
-              <div className="w-40 h-52 bg-white/20 rounded-3xl flex items-center justify-center backdrop-blur-sm">
-                <span className="text-white text-2xl font-bold">LOONER</span>
+    <div>
+      {/* Desktop Layout */}
+      <div className="hidden md:block space-y-6">
+        {/* Top section: Main image with tags on the side */}
+        <div className="grid grid-cols-[3fr_1fr] gap-4">
+          {/* Large Product Image Card */}
+          <div
+            className="rounded-3xl overflow-hidden relative h-96"
+            style={{
+              backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+            }}
+          >
+            <div className="h-full w-full flex items-center justify-center">
+              {selectedFlavor?.images?.[0] ? (
+                <img
+                  src={selectedFlavor.images[0]}
+                  alt={selectedFlavor.title}
+                  className="w-75 object-contain drop-shadow-2xl"
+                />
+              ) : (
+                <div className="w-40 h-52 bg-white/20 rounded-3xl flex items-center justify-center backdrop-blur-sm">
+                  <span className="text-white text-2xl font-bold">LOONER</span>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Feature Tags Container - Right column, secondary background */}
+          <div className="h-96 flex flex-col justify-between space-y-4">
+            {filteredTags.slice(0, 3).map((tag: string, index: number) => (
+              <div
+                key={tag}
+                className="rounded-2xl p-4 text-center flex-1 flex flex-col items-center justify-center"
+                style={{
+                  backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+                }}
+              >
+                <div className="text-2xl mb-1">{getTagEmoji(tag)}</div>
+                <h3 className="font-bold text-gray-800 text-sm leading-tight">
+                  {tag}
+                </h3>
               </div>
-            )}
+            ))}
           </div>
         </div>
 
-        {/* Feature Tags Container - Right column, transparent background */}
-        <div className="col-span-1 h-96 flex flex-col justify-between space-y-4">
-          {filteredTags.slice(0, 3).map((tag: string, index: number) => (
-            <div
-              key={tag}
-              className="rounded-2xl p-3 text-center flex-1 flex flex-col items-center justify-center mx-4"
-              style={{
-                backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
-              }}
-            >
-              <div className="text-lg mb-1 text-white">{getTagEmoji(tag)}</div>
-              <h3 className="font-bold text-white text-xs leading-tight">
-                {tag}
-              </h3>
+        {/* Middle section: Full-width card with multiple products */}
+        <div className="w-full">
+          <div
+            className="rounded-2xl h-56 flex items-center justify-center gap-8 px-8"
+            style={{
+              backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+            }}
+          >
+            {/* Three product cans arranged horizontally */}
+            {[0, 1, 2].map((index) => (
+              <div key={index} className="flex items-center justify-center">
+                {selectedFlavor?.images?.[0] ? (
+                  <img
+                    src={selectedFlavor.images[0]}
+                    alt={selectedFlavor.title}
+                    className="w-16 h-20 object-contain drop-shadow-lg transform rotate-12"
+                    style={{
+                      transform: `rotate(${index === 1 ? "0deg" : index === 0 ? "-12deg" : "12deg"})`,
+                    }}
+                  />
+                ) : (
+                  <div className="w-16 h-20 bg-white/20 rounded-lg flex items-center justify-center">
+                    <span className="text-xs text-gray-600">LOONER</span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom section: Two half-width cards */}
+        <div className="grid grid-cols-2 gap-4 w-full">
+          <div
+            className="rounded-2xl h-64 flex items-center justify-center"
+            style={{
+              backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+            }}
+          >
+            <div className="text-center">
+              <h3 className="text-4xl font-bold text-white">Better than</h3>
+              <h3 className="text-4xl font-bold text-white">Dessert</h3>
             </div>
-          ))}
+          </div>
+
+          <div
+            className="rounded-2xl h-64 flex items-center justify-center relative overflow-hidden"
+            style={{
+              backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+            }}
+          >
+            <div className="flex items-center gap-4">
+              {/* Glass with liquid */}
+              <div className="w-12 h-20 bg-white/30 rounded-lg flex items-end">
+                <div
+                  className="w-full h-3/4 rounded-b-lg"
+                  style={{
+                    backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
+                    opacity: 0.7,
+                  }}
+                ></div>
+              </div>
+              {/* Product can */}
+              {selectedFlavor?.images?.[0] && (
+                <img
+                  src={selectedFlavor.images[0]}
+                  alt={selectedFlavor.title}
+                  className="w-16 h-20 object-contain drop-shadow-lg"
+                />
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Bottom section: Additional images taking full width */}
-      <div className="grid grid-cols-2 gap-4 w-full">
-        <div
-          className="rounded-2xl h-48 flex items-center justify-center"
-          style={{
-            backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
-          }}
-        >
-          {selectedFlavor?.images?.[0] && (
-            <img
-              src={selectedFlavor.images[0]}
-              alt={selectedFlavor.title}
-              className="w-20 h-28 object-contain drop-shadow-lg"
-            />
-          )}
+      {/* Mobile Carousel Layout */}
+      <div className="md:hidden">
+        {/* Product Name Above Mobile Layout */}
+        <div className="px-4 mb-6">
+          <h1 className="text-4xl font-serif text-gray-900 mb-2">
+            {selectedFlavor?.title || "LOONER Cannabis Soda"}
+          </h1>
+          <p className="text-lg text-gray-600">
+            The perfect blend of sweet & tart.
+          </p>
         </div>
+        
+        <div className="flex overflow-x-auto gap-4 pb-4 -mx-4 px-4 scrollbar-hide">
+          {/* First card: Main product image with tags combined */}
+          <div className="flex-shrink-0 w-80">
+            <div className="grid grid-rows-[1fr_auto] gap-3 h-80">
+              {/* Large Product Image - Top section */}
+              <div
+                className="rounded-2xl flex items-center justify-center"
+                style={{
+                  backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+                }}
+              >
+                {selectedFlavor?.images?.[0] ? (
+                  <img
+                    src={selectedFlavor.images[0]}
+                    alt={selectedFlavor.title}
+                    className="w-28 h-40 object-contain drop-shadow-2xl"
+                  />
+                ) : (
+                  <div className="text-center">
+                    <div className="text-3xl font-bold mb-1 text-white">
+                      LOONER
+                    </div>
+                    <div className="text-sm text-white/80">
+                      Cannabis Co.
+                    </div>
+                  </div>
+                )}
+              </div>
+              
+              {/* Tag cards - Bottom section in grid */}
+              <div className="grid grid-cols-3 gap-2 h-20">
+                {filteredTags.slice(0, 3).map((tag: string, index: number) => (
+                  <div
+                    key={index}
+                    className="rounded-xl flex flex-col items-center justify-center text-center p-2"
+                    style={{
+                      backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+                    }}
+                  >
+                    <div className="text-lg mb-1">{getTagEmoji(tag)}</div>
+                    <div className="text-gray-800 font-semibold text-xs leading-tight">
+                      {tag}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
-        <div
-          className="rounded-2xl h-48 flex items-center justify-center relative overflow-hidden"
-          style={{
-            backgroundColor: selectedFlavor?.secondaryColor || "#A855F7",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="relative z-10 text-center text-white">
-            <h3 className="text-xl font-bold">Premium</h3>
-            <p className="text-sm">Cannabis Soda</p>
+          {/* Multiple products card */}
+          <div
+            className="flex-shrink-0 w-80 rounded-2xl h-80 flex items-center justify-center gap-4 px-6"
+            style={{
+              backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+            }}
+          >
+            {[0, 1, 2].map((index) => (
+              <div key={index} className="flex items-center justify-center">
+                {selectedFlavor?.images?.[0] ? (
+                  <img
+                    src={selectedFlavor.images[0]}
+                    alt={selectedFlavor.title}
+                    className="w-12 h-16 object-contain drop-shadow-lg"
+                    style={{
+                      transform: `rotate(${index === 1 ? "0deg" : index === 0 ? "-12deg" : "12deg"})`,
+                    }}
+                  />
+                ) : (
+                  <div className="w-12 h-16 bg-white/20 rounded-lg flex items-center justify-center">
+                    <span className="text-xs text-gray-600">LOONER</span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Better than Dessert card */}
+          <div
+            className="flex-shrink-0 w-64 rounded-2xl h-80 flex items-center justify-center"
+            style={{
+              backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+            }}
+          >
+            <div className="text-center">
+              <h3 className="text-3xl font-bold text-white">Better than</h3>
+              <h3 className="text-3xl font-bold text-white">Dessert</h3>
+            </div>
+          </div>
+
+          {/* Glass product card */}
+          <div
+            className="flex-shrink-0 w-64 rounded-2xl h-80 flex items-center justify-center"
+            style={{
+              backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
+            }}
+          >
+            <div className="flex items-center gap-4">
+              {/* Glass with liquid */}
+              <div className="w-12 h-20 bg-white/30 rounded-lg flex items-end">
+                <div
+                  className="w-full h-3/4 rounded-b-lg"
+                  style={{
+                    backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
+                    opacity: 0.7,
+                  }}
+                ></div>
+              </div>
+              {/* Product can */}
+              {selectedFlavor?.images?.[0] && (
+                <img
+                  src={selectedFlavor.images[0]}
+                  alt={selectedFlavor.title}
+                  className="w-16 h-20 object-contain drop-shadow-lg"
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>

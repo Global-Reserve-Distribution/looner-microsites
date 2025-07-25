@@ -191,13 +191,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Applied blur effects (60px) and opacity (15%) for subtle, organic background appearance
   - 0.6s ease-in-out transitions with AnimatePresence for seamless flavor switching
   - Fixed JSX structure errors and proper z-index layering for content above background
-- **STANDALONE LANDING PAGE** (July 23, 2025): Removed navigation to create microsite landing page
-  - Created custom layout for /product/flavor route without navigation header
-  - Flavor page now functions as standalone microsite landing page
-  - Removed header navigation and top padding to maximize content space
-  - Page starts immediately with animated background and product content
-  - Implemented conditional navigation system that hides header specifically on flavor page
-  - Created ConditionalNavigation component to manage navigation visibility by route
+- **PRODUCT PAGE CONSOLIDATION** (July 24, 2025): Moved flavor page to main /product route
+  - Consolidated /product/flavor content into main /product route for simpler navigation
+  - Updated all import paths from ../../../ to ../../ for component references
+  - Removed /product/flavor directory completely to eliminate route duplication
+  - Main product page now serves as the comprehensive flavor selection and purchase experience
+  - Maintained all functionality: Olipop-style layout, flavor selection, cart integration, mobile responsiveness
 - **METAFIELDS DEBUGGING** (July 23, 2025): Enhanced color metafields fetching for Professor Pepper flavor
   - Updated GraphQL fragment to fetch both underscore and space-separated metafield key formats
   - Enhanced extractColorMetafields function to handle "Primary Color" vs "primary_color" naming
@@ -366,6 +365,77 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Phase 3 (400ms): Product image, decorative blobs, and content fade in with staggered delays
   - Smooth transition orchestration using useEffect and animation phases
   - Maintains proper z-index layering with absolute positioning for seamless state transitions
+- **LAYOUT ALIGNMENT IMPROVEMENTS** (July 24, 2025): Enhanced grid positioning for reference matching
+  - Updated OlipopStyleGrid to use secondary colors for all background boxes
+  - Improved 3-column layout with proper proportional adjustments
+  - Extended left column further left/right with grid ratio changes (1.2fr:1fr)
+  - Applied negative margins and padding adjustments for precise alignment
+  - Modified internal grid from equal columns to 3fr:1fr proportions
+- **HEADER INTEGRATION** (July 24, 2025): Added Olipop-style navigation header
+  - Created Header component matching Olipop reference design exactly
+  - Integrated LOONER Cannabis Co logo in center position
+  - Added left navigation (Shop, Learn, Subscribe) and right icons (Find In Store, User, Shopping Cart)
+  - Applied sticky positioning with proper z-index layering
+  - Installed lucide-react for consistent iconography
+  - Added shopping cart counter and proper hover states throughout
+- **MOBILE CAROUSEL LAYOUT** (July 24, 2025): Implemented responsive mobile carousel for OlipopStyleGrid
+  - Added responsive breakpoints: desktop grid layout (md:hidden/block) vs mobile carousel (md:hidden)
+  - Created horizontal scrolling carousel with 4 distinct cards matching Olipop reference
+  - **First card combines main product image and tags**: Large product image on top with 3x1 tag grid below
+  - Remaining cards: multi-product showcase, "Better than Dessert" text, glass+product combination
+  - Implemented proper card sizing: combined card (w-80), multi-product (w-80), text cards (w-64)
+  - Added hidden scrollbars using custom CSS classes (.scrollbar-hide) for clean mobile UX
+  - Fixed TypeScript errors with proper type annotations for map functions
+  - Maintained consistent color theming from Shopify metafields across mobile and desktop layouts
+- **RECOMMENDATION CARDS REDESIGN** (July 24, 2025): Updated "You May Also Like" cards to match Olipop reference
+  - **Mobile layout**: Shows full content permanently - product image, name, description, rating, and "Add 12 Pack" button
+  - **Desktop layout**: Maintains hover/non-hover state interaction with animated wave reveal effect
+  - Updated default state to show product on colored circle background with content below
+  - Reduced flavor picker from 4 columns to 3 columns to prevent text cramming
+  - Added product name above mobile carousel layout for better information hierarchy
+- **DISPLAY NAME METAFIELD** (July 24, 2025): Added support for custom.display_name metafield
+  - Added custom.display_name to both Storefront API and Admin API GraphQL queries
+  - Updated product transformation functions to use display_name with fallback to existing title
+  - Enhanced extractColorMetafields function to handle display_name extraction
+  - Provides clean product names without SKU/variant suffixes when metafield is populated
+- **SHORT DESCRIPTION METAFIELD** (July 24, 2025): Added support for custom.short_description metafield
+  - Added custom.short_description to both Storefront API and Admin API GraphQL queries
+  - Updated RecommendedFlavors component to use shortDescription for card descriptions
+  - Enhanced extractMetafields function (renamed from extractColorMetafields) to handle all custom metafields
+  - Fallback hierarchy: shortDescription → description → default text for "You May Also Like" cards
+- **TAG FILTERING AND CACHE FIXES** (July 24, 2025): Fixed tag-based filtering and cache invalidation issues
+  - Updated variety packs tab to require both "Soda" AND "bundle" tags for proper filtering
+  - Enhanced main flavor filtering to prioritize "soda" tag over title-based matching for accuracy
+  - Fixed visual gap in tab layout by removing rounded corners from content container where tabs connect
+  - Triggered cache revalidation to ensure updated Shopify tag changes are reflected immediately
+  - Improved debugging output to show tag-based vs title-based filtering decisions
+- **DESKTOP RECOMMENDATION CARDS UPDATE** (July 24, 2025): Updated desktop cards to match mobile layout
+  - Changed desktop non-hover state to show content permanently like mobile version
+  - Desktop cards now display product name, description, rating, and button by default
+  - Removed minimal desktop layout in favor of consistent mobile-desktop appearance
+  - Maintains hover animations while providing full information visibility at all times
+- **MOBILE RESPONSIVENESS IMPROVEMENTS** (July 24, 2025): Enhanced mobile layout and feature icons
+  - Improved mobile spacing and typography throughout flavor page for better readability
+  - Fixed responsive grid for feature icons: 3 columns mobile, 6 columns desktop
+  - Reduced icon sizes and gaps on mobile for proper fitting without overlap
+  - Enhanced mobile product information section with single-column layout
+  - Optimized nutrition facts panel and text sizing for mobile screens
+- **SHOPPING CART INTEGRATION** (July 24, 2025): Implemented complete Shopify cart functionality
+  - Created comprehensive cart management system using Shopify Storefront API
+  - Built sticky cart footer that appears when main add to cart button is out of view
+  - Implemented intersection observer for intelligent cart visibility management
+  - Added real-time cart state management with proper error handling and loading states
+  - Integrated cart functionality into PurchaseOptions component with TypeScript support
+  - Cart operations include create, add, update, remove with GraphQL mutations
+  - Mobile-first sticky footer design optimized for seamless purchasing experience
+- **SHARED CART COMPONENTS** (July 24, 2025): Created reusable AddToCartButton and mobile navigation
+  - Built shared AddToCartButton component with multiple variants (primary, sticky, compact)
+  - Integrated Shopify cart functionality with loading states and error handling
+  - Updated PurchaseOptions and StickyCartFooter to use shared component
+  - Created mobile-friendly header with hamburger navigation and slide-out drawer
+  - Added cart counter badge and checkout functionality in mobile menu
+  - Implemented responsive navigation: desktop header for large screens, mobile header for small screens
+  - Fixed server/client component separation with dedicated client-side cart module
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

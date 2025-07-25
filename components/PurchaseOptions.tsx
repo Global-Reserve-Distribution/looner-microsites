@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { AddToCartButton } from './AddToCartButton';
 
 interface PurchaseOptionsProps {
   flavor: {
@@ -9,13 +10,17 @@ interface PurchaseOptionsProps {
   onVariantChange: (variant: { id: string; title: string; price: number }) => void;
 }
 
-export function PurchaseOptions({ flavor, variant, onVariantChange }: PurchaseOptionsProps) {
+export const PurchaseOptions = React.forwardRef<HTMLDivElement, PurchaseOptionsProps>(function PurchaseOptions(
+  { flavor, variant, onVariantChange }, 
+  ref
+) {
+
   const [purchaseType, setPurchaseType] = useState<'one-time' | 'subscription'>('one-time');
 
   const subscriptionPrice = variant.price * 0.85; // 15% off for subscription
 
   return (
-    <div className="space-y-6">
+    <div ref={ref} className="space-y-6">
       {/* Variant Selector */}
       <div>
         <h3 className="text-sm font-medium text-gray-700 mb-3">Size</h3>
@@ -110,9 +115,13 @@ export function PurchaseOptions({ flavor, variant, onVariantChange }: PurchaseOp
       </div>
 
       {/* Add to Cart */}
-      <button className="w-full bg-cannabis-600 text-white py-4 px-6 rounded-full font-semibold text-lg hover:bg-cannabis-700 transition-colors shadow-lg">
-        Add to Cart
-      </button>
+      <AddToCartButton
+        merchandiseId={variant.id}
+        quantity={1}
+        productTitle={flavor?.title}
+        productPrice={`$${variant.price.toFixed(2)}`}
+        variant="primary"
+      />
 
       {/* Delivery Info */}
       {purchaseType === 'subscription' && (
@@ -123,4 +132,6 @@ export function PurchaseOptions({ flavor, variant, onVariantChange }: PurchaseOp
       )}
     </div>
   );
-}
+});
+
+PurchaseOptions.displayName = 'PurchaseOptions';

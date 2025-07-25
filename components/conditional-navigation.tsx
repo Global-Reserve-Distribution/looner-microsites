@@ -6,8 +6,8 @@ import { Navigation } from './navigation';
 export function ConditionalNavigation({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   
-  // Hide navigation on the flavor page microsite
-  if (pathname === '/product/flavor') {
+  // Hide navigation on the product page microsite
+  if (pathname === '/product') {
     return <>{children}</>;
   }
   
