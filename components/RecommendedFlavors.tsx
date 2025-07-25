@@ -36,7 +36,7 @@ export function RecommendedFlavors({
         You May Also Like
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {recommended.map((flavor, index) => {
           const canImage = flavor.images[0];
           const primary = flavor.primaryColor || "#A855F7";
@@ -49,19 +49,19 @@ export function RecommendedFlavors({
               className="cursor-pointer transition-all duration-300 hover:scale-[1.02]"
             >
               <div
-                className="rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[3/5]"
+                className="rounded-2xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[4/5]"
                 style={{ backgroundColor: secondary }}
               >
                 {/* Compact layout structure for consistent alignment */}
                 <div className="absolute inset-0 flex flex-col">
-                  {/* Top Section - Compact height for product image */}
+                  {/* Top Section - Larger for product image */}
                   <div 
-                    className="relative flex items-center justify-center h-24 p-3"
+                    className="relative flex items-center justify-center h-32 p-4"
                     style={{ backgroundColor: secondary }}
                   >
                     {/* Circle Background */}
                     <div
-                      className="absolute w-16 h-16 rounded-full"
+                      className="absolute w-20 h-20 rounded-full"
                       style={{ backgroundColor: primary }}
                     />
 
@@ -70,15 +70,15 @@ export function RecommendedFlavors({
                       <Image
                         src={canImage}
                         alt={flavor.title}
-                        width={60}
-                        height={75}
-                        className="h-20 w-auto object-contain drop-shadow-lg relative z-10"
+                        width={80}
+                        height={100}
+                        className="h-28 w-auto object-contain drop-shadow-lg relative z-10"
                       />
                     ) : (
                       <div
-                        className="w-12 h-20 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
+                        className="w-16 h-24 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
                       >
-                        <span className="text-white text-xs font-bold">
+                        <span className="text-white text-sm font-bold">
                           LOONER
                         </span>
                       </div>
@@ -90,36 +90,36 @@ export function RecommendedFlavors({
                     className="flex-1 flex flex-col"
                     style={{ backgroundColor: secondary }}
                   >
-                    {/* Fixed content area with reduced top padding */}
-                    <div className="px-3 pt-1 pb-2 flex flex-col h-full">
-                      {/* Product Name - Closer to top */}
-                      <div className="h-5 flex items-center justify-center">
-                        <h3 className="font-bold text-gray-900 text-xs text-center leading-tight line-clamp-1">
+                    {/* Fixed content area with proper spacing */}
+                    <div className="px-4 pt-2 pb-3 flex flex-col h-full">
+                      {/* Product Name */}
+                      <div className="h-6 flex items-center justify-center">
+                        <h3 className="font-bold text-gray-900 text-sm text-center leading-tight line-clamp-1">
                           {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                         </h3>
                       </div>
 
-                      {/* Description - More space for text */}
-                      <div className="h-12 flex items-start justify-center overflow-hidden">
-                        <p className="text-gray-700 text-xs text-center leading-tight px-1 line-clamp-3">
+                      {/* Description */}
+                      <div className="h-10 flex items-start justify-center overflow-hidden mt-1">
+                        <p className="text-gray-700 text-xs text-center leading-tight px-1 line-clamp-2">
                           {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
                         </p>
                       </div>
 
-                      {/* Star Rating - Smaller spacing */}
-                      <div className="h-4 flex items-center justify-center">
+                      {/* Star Rating */}
+                      <div className="h-5 flex items-center justify-center mt-1">
                         <div className="flex items-center text-gray-800">
-                          <span className="text-xs">★★★★</span>
-                          <span className="text-xs text-gray-400">☆</span>
+                          <span className="text-sm">★★★★</span>
+                          <span className="text-sm text-gray-400">☆</span>
                         </div>
                       </div>
 
-                      {/* Minimal spacer */}
-                      <div className="flex-1 min-h-[2px]"></div>
+                      {/* Spacer */}
+                      <div className="flex-1 min-h-[4px]"></div>
 
-                      {/* Button - With guaranteed space */}
-                      <div className="h-7 flex items-center justify-center">
-                        <button className="bg-white text-gray-800 px-3 py-1 rounded-full font-medium text-xs shadow-sm border border-gray-200">
+                      {/* Button */}
+                      <div className="h-8 flex items-center justify-center">
+                        <button className="bg-white text-gray-800 px-4 py-1.5 rounded-full font-medium text-sm shadow-sm border border-gray-200">
                           + Add 12 Pack
                         </button>
                       </div>

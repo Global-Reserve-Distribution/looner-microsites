@@ -584,6 +584,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Kept corner "Best" styling only for flavor picker tiles as intended
   - Main image badges positioned at top-4 left-4 with full "Bestseller" text for better visibility
   - Maintained distinction between main product display and flavor picker tile badge styles
+- **RECOMMENDATION CARDS RESIZE** (July 25, 2025): Updated recommendation tiles to match Olipop reference sizing
+  - Changed aspect ratio from aspect-[3/5] to aspect-[4/5] for more compact rectangular cards
+  - Reduced border radius from rounded-3xl to rounded-2xl for cleaner appearance
+  - Increased product image area height from h-24 to h-32 with larger circle and image sizing
+  - Enhanced text sizing and spacing for better readability in compact format
+  - Reduced grid gap from gap-6 to gap-4 for tighter layout matching reference design
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
