@@ -469,6 +469,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added variants field to Admin API GraphQL query to fetch real variant information
   - Size options now display actual variant titles, prices, and availability from Shopify
   - Enhanced variant structure to include selectedOptions and availableForSale properties
+- **RECOMMENDATION CARDS VERTICAL SPACING** (July 25, 2025): Improved text positioning for better space utilization
+  - Reduced top section height from flex-1 to fixed h-24 for product image area
+  - Expanded bottom section to use remaining space with flex-1
+  - Changed content alignment from justify-center to justify-start for higher text positioning
+  - Text content now utilizes more of the available vertical space in recommendation cards
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

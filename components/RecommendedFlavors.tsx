@@ -58,7 +58,7 @@ export function RecommendedFlavors({
                 <div className="absolute inset-0 flex flex-col">
                   {/* Top Section with Product Image and Circle Background */}
                   <div 
-                    className="relative flex items-center justify-center p-4 flex-1"
+                    className="relative flex items-center justify-center p-4 h-24"
                     style={{ backgroundColor: secondary }}
                   >
                     {/* Circle Background */}
@@ -89,10 +89,10 @@ export function RecommendedFlavors({
 
                   {/* Bottom Section with Content - Always visible */}
                   <div 
-                    className="text-center flex flex-col justify-center flex-1"
+                    className="text-center flex flex-col justify-start flex-1"
                     style={{ backgroundColor: secondary }}
                   >
-                    <div className="p-3 flex flex-col justify-center h-full">
+                    <div className="p-3 flex flex-col justify-start h-full">
                       <h3 className="font-bold text-gray-900 text-sm mb-1 leading-tight">
                         {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                       </h3>
