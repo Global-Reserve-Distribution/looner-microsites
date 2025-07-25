@@ -106,7 +106,7 @@ export function FlavorPickerVariants({
               {flavor.showBestSellerTag && (
                 <div className="absolute top-2 left-2 z-20">
                   <div className="bg-orange-500 text-white px-2 py-1 rounded text-xs font-bold uppercase shadow-lg">
-                    New
+                    Bestseller
                   </div>
                 </div>
               )}

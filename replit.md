@@ -556,7 +556,7 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Modified both transformation functions to include showBestSellerTag field
   - Added orange "Bestseller" badge to upper left of main product image in OlipopStyleGrid
   - Badge displays on both desktop and mobile layouts when metafield is set to true
-  - Added Olipop-style "New" label to flavor picker tiles matching reference design
+  - Added Olipop-style "Bestseller" label to flavor picker tiles matching reference design
   - Orange badge positioned in upper left corner of flavor cards with proper z-index layering
 
 ## Next Steps
