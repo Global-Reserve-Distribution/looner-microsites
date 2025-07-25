@@ -54,14 +54,14 @@ export function RecommendedFlavors({
               >
                 {/* Compact layout structure for consistent alignment */}
                 <div className="absolute inset-0 flex flex-col">
-                  {/* Top Section - Larger for product image */}
+                  {/* Top Section - Compact for product image */}
                   <div 
-                    className="relative flex items-center justify-center h-32 p-4"
+                    className="relative flex items-center justify-center h-24 p-3"
                     style={{ backgroundColor: secondary }}
                   >
                     {/* Circle Background */}
                     <div
-                      className="absolute w-20 h-20 rounded-full"
+                      className="absolute w-16 h-16 rounded-full"
                       style={{ backgroundColor: primary }}
                     />
 
@@ -70,15 +70,15 @@ export function RecommendedFlavors({
                       <Image
                         src={canImage}
                         alt={flavor.title}
-                        width={80}
-                        height={100}
-                        className="h-28 w-auto object-contain drop-shadow-lg relative z-10"
+                        width={60}
+                        height={75}
+                        className="h-20 w-auto object-contain drop-shadow-lg relative z-10"
                       />
                     ) : (
                       <div
-                        className="w-16 h-24 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
+                        className="w-12 h-16 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
                       >
-                        <span className="text-white text-sm font-bold">
+                        <span className="text-white text-xs font-bold">
                           LOONER
                         </span>
                       </div>
@@ -90,36 +90,36 @@ export function RecommendedFlavors({
                     className="flex-1 flex flex-col"
                     style={{ backgroundColor: secondary }}
                   >
-                    {/* Fixed content area with proper spacing */}
-                    <div className="px-4 pt-2 pb-3 flex flex-col h-full">
+                    {/* Fixed content area with expanded space for all components */}
+                    <div className="px-3 pt-2 pb-2 flex flex-col h-full">
                       {/* Product Name */}
-                      <div className="h-6 flex items-center justify-center">
-                        <h3 className="font-bold text-gray-900 text-sm text-center leading-tight line-clamp-1">
+                      <div className="h-5 flex items-center justify-center">
+                        <h3 className="font-bold text-gray-900 text-xs text-center leading-tight line-clamp-1">
                           {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                         </h3>
                       </div>
 
                       {/* Description */}
-                      <div className="h-10 flex items-start justify-center overflow-hidden mt-1">
+                      <div className="h-8 flex items-start justify-center overflow-hidden mt-1">
                         <p className="text-gray-700 text-xs text-center leading-tight px-1 line-clamp-2">
                           {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
                         </p>
                       </div>
 
                       {/* Star Rating */}
-                      <div className="h-5 flex items-center justify-center mt-1">
+                      <div className="h-4 flex items-center justify-center mt-1">
                         <div className="flex items-center text-gray-800">
-                          <span className="text-sm">★★★★</span>
-                          <span className="text-sm text-gray-400">☆</span>
+                          <span className="text-xs">★★★★</span>
+                          <span className="text-xs text-gray-400">☆</span>
                         </div>
                       </div>
 
                       {/* Spacer */}
-                      <div className="flex-1 min-h-[4px]"></div>
+                      <div className="flex-1 min-h-[2px]"></div>
 
                       {/* Button */}
-                      <div className="h-8 flex items-center justify-center">
-                        <button className="bg-white text-gray-800 px-4 py-1.5 rounded-full font-medium text-sm shadow-sm border border-gray-200">
+                      <div className="h-7 flex items-center justify-center">
+                        <button className="bg-white text-gray-800 px-3 py-1 rounded-full font-medium text-xs shadow-sm border border-gray-200">
                           + Add 12 Pack
                         </button>
                       </div>

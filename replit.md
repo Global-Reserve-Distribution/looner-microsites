@@ -590,6 +590,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Increased product image area height from h-24 to h-32 with larger circle and image sizing
   - Enhanced text sizing and spacing for better readability in compact format
   - Reduced grid gap from gap-6 to gap-4 for tighter layout matching reference design
+- **RECOMMENDATION CARDS IMAGE REDUCTION** (July 25, 2025): Shrunk images to ensure all components are visible
+  - Reduced image section height from h-32 to h-24 and circle from w-20 to w-16 for compact design
+  - Decreased product image size from h-28 to h-20 to prevent cutting off text components
+  - Compressed text sections and button sizing to fit all elements within card boundaries
+  - All recommendation cards now properly display product name, description, star rating, and add button
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
