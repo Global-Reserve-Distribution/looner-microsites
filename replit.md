@@ -558,6 +558,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Badge displays on both desktop and mobile layouts when metafield is set to true
   - Added Olipop-style "Bestseller" label to flavor picker tiles matching reference design
   - Orange badge positioned in upper left corner of flavor cards with proper z-index layering
+- **FLAVOR PICKER TILE SIZING** (July 25, 2025): Resized flavor cards to match Olipop reference proportions
+  - Changed card aspect ratio from aspect-[4/5] to aspect-square for compact square design
+  - Reduced product image size from w-40 h-48 to w-24 h-32 for better proportions
+  - Updated text overlay from half height to third height for better space utilization
+  - Decreased text size from text-sm to text-xs and reduced padding for compact layout
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
