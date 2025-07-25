@@ -17,6 +17,15 @@ export const PurchaseOptions = React.forwardRef<HTMLDivElement, PurchaseOptionsP
 
   const [purchaseType, setPurchaseType] = useState<'one-time' | 'subscription'>('one-time');
 
+  // Add null checks for variant
+  if (!flavor || !variant) {
+    return (
+      <div ref={ref} className="space-y-6">
+        <div className="text-center text-gray-500">Loading purchase options...</div>
+      </div>
+    );
+  }
+
   const subscriptionPrice = variant.price * 0.85; // 15% off for subscription
 
   return (
@@ -25,7 +34,7 @@ export const PurchaseOptions = React.forwardRef<HTMLDivElement, PurchaseOptionsP
       <div>
         <h3 className="text-sm font-medium text-gray-700 mb-3">Size</h3>
         <div className="flex gap-3">
-          {flavor.variants.map((v) => (
+          {(flavor.variants || []).map((v) => (
             <button
               key={v.id}
               onClick={() => onVariantChange(v)}
