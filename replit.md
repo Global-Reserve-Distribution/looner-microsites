@@ -505,6 +505,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Reduced image section height from h-32 to h-24 and circle from w-20 to w-16
   - Decreased text sizes: title from text-sm to text-xs, smaller padding throughout
   - Compact button styling and reduced spacing for better visual balance
+- **ENLARGED FLAVOR SELECTOR CARDS** (July 25, 2025): Increased flavor picker card size to match Olipop reference
+  - Changed flavor cards from aspect-square to aspect-[4/5] for taller, more prominent cards
+  - Increased grid gap from gap-4 to gap-6 and padding from p-6 to p-8 for better spacing
+  - Enlarged product images from w-32 h-40 to w-40 h-48 for better visibility
+  - Increased text size from text-sm to text-base and improved padding for better readability
+  - Updated border radius to rounded-2xl for more modern appearance matching reference design
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
