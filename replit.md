@@ -569,6 +569,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Positioned side-by-side with add to cart button in flex layout
   - Integrated quantity state management with AddToCartButton component
   - Prevents quantity from going below 1 with disabled state on minus button
+- **BESTSELLER TAG CORNER STYLING** (July 25, 2025): Updated bestseller tags to appear from corner like Olipop "New" badge
+  - Changed text from "Bestseller" to "Best" for shorter, more compact display
+  - Updated positioning to -top-1 -left-1 to appear emerging from corner
+  - Applied corner-specific border radius (rounded-tl-2xl rounded-br-lg) for authentic corner badge appearance
+  - Updated both flavor picker tiles and main product image badges consistently
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

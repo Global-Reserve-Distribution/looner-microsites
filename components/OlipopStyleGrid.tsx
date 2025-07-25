@@ -40,9 +40,9 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
           >
             {/* Best Seller Tag */}
             {selectedFlavor?.showBestSellerTag && (
-              <div className="absolute top-4 left-4 z-10">
-                <div className="bg-orange-500 text-white px-4 py-2 rounded-full font-bold text-sm uppercase shadow-lg">
-                  Bestseller
+              <div className="absolute -top-1 -left-1 z-10">
+                <div className="bg-orange-500 text-white px-4 py-2 rounded-br-lg rounded-tl-3xl font-bold text-sm uppercase shadow-lg">
+                  Best
                 </div>
               </div>
             )}
@@ -169,9 +169,9 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
               >
                 {/* Best Seller Tag */}
                 {selectedFlavor?.showBestSellerTag && (
-                  <div className="absolute top-2 left-2 z-10">
-                    <div className="bg-orange-500 text-white px-3 py-1 rounded-full font-bold text-xs uppercase shadow-lg">
-                      Bestseller
+                  <div className="absolute -top-1 -left-1 z-10">
+                    <div className="bg-orange-500 text-white px-3 py-1 rounded-br-lg rounded-tl-2xl font-bold text-xs uppercase shadow-lg">
+                      Best
                     </div>
                   </div>
                 )}
