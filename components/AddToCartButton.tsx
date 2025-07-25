@@ -57,7 +57,7 @@ export function AddToCartButton({
     
     switch (variant) {
       case 'primary':
-        return `${baseClasses} w-full bg-green-800 text-white py-4 px-6 rounded-full text-lg hover:bg-green-900 shadow-lg ${className}`;
+        return `${baseClasses} w-full bg-green-800 text-white px-6 rounded-full text-lg hover:bg-green-900 shadow-lg ${className}`;
       case 'sticky':
         return `${baseClasses} bg-green-800 text-white py-3 px-6 rounded-full text-base hover:bg-green-900 shadow-md ${className}`;
       case 'compact':

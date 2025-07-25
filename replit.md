@@ -574,6 +574,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated positioning to -top-1 -left-1 to appear emerging from corner
   - Applied corner-specific border radius (rounded-tl-2xl rounded-br-lg) for authentic corner badge appearance
   - Updated both flavor picker tiles and main product image badges consistently
+- **QUANTITY SELECTOR HEIGHT ALIGNMENT** (July 25, 2025): Made quantity selector and add to cart button same height
+  - Fixed height mismatch by setting both elements to h-14 (56px)
+  - Changed flex container from items-center to items-stretch for proper alignment
+  - Removed py-4 from AddToCartButton primary variant to rely on fixed height
+  - Both quantity selector and button now have consistent visual appearance
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

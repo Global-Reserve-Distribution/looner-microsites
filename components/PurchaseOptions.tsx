@@ -126,9 +126,9 @@ export const PurchaseOptions = React.forwardRef<HTMLDivElement, PurchaseOptionsP
       </div>
 
       {/* Quantity Selector and Add to Cart */}
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-3 items-stretch">
         {/* Quantity Selector */}
-        <div className="flex items-center bg-white border-2 border-gray-200 rounded-full px-1 py-1">
+        <div className="flex items-center bg-white border-2 border-gray-200 rounded-full px-1 h-14">
           <button
             onClick={() => setQuantity(Math.max(1, quantity - 1))}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
@@ -155,6 +155,7 @@ export const PurchaseOptions = React.forwardRef<HTMLDivElement, PurchaseOptionsP
             productTitle={flavor?.title}
             productPrice={`$${variant.price.toFixed(2)}`}
             variant="primary"
+            className="h-14"
           />
         </div>
       </div>
