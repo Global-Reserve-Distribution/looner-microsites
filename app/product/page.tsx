@@ -203,6 +203,7 @@ export default function ProductPage() {
   const slug = searchParams?.get("flavor");
 
   const [flavors, setFlavors] = useState<any[]>([]);
+  const [allProducts, setAllProducts] = useState<any[]>([]); // Store complete product list including bundles
   const [selectedFlavor, setSelectedFlavor] = useState<any | null>(null);
   const [selectedVariant, setSelectedVariant] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
@@ -272,6 +273,9 @@ export default function ProductPage() {
           "Total transformed flavors:",
           allTransformedFlavors?.length || 0,
         );
+
+        // Store complete product list for variety pack filtering
+        setAllProducts(allTransformedFlavors);
 
         // Filter to show soda products using real category data when available
         let filteredFlavors = allTransformedFlavors.filter((flavor) => {
@@ -429,7 +433,7 @@ export default function ProductPage() {
 
             <div className="px-4 lg:px-0">
               <FlavorPickerVariants
-                flavors={regularFlavors}
+                flavors={allProducts}
                 selectedFlavor={selectedFlavor}
                 onFlavorSelect={(flavor) => {
                   setSelectedFlavor(flavor);

@@ -457,6 +457,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - All recommendation cards now permanently show: product name, description, rating, and "Add 12 Pack" button
   - Eliminated animation phases and state management for simpler, more reliable UI
   - Cards use consistent layout with product image on top half and content on bottom half
+- **VARIETY PACKS FILTERING FIX** (July 25, 2025): Resolved variety packs tab showing no products
+  - Fixed data flow issue where bundle products were excluded from main flavors array before reaching variety packs filter
+  - Added allProducts state to store complete product list including bundle items
+  - Updated FlavorPickerVariants to receive complete product list instead of filtered regularFlavors
+  - Enhanced variety pack filtering to show products with "bundle" tag OR variety pack naming patterns
+  - Added debug logging to track variety pack filtering decisions and product detection
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

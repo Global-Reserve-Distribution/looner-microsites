@@ -62,9 +62,13 @@ export function FlavorPickerVariants({
             })
           : flavors.filter(f => {
               const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
+              const title = f.title.toLowerCase();
               const hasBundle = tags.some((tag: string) => tag.includes('bundle'));
-              const hasSoda = tags.some((tag: string) => tag.includes('soda'));
-              return hasBundle && hasSoda; // Only show items with BOTH bundle AND soda tags
+              const isVarietyPack = title.includes('variety') || title.includes('pack') || title.includes('mix');
+              
+              // Show products with bundle tag OR variety pack naming
+              console.log(`Variety pack filter - Product: ${f.title}, Tags: ${JSON.stringify(f.tags)}, HasBundle: ${hasBundle}, IsVarietyPack: ${isVarietyPack}`);
+              return hasBundle || isVarietyPack;
             })
         ).map((flavor, index) => (
           <button
