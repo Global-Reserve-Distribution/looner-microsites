@@ -52,13 +52,11 @@ export function RecommendedFlavors({
                 className="rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[3/5]"
                 style={{ backgroundColor: secondary }}
               >
-                {/* Always show complete content for consistency */}
-
-                {/* Always show complete content - consistent across all cards */}
+                {/* Fixed layout structure for consistent alignment */}
                 <div className="absolute inset-0 flex flex-col">
-                  {/* Top Section with Product Image and Circle Background */}
+                  {/* Top Section - Fixed height for product image */}
                   <div 
-                    className="relative flex items-center justify-center p-4 h-24"
+                    className="relative flex items-center justify-center h-32 p-4"
                     style={{ backgroundColor: secondary }}
                   >
                     {/* Circle Background */}
@@ -87,26 +85,36 @@ export function RecommendedFlavors({
                     )}
                   </div>
 
-                  {/* Bottom Section with Content - Always visible */}
+                  {/* Bottom Section - Structured with fixed positioning */}
                   <div 
-                    className="text-center flex flex-col justify-start flex-1"
+                    className="flex-1 flex flex-col p-4"
                     style={{ backgroundColor: secondary }}
                   >
-                    <div className="p-3 flex flex-col justify-start h-full">
-                      <h3 className="font-bold text-gray-900 text-sm mb-1 leading-tight">
+                    {/* Product Name - Fixed height */}
+                    <div className="h-8 flex items-center justify-center mb-2">
+                      <h3 className="font-bold text-gray-900 text-sm text-center leading-tight">
                         {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                       </h3>
+                    </div>
 
-                      <p className="text-gray-700 text-xs mb-2 leading-relaxed">
+                    {/* Description - Fixed height */}
+                    <div className="h-12 flex items-start justify-center mb-3">
+                      <p className="text-gray-700 text-xs text-center leading-relaxed">
                         {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
                       </p>
+                    </div>
 
-                      <div className="flex items-center justify-center mb-2 text-gray-800">
+                    {/* Star Rating - Fixed height */}
+                    <div className="h-6 flex items-center justify-center mb-3">
+                      <div className="flex items-center text-gray-800">
                         <span className="text-xs">★★★★</span>
                         <span className="text-xs text-gray-400">☆</span>
                       </div>
+                    </div>
 
-                      <button className="bg-white text-gray-800 px-3 py-1 rounded-full font-medium text-xs shadow-sm border border-gray-200">
+                    {/* Button - Fixed position at bottom */}
+                    <div className="flex-1 flex items-end justify-center">
+                      <button className="bg-white text-gray-800 px-3 py-1.5 rounded-full font-medium text-xs shadow-sm border border-gray-200">
                         + Add 12 Pack
                       </button>
                     </div>
