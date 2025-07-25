@@ -387,12 +387,12 @@ export default function ProductPage() {
 
   return (
     <>
-      {/* Desktop Header */}
+      {/* Desktop Header - Hidden on mobile */}
       <div className="hidden md:block">
         <Header backgroundColor="white" />
       </div>
       
-      {/* Mobile Header */}
+      {/* Mobile Header - Hidden on desktop, already has md:hidden */}
       <MobileHeader backgroundColor="white" />
       
       <main className="relative overflow-hidden min-h-screen transition-all duration-500">
