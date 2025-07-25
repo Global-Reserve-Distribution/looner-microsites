@@ -85,38 +85,44 @@ export function RecommendedFlavors({
                     )}
                   </div>
 
-                  {/* Bottom Section - Compact with smaller text */}
+                  {/* Bottom Section - Fixed layout with consistent spacing */}
                   <div 
-                    className="flex-1 flex flex-col px-3 py-2"
+                    className="flex-1 flex flex-col"
                     style={{ backgroundColor: secondary }}
                   >
-                    {/* Product Name - Extra small text */}
-                    <div className="h-5 flex items-center justify-center mb-1">
-                      <h3 className="font-bold text-gray-900 text-xs text-center leading-tight">
-                        {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
-                      </h3>
-                    </div>
-
-                    {/* Description - Much smaller text and height */}
-                    <div className="h-6 flex items-start justify-center mb-1">
-                      <p className="text-gray-700 text-xs text-center leading-tight px-1">
-                        {(flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors.").substring(0, 40)}...
-                      </p>
-                    </div>
-
-                    {/* Star Rating - Extra small */}
-                    <div className="h-3 flex items-center justify-center mb-1">
-                      <div className="flex items-center text-gray-800">
-                        <span className="text-xs">★★★★</span>
-                        <span className="text-xs text-gray-400">☆</span>
+                    {/* Fixed content area with exact positioning */}
+                    <div className="p-3 flex flex-col h-full">
+                      {/* Product Name - Fixed position */}
+                      <div className="h-6 flex items-center justify-center">
+                        <h3 className="font-bold text-gray-900 text-xs text-center leading-tight line-clamp-1">
+                          {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
+                        </h3>
                       </div>
-                    </div>
 
-                    {/* Button - Very compact */}
-                    <div className="flex-1 flex items-end justify-center pb-1">
-                      <button className="bg-white text-gray-800 px-2 py-0.5 rounded-full font-medium text-xs shadow-sm border border-gray-200">
-                        + Add 12 Pack
-                      </button>
+                      {/* Description - Fixed height with line clamping */}
+                      <div className="h-10 flex items-start justify-center overflow-hidden">
+                        <p className="text-gray-700 text-xs text-center leading-[1.3] px-1 line-clamp-2">
+                          {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
+                        </p>
+                      </div>
+
+                      {/* Star Rating - Fixed position */}
+                      <div className="h-5 flex items-center justify-center">
+                        <div className="flex items-center text-gray-800">
+                          <span className="text-xs">★★★★</span>
+                          <span className="text-xs text-gray-400">☆</span>
+                        </div>
+                      </div>
+
+                      {/* Spacer to push button to bottom */}
+                      <div className="flex-1"></div>
+
+                      {/* Button - Always at bottom */}
+                      <div className="h-8 flex items-center justify-center">
+                        <button className="bg-white text-gray-800 px-3 py-1 rounded-full font-medium text-xs shadow-sm border border-gray-200">
+                          + Add 12 Pack
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
