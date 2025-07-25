@@ -535,6 +535,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Changed line-clamp from 2 to 3 lines to display full descriptions
   - Reduced spacer from min-h-[4px] to min-h-[2px] to maximize text space
   - All product descriptions now fully visible without truncation
+- **INCREASED CARD VERTICAL HEIGHT** (July 25, 2025): Gave cards more vertical real estate
+  - Changed card aspect ratio from aspect-[3/4] to aspect-[3/5] for taller cards
+  - Provides more breathing room for all elements
+  - Better spacing between product image, text, rating, and button
+  - Improved overall visual balance and readability
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

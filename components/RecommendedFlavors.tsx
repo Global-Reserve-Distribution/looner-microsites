@@ -49,7 +49,7 @@ export function RecommendedFlavors({
               className="cursor-pointer transition-all duration-300 hover:scale-[1.02]"
             >
               <div
-                className="rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[3/4]"
+                className="rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[3/5]"
                 style={{ backgroundColor: secondary }}
               >
                 {/* Compact layout structure for consistent alignment */}
