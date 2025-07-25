@@ -63,24 +63,30 @@ function extractMetafields(product: any) {
     (field: any) =>
       field && field.key === "short_description" && field.namespace === "custom",
   );
+  const showBestSellerTagField = metafields.find(
+    (field: any) =>
+      field && field.key === "show_best_seller_tag" && field.namespace === "custom",
+  );
 
   return {
     primaryColor: primaryColorField?.value || null,
     secondaryColor: secondaryColorField?.value || null,
     displayName: displayNameField?.value || null,
     shortDescription: shortDescriptionField?.value || null,
+    showBestSellerTag: showBestSellerTagField?.value === 'true' || showBestSellerTagField?.value === true,
   };
 }
 
 // Transform Admin API products to flavor format
 function transformAdminProductsToFlavors(products: any[]) {
   return products.map((product, index) => {
-    const { primaryColor, secondaryColor, displayName, shortDescription } = extractMetafields(product);
+    const { primaryColor, secondaryColor, displayName, shortDescription, showBestSellerTag } = extractMetafields(product);
 
     return {
       title: displayName && displayName.trim() !== "" ? displayName : product.title,
       description: product.description || "",
       shortDescription: shortDescription || null,
+      showBestSellerTag: showBestSellerTag,
       tags: product.tags || [
         "Cannabis Infused",
         "Made with Cane Sugar",
@@ -115,12 +121,13 @@ function transformAdminProductsToFlavors(products: any[]) {
 // Transform Shopify products to flavor format (fallback)
 function transformProductsToFlavors(products: any[]) {
   return products.map((product, index) => {
-    const { primaryColor, secondaryColor, displayName, shortDescription } = extractMetafields(product);
+    const { primaryColor, secondaryColor, displayName, shortDescription, showBestSellerTag } = extractMetafields(product);
 
     return {
       title: displayName && displayName.trim() !== "" ? displayName : product.title,
       description: product.description || "",
       shortDescription: shortDescription || null,
+      showBestSellerTag: showBestSellerTag,
       tags: product.tags || [
         "Cannabis Infused",
         "Made with Cane Sugar",

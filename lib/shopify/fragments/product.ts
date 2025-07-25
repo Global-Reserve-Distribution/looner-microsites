@@ -62,7 +62,8 @@ const productFragment = /* GraphQL */ `
       {namespace: "custom", key: "primary_color"},
       {namespace: "custom", key: "secondary_color"},
       {namespace: "custom", key: "display_name"},
-      {namespace: "custom", key: "short_description"}
+      {namespace: "custom", key: "short_description"},
+      {namespace: "custom", key: "show_best_seller_tag"}
     ]) {
       key
       value

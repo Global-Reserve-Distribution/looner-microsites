@@ -550,6 +550,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - The Shopify cache.ts reshapes variants from GraphQL structure to flat array
   - Updated variant mapping to directly access variant properties instead of edge.node
   - Variants now properly extracted and displayed (4-pack, 12-pack, 24-pack)
+- **BEST SELLER TAG IMPLEMENTATION** (July 25, 2025): Added support for custom.show_best_seller_tag metafield
+  - Added show_best_seller_tag to GraphQL product fragment for Storefront API
+  - Updated extractMetafields function to extract showBestSellerTag boolean value
+  - Modified both transformation functions to include showBestSellerTag field
+  - Added orange "Bestseller" badge to upper left of main product image in OlipopStyleGrid
+  - Badge displays on both desktop and mobile layouts when metafield is set to true
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

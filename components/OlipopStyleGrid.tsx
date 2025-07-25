@@ -38,6 +38,14 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
               backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
             }}
           >
+            {/* Best Seller Tag */}
+            {selectedFlavor?.showBestSellerTag && (
+              <div className="absolute top-4 left-4 z-10">
+                <div className="bg-orange-500 text-white px-4 py-2 rounded-full font-bold text-sm uppercase shadow-lg">
+                  Bestseller
+                </div>
+              </div>
+            )}
             <div className="h-full w-full flex items-center justify-center">
               {selectedFlavor?.images?.[0] ? (
                 <img
@@ -154,11 +162,19 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
             <div className="grid grid-rows-[1fr_auto] gap-3 h-80">
               {/* Large Product Image - Top section */}
               <div
-                className="rounded-2xl flex items-center justify-center"
+                className="rounded-2xl flex items-center justify-center relative"
                 style={{
                   backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
                 }}
               >
+                {/* Best Seller Tag */}
+                {selectedFlavor?.showBestSellerTag && (
+                  <div className="absolute top-2 left-2 z-10">
+                    <div className="bg-orange-500 text-white px-3 py-1 rounded-full font-bold text-xs uppercase shadow-lg">
+                      Bestseller
+                    </div>
+                  </div>
+                )}
                 {selectedFlavor?.images?.[0] ? (
                   <img
                     src={selectedFlavor.images[0]}
