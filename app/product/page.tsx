@@ -101,21 +101,13 @@ function transformAdminProductsToFlavors(products: any[]) {
           .slice(0, 3)
           .map((edge: any) => edge.node.url),
       ],
-      variants: [
-        {
-          id: `${product.handle}-12`,
-          title: "12 Cans",
-          price:
-            parseFloat(product.priceRangeV2?.minVariantPrice?.amount) || 35.99,
-        },
-        {
-          id: `${product.handle}-24`,
-          title: "24 Cans",
-          price:
-            (parseFloat(product.priceRangeV2?.minVariantPrice?.amount) ||
-              35.99) * 1.8,
-        },
-      ],
+      variants: (product.variants?.edges || []).map((edge: any) => ({
+        id: edge.node.id,
+        title: edge.node.title,
+        price: parseFloat(edge.node.price) || 0, // Admin API returns price as string
+        availableForSale: edge.node.availableForSale,
+        selectedOptions: edge.node.selectedOptions || []
+      })),
     };
   });
 }
@@ -147,20 +139,13 @@ function transformProductsToFlavors(products: any[]) {
         product.featuredImage?.url || "",
         ...product.images.slice(0, 3).map((img: any) => img.url),
       ],
-      variants: [
-        {
-          id: `${product.handle}-12`,
-          title: "12 Cans",
-          price: parseFloat(product.priceRange.minVariantPrice.amount) || 35.99,
-        },
-        {
-          id: `${product.handle}-24`,
-          title: "24 Cans",
-          price:
-            (parseFloat(product.priceRange.minVariantPrice.amount) || 35.99) *
-            1.8,
-        },
-      ],
+      variants: (product.variants?.edges || []).map((edge: any) => ({
+        id: edge.node.id,
+        title: edge.node.title,
+        price: parseFloat(edge.node.price?.amount) || 0,
+        availableForSale: edge.node.availableForSale,
+        selectedOptions: edge.node.selectedOptions || []
+      })),
     };
   });
 }

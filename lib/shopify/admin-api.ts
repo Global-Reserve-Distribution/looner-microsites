@@ -90,6 +90,20 @@ export const getProductsWithCategoriesQuery = /* GraphQL */ `
               currencyCode
             }
           }
+          variants(first: 250) {
+            edges {
+              node {
+                id
+                title
+                price
+                availableForSale
+                selectedOptions {
+                  name
+                  value
+                }
+              }
+            }
+          }
           metafields(identifiers: [
             {namespace: "custom", key: "primary_color"},
             {namespace: "custom", key: "secondary_color"},
@@ -132,6 +146,20 @@ export interface AdminProduct {
       node: {
         url: string;
         altText?: string;
+      };
+    }>;
+  };
+  variants: {
+    edges: Array<{
+      node: {
+        id: string;
+        title: string;
+        price: string;
+        availableForSale: boolean;
+        selectedOptions: Array<{
+          name: string;
+          value: string;
+        }>;
       };
     }>;
   };

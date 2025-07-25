@@ -463,6 +463,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated FlavorPickerVariants to receive complete product list instead of filtered regularFlavors
   - Enhanced variety pack filtering to show products with "bundle" tag OR variety pack naming patterns
   - Added debug logging to track variety pack filtering decisions and product detection
+- **REAL SHOPIFY VARIANTS INTEGRATION** (July 25, 2025): Updated size options to use actual Shopify product variants
+  - Replaced hardcoded "12 Cans" and "24 Cans" variants with real Shopify variant data
+  - Updated both transformProductsToFlavors and transformAdminProductsToFlavors functions
+  - Added variants field to Admin API GraphQL query to fetch real variant information
+  - Size options now display actual variant titles, prices, and availability from Shopify
+  - Enhanced variant structure to include selectedOptions and availableForSale properties
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
