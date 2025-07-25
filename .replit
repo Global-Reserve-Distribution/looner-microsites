@@ -22,3 +22,7 @@ author = 43663170
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "pnpm run dev"
+
+[deployment]
+build = ["sh", "-c", "npm run build"]
+deploymentTarget = "cloudrun"

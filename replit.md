@@ -485,6 +485,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated fallback LOONER logo from w-40 h-52 to w-72 h-80 with larger text (text-4xl)
   - Image now fills much more of the available space in the left column container
   - Enhanced visual prominence of the primary product display
+- **CART ERROR FIXES** (July 25, 2025): Resolved Shopify cart integration errors with empty merchandiseId
+  - Added validation to AddToCartButton to prevent empty merchandiseId from being passed to cart
+  - Fixed StickyCartFooter to use selectedVariant?.id instead of merchandiseId field
+  - Updated product price display to use selectedVariant data for accuracy
+  - Enhanced error handling with proper null checks and validation before cart operations
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

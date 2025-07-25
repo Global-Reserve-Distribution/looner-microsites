@@ -31,6 +31,12 @@ export function AddToCartButton({
   const handleAddToCart = async () => {
     if (disabled || isAdding || isLoading) return;
     
+    // Validate merchandiseId before attempting to add to cart
+    if (!merchandiseId || merchandiseId.trim() === '') {
+      console.error('Cannot add to cart: merchandiseId is empty or invalid');
+      return;
+    }
+    
     setIsAdding(true);
     try {
       const success = await addToCart(merchandiseId, quantity);
@@ -77,10 +83,14 @@ export function AddToCartButton({
   const buttonText = isAdding ? 'Adding...' : children || 'Add to Cart';
   const iconSize = getIconSize();
 
+  // Show disabled state if merchandiseId is invalid
+  const isInvalidMerchandiseId = !merchandiseId || merchandiseId.trim() === '';
+  const isButtonDisabled = disabled || isAdding || isLoading || isInvalidMerchandiseId;
+
   return (
     <button
       onClick={handleAddToCart}
-      disabled={disabled || isAdding || isLoading}
+      disabled={isButtonDisabled}
       className={getButtonClasses()}
       aria-label={`Add ${productTitle || 'product'} to cart`}
     >

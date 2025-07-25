@@ -576,9 +576,9 @@ export default function ProductPage() {
       <StickyCartFooter
         cart={cart}
         isMainButtonVisible={isPurchaseButtonVisible}
-        merchandiseId={selectedFlavor?.variants?.[0]?.merchandiseId || ''}
+        merchandiseId={selectedVariant?.id || selectedFlavor?.variants?.[0]?.id || ''}
         productTitle={selectedFlavor?.title || ''}
-        productPrice={`$${selectedFlavor?.variants?.[0]?.price || '35.99'}`}
+        productPrice={`$${selectedVariant?.price || selectedFlavor?.variants?.[0]?.price || '35.99'}`}
         productImage={selectedFlavor?.images?.[0]}
       />
     </main>
