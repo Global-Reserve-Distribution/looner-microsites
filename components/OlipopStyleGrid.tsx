@@ -148,16 +148,6 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
 
       {/* Mobile Carousel Layout */}
       <div className="md:hidden">
-        {/* Product Name Above Mobile Layout */}
-        <div className="px-4 mb-6">
-          <h1 className="text-4xl font-serif text-gray-900 mb-2">
-            {selectedFlavor?.title || "LOONER Cannabis Soda"}
-          </h1>
-          <p className="text-lg text-gray-600">
-            The perfect blend of sweet & tart.
-          </p>
-        </div>
-        
         <div className="flex overflow-x-auto gap-4 pb-4 -mx-4 px-4 scrollbar-hide">
           {/* First card: Main product image with tags combined */}
           <div className="flex-shrink-0 w-80">

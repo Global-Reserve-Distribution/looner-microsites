@@ -436,6 +436,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added cart counter badge and checkout functionality in mobile menu
   - Implemented responsive navigation: desktop header for large screens, mobile header for small screens
   - Fixed server/client component separation with dedicated client-side cart module
+- **DUPLICATE HEADER AND TITLE FIXES** (July 25, 2025): Resolved navigation and content duplication issues
+  - Fixed duplicate headers on mobile by updating ConditionalNavigation route check from /product/flavor to /product
+  - Removed duplicate product title from mobile OlipopStyleGrid component
+  - Enhanced main product title to use shortDescription fallback hierarchy: shortDescription → description → default text
+  - Eliminated navigation overlay conflicts causing multiple headers to appear simultaneously
+  - Streamlined mobile layout with single header display and consistent product information
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

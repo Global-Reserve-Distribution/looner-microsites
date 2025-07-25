@@ -413,7 +413,7 @@ export default function ProductPage() {
                 {selectedFlavor?.displayName || selectedFlavor?.title}
               </h1>
               <p className="text-lg lg:text-xl text-gray-600 mb-4 lg:mb-6">
-                {selectedFlavor?.shortDescription || "The perfect blend of sweet & tart."}
+                {selectedFlavor?.shortDescription || selectedFlavor?.description || "The perfect blend of sweet & tart."}
               </p>
             </div>
 
