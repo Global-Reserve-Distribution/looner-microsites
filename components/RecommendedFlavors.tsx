@@ -57,7 +57,7 @@ export function RecommendedFlavors({
                 style={{ backgroundColor: secondary }}
               >
                 {/* Default state - always visible on mobile, hover toggle on desktop */}
-                <div className={`absolute inset-0 flex flex-col transition-opacity duration-300 ${isHovered ? 'md:opacity-0' : 'opacity-100'}`}>
+                <div className={`md:absolute md:inset-0 flex flex-col transition-opacity duration-300 ${isHovered ? 'md:opacity-0' : 'opacity-100'}`}>
                   {/* Top Section - Responsive sizing */}
                   <div 
                     className="relative flex items-center justify-center h-28 md:h-32 p-3 md:p-4"
