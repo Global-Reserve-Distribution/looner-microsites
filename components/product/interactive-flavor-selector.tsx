@@ -64,7 +64,7 @@ export function InteractiveFlavorSelector({ products, selectedProductTitle }: In
       'bg-orange-400', 'bg-red-400', 'bg-pink-400', 'bg-blue-400', 
       'bg-purple-400', 'bg-green-400', 'bg-yellow-400', 'bg-indigo-400'
     ];
-    return colors[index % colors.length];
+    return colors[index % colors.length] || 'bg-purple-400';
   }
 
   function getFlavorBgColor(title: string): string {
@@ -119,7 +119,7 @@ export function InteractiveFlavorSelector({ products, selectedProductTitle }: In
       { from: 'from-yellow-300', to: 'to-yellow-500' },
       { from: 'from-indigo-300', to: 'to-indigo-500' }
     ];
-    return gradients[index % gradients.length];
+    return gradients[index % gradients.length] || { from: 'from-purple-300', to: 'to-purple-500' };
   }
 
   function getDefaultFlavors() {

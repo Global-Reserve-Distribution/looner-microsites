@@ -27,7 +27,7 @@ export function ProductHeroImages({ product }: ProductHeroImagesProps) {
         {images[selectedImage]?.url ? (
           <img 
             src={images[selectedImage].url}
-            alt={images[selectedImage].altText || product.title}
+            alt={('alt' in images[selectedImage] ? images[selectedImage].alt : images[selectedImage].altText) || product.title}
             className="max-w-full max-h-full object-contain"
           />
         ) : (
@@ -89,7 +89,7 @@ export function ProductHeroImages({ product }: ProductHeroImagesProps) {
             {image.url ? (
               <img 
                 src={image.url}
-                alt={image.altText || `${product.title} view ${index + 1}`}
+                alt={('alt' in image ? image.alt : image.altText) || `${product.title} view ${index + 1}`}
                 className="w-full h-full object-cover"
               />
             ) : (

@@ -44,12 +44,12 @@ function getLifestyleBg(index: number): string {
     'bg-gradient-to-br from-cannabis-400 to-cannabis-600',
     'bg-gradient-to-br from-purple-400 to-pink-500'
   ];
-  return backgrounds[index % backgrounds.length] ?? backgrounds[0];
+  return backgrounds[index % backgrounds.length] || 'bg-gradient-to-br from-purple-400 to-pink-500';
 }
 
 function getLifestyleEmoji(index: number): string {
   const emojis = ['🌴', '🎉'];
-  return emojis[index % emojis.length] ?? emojis[0];
+  return emojis[index % emojis.length] || '🌴';
 }
 
 function getLifestyleText(index: number): string {
@@ -57,5 +57,5 @@ function getLifestyleText(index: number): string {
     'Perfect for any occasion',
     'Share the experience'
   ];
-  return texts[index % texts.length] ?? texts[0];
+  return texts[index % texts.length] || 'Perfect for any occasion';
 }

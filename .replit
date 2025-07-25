@@ -26,3 +26,4 @@ args = "pnpm run dev"
 [deployment]
 build = ["sh", "-c", "npm run build"]
 deploymentTarget = "cloudrun"
+run = ["sh", "-c", "npm run start"]

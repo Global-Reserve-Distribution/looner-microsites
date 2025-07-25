@@ -142,7 +142,7 @@ export async function addToCart(cartId: string, merchandiseId: string, quantity:
     ${cartFragment}
   `;
 
-  const response = await shopifyFetch({
+  const response = await shopifyFetch<any>({
     query: mutation,
     variables: {
       cartId,
@@ -173,7 +173,7 @@ export async function getCart(cartId: string): Promise<Cart> {
     ${cartFragment}
   `;
 
-  const response = await shopifyFetch({
+  const response = await shopifyFetch<any>({
     query,
     variables: { cartId },
   });
@@ -198,7 +198,7 @@ export async function updateCartLines(cartId: string, lines: { id: string; quant
     ${cartFragment}
   `;
 
-  const response = await shopifyFetch({
+  const response = await shopifyFetch<any>({
     query: mutation,
     variables: {
       cartId,
@@ -230,7 +230,7 @@ export async function removeFromCart(cartId: string, lineIds: string[]): Promise
     ${cartFragment}
   `;
 
-  const response = await shopifyFetch({
+  const response = await shopifyFetch<any>({
     query: mutation,
     variables: {
       cartId,
