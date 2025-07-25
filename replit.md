@@ -530,6 +530,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Compressed element heights: title (h-5), description (h-8), rating (h-4), button (h-7)
   - Tightened line spacing in description text for more compact appearance
   - Added minimum spacer height to ensure button always has proper room at bottom
+- **INCREASED DESCRIPTION SPACE** (July 25, 2025): Expanded text area to prevent truncation
+  - Increased description height from h-8 to h-12 to show more text
+  - Changed line-clamp from 2 to 3 lines to display full descriptions
+  - Reduced spacer from min-h-[4px] to min-h-[2px] to maximize text space
+  - All product descriptions now fully visible without truncation
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

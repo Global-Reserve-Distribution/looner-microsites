@@ -99,9 +99,9 @@ export function RecommendedFlavors({
                         </h3>
                       </div>
 
-                      {/* Description - Compact with tight spacing */}
-                      <div className="h-8 flex items-start justify-center overflow-hidden">
-                        <p className="text-gray-700 text-xs text-center leading-tight px-1 line-clamp-2">
+                      {/* Description - More space for text */}
+                      <div className="h-12 flex items-start justify-center overflow-hidden">
+                        <p className="text-gray-700 text-xs text-center leading-tight px-1 line-clamp-3">
                           {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
                         </p>
                       </div>
@@ -114,8 +114,8 @@ export function RecommendedFlavors({
                         </div>
                       </div>
 
-                      {/* Small spacer */}
-                      <div className="flex-1 min-h-[4px]"></div>
+                      {/* Minimal spacer */}
+                      <div className="flex-1 min-h-[2px]"></div>
 
                       {/* Button - With guaranteed space */}
                       <div className="h-7 flex items-center justify-center">
