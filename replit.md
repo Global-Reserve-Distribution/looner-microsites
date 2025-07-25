@@ -609,13 +609,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated nutrition facts panel to match FDA standard format with proper border styling
   - Added authentic Olipop feature icons grid with 2-column mobile, flex desktop layout
   - Dynamic color theming using selectedFlavor secondaryColor for all wave fills and backgrounds
-- **MOBILE RECOMMENDATION CARDS FIX** (July 25, 2025): Fixed mobile recommendation tiles to show all content without truncation
-  - Removed fixed aspect ratio on mobile while maintaining desktop aspect-[4/5] ratio
-  - Increased mobile top section height from h-24 to h-28 for better product image visibility
-  - Changed bottom section to flexible height on mobile (flex-col) vs fixed height on desktop (flex-1)
-  - Added minimum height (min-h-[120px]) to ensure adequate space for all content
-  - Updated spacing to use margins instead of fixed heights for better content flow
-  - Truncated descriptions to 60 characters with ellipsis to prevent overflow while showing meaningful text
+- **MOBILE RECOMMENDATION CARDS UNIFORM SIZING** (July 25, 2025): Fixed recommendation cards to have consistent sizes across all devices
+  - Restored aspect-[4/5] ratio on both mobile and desktop for uniform card sizing
+  - Implemented fixed heights for all content sections: title (h-5), description (h-8), rating (h-4), button (h-7)
+  - Added flex-1 spacer to push buttons to bottom alignment across all cards
+  - Text truncation reduced to 50 characters to fit consistently in fixed height containers
+  - All cards now have identical dimensions regardless of content length for clean grid appearance
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
