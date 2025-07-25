@@ -60,7 +60,7 @@ export function RecommendedFlavors({
                 <div className={`absolute inset-0 flex flex-col transition-opacity duration-300 ${isHovered ? 'md:opacity-0' : 'opacity-100'}`}>
                   {/* Top Section - Responsive sizing */}
                   <div 
-                    className="relative flex items-center justify-center h-28 md:h-32 p-3 md:p-4"
+                    className="relative flex items-center justify-center h-24 md:h-32 p-3 md:p-4"
                     style={{ backgroundColor: secondary }}
                   >
                     {/* Circle Background */}
@@ -97,22 +97,22 @@ export function RecommendedFlavors({
                     {/* Content area with fixed spacing */}
                     <div className="px-3 md:px-4 pt-2 pb-3 flex flex-col h-full">
                       {/* Product Name - Fixed height */}
-                      <div className="h-5 md:h-6 flex items-center justify-center mb-1">
+                      <div className="h-4 md:h-6 flex items-center justify-center mb-1">
                         <h3 className="font-bold text-gray-900 text-xs md:text-sm text-center leading-tight line-clamp-1">
                           {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                         </h3>
                       </div>
 
                       {/* Description - Fixed height */}
-                      <div className="h-8 md:h-10 flex items-start justify-center mb-1">
+                      <div className="h-6 md:h-10 flex items-start justify-center mb-1">
                         <p className="text-gray-700 text-xs text-center leading-tight px-1 line-clamp-2">
-                          {(flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors.").substring(0, 50)}
-                          {(flavor.shortDescription || flavor.description || "").length > 50 ? "..." : ""}
+                          {(flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors.").substring(0, 45)}
+                          {(flavor.shortDescription || flavor.description || "").length > 45 ? "..." : ""}
                         </p>
                       </div>
 
                       {/* Star Rating - Fixed height */}
-                      <div className="h-4 md:h-5 flex items-center justify-center mb-2">
+                      <div className="h-3 md:h-5 flex items-center justify-center mb-1">
                         <div className="flex items-center text-gray-800">
                           <span className="text-xs md:text-sm">★★★★</span>
                           <span className="text-xs md:text-sm text-gray-400">☆</span>
@@ -120,11 +120,11 @@ export function RecommendedFlavors({
                       </div>
 
                       {/* Spacer to push button to bottom */}
-                      <div className="flex-1"></div>
+                      <div className="flex-1 min-h-[4px]"></div>
 
                       {/* Button - Fixed height */}
-                      <div className="h-7 md:h-8 flex items-center justify-center">
-                        <button className="bg-white text-gray-800 px-3 md:px-4 py-1 md:py-1.5 rounded-full font-medium text-xs md:text-sm shadow-sm border border-gray-200">
+                      <div className="h-8 md:h-8 flex items-center justify-center">
+                        <button className="bg-white text-gray-800 px-2 md:px-4 py-1.5 md:py-1.5 rounded-full font-medium text-xs md:text-sm shadow-sm border border-gray-200">
                           + Add 12 Pack
                         </button>
                       </div>
