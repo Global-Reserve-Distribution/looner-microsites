@@ -540,6 +540,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Provides more breathing room for all elements
   - Better spacing between product image, text, rating, and button
   - Improved overall visual balance and readability
+- **FLAVOR PICKER TEXT SIZE REDUCTION** (July 25, 2025): Made text smaller in flavor picker tiles
+  - Reduced text size from text-base to text-sm for better proportions
+  - Text now fits better within the compact card layout
+  - Fixed "Loading purchase options..." issue by ensuring variant is set on flavor selection
+  - Added proper null checks and error logging for missing variants
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

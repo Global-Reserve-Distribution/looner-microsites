@@ -313,8 +313,16 @@ export default function ProductPage() {
             (f) => f.title.toLowerCase().replace(/\s+/g, "-") === slug,
           ) || filteredFlavors[0];
 
-        setSelectedFlavor(defaultFlavor);
-        setSelectedVariant(defaultFlavor?.variants[0]);
+        if (defaultFlavor) {
+          setSelectedFlavor(defaultFlavor);
+          // Ensure we have variants before setting
+          if (defaultFlavor.variants && defaultFlavor.variants.length > 0) {
+            setSelectedVariant(defaultFlavor.variants[0]);
+            console.log("Setting default variant:", defaultFlavor.variants[0]);
+          } else {
+            console.error("No variants found for default flavor:", defaultFlavor.title);
+          }
+        }
         setLoading(false);
       } catch (error) {
         console.error("Error loading flavors:", error);
