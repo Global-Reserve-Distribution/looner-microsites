@@ -545,6 +545,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Text now fits better within the compact card layout
   - Fixed "Loading purchase options..." issue by ensuring variant is set on flavor selection
   - Added proper null checks and error logging for missing variants
+- **FIXED VARIANT DATA EXTRACTION** (July 25, 2025): Resolved "no variants found" console error
+  - Fixed transformProductsToFlavors to use flat array structure instead of edges/nodes
+  - The Shopify cache.ts reshapes variants from GraphQL structure to flat array
+  - Updated variant mapping to directly access variant properties instead of edge.node
+  - Variants now properly extracted and displayed (4-pack, 12-pack, 24-pack)
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

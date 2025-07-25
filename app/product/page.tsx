@@ -139,12 +139,12 @@ function transformProductsToFlavors(products: any[]) {
         product.featuredImage?.url || "",
         ...product.images.slice(0, 3).map((img: any) => img.url),
       ],
-      variants: (product.variants?.edges || []).map((edge: any) => ({
-        id: edge.node.id,
-        title: edge.node.title,
-        price: parseFloat(edge.node.price?.amount) || 0,
-        availableForSale: edge.node.availableForSale,
-        selectedOptions: edge.node.selectedOptions || []
+      variants: (product.variants || []).map((variant: any) => ({
+        id: variant.id,
+        title: variant.title,
+        price: parseFloat(variant.price?.amount) || 0,
+        availableForSale: variant.availableForSale,
+        selectedOptions: variant.selectedOptions || []
       })),
     };
   });
@@ -250,6 +250,7 @@ export default function ProductPage() {
             "Storefront API products received:",
             storefrontProducts?.length || 0,
           );
+          console.log("First storefront product full structure:", JSON.stringify(storefrontProducts[0], null, 2));
           allTransformedFlavors =
             transformProductsToFlavors(storefrontProducts);
         }
@@ -430,7 +431,12 @@ export default function ProductPage() {
                 selectedFlavor={selectedFlavor}
                 onFlavorSelect={(flavor) => {
                   setSelectedFlavor(flavor);
-                  setSelectedVariant(flavor.variants[0]);
+                  if (flavor.variants && flavor.variants.length > 0) {
+                    setSelectedVariant(flavor.variants[0]);
+                    console.log("Flavor selected, set variant:", flavor.variants[0]);
+                  } else {
+                    console.error("Selected flavor has no variants:", flavor.title);
+                  }
                 }}
                 variant="premium"
               />
