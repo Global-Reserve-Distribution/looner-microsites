@@ -609,13 +609,14 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated nutrition facts panel to match FDA standard format with proper border styling
   - Added authentic Olipop feature icons grid with 2-column mobile, flex desktop layout
   - Dynamic color theming using selectedFlavor secondaryColor for all wave fills and backgrounds
-- **OLIPOP-EXACT RECOMMENDATION SECTION REBUILD** (July 25, 2025): Rebuilt entire recommendation section using authentic Olipop HTML structure
-  - Container structure matches exactly: max-w-[1180px] mx-auto with specific typography classes
-  - Title styling: mb-10, text-center, font-display, capitalize with proper responsive sizing
-  - Grid container: collection-group-grid with Olipop-specific scroll and padding classes
-  - Cards maintain CSS Grid with grid-template-rows: max-content 1fr layout
-  - Button styling updated to match exact Olipop colors: hunter green (#0B3835) with transitions
-  - All elements use Tailwind classes matching the reference HTML exactly
+- **MOBILE-FIRST RECOMMENDATION CARDS** (July 25, 2025): Rebuilt cards with proper mobile/desktop responsive design
+  - Mobile shows all content by default: image, title, description, rating, and button always visible
+  - Desktop adds hover effects with lg: breakpoint - content hidden until hover
+  - Implemented Olipop's exact hover animation: wavy SVG transition on desktop only
+  - Desktop rating positioned absolutely at bottom, hidden on hover to show inline rating
+  - Mobile rating always inline with button for consistent mobile experience
+  - All hover states use lg: prefix to ensure they only apply on desktop viewports
+  - Button styling matches Olipop: hunter green (#0B3835) with proper transitions
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
