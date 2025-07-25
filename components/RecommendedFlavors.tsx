@@ -29,7 +29,7 @@ export function RecommendedFlavors({
   
   const recommended = allFlavors.filter(
     (f) => f.title.toLowerCase() !== (currentFlavor?.title || '').toLowerCase(),
-  );
+  ).slice(0, 4); // Only show 4 recommended flavors
 
   if (recommended.length < 4) return null;
 
@@ -49,10 +49,11 @@ export function RecommendedFlavors({
             <div
               key={flavor.title}
               onClick={() => onSelectFlavor(flavor)}
-              className="product-card relative group cursor-pointer focus:ring-2 grid h-full w-full overflow-hidden rounded-2xl"
+              className="product-card relative group cursor-pointer focus:ring-2 grid w-full overflow-hidden rounded-2xl"
               style={{ 
                 backgroundColor: secondary,
-                gridTemplateRows: 'max-content 1fr'
+                gridTemplateRows: 'max-content 1fr',
+                height: '360px' // Same height as the reference image
               }}
             >
               {/* Image Container */}
