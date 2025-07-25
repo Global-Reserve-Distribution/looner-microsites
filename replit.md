@@ -601,13 +601,14 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Hover state features: colored top section with decorative blobs, wavy SVG divider, enhanced content layout
   - Mobile remains static with no hover effects - shows optimized compact layout permanently
   - Smooth opacity transitions (300ms) between default and hover states on desktop only
-- **OLIPOP-STYLE WAVY BACKGROUND** (July 25, 2025): Redesigned product information section to match Olipop reference exactly
-  - Replaced separate wavy borders with single SVG background covering entire section
-  - Wavy colored background flows naturally from white sections above and below
-  - Top wave transitions from white background into colored product information area
-  - Bottom wave transitions from colored section back to white for recommendations
-  - Content positioned with relative z-10 layering above wavy SVG background
-  - Matches authentic Olipop design where waves are part of the colored background itself
+- **AUTHENTIC OLIPOP WAVE SECTION** (July 25, 2025): Rebuilt product information section using exact Olipop HTML structure
+  - Implemented separate mobile and desktop SVG waves matching Olipop's responsive design
+  - Top waves transition from white background into colored section with proper viewBox dimensions
+  - Bottom waves transition from colored section back to white using fillRule and clipRule
+  - Recreated Olipop's flex layout: left column (max-width 630px) for content, right column for nutrition facts
+  - Updated nutrition facts panel to match FDA standard format with proper border styling
+  - Added authentic Olipop feature icons grid with 2-column mobile, flex desktop layout
+  - Dynamic color theming using selectedFlavor secondaryColor for all wave fills and backgrounds
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

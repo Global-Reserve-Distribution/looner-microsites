@@ -1,0 +1,245 @@
+<div id="shopify-section-product-ingredients-section" class="shopify-section tw-relative tw-block">
+<div class="tw-relative" style="background: transparent; transition: all .35s linear;">
+  <svg id="top-wave-mobile" class="tw-block lg:tw-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" height="21" viewBox="0 0 376 20" fill="none">
+    <path d="M188 13.2684C85.1222 -6.73157 0 2.74214 0 2.74214V20.5H376V2.74214C376 2.74214 290.878 33.2684 188 13.2684Z" fill="var(--flavor-color-300)" style="transition: fill .35s linear;"></path>
+  </svg>
+  <svg id="top-wave-desktop" class="tw-hidden lg:tw-block" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" height="60" viewBox="0 0 1440 60" fill="none">
+    <path d="M720 38.3053C326 -21.6947 0 6.72642 0 6.72642V60H1440V6.72643C1440 6.72643 1114 98.3053 720 38.3053Z" fill="var(--flavor-color-300)" style="transition: fill .35s linear;"></path>
+  </svg>
+</div>
+
+
+<div class="product-ingredients-section js-product-ingredients paddingX__lg" style="background: var(--flavor-color-300)">
+  <div class="tw-mx-auto tw-flex tw-max-w-[1100px] tw-flex-col tw-flex-wrap tw-justify-between tw-overflow-hidden tw-py-14 md:tw-flex-row md:tw-pb-20 md:tw-pt-32 lg:tw-px-5">
+    <div class="tw-max-w-[630px] tw-flex-1">
+      <h3 class="tw-mb-5 md:tw-mb-9 flavor-name">Strawberry Vanilla</h3>
+      <p>Your creamiest, fruitiest strawberry sundae meets bubbly soda. A blend of sweet strawberry juice, rich vanilla, and a dash of tangy lemon create a soda that quenches thirst in the most delightful way.</p>
+      
+        <p><strong>Ingredients:</strong> Carbonated Water, OLISMART (Cassava Root Fiber, Chicory Root Inulin, Jerusalem Artichoke Inulin, Nopal Cactus*, Marshmallow Root*, Calendula Flower*, Kudzu Root*), Strawberry Juice Concentrate, Cassava Root Syrup, Apple Juice Concentrate, Lemon Juice Concentrate, Stevia Leaf*, Himalayan Pink Salt, Natural Flavors.</p><p>*Extract</p>
+      
+      
+        <p></p><p><strong>Nutritional information for our new Pantry Ready version of Strawberry Vanilla can be found&nbsp;</strong><a href="https://drinkolipop.com/pages/new-multipacks"><strong><u>here</u></strong></a><strong>.</strong></p><p></p>
+      
+    </div>
+    <div class="tw-flex tw-justify-center nutrition-container">
+      <section class="tw-w-[250px] tw-font-helvetica tw-text-sm " aria-label="Strawberry Vanilla Nutrition Facts">
+  <div class="tw-text-left tw-text-xl tw-font-black">
+    Contains 14% Juice
+  </div>
+  <div class="tw-overflow-auto tw-border tw-border-solid tw-border-hunter-green tw-p-1">
+    <div class="tw-border-b-[10px] tw-border-solid tw-border-hunter-green">
+      <div class="tw-border-b tw-border-solid tw-border-hunter-green tw-text-center tw-text-heading tw-font-black tw-leading-7">
+        Nutrition Facts
+      </div>
+      <div class="tw-text-left">1 serving per container</div>
+      <table role="presentation" class="tw-w-full tw-table-auto tw-border-collapse">
+        <tbody>
+          <tr>
+            <th colspan="2" class="tw-whitespace-nowrap tw-border-0">
+              <b>Serving size</b>
+            </th>
+            <td class="tw-whitespace-nowrap tw-border-0 tw-text-right">
+              <b>1 Can (355mL)</b>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tw-border-9 tw-border-solid tw-border-hunter-green"></div>
+    <table role="presentation" class="performance-facts__table tw-w-full tw-table-auto tw-border-collapse">
+      <thead>
+        <tr>
+          <th colspan="3" class="tw-whitespace-nowrap tw-border-0 tw-text-xs">Amount per serving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tw-border-b-[7px] tw-border-solid tw-border-hunter-green">
+          <th colspan="2" class="tw-whitespace-nowrap tw-border-0 tw-text-heading tw-font-black tw-leading-7">
+            Calories
+          </th>
+          <td class="tw-whitespace-nowrap tw-border-0 tw-text-right tw-text-heading tw-font-black tw-leading-7">
+            45
+          </td>
+        </tr>
+        <tr class="thick-row">
+          <td colspan="3" class="tw-whitespace-nowrap tw-text-right tw-text-xs">
+            <b>% Daily Value*</b>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2" class="tw-whitespace-nowrap tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green">
+            <b>Total Fat</b>
+            0g
+          </th>
+          <td class="tw-whitespace-nowrap tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green tw-text-right">
+            <b>0%</b>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2" class="tw-whitespace-nowrap tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green">
+            <b>Sodium</b>
+            30mg
+          </th>
+          <td class="tw-whitespace-nowrap tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green tw-text-right">
+            <b>1%</b>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2" class="tw-whitespace-nowrap tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green">
+            <b>Total Carbohydrate</b>
+            16g
+          </th>
+          <td class="tw-whitespace-nowrap tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green tw-text-right">
+            <b>6%</b>
+          </td>
+        </tr>
+        <tr>
+          <td class="tw-w-4 tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green"></td>
+          <th class="tw-whitespace-nowrap tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green">
+            Dietary Fiber
+            9g
+          </th>
+          <td class="tw-whitespace-nowrap tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green tw-text-right">
+            <b>32%</b>
+          </td>
+        </tr>
+        <tr>
+          <td class="tw-w-4 tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green"></td>
+          <th class="tw-whitespace-nowrap tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green">
+            Total Sugars
+            5g
+          </th>
+          <td class="tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green"></td>
+        </tr>
+        <tr>
+          <td class="tw-w-4 tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green"></td>
+          <th class="tw-whitespace-nowrap tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green">
+            Includes 1g Added Sugars
+          </th>
+          <td class="tw-whitespace-nowrap tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green tw-text-right">
+            <b>2%</b>
+          </td>
+        </tr>
+        <tr class="tw-border-b-[10px] tw-border-solid tw-border-hunter-green">
+          <th colspan="2" class="tw-whitespace-nowrap tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green">
+            <b>Protein</b>
+            0g
+          </th>
+          <td class="tw-border-0 tw-border-t tw-border-solid tw-border-hunter-green"></td>
+        </tr>
+        
+      </tbody>
+    </table>
+
+    <div class="tw-mt-1 tw-text-left tw-text-xs tw-leading-tight">
+      Not a significant source of saturated fat, trans fat, cholesterol, vitamin D, calcium, iron, potassium and vitamin A.
+    </div>
+  </div>
+  
+</section>
+
+    </div>
+
+    <div class="tw-block tw-w-full tw-py-30 lg:tw-py-24 ingredient-icons">
+      
+
+<ul class=" tw-grid tw-w-full tw-grid-cols-2 tw-flex-row tw-gap-x-2 tw-gap-y-10 lg:tw-flex">
+  
+    <li class="tw-flex tw-flex-1 tw-flex-col tw-items-center tw-text-center">
+      <img data-src="//drinkolipop.com/cdn/shop/files/value_prop_-_9g_of_fiber.png?v=1651246531&amp;width=120" class="tw-max-w-15 lazyloaded" alt="High Fiber icon" width="60" height="60" src="//drinkolipop.com/cdn/shop/files/value_prop_-_9g_of_fiber.png?v=1651246531&amp;width=120">
+      <p class="tw-pt-5 tw-text-base tw-font-bold">
+        High Fiber
+</p>
+    </li>
+  
+    <li class="tw-flex tw-flex-1 tw-flex-col tw-items-center tw-text-center">
+      <img data-src="//drinkolipop.com/cdn/shop/files/value_prop_-_2-5g_of_sugar.png?v=1651246670&amp;width=120" class="tw-max-w-15 lazyloaded" alt="Less Sugar* icon" width="60" height="60" src="//drinkolipop.com/cdn/shop/files/value_prop_-_2-5g_of_sugar.png?v=1651246670&amp;width=120">
+      <p class="tw-pt-5 tw-text-base tw-font-bold">
+        Less Sugar*
+
+
+<tooltip-info class="tooltip-info tooltip-info-desktop--bottom-center tooltip-info-mobile--bottom-left"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+  <path d="M5.14 2V2.96H4.5V2H5.14ZM5.14 4.4V8H4.5V4.4H5.14Z" fill="currentColor"></path>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M5 9.25C7.34721 9.25 9.25 7.34721 9.25 5C9.25 2.65279 7.34721 0.75 5 0.75C2.65279 0.75 0.75 2.65279 0.75 5C0.75 7.34721 2.65279 9.25 5 9.25ZM5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10Z" fill="currentColor"></path>
+</svg>
+<span class="tooltip-info__content" style="--bg-color: #fff7e5; --text-color: #14433d" aria-hidden="true">*Less sugar than leading, non-diet sodas.</span>
+</tooltip-info>
+
+</p>
+    </li>
+  
+    <li class="tw-flex tw-flex-1 tw-flex-col tw-items-center tw-text-center">
+      <img data-src="//drinkolipop.com/cdn/shop/files/value_prop_-_vegan_c41cd617-d903-4bf3-8170-e462fe4dc231.png?v=1651246418&amp;width=120" class="tw-max-w-15 lazyloaded" alt="Vegan icon" width="60" height="60" src="//drinkolipop.com/cdn/shop/files/value_prop_-_vegan_c41cd617-d903-4bf3-8170-e462fe4dc231.png?v=1651246418&amp;width=120">
+      <p class="tw-pt-5 tw-text-base tw-font-bold">
+        Vegan
+</p>
+    </li>
+  
+    <li class="tw-flex tw-flex-1 tw-flex-col tw-items-center tw-text-center">
+      <img data-src="//drinkolipop.com/cdn/shop/files/value_prop_-_plant_powered.png?v=1651246441&amp;width=120" class="tw-max-w-15 lazyloaded" alt="Plant Powered icon" width="60" height="60" src="//drinkolipop.com/cdn/shop/files/value_prop_-_plant_powered.png?v=1651246441&amp;width=120">
+      <p class="tw-pt-5 tw-text-base tw-font-bold">
+        Plant Powered
+</p>
+    </li>
+  
+    <li class="tw-flex tw-flex-1 tw-flex-col tw-items-center tw-text-center">
+      <img data-src="//drinkolipop.com/cdn/shop/files/value_prop_-_paleo_74032038-52ff-4703-9ed8-8c55b5d154d6.png?v=1651246465&amp;width=120" class="tw-max-w-15 lazyloaded" alt="Paleo icon" width="60" height="60" src="//drinkolipop.com/cdn/shop/files/value_prop_-_paleo_74032038-52ff-4703-9ed8-8c55b5d154d6.png?v=1651246465&amp;width=120">
+      <p class="tw-pt-5 tw-text-base tw-font-bold">
+        Paleo
+</p>
+    </li>
+  
+    <li class="tw-flex tw-flex-1 tw-flex-col tw-items-center tw-text-center">
+      <img data-src="//drinkolipop.com/cdn/shop/files/value_prop_-_gluten_free_fd45bc4b-9552-4989-8099-a0314607acfa.png?v=1651246484&amp;width=120" class="tw-max-w-15 lazyloaded" alt="Gluten Free icon" width="60" height="60" src="//drinkolipop.com/cdn/shop/files/value_prop_-_gluten_free_fd45bc4b-9552-4989-8099-a0314607acfa.png?v=1651246484&amp;width=120">
+      <p class="tw-pt-5 tw-text-base tw-font-bold">
+        Gluten Free
+</p>
+    </li>
+  
+    <li class="tw-flex tw-flex-1 tw-flex-col tw-items-center tw-text-center">
+      <img data-src="//drinkolipop.com/cdn/shop/files/value_prop_-_non_gmo.png?v=1651246509&amp;width=120" class="tw-max-w-15 lazyloaded" alt="GMO Free icon" width="60" height="60" src="//drinkolipop.com/cdn/shop/files/value_prop_-_non_gmo.png?v=1651246509&amp;width=120">
+      <p class="tw-pt-5 tw-text-base tw-font-bold">
+        GMO Free
+</p>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+<!-- Using TW absolute positioning breaks params in Shopify Snippet so we are using inline styling for now. -->
+<div style="width: 100%; position: absolute; z-index: 2;">
+  
+
+<div style="background: transparent;">
+  <svg id="bottom-wave-mobile" class="tw-block lg:tw-hidden" style="position: relative; top: -1px;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" height="21" viewBox="0 0 376 20" fill="none">
+    <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" d="M52.6963 0.0341797C87.0381 0.0349157 135.179 2.53387 188 12.8026C290.878 32.8026 376 2.27632 376 2.27632V0.0341797H52.6963ZM52.666 0.0341797H0V2.27632C0 2.27632 20.1396 0.0348769 52.666 0.0341797Z" fill="var(--flavor-color-300)"></path>
+  </svg>
+  <svg id="bottom-wave-desktop" class="tw-hidden lg:tw-block" style="top: -1px; position: relative;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" height="60" viewBox="0 0 1440 60" fill="none">
+    <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" d="M201.758 0H0V6.72642C0 6.72642 77.1543 0 201.758 0ZM1440 6.72643V0H201.758C333.283 0 517.676 7.49452 720 38.3053C1114 98.3053 1440 6.72643 1440 6.72643Z" fill="var(--flavor-color-300)"></path>
+  </svg>
+</div>
+
+</div>
+
+<style>
+  @media (max-width: 768px) {
+    .flavor-name {
+      font-size: 36px;
+    }
+
+    .product-ingredients-section p:empty,
+    .product-ingredients-section p:has(br:only-child) {
+      display: none!important;
+    }
+    
+    .ingredient-icons {
+      padding-top: 45px!important;
+    }
+  }
+</style>
+
+
+</div>

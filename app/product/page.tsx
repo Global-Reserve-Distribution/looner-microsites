@@ -460,98 +460,230 @@ export default function ProductPage() {
           </div>
         </div>
 
-        {/* Product Information Section with Wavy Background - Olipop Style */}
-        <div className="px-4 lg:px-0 mt-8 lg:mt-16 relative">
-          {/* Wavy background SVG - extends from white to colored section */}
-          <svg
-            viewBox="0 0 1200 800"
-            preserveAspectRatio="none"
-            className="absolute inset-0 w-full h-full"
+        {/* Product Information Section - Olipop Style with Wave Transitions */}
+        <div className="relative block">
+          {/* Top Wave - Mobile */}
+          <svg 
+            className="block lg:hidden" 
+            xmlns="http://www.w3.org/2000/svg" 
+            preserveAspectRatio="none" 
+            width="100%" 
+            height="21" 
+            viewBox="0 0 376 20" 
+            fill="none"
           >
-            {/* White background at top */}
-            <rect x="0" y="0" width="1200" height="120" fill="white" />
-            {/* Wavy colored section */}
-            <path
-              d="M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 L1200,800 L0,800 Z"
+            <path 
+              d="M188 13.2684C85.1222 -6.73157 0 2.74214 0 2.74214V20.5H376V2.74214C376 2.74214 290.878 33.2684 188 13.2684Z" 
               fill={selectedFlavor?.secondaryColor || '#CCFBF1'}
             />
-            {/* Bottom wavy transition back to white */}
-            <path
-              d="M0,680 C200,740 400,620 600,680 C800,740 1000,620 1200,680 L1200,800 L0,800 Z"
-              fill="white"
+          </svg>
+          
+          {/* Top Wave - Desktop */}
+          <svg 
+            className="hidden lg:block" 
+            xmlns="http://www.w3.org/2000/svg" 
+            preserveAspectRatio="none" 
+            width="100%" 
+            height="60" 
+            viewBox="0 0 1440 60" 
+            fill="none"
+          >
+            <path 
+              d="M720 38.3053C326 -21.6947 0 6.72642 0 6.72642V60H1440V6.72643C1440 6.72643 1114 98.3053 720 38.3053Z" 
+              fill={selectedFlavor?.secondaryColor || '#CCFBF1'}
             />
           </svg>
 
-          <div className="relative z-10 max-w-7xl mx-auto py-12 lg:py-16">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-              {/* Product Description - 2/3 width */}
-              <div className="lg:col-span-2">
-                <h2 className="text-2xl lg:text-3xl font-serif text-gray-900 mb-6">
-                  Better Than Soda. Finally.
-                </h2>
-                <p className="text-base lg:text-lg text-gray-700 mb-6 leading-relaxed">
-                  {selectedFlavor?.description || "LOONER combines the nostalgic flavors you love with the functional benefits you need. Made with real fruit juices, cannabis extract, and a touch of cane sugar for that perfect balance of taste and effect."}
-                </p>
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-gray-900">Ingredients:</h3>
-                  <p className="text-sm lg:text-base text-gray-600 leading-relaxed">
-                    Carbonated water, cane sugar, natural fruit flavors, cannabis extract (THC), citric acid, natural caffeine, vitamin B complex, and LOONER's proprietary blend of adaptogens including ashwagandha and L-theanine.
+          {/* Main Content Section with Colored Background */}
+          <div 
+            className="px-4 lg:px-0"
+            style={{ backgroundColor: selectedFlavor?.secondaryColor || '#CCFBF1' }}
+          >
+            <div className="max-w-7xl mx-auto py-12 lg:py-16 md:py-20 md:pt-32 lg:px-5">
+              <div className="flex flex-col flex-wrap justify-between overflow-hidden md:flex-row">
+                {/* Product Description - Left Column */}
+                <div className="max-w-[630px] flex-1">
+                  <h3 className="mb-5 md:mb-9 text-2xl lg:text-3xl font-serif text-gray-900">
+                    {selectedFlavor?.displayName || selectedFlavor?.title}
+                  </h3>
+                  <p className="mb-6 text-base lg:text-lg text-gray-700 leading-relaxed">
+                    {selectedFlavor?.description || "Your creamiest, fruitiest strawberry sundae meets bubbly soda. A blend of sweet strawberry juice, rich vanilla, and a dash of tangy lemon create a soda that quenches thirst in the most delightful way."}
+                  </p>
+                  
+                  <p className="mb-4">
+                    <strong>Ingredients:</strong> Carbonated water, cane sugar, natural fruit flavors, cannabis extract (THC), citric acid, natural caffeine, vitamin B complex, and LOONER's proprietary blend of adaptogens including ashwagandha and L-theanine.
+                  </p>
+                  
+                  <p className="text-sm text-gray-600">
+                    <strong>Nutritional information for our new Pantry Ready version of {selectedFlavor?.displayName || selectedFlavor?.title} can be found here.</strong>
                   </p>
                 </div>
-              </div>
 
-              {/* Nutrition Facts Panel - 1/3 width */}
-              <div className="bg-white border-2 border-black p-4 lg:p-6">
-                <h3 className="text-lg font-bold text-black mb-4 text-center border-b-2 border-black pb-2">
-                  Nutrition Facts
-                </h3>
-                <div className="space-y-2 text-sm text-black">
-                  <div className="flex justify-between border-b border-gray-300 pb-1">
-                    <span>Serving Size</span>
-                    <span>1 can (12 fl oz)</span>
-                  </div>
-                  <div className="flex justify-between border-b border-gray-300 pb-1">
-                    <span className="font-semibold">Calories</span>
-                    <span className="font-semibold">45</span>
-                  </div>
-                  <div className="flex justify-between border-b border-gray-300 pb-1">
-                    <span>Total Carbs</span>
-                    <span>12g</span>
-                  </div>
-                  <div className="flex justify-between border-b border-gray-300 pb-1">
-                    <span>Total Sugars</span>
-                    <span>8g</span>
-                  </div>
-                  <div className="flex justify-between border-b border-gray-300 pb-1">
-                    <span>Sodium</span>
-                    <span>25mg</span>
-                  </div>
-                  <div className="flex justify-between border-b-2 border-black pb-2 pt-2">
-                    <span className="font-bold">THC Content</span>
-                    <span className="font-bold">10mg</span>
-                  </div>
+                {/* Nutrition Facts Panel - Right Column */}
+                <div className="flex justify-center">
+                  <section className="w-[250px] font-sans text-sm" aria-label="Nutrition Facts">
+                    <div className="text-left text-xl font-black mb-2">
+                      Contains 14% Juice
+                    </div>
+                    <div className="overflow-auto border-2 border-solid border-black p-1">
+                      <div className="border-b-[10px] border-solid border-black">
+                        <div className="border-b border-solid border-black text-center text-lg font-black leading-7">
+                          Nutrition Facts
+                        </div>
+                        <div className="text-left">1 serving per container</div>
+                        <table className="w-full table-auto border-collapse">
+                          <tbody>
+                            <tr>
+                              <th colSpan={2} className="whitespace-nowrap border-0">
+                                <b>Serving size</b>
+                              </th>
+                              <td className="whitespace-nowrap border-0 text-right">
+                                <b>1 Can (355mL)</b>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      
+                      <table className="w-full table-auto border-collapse mt-2">
+                        <thead>
+                          <tr>
+                            <th colSpan={3} className="whitespace-nowrap border-0 text-xs">Amount per serving</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-b-[7px] border-solid border-black">
+                            <th colSpan={2} className="whitespace-nowrap border-0 text-lg font-black leading-7">
+                              Calories
+                            </th>
+                            <td className="whitespace-nowrap border-0 text-right text-lg font-black leading-7">
+                              45
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colSpan={3} className="whitespace-nowrap text-right text-xs">
+                              <b>% Daily Value*</b>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th colSpan={2} className="whitespace-nowrap border-0 border-t border-solid border-black">
+                              <b>Total Fat</b> 0g
+                            </th>
+                            <td className="whitespace-nowrap border-0 border-t border-solid border-black text-right">
+                              <b>0%</b>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th colSpan={2} className="whitespace-nowrap border-0 border-t border-solid border-black">
+                              <b>Sodium</b> 30mg
+                            </th>
+                            <td className="whitespace-nowrap border-0 border-t border-solid border-black text-right">
+                              <b>1%</b>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th colSpan={2} className="whitespace-nowrap border-0 border-t border-solid border-black">
+                              <b>Total Carbohydrate</b> 16g
+                            </th>
+                            <td className="whitespace-nowrap border-0 border-t border-solid border-black text-right">
+                              <b>6%</b>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="w-4 border-0 border-t border-solid border-black"></td>
+                            <th className="whitespace-nowrap border-0 border-t border-solid border-black">
+                              Total Sugars 5g
+                            </th>
+                            <td className="border-0 border-t border-solid border-black"></td>
+                          </tr>
+                          <tr className="border-b-[10px] border-solid border-black">
+                            <th colSpan={2} className="whitespace-nowrap border-0 border-t border-solid border-black">
+                              <b>THC Content</b> 10mg
+                            </th>
+                            <td className="border-0 border-t border-solid border-black"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                      <div className="mt-1 text-left text-xs leading-tight">
+                        Not a significant source of saturated fat, trans fat, cholesterol, vitamin D, calcium, iron, potassium and vitamin A.
+                      </div>
+                    </div>
+                  </section>
                 </div>
               </div>
-            </div>
 
-            {/* Feature Icons Row */}
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-4 lg:gap-8 mt-8 lg:mt-12">
-              {[
-                { icon: '🧪', label: 'Lab Tested' },
-                { icon: '🌱', label: 'Non-GMO' },
-                { icon: '🍯', label: 'Less Sugar' },
-                { icon: '🌿', label: 'Natural Cannabis' },
-                { icon: '⚡', label: 'Fast Acting' },
-                { icon: '♻️', label: 'Sustainable' }
-              ].map((feature, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-2xl lg:text-3xl mb-2">{feature.icon}</div>
-                  <div className="text-xs lg:text-sm text-gray-700 font-medium">{feature.label}</div>
-                </div>
-              ))}
+              {/* Feature Icons Row */}
+              <div className="block w-full py-10 lg:py-12">
+                <ul className="grid w-full grid-cols-2 gap-x-2 gap-y-10 lg:flex lg:flex-row">
+                  {[
+                    { label: 'High Fiber' },
+                    { label: 'Less Sugar*' },
+                    { label: 'Vegan' },
+                    { label: 'Plant Powered' },
+                    { label: 'Paleo' },
+                    { label: 'Gluten Free' },
+                    { label: 'GMO Free' }
+                  ].map((feature, index) => (
+                    <li key={index} className="flex flex-1 flex-col items-center text-center">
+                      <div className="w-15 h-15 bg-white/20 rounded-full flex items-center justify-center mb-5">
+                        <span className="text-2xl">
+                          {index === 0 && '🌾'}
+                          {index === 1 && '🍯'}
+                          {index === 2 && '🌱'}
+                          {index === 3 && '💚'}
+                          {index === 4 && '🦴'}
+                          {index === 5 && '🚫'}
+                          {index === 6 && '🧬'}
+                        </span>
+                      </div>
+                      <p className="pt-2 text-base font-bold text-gray-900">
+                        {feature.label}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
 
+          {/* Bottom Wave - Mobile */}
+          <div style={{ width: '100%', position: 'absolute', zIndex: 2 }}>
+            <svg 
+              className="block lg:hidden relative -top-px" 
+              xmlns="http://www.w3.org/2000/svg" 
+              preserveAspectRatio="none" 
+              width="100%" 
+              height="21" 
+              viewBox="0 0 376 20" 
+              fill="none"
+            >
+              <path 
+                fillRule="evenodd" 
+                clipRule="evenodd" 
+                d="M52.6963 0.0341797C87.0381 0.0349157 135.179 2.53387 188 12.8026C290.878 32.8026 376 2.27632 376 2.27632V0.0341797H52.6963ZM52.666 0.0341797H0V2.27632C0 2.27632 20.1396 0.0348769 52.666 0.0341797Z" 
+                fill={selectedFlavor?.secondaryColor || '#CCFBF1'}
+              />
+            </svg>
+            
+            {/* Bottom Wave - Desktop */}
+            <svg 
+              className="hidden lg:block relative -top-px" 
+              xmlns="http://www.w3.org/2000/svg" 
+              preserveAspectRatio="none" 
+              width="100%" 
+              height="60" 
+              viewBox="0 0 1440 60" 
+              fill="none"
+            >
+              <path 
+                fillRule="evenodd" 
+                clipRule="evenodd" 
+                d="M201.989 0.103754C334.115 0.104868 518.538 7.60306 720 38.4105C1114 98.4105 1440 6.8294 1440 6.8294V0.103754H201.989ZM201.998 0.103754H0V6.8294C0 6.8294 77.1186 0.104612 201.998 0.103754Z" 
+                fill={selectedFlavor?.secondaryColor || '#CCFBF1'}
+              />
+            </svg>
+          </div>
         </div>
 
         {/* Recommended Flavors Section */}
