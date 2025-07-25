@@ -447,6 +447,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated both .env.local and secret environment variables for consistency
   - Fixed client-side and server-side Shopify API connections to use correct domain
   - Ensures proper product data fetching and cart functionality with updated store URL
+- **MOBILE TITLE POSITIONING** (July 25, 2025): Moved product title to top of mobile layout
+  - Created separate mobile title section that appears at very top of page content
+  - Desktop title remains in right column as part of main layout structure
+  - Mobile title positioned above image carousel using lg:hidden responsive class
+  - Consistent title data across mobile and desktop with proper responsive typography
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

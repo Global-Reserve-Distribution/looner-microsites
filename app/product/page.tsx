@@ -399,6 +399,16 @@ export default function ProductPage() {
         <FlavorBackground color={selectedFlavor?.primaryColor || "#FFE5B4"} />
 
       <div className="relative z-10">
+        {/* Mobile Title - Only visible on mobile, positioned at very top */}
+        <div className="lg:hidden px-4 pt-4 pb-6">
+          <h1 className="text-4xl font-serif text-gray-900 mb-2">
+            {selectedFlavor?.displayName || selectedFlavor?.title}
+          </h1>
+          <p className="text-lg text-gray-600">
+            {selectedFlavor?.shortDescription || selectedFlavor?.description || "The perfect blend of sweet & tart."}
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-4 lg:gap-8 py-4 lg:py-6 max-w-7xl mx-auto">
           {/* Left Column - Olipop Style Grid */}
           <div className="space-y-4 lg:space-y-8 px-4 lg:px-0">
@@ -407,8 +417,8 @@ export default function ProductPage() {
 
           {/* Right Column - Product Info & Selection */}
           <div className="space-y-4 lg:space-y-8">
-            {/* Product Title - Responsive sizing with consistent margins */}
-            <div className="px-4 lg:px-0">
+            {/* Desktop Title - Only visible on desktop */}
+            <div className="hidden lg:block px-4 lg:px-0">
               <h1 className="text-3xl lg:text-5xl font-serif text-gray-900 mb-2 lg:mb-4">
                 {selectedFlavor?.displayName || selectedFlavor?.title}
               </h1>
