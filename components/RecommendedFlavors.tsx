@@ -36,7 +36,7 @@ export function RecommendedFlavors({
         You May Also Like
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 gap-8">
         {recommended.map((flavor, index) => {
           const canImage = flavor.images[0];
           const primary = flavor.primaryColor || "#A855F7";
@@ -49,72 +49,72 @@ export function RecommendedFlavors({
               className="cursor-pointer transition-all duration-300 hover:scale-[1.02]"
             >
               <div
-                className="rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[3/4]"
+                className="rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative aspect-[4/5]"
                 style={{ backgroundColor: secondary }}
               >
                 {/* Compact layout structure for consistent alignment */}
                 <div className="absolute inset-0 flex flex-col">
-                  {/* Top Section - Compact height for product image */}
+                  {/* Top Section - Enlarged for product image */}
                   <div 
-                    className="relative flex items-center justify-center h-24 p-3"
+                    className="relative flex items-center justify-center h-40 p-6"
                     style={{ backgroundColor: secondary }}
                   >
-                    {/* Circle Background */}
+                    {/* Circle Background - Much Larger */}
                     <div
-                      className="absolute w-16 h-16 rounded-full"
+                      className="absolute w-32 h-32 rounded-full"
                       style={{ backgroundColor: primary }}
                     />
 
-                    {/* Product Image */}
+                    {/* Product Image - Much Larger */}
                     {canImage ? (
                       <Image
                         src={canImage}
                         alt={flavor.title}
-                        width={60}
-                        height={75}
-                        className="h-20 w-auto object-contain drop-shadow-lg relative z-10"
+                        width={120}
+                        height={150}
+                        className="h-36 w-auto object-contain drop-shadow-lg relative z-10"
                       />
                     ) : (
                       <div
-                        className="w-12 h-20 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
+                        className="w-24 h-32 bg-white/20 rounded-lg flex items-center justify-center relative z-10"
                       >
-                        <span className="text-white text-xs font-bold">
+                        <span className="text-white text-lg font-bold">
                           LOONER
                         </span>
                       </div>
                     )}
                   </div>
 
-                  {/* Bottom Section - Compact with smaller text */}
+                  {/* Bottom Section - Enlarged with better text */}
                   <div 
-                    className="flex-1 flex flex-col px-3 py-2"
+                    className="flex-1 flex flex-col px-6 py-4"
                     style={{ backgroundColor: secondary }}
                   >
-                    {/* Product Name - Smaller text */}
-                    <div className="h-6 flex items-center justify-center mb-1">
-                      <h3 className="font-bold text-gray-900 text-xs text-center leading-tight">
+                    {/* Product Name - Larger text */}
+                    <div className="h-8 flex items-center justify-center mb-3">
+                      <h3 className="font-bold text-gray-900 text-lg text-center leading-tight">
                         {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                       </h3>
                     </div>
 
-                    {/* Description - Smaller text and height */}
-                    <div className="h-8 flex items-start justify-center mb-2">
-                      <p className="text-gray-700 text-xs text-center leading-tight px-1">
+                    {/* Description - Larger text and height */}
+                    <div className="h-12 flex items-start justify-center mb-4">
+                      <p className="text-gray-700 text-sm text-center leading-tight px-2">
                         {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
                       </p>
                     </div>
 
-                    {/* Star Rating - Smaller */}
-                    <div className="h-4 flex items-center justify-center mb-2">
+                    {/* Star Rating - Larger */}
+                    <div className="h-6 flex items-center justify-center mb-4">
                       <div className="flex items-center text-gray-800">
-                        <span className="text-xs">★★★★</span>
-                        <span className="text-xs text-gray-400">☆</span>
+                        <span className="text-sm">★★★★</span>
+                        <span className="text-sm text-gray-400">☆</span>
                       </div>
                     </div>
 
-                    {/* Button - Smaller and compact */}
-                    <div className="flex-1 flex items-end justify-center pb-1">
-                      <button className="bg-white text-gray-800 px-2 py-1 rounded-full font-medium text-xs shadow-sm border border-gray-200">
+                    {/* Button - Larger and more prominent */}
+                    <div className="flex-1 flex items-end justify-center pb-2">
+                      <button className="bg-white text-gray-800 px-6 py-3 rounded-full font-medium text-sm shadow-md border border-gray-200 hover:shadow-lg transition-shadow">
                         + Add 12 Pack
                       </button>
                     </div>
