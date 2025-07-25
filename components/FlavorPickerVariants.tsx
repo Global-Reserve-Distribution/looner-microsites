@@ -52,8 +52,8 @@ export function FlavorPickerVariants({
       </div>
       
       {/* Content Area with Tab Connection */}
-      <div className="bg-white border border-gray-200 rounded-b-lg p-8">
-        <div className="grid grid-cols-3 gap-6">
+      <div className="bg-white border border-gray-200 rounded-b-lg p-6">
+        <div className="grid grid-cols-3 gap-3">
         {(activeTab === 'flavors' 
           ? flavors.filter(f => {
               const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
