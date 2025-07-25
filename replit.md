@@ -595,6 +595,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Mobile uses smaller images (h-20) and text (text-xs) while desktop maintains larger sizes (h-28, text-sm)
   - Desktop layout unchanged - maintains original proportions and visual hierarchy
   - Mobile layout optimized to show all components without cutting off text or buttons
+- **DESKTOP HOVER ANIMATIONS RESTORED** (July 25, 2025): Re-implemented desktop hover effects while preserving mobile optimizations
+  - Added hover state management with useState for individual card tracking
+  - Desktop cards show default state with opacity fade to hover state on mouse interaction
+  - Hover state features: colored top section with decorative blobs, wavy SVG divider, enhanced content layout
+  - Mobile remains static with no hover effects - shows optimized compact layout permanently
+  - Smooth opacity transitions (300ms) between default and hover states on desktop only
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
