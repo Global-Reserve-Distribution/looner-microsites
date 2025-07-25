@@ -90,31 +90,31 @@ export function RecommendedFlavors({
                     className="flex-1 flex flex-col px-3 py-2"
                     style={{ backgroundColor: secondary }}
                   >
-                    {/* Product Name - Smaller text */}
-                    <div className="h-6 flex items-center justify-center mb-1">
+                    {/* Product Name - Extra small text */}
+                    <div className="h-5 flex items-center justify-center mb-1">
                       <h3 className="font-bold text-gray-900 text-xs text-center leading-tight">
                         {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                       </h3>
                     </div>
 
-                    {/* Description - Smaller text and height */}
-                    <div className="h-8 flex items-start justify-center mb-2">
+                    {/* Description - Much smaller text and height */}
+                    <div className="h-6 flex items-start justify-center mb-1">
                       <p className="text-gray-700 text-xs text-center leading-tight px-1">
-                        {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
+                        {(flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors.").substring(0, 40)}...
                       </p>
                     </div>
 
-                    {/* Star Rating - Smaller */}
-                    <div className="h-4 flex items-center justify-center mb-2">
+                    {/* Star Rating - Extra small */}
+                    <div className="h-3 flex items-center justify-center mb-1">
                       <div className="flex items-center text-gray-800">
                         <span className="text-xs">★★★★</span>
                         <span className="text-xs text-gray-400">☆</span>
                       </div>
                     </div>
 
-                    {/* Button - Smaller and compact */}
+                    {/* Button - Very compact */}
                     <div className="flex-1 flex items-end justify-center pb-1">
-                      <button className="bg-white text-gray-800 px-2 py-1 rounded-full font-medium text-xs shadow-sm border border-gray-200">
+                      <button className="bg-white text-gray-800 px-2 py-0.5 rounded-full font-medium text-xs shadow-sm border border-gray-200">
                         + Add 12 Pack
                       </button>
                     </div>
