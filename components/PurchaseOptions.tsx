@@ -77,7 +77,7 @@ export const PurchaseOptions = React.forwardRef<HTMLDivElement, PurchaseOptionsP
         <label 
           className={`block p-4 rounded-xl border-2 cursor-pointer transition-all ${
             purchaseType === 'subscription' 
-              ? 'border-cannabis-600 bg-cannabis-50' 
+              ? 'border-green-600 bg-green-50' 
               : 'border-gray-200 hover:border-gray-300'
           }`}
         >
@@ -91,15 +91,15 @@ export const PurchaseOptions = React.forwardRef<HTMLDivElement, PurchaseOptionsP
           />
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-5 h-5 rounded-full border-2 border-cannabis-600 flex items-center justify-center">
+              <div className="w-5 h-5 rounded-full border-2 border-green-600 flex items-center justify-center">
                 {purchaseType === 'subscription' && (
-                  <div className="w-3 h-3 rounded-full bg-cannabis-600"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-600"></div>
                 )}
               </div>
               <div>
                 <div className="font-semibold text-gray-800 flex items-center gap-2">
                   Subscribe & Save
-                  <span className="bg-cannabis-600 text-white text-xs px-2 py-1 rounded-full">
+                  <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-full">
                     Save 15%
                   </span>
                 </div>
@@ -107,7 +107,7 @@ export const PurchaseOptions = React.forwardRef<HTMLDivElement, PurchaseOptionsP
               </div>
             </div>
             <div className="text-right">
-              <div className="text-xl font-bold text-cannabis-700">${subscriptionPrice.toFixed(2)}</div>
+              <div className="text-xl font-bold text-green-700">${subscriptionPrice.toFixed(2)}</div>
               <div className="text-sm text-gray-500 line-through">${variant.price.toFixed(2)}</div>
             </div>
           </div>
