@@ -452,6 +452,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Desktop title remains in right column as part of main layout structure
   - Mobile title positioned above image carousel using lg:hidden responsive class
   - Consistent title data across mobile and desktop with proper responsive typography
+- **CONSISTENT RECOMMENDATION CARDS** (July 25, 2025): Fixed recommendation cards to always show same content
+  - Removed hover state functionality for consistent display across all cards
+  - All recommendation cards now permanently show: product name, description, rating, and "Add 12 Pack" button
+  - Eliminated animation phases and state management for simpler, more reliable UI
+  - Cards use consistent layout with product image on top half and content on bottom half
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
