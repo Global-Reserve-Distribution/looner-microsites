@@ -525,6 +525,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added line-clamp utilities to handle text overflow gracefully (1 line for title, 2 for description)
   - Used flex spacer to push buttons to exact same position at bottom of all cards
   - All cards now have identical layouts with elements perfectly aligned regardless of text length
+- **RECOMMENDATION CARD LAYOUT ADJUSTMENT** (July 25, 2025): Moved text higher to accommodate buttons
+  - Reduced top padding from p-3 to pt-1 to start text closer to top of card
+  - Compressed element heights: title (h-5), description (h-8), rating (h-4), button (h-7)
+  - Tightened line spacing in description text for more compact appearance
+  - Added minimum spacer height to ensure button always has proper room at bottom
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

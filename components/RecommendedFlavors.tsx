@@ -85,40 +85,40 @@ export function RecommendedFlavors({
                     )}
                   </div>
 
-                  {/* Bottom Section - Fixed layout with consistent spacing */}
+                  {/* Bottom Section - Fixed layout with text starting higher */}
                   <div 
                     className="flex-1 flex flex-col"
                     style={{ backgroundColor: secondary }}
                   >
-                    {/* Fixed content area with exact positioning */}
-                    <div className="p-3 flex flex-col h-full">
-                      {/* Product Name - Fixed position */}
-                      <div className="h-6 flex items-center justify-center">
+                    {/* Fixed content area with reduced top padding */}
+                    <div className="px-3 pt-1 pb-2 flex flex-col h-full">
+                      {/* Product Name - Closer to top */}
+                      <div className="h-5 flex items-center justify-center">
                         <h3 className="font-bold text-gray-900 text-xs text-center leading-tight line-clamp-1">
                           {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
                         </h3>
                       </div>
 
-                      {/* Description - Fixed height with line clamping */}
-                      <div className="h-10 flex items-start justify-center overflow-hidden">
-                        <p className="text-gray-700 text-xs text-center leading-[1.3] px-1 line-clamp-2">
+                      {/* Description - Compact with tight spacing */}
+                      <div className="h-8 flex items-start justify-center overflow-hidden">
+                        <p className="text-gray-700 text-xs text-center leading-tight px-1 line-clamp-2">
                           {flavor.shortDescription || flavor.description || "A boldly refreshing collision of flavors."}
                         </p>
                       </div>
 
-                      {/* Star Rating - Fixed position */}
-                      <div className="h-5 flex items-center justify-center">
+                      {/* Star Rating - Smaller spacing */}
+                      <div className="h-4 flex items-center justify-center">
                         <div className="flex items-center text-gray-800">
                           <span className="text-xs">★★★★</span>
                           <span className="text-xs text-gray-400">☆</span>
                         </div>
                       </div>
 
-                      {/* Spacer to push button to bottom */}
-                      <div className="flex-1"></div>
+                      {/* Small spacer */}
+                      <div className="flex-1 min-h-[4px]"></div>
 
-                      {/* Button - Always at bottom */}
-                      <div className="h-8 flex items-center justify-center">
+                      {/* Button - With guaranteed space */}
+                      <div className="h-7 flex items-center justify-center">
                         <button className="bg-white text-gray-800 px-3 py-1 rounded-full font-medium text-xs shadow-sm border border-gray-200">
                           + Add 12 Pack
                         </button>
