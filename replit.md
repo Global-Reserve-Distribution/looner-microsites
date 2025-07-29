@@ -667,6 +667,13 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Product images now display in both desktop flyout and mobile drawer menus
   - Added error handling with fallback to placeholder images when products unavailable
   - Navigation shows up to 6 infused products and 3 THC-free products with real data
+- **MENU LAYOUT REDESIGN** (July 29, 2025): Updated navigation menu to match reference design
+  - Redesigned desktop flyout menu with two-column layout: BEVERAGE and EDIBLES
+  - Changed from grid card layout to horizontal list with product images on left, names on right
+  - Updated section headers to use "BEVERAGE" instead of "INFUSED" and "EDIBLES" instead of "THC-FREE"
+  - Added bottom navigation bar with "Shop All", "Testing and COAs", and "Contact Us" links
+  - Enhanced product filtering to include edibles, gummies, and chocolate products
+  - Improved mobile menu tabs to match new section naming convention
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

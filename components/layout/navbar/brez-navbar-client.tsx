@@ -99,7 +99,7 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                     'flex-1 py-2 px-4 text-center text-sm font-medium'
                   )}
                 >
-                  {section.name}
+                  {section.name === 'INFUSED' ? 'BEVERAGE' : section.name}
                 </button>
               ))}
             </div>
@@ -244,44 +244,72 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                                     </Link>
                                   </div>
 
-                                  {/* Category sections */}
-                                  <div className="grid grid-cols-2 gap-x-8">
+                                  {/* Category sections - New Layout */}
+                                  <div className="grid grid-cols-2 gap-x-16">
                                     {category.sections.map((section) => (
                                       <div key={section.name}>
-                                        <p className="font-medium text-gray-900 mb-6">{section.name}</p>
-                                        <div className="grid grid-cols-2 gap-4">
+                                        <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-6">
+                                          {section.name === 'INFUSED' ? 'BEVERAGE' : 'EDIBLES'}
+                                        </h3>
+                                        <div className="space-y-4">
                                           {section.items.map((item) => (
                                             <Link
                                               key={item.name}
                                               href={item.href}
-                                              className="group flex flex-col items-center p-4 rounded-lg hover:bg-gray-50"
+                                              className="group flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-50 transition-colors"
                                             >
-                                              <div className="w-16 h-16 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-2xl mb-3 flex items-center justify-center relative overflow-hidden">
+                                              <div className="flex-shrink-0">
                                                 {item.imageSrc !== '/placeholder-product.jpg' ? (
                                                   <Image
                                                     src={item.imageSrc}
                                                     alt={item.name}
                                                     width={48}
-                                                    height={48}
+                                                    height={60}
                                                     className="object-contain"
                                                   />
                                                 ) : (
-                                                  <div className="w-12 h-12 bg-white rounded-lg opacity-80 flex items-center justify-center">
-                                                    <span className="text-sm font-bold text-cannabis-600">L</span>
+                                                  <div className="w-12 h-15 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-lg flex items-center justify-center">
+                                                    <span className="text-xs font-bold text-white">L</span>
                                                   </div>
                                                 )}
                                               </div>
-                                              <span className="text-sm font-medium text-gray-900 text-center">
-                                                {item.name}
-                                              </span>
-                                              {item.thcContent && (
-                                                <span className="text-xs text-gray-500 mt-1">{item.thcContent}</span>
-                                              )}
+                                              <div className="flex-1 min-w-0">
+                                                <p className="text-base font-medium text-gray-900 group-hover:text-gray-700">
+                                                  {item.name}
+                                                </p>
+                                                {item.thcContent && (
+                                                  <span className="text-xs text-gray-500">{item.thcContent}</span>
+                                                )}
+                                              </div>
                                             </Link>
                                           ))}
                                         </div>
                                       </div>
                                     ))}
+                                  </div>
+
+                                  {/* Bottom navigation links */}
+                                  <div className="mt-8 pt-6 border-t border-gray-200">
+                                    <div className="flex justify-between items-center">
+                                      <Link
+                                        href="/shop"
+                                        className="text-base font-medium text-gray-900 hover:text-gray-700"
+                                      >
+                                        Shop All
+                                      </Link>
+                                      <Link
+                                        href="/testing"
+                                        className="text-base font-medium text-gray-900 hover:text-gray-700"
+                                      >
+                                        Testing and COAs
+                                      </Link>
+                                      <Link
+                                        href="/contact"
+                                        className="text-base font-medium text-gray-900 hover:text-gray-700"
+                                      >
+                                        Contact Us
+                                      </Link>
+                                    </div>
                                   </div>
                                 </div>
                               </div>

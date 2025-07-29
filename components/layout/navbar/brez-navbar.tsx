@@ -29,19 +29,22 @@ async function getNavigationData() {
         thcContent: extractTHCContent(product)
       }));
 
-    // Filter products for THC-FREE (non-THC products)
-    const thcFreeProducts = products
+    // Filter products for EDIBLES (gummies, chocolate, etc.)
+    const edibleProducts = products
       .filter(product => 
-        product.tags.some((tag: string) => tag.toLowerCase().includes('soda')) &&
-        !product.tags.some((tag: string) => tag.toLowerCase().includes('bundle')) &&
-        !extractTHCContent(product)
+        product.tags.some((tag: string) => 
+          tag.toLowerCase().includes('edible') || 
+          tag.toLowerCase().includes('gummy') ||
+          tag.toLowerCase().includes('chocolate')
+        ) &&
+        !product.tags.some((tag: string) => tag.toLowerCase().includes('bundle'))
       )
-      .slice(0, 3)
+      .slice(0, 4)
       .map(product => ({
         name: product.title.replace(/\s*-.*$/, ''),
         href: `/product/${product.handle}`,
         imageSrc: product.featuredImage?.url || '/placeholder-product.jpg',
-        thcContent: ''
+        thcContent: extractTHCContent(product)
       }));
 
     // Fallback to mock data if no products found
@@ -51,9 +54,12 @@ async function getNavigationData() {
       { name: 'Cola', href: '/product/cola', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
     ] : infusedProducts;
 
-    const mockThcFree = thcFreeProducts.length === 0 ? [
-      { name: 'Flow', href: '/product/flow', imageSrc: '/placeholder-product.jpg', thcContent: '' },
-    ] : thcFreeProducts;
+    const mockEdibles = edibleProducts.length === 0 ? [
+      { name: 'Twilight Night', href: '/product/twilight-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Zenith Day', href: '/product/zenith-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Lunar Night', href: '/product/lunar-night', imageSrc: '/placeholder-product.jpg', thcContent: '5mg' },
+      { name: 'Nooner Day', href: '/product/nooner-day', imageSrc: '/placeholder-product.jpg', thcContent: '2.5mg' },
+    ] : edibleProducts;
 
     return {
       categories: [
@@ -67,9 +73,9 @@ async function getNavigationData() {
               items: mockProducts,
             },
             {
-              id: 'thc-free', 
-              name: 'THC-FREE',
-              items: mockThcFree,
+              id: 'edibles', 
+              name: 'EDIBLES',
+              items: mockEdibles,
             },
           ],
           shopAll: { name: 'SHOP ALL', href: '/shop' },
@@ -100,10 +106,11 @@ async function getNavigationData() {
               ],
             },
             {
-              id: 'thc-free', 
-              name: 'THC-FREE',
+              id: 'edibles', 
+              name: 'EDIBLES',
               items: [
-                { name: 'Flow', href: '/product/flow', imageSrc: '/placeholder-product.jpg', thcContent: '' },
+                { name: 'Twilight Night', href: '/product/twilight-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+                { name: 'Zenith Day', href: '/product/zenith-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
               ],
             },
           ],
