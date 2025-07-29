@@ -110,7 +110,11 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                           />
                         ) : (
                           <div className="w-10 h-12 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-lg flex items-center justify-center">
-                            <span className="text-xs font-bold text-white">L</span>
+                            {section.name === 'EDIBLES' ? (
+                              <span className="text-xs font-bold text-white">🍯</span>
+                            ) : (
+                              <span className="text-xs font-bold text-white">L</span>
+                            )}
                           </div>
                         )}
                       </div>
@@ -275,7 +279,11 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                                                   />
                                                 ) : (
                                                   <div className="w-12 h-15 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-lg flex items-center justify-center">
-                                                    <span className="text-xs font-bold text-white">L</span>
+                                                    {section.name === 'EDIBLES' ? (
+                                                      <span className="text-xs font-bold text-white">🍯</span>
+                                                    ) : (
+                                                      <span className="text-xs font-bold text-white">L</span>
+                                                    )}
                                                   </div>
                                                 )}
                                               </div>

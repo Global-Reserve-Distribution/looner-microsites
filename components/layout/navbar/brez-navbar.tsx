@@ -63,6 +63,10 @@ async function getNavigationData() {
         };
       });
 
+    // Debug: Check what edible products were found
+    console.log('Found edible products:', edibleProducts.length);
+    console.log('All product tags sample:', products.slice(0, 3).map(p => ({ title: p.title, tags: p.tags })));
+
     // Fallback to mock data if no products found
     const mockProducts = infusedProducts.length === 0 ? [
       { name: 'Professor Pepper', href: '/product/professor-pepper', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
@@ -71,10 +75,10 @@ async function getNavigationData() {
     ] : infusedProducts;
 
     const mockEdibles = edibleProducts.length === 0 ? [
-      { name: 'Twilight Night', href: '/product/twilight-night', imageSrc: 'https://cdn.shopify.com/s/files/1/0123/4567/8901/products/twilight-night-gummy.png?v=1234567890', thcContent: '10mg' },
-      { name: 'Zenith Day', href: '/product/zenith-day', imageSrc: 'https://cdn.shopify.com/s/files/1/0123/4567/8901/products/zenith-day-gummy.png?v=1234567890', thcContent: '10mg' },
-      { name: 'Lunar Night', href: '/product/lunar-night', imageSrc: 'https://cdn.shopify.com/s/files/1/0123/4567/8901/products/lunar-night-gummy.png?v=1234567890', thcContent: '5mg' },
-      { name: 'Nooner Day', href: '/product/nooner-day', imageSrc: 'https://cdn.shopify.com/s/files/1/0123/4567/8901/products/nooner-day-gummy.png?v=1234567890', thcContent: '2.5mg' },
+      { name: 'Twilight Night', href: '/product/twilight-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Zenith Day', href: '/product/zenith-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Lunar Night', href: '/product/lunar-night', imageSrc: '/placeholder-product.jpg', thcContent: '5mg' },
+      { name: 'Nooner Day', href: '/product/nooner-day', imageSrc: '/placeholder-product.jpg', thcContent: '2.5mg' },
     ] : edibleProducts;
 
     return {
