@@ -2,7 +2,7 @@
 
 import { Fragment, useState } from 'react';
 import { Popover, Transition } from '@headlessui/react';
-import { ShoppingBagIcon, UserIcon } from '@heroicons/react/24/outline';
+import { ShoppingBagIcon, UserIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCart } from '../../cart/cart-context';
@@ -147,28 +147,18 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
           <div className="flex h-16 items-center">
             {/* Mobile layout */}
             <div className="flex w-full items-center justify-between lg:hidden">
-              {/* Hamburger/X menu button - left side with animation */}
+              {/* Hamburger/X menu button - left side */}
               <button
                 type="button"
-                className="-ml-2 rounded-md bg-white p-2 text-gray-400 hover:text-gray-500 transition-all duration-300"
+                className="-ml-2 rounded-md bg-white p-2 text-gray-600 hover:text-gray-800 transition-colors duration-200"
                 onClick={() => setOpen(!open)}
               >
                 <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
-                <div className="relative w-6 h-6 flex flex-col justify-center">
-                  {/* Hamburger lines */}
-                  <span className={classNames(
-                    "block w-6 h-px bg-gray-700 transition-all duration-300 ease-in-out transform origin-center",
-                    open ? "rotate-45 translate-y-0" : "-translate-y-1.5"
-                  )} />
-                  <span className={classNames(
-                    "block w-6 h-px bg-gray-700 transition-all duration-300 ease-in-out",
-                    open ? "opacity-0" : "opacity-100 mt-1.5"
-                  )} />
-                  <span className={classNames(
-                    "block w-6 h-px bg-gray-700 transition-all duration-300 ease-in-out transform origin-center",
-                    open ? "-rotate-45 -translate-y-px" : "translate-y-1.5 mt-1.5"
-                  )} />
-                </div>
+                {open ? (
+                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                ) : (
+                  <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                )}
               </button>
 
               {/* Logo centered */}
