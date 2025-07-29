@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 
 import { useSearchParams } from "next/navigation";
 import { FlavorHero } from "../../components/FlavorHero";
@@ -190,7 +190,8 @@ function getFlavorBgClass(title: string, index: number): string {
   return colors[index % colors.length] || "bg-purple-100";
 }
 
-export default function ProductPage() {
+// Component that uses searchParams - needs to be in Suspense
+function ProductPageContent() {
   const searchParams = useSearchParams();
   const slug = searchParams?.get("flavor");
 
@@ -726,5 +727,21 @@ export default function ProductPage() {
       />
     </main>
     </>
+  );
+}
+
+// Main export component with Suspense boundary
+export default function ProductPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-green-800 mx-auto"></div>
+          <p className="mt-4 text-lg text-gray-600">Loading flavors...</p>
+        </div>
+      </div>
+    }>
+      <ProductPageContent />
+    </Suspense>
   );
 }
