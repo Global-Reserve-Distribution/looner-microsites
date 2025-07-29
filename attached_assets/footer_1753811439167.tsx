@@ -2,16 +2,16 @@ import Link from 'next/link';
 
 import FooterMenu from 'components/layout/footer-menu';
 import LogoSquare from 'components/logo-square';
-import { fetchMenu } from 'lib/shopify/server-actions';
+import { getMenu } from 'lib/shopify';
 import { Suspense } from 'react';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
 export default async function Footer() {
   const currentYear = new Date().getFullYear();
-  const copyrightDate = 2025 + (currentYear > 2025 ? `-${currentYear}` : '');
+  const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : '');
   const skeleton = 'w-full h-6 animate-pulse rounded-sm bg-neutral-200 dark:bg-neutral-700';
-  const menu = await fetchMenu('next-js-frontend-footer-menu');
+  const menu = await getMenu('next-js-frontend-footer-menu');
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
@@ -39,13 +39,13 @@ export default async function Footer() {
         </Suspense>
         <div className="md:ml-auto">
           <a
-            className="flex h-8 w-max flex-none items-center justify-center rounded-md border border-green-200 bg-green-50 text-xs text-green-800 dark:border-green-700 dark:bg-green-900 dark:text-green-200"
-            aria-label="Shop Cannabis Beverages"
-            href="/search"
+            className="flex h-8 w-max flex-none items-center justify-center rounded-md border border-neutral-200 bg-white text-xs text-black dark:border-neutral-700 dark:bg-black dark:text-white"
+            aria-label="Deploy on Vercel"
+            href="https://vercel.com/templates/next.js/nextjs-commerce"
           >
-            <span className="px-3">🌿</span>
-            <hr className="h-full border-r border-green-200 dark:border-green-700" />
-            <span className="px-3">Shop Now</span>
+            <span className="px-3">▲</span>
+            <hr className="h-full border-r border-neutral-200 dark:border-neutral-700" />
+            <span className="px-3">Deploy</span>
           </a>
         </div>
       </div>
@@ -57,12 +57,12 @@ export default async function Footer() {
           </p>
           <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" />
           <p>
-            <a href="/search">Browse THC Beverages</a>
+            <a href="https://github.com/vercel/commerce">View the source</a>
           </p>
           <p className="md:ml-auto">
-            <span className="text-neutral-600 dark:text-neutral-400">
-              Premium Cannabis Beverages
-            </span>
+            <a href="https://vercel.com" className="text-black dark:text-white">
+              Created by ▲ Vercel
+            </a>
           </p>
         </div>
       </div>

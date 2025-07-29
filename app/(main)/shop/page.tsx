@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { fetchCollectionProducts, fetchProducts } from '../../lib/shopify/server-actions';
-import { ProductDisplayVariant1 } from '../../components/shop/product-display-variant1';
-import { ProductDisplayVariant2 } from '../../components/shop/product-display-variant2';
-import { ProductDisplayVariant3 } from '../../components/shop/product-display-variant3';
+import { fetchCollectionProducts, fetchProducts } from '../../../lib/shopify/server-actions';
+import { ProductDisplayVariant1 } from '../../../components/shop/product-display-variant1';
+import { ProductDisplayVariant2 } from '../../../components/shop/product-display-variant2';
+import { ProductDisplayVariant3 } from '../../../components/shop/product-display-variant3';
 
 export const metadata = {
   title: 'Shop - LOONER THC Beverages',

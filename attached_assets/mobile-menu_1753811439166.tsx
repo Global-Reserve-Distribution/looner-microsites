@@ -9,7 +9,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Menu } from 'lib/shopify/types';
 import Search, { SearchSkeleton } from './search';
 
-function MobileMenuContent({ menu }: { menu: Menu[] }) {
+export default function MobileMenu({ menu }: { menu: Menu[] }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
@@ -72,7 +72,9 @@ function MobileMenuContent({ menu }: { menu: Menu[] }) {
                 </button>
 
                 <div className="mb-4 w-full">
-                  <Search />
+                  <Suspense fallback={<SearchSkeleton />}>
+                    <Search />
+                  </Suspense>
                 </div>
                 {menu.length ? (
                   <ul className="flex w-full flex-col">
@@ -94,13 +96,5 @@ function MobileMenuContent({ menu }: { menu: Menu[] }) {
         </Dialog>
       </Transition>
     </>
-  );
-}
-
-export default function MobileMenu({ menu }: { menu: Menu[] }) {
-  return (
-    <Suspense fallback={null}>
-      <MobileMenuContent menu={menu} />
-    </Suspense>
   );
 }

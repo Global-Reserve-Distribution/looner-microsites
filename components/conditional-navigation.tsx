@@ -1,22 +1,19 @@
-'use client';
+import { headers } from 'next/headers';
+import LayoutWrapper from './layout/layout-wrapper';
 
-import { usePathname } from 'next/navigation';
-import { Navigation } from './navigation';
-
-export function ConditionalNavigation({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
+export async function ConditionalNavigation({ children }: { children: React.ReactNode }) {
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') || '';
   
-  // Hide navigation on the product page microsite
-  if (pathname === '/product') {
+  // Product page uses its own custom header/footer
+  if (pathname === '/product' || pathname === '/flavor-variants') {
     return <>{children}</>;
   }
   
+  // All other pages use the standard navbar/footer layout
   return (
-    <>
-      <Navigation />
-      <main className="pt-20">
-        {children}
-      </main>
-    </>
+    <LayoutWrapper>
+      {children}
+    </LayoutWrapper>
   );
 }
