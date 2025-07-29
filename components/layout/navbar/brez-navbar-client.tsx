@@ -57,19 +57,13 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
         LOONER THC BEVERAGES + FREE SHIPPING $100+ →
       </div>
 
-      {/* Mobile menu overlay */}
-      {open && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-25 z-20 lg:hidden"
-          onClick={() => setOpen(false)}
-        />
-      )}
-
       {/* Mobile menu drawer - slides in from left, positioned below header */}
-      <div className={classNames(
-        "fixed left-0 w-80 max-w-sm bg-white shadow-xl z-40 lg:hidden transition-transform duration-300 ease-in-out",
-        open ? "translate-x-0" : "-translate-x-full"
-      )}
+      <div 
+        className={classNames(
+          "fixed left-0 w-80 max-w-sm bg-white shadow-xl z-40 lg:hidden transition-transform duration-300 ease-in-out",
+          open ? "translate-x-0" : "-translate-x-full"
+        )}
+        onClick={(e) => e.stopPropagation()}
       style={{ 
         top: '100px', // Start below the promotional banner (40px) + header (60px)
         height: 'calc(100vh - 100px)' // Take remaining viewport height
