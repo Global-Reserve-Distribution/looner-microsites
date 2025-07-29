@@ -6,6 +6,7 @@ import { Bars3Icon, XMarkIcon, ShoppingBagIcon, UserIcon } from '@heroicons/reac
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCart } from '../../cart/cart-context';
+import LogoSquare from '../../logo-square';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
@@ -101,8 +102,9 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                 <div className="px-4 py-6">
                   {/* Logo centered */}
                   <div className="text-center mb-6">
-                    <Link href="/" className="text-2xl font-bold text-black">
-                      LOONER
+                    <Link href="/" className="flex items-center justify-center">
+                      <LogoSquare />
+                      <span className="ml-2 text-xl font-bold text-black">LOONER</span>
                     </Link>
                   </div>
 
@@ -176,17 +178,47 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
       {/* Desktop navigation */}
       <header className="relative bg-white">
         <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            {/* Logo (desktop) */}
-            <div className="flex lg:ml-0">
-              <Link href="/" className="text-2xl font-bold text-black">
-                LOONER
+          <div className="flex h-16 items-center">
+            {/* Mobile layout */}
+            <div className="flex w-full items-center justify-between lg:hidden">
+              {/* Hamburger menu button - left side */}
+              <button
+                type="button"
+                className="-ml-2 rounded-md bg-white p-2 text-gray-400"
+                onClick={() => setOpen(true)}
+              >
+                <span className="sr-only">Open menu</span>
+                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              </button>
+
+              {/* Logo centered */}
+              <Link href="/" className="flex items-center">
+                <LogoSquare />
+                <span className="ml-2 text-lg font-bold text-black">LOONER</span>
+              </Link>
+
+              {/* Cart icon - right side */}
+              <Link href="/cart" className="group -m-2 flex items-center p-2">
+                <ShoppingBagIcon className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" />
+                <span className="ml-1 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                  {cart?.totalQuantity || 0}
+                </span>
               </Link>
             </div>
 
-            {/* Flyout menus (desktop) */}
-            <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
-              <div className="flex h-full space-x-8">
+            {/* Desktop layout */}
+            <div className="hidden lg:flex lg:w-full lg:items-center lg:justify-between">
+              {/* Logo - left side on desktop */}
+              <div className="flex">
+                <Link href="/" className="flex items-center">
+                  <LogoSquare />
+                  <span className="ml-2 text-lg font-bold text-black">LOONER</span>
+                </Link>
+              </div>
+
+              {/* Flyout menus (desktop) */}
+              <Popover.Group className="ml-8 flex h-16 self-stretch">
+                <div className="flex h-full space-x-8">
                 {navigation.categories.map((category) => (
                   <Popover key={category.name} className="flex">
                     {({ open }) => (
@@ -299,12 +331,11 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                     {page.name}
                   </Link>
                 ))}
-              </div>
-            </Popover.Group>
+                </div>
+              </Popover.Group>
 
-            {/* Right side icons */}
-            <div className="flex items-center">
-              <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+              {/* Right side icons - desktop */}
+              <div className="flex items-center space-x-6">
                 <Link href="/account" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                   <UserIcon className="h-6 w-6" />
                 </Link>
@@ -314,18 +345,6 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                     {cart?.totalQuantity || 0}
                   </span>
                 </Link>
-              </div>
-
-              {/* Mobile menu button */}
-              <div className="flex lg:hidden">
-                <button
-                  type="button"
-                  className="-ml-2 rounded-md bg-white p-2 text-gray-400"
-                  onClick={() => setOpen(true)}
-                >
-                  <span className="sr-only">Open menu</span>
-                  <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-                </button>
               </div>
             </div>
           </div>
