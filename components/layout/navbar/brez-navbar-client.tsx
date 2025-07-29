@@ -60,14 +60,14 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
       {/* Mobile menu overlay */}
       {open && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-25 z-30 lg:hidden"
+          className="fixed inset-0 bg-black bg-opacity-25 z-20 lg:hidden"
           onClick={() => setOpen(false)}
         />
       )}
 
       {/* Mobile menu drawer - slides in from left, positioned below header */}
       <div className={classNames(
-        "fixed left-0 w-80 max-w-sm bg-white shadow-xl z-30 lg:hidden transition-transform duration-300 ease-in-out",
+        "fixed left-0 w-80 max-w-sm bg-white shadow-xl z-40 lg:hidden transition-transform duration-300 ease-in-out",
         open ? "translate-x-0" : "-translate-x-full"
       )}
       style={{ 
