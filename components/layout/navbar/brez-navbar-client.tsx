@@ -1,7 +1,7 @@
 'use client';
 
 import { Fragment, useState } from 'react';
-import { Popover, Transition } from '@headlessui/react';
+import { Dialog, Popover, Transition } from '@headlessui/react';
 import { ShoppingBagIcon, UserIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -65,14 +65,33 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
         />
       )}
 
-      {/* Mobile menu drawer - slides down from header */}
+      {/* Mobile menu drawer - slides in from left */}
       <div className={classNames(
-        "fixed left-0 right-0 bg-white shadow-lg z-40 lg:hidden transition-transform duration-300 ease-in-out",
-        open ? "translate-y-0" : "-translate-y-full"
-      )}
-      style={{ top: '64px' }}>
+        "fixed top-0 left-0 h-full w-80 max-w-sm bg-white shadow-xl z-40 lg:hidden transition-transform duration-300 ease-in-out",
+        open ? "translate-x-0" : "-translate-x-full"
+      )}>
+        {/* Mobile menu header */}
+        <div className="bg-yellow-300 px-4 py-3 text-center text-sm font-medium text-black">
+          LOONER THC BEVERAGES + FREE SHIPPING $100+ →
+        </div>
+        
+        {/* Close button */}
+        <div className="flex justify-end p-4">
+          <button
+            type="button"
+            className="rounded-md p-2 text-gray-400 hover:text-gray-500"
+            onClick={() => setOpen(false)}
+          >
+            <span className="sr-only">Close menu</span>
+            <div className="relative w-6 h-6">
+              <span className="absolute left-0 top-1/2 w-6 h-0.5 bg-gray-600 rotate-45" />
+              <span className="absolute left-0 top-1/2 w-6 h-0.5 bg-gray-600 -rotate-45" />
+            </div>
+          </button>
+        </div>
+
         {/* Mobile menu content */}
-        <div className="px-4 py-6 max-h-screen overflow-y-auto">
+        <div className="px-4 pb-6 overflow-y-auto h-full">
           {/* Category tabs */}
           <div className="mb-6">
             <div className="flex border-b border-gray-200">
