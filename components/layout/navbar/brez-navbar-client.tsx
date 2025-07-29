@@ -45,7 +45,6 @@ interface BrezNavbarClientProps {
 
 export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) {
   const [open, setOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('infused');
   const { cart } = useCart();
 
   // Prevent body scroll when mobile menu is open
@@ -62,7 +61,7 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
     };
   }, [open]);
 
-  const currentSection = navigation.categories[0]?.sections.find(section => section.id === activeTab) || navigation.categories[0]?.sections[0];
+
 
   return (
     <div className="bg-white">
@@ -85,66 +84,73 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
         {/* Mobile menu content */}
         <div className="flex flex-col h-full">
           <div className="flex-1 px-4 py-6 overflow-y-auto">
-          {/* Category tabs */}
-          <div className="mb-6">
-            <div className="flex border-b border-gray-200">
-              {navigation.categories[0]?.sections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => setActiveTab(section.id)}
-                  className={classNames(
-                    section.id === activeTab
-                      ? 'text-black bg-white border-b-2 border-black'
-                      : 'text-gray-500 bg-gray-50',
-                    'flex-1 py-2 px-4 text-center text-sm font-medium'
-                  )}
-                >
-                  {section.name === 'INFUSED' ? 'BEVERAGE' : section.name}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Product grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {currentSection?.items.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="group flex flex-col items-center p-3 rounded-lg bg-gray-50 hover:bg-gray-100"
-                onClick={() => setOpen(false)}
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-2xl mb-2 flex items-center justify-center relative overflow-hidden">
-                  {item.imageSrc !== '/placeholder-product.jpg' ? (
-                    <Image
-                      src={item.imageSrc}
-                      alt={item.name}
-                      width={48}
-                      height={48}
-                      className="object-contain"
-                    />
-                  ) : (
-                    <div className="w-12 h-12 bg-white rounded-lg opacity-80 flex items-center justify-center">
-                      <span className="text-xs font-bold text-cannabis-600">L</span>
-                    </div>
-                  )}
+          {/* Mobile two-column layout matching desktop */}
+          <div className="grid grid-cols-2 gap-x-8">
+            {navigation.categories[0]?.sections.map((section) => (
+              <div key={section.id}>
+                <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">
+                  {section.name === 'INFUSED' ? 'BEVERAGE' : 'EDIBLES'}
+                </h3>
+                <div className="space-y-3">
+                  {section.items.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="group flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-colors"
+                      onClick={() => setOpen(false)}
+                    >
+                      <div className="flex-shrink-0">
+                        {item.imageSrc !== '/placeholder-product.jpg' ? (
+                          <Image
+                            src={item.imageSrc}
+                            alt={item.name}
+                            width={40}
+                            height={50}
+                            className="object-contain"
+                          />
+                        ) : (
+                          <div className="w-10 h-12 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-lg flex items-center justify-center">
+                            <span className="text-xs font-bold text-white">L</span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-gray-900 group-hover:text-gray-700 leading-tight">
+                          {item.name}
+                        </p>
+                        {item.thcContent && (
+                          <span className="text-xs text-gray-500">{item.thcContent}</span>
+                        )}
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-                <span className="text-sm font-medium text-gray-900 text-center">{item.name}</span>
-                {item.thcContent && (
-                  <span className="text-xs text-gray-500">{item.thcContent}</span>
-                )}
-              </Link>
+              </div>
             ))}
           </div>
 
-          {/* Shop all button */}
-          <div className="mt-6 pt-4 border-t border-gray-200">
+          {/* Bottom navigation links - Mobile */}
+          <div className="mt-8 pt-6 border-t border-gray-200 space-y-4">
             <Link
               href="/shop"
-              className="block w-full text-center py-3 px-4 bg-gray-100 text-gray-600 font-medium rounded-lg hover:bg-gray-200"
+              className="block text-base font-medium text-gray-900 hover:text-gray-700"
               onClick={() => setOpen(false)}
             >
-              SHOP ALL
+              Shop All
+            </Link>
+            <Link
+              href="/testing"
+              className="block text-base font-medium text-gray-900 hover:text-gray-700"
+              onClick={() => setOpen(false)}
+            >
+              Testing and COAs
+            </Link>
+            <Link
+              href="/contact"
+              className="block text-base font-medium text-gray-900 hover:text-gray-700"
+              onClick={() => setOpen(false)}
+            >
+              Contact Us
             </Link>
           </div>
           </div>

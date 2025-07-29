@@ -674,6 +674,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added bottom navigation bar with "Shop All", "Testing and COAs", and "Contact Us" links
   - Enhanced product filtering to include edibles, gummies, and chocolate products
   - Improved mobile menu tabs to match new section naming convention
+- **MOBILE MENU REDESIGN** (July 29, 2025): Updated mobile navigation to match reference design
+  - Removed tab-based navigation in favor of side-by-side two-column layout
+  - Mobile menu now displays BEVERAGE and EDIBLES columns simultaneously like desktop
+  - Updated mobile product list to horizontal layout with smaller images (40x50px)
+  - Added bottom navigation links (Shop All, Testing and COAs, Contact Us) in vertical stack
+  - Consistent product layout between mobile and desktop with responsive sizing
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
