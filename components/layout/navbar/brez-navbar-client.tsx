@@ -71,8 +71,8 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
         open ? "translate-x-0" : "-translate-x-full"
       )}
       style={{ 
-        top: '64px', // Start below the promotional banner + header
-        height: 'calc(100vh - 64px)' // Take remaining viewport height
+        top: '100px', // Start below the promotional banner (40px) + header (60px)
+        height: 'calc(100vh - 100px)' // Take remaining viewport height
       }}>
         {/* Mobile menu content */}
         <div className="px-4 py-6 overflow-y-auto h-full">
