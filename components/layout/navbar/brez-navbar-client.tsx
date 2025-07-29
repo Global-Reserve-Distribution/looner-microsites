@@ -1,7 +1,7 @@
 'use client';
 
 import { Fragment, useState } from 'react';
-import { Dialog, Popover, Transition } from '@headlessui/react';
+import { Popover, Transition } from '@headlessui/react';
 import { ShoppingBagIcon, UserIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -150,23 +150,23 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
               {/* Hamburger/X menu button - left side with animation */}
               <button
                 type="button"
-                className="-ml-2 rounded-md bg-white p-2 text-gray-400 transition-transform duration-300"
+                className="-ml-2 rounded-md bg-white p-2 text-gray-400 hover:text-gray-500 transition-all duration-300"
                 onClick={() => setOpen(!open)}
               >
                 <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
-                <div className="relative w-6 h-6">
+                <div className="relative w-6 h-6 flex flex-col justify-center">
                   {/* Hamburger lines */}
                   <span className={classNames(
-                    "absolute left-0 top-1 w-6 h-0.5 bg-gray-600 transition-all duration-300 ease-in-out",
-                    open ? "rotate-45 translate-y-2" : "rotate-0 translate-y-0"
+                    "block w-6 h-px bg-gray-700 transition-all duration-300 ease-in-out transform origin-center",
+                    open ? "rotate-45 translate-y-0" : "-translate-y-1.5"
                   )} />
                   <span className={classNames(
-                    "absolute left-0 top-1/2 w-6 h-0.5 bg-gray-600 transition-all duration-300 ease-in-out",
-                    open ? "opacity-0" : "opacity-100"
+                    "block w-6 h-px bg-gray-700 transition-all duration-300 ease-in-out",
+                    open ? "opacity-0" : "opacity-100 mt-1.5"
                   )} />
                   <span className={classNames(
-                    "absolute left-0 bottom-1 w-6 h-0.5 bg-gray-600 transition-all duration-300 ease-in-out",
-                    open ? "-rotate-45 -translate-y-2" : "rotate-0 translate-y-0"
+                    "block w-6 h-px bg-gray-700 transition-all duration-300 ease-in-out transform origin-center",
+                    open ? "-rotate-45 -translate-y-px" : "translate-y-1.5 mt-1.5"
                   )} />
                 </div>
               </button>
