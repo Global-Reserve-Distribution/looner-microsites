@@ -7,6 +7,20 @@ async function getNavigationData() {
     // Fetch real Shopify products
     const products = await fetchProducts({});
     
+    // Extract metafields from Shopify product
+    const extractMetafields = (product: any) => {
+      const metafields = product.metafields || [];
+
+      const displayNameField = metafields.find(
+        (field: any) =>
+          field && field.key === "display_name" && field.namespace === "custom",
+      );
+
+      return {
+        displayName: displayNameField?.value || null,
+      };
+    };
+    
     // Extract THC content from product descriptions or titles
     const extractTHCContent = (product: any) => {
       const text = `${product.title} ${product.description}`.toLowerCase();
@@ -22,12 +36,15 @@ async function getNavigationData() {
         extractTHCContent(product)
       )
       .slice(0, 6)
-      .map(product => ({
-        name: (product as any).displayName || product.title.replace(/\s*-.*$/, ''), // Use display name if available
-        href: `/product/${product.handle}`,
-        imageSrc: product.featuredImage?.url || '/placeholder-product.jpg',
-        thcContent: extractTHCContent(product)
-      }));
+      .map(product => {
+        const { displayName } = extractMetafields(product);
+        return {
+          name: displayName && displayName.trim() !== "" ? displayName : product.title.replace(/\s*-.*$/, ''),
+          href: `/product/${product.handle}`,
+          imageSrc: product.featuredImage?.url || '/placeholder-product.jpg',
+          thcContent: extractTHCContent(product)
+        };
+      });
 
     // Filter products for EDIBLES (products with 'edible' tag)
     const edibleProducts = products
@@ -36,12 +53,15 @@ async function getNavigationData() {
         !product.tags.some((tag: string) => tag.toLowerCase().includes('bundle'))
       )
       .slice(0, 4)
-      .map(product => ({
-        name: (product as any).displayName || product.title.replace(/\s*-.*$/, ''), // Use display name if available
-        href: `/product/${product.handle}`,
-        imageSrc: product.featuredImage?.url || '/placeholder-product.jpg',
-        thcContent: extractTHCContent(product)
-      }));
+      .map(product => {
+        const { displayName } = extractMetafields(product);
+        return {
+          name: displayName && displayName.trim() !== "" ? displayName : product.title.replace(/\s*-.*$/, ''),
+          href: `/product/${product.handle}`,
+          imageSrc: product.featuredImage?.url || '/placeholder-product.jpg',
+          thcContent: extractTHCContent(product)
+        };
+      });
 
     // Fallback to mock data if no products found
     const mockProducts = infusedProducts.length === 0 ? [
@@ -51,10 +71,10 @@ async function getNavigationData() {
     ] : infusedProducts;
 
     const mockEdibles = edibleProducts.length === 0 ? [
-      { name: 'Twilight Night', href: '/product/twilight-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Zenith Day', href: '/product/zenith-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Lunar Night', href: '/product/lunar-night', imageSrc: '/placeholder-product.jpg', thcContent: '5mg' },
-      { name: 'Nooner Day', href: '/product/nooner-day', imageSrc: '/placeholder-product.jpg', thcContent: '2.5mg' },
+      { name: 'Twilight Night', href: '/product/twilight-night', imageSrc: 'https://cdn.shopify.com/s/files/1/0123/4567/8901/products/twilight-night-gummy.png?v=1234567890', thcContent: '10mg' },
+      { name: 'Zenith Day', href: '/product/zenith-day', imageSrc: 'https://cdn.shopify.com/s/files/1/0123/4567/8901/products/zenith-day-gummy.png?v=1234567890', thcContent: '10mg' },
+      { name: 'Lunar Night', href: '/product/lunar-night', imageSrc: 'https://cdn.shopify.com/s/files/1/0123/4567/8901/products/lunar-night-gummy.png?v=1234567890', thcContent: '5mg' },
+      { name: 'Nooner Day', href: '/product/nooner-day', imageSrc: 'https://cdn.shopify.com/s/files/1/0123/4567/8901/products/nooner-day-gummy.png?v=1234567890', thcContent: '2.5mg' },
     ] : edibleProducts;
 
     return {

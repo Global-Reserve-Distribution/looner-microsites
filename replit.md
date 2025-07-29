@@ -685,6 +685,8 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated edibles filtering to only include products with exact 'edible' tag
   - Enhanced product name display throughout navigation using display names with fallback to cleaned titles
   - More precise product categorization for better navigation organization
+  - Updated mock edibles data to include realistic product images for navigation display
+  - Both beverage and edible products now properly extract and display custom display names from Shopify metafields
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
