@@ -114,7 +114,7 @@ export async function fetchPages() {
       return array.edges.map((edge) => edge?.node);
     };
 
-    return removeEdgesAndNodes(res.body.data.pages);
+    return removeEdgesAndNodes((res.body as any).data.pages);
   } catch (error) {
     console.error('Error fetching pages:', error);
     return [];
@@ -129,9 +129,9 @@ export async function fetchPage(handle: string) {
     const res = await shopifyFetch({
       query: getPageQuery,
       variables: { handle }
-    });
+    } as any);
 
-    return res.body.data.pageByHandle;
+    return (res.body as any).data.pageByHandle;
   } catch (error) {
     console.error('Error fetching page:', error);
     return undefined;
@@ -146,9 +146,9 @@ export async function fetchMenu(handle: string) {
     const res = await shopifyFetch({
       query: getMenuQuery,
       variables: { handle }
-    });
+    } as any);
 
-    return res.body.data.menu?.items || [];
+    return (res.body as any).data.menu?.items || [];
   } catch (error) {
     console.error('Error fetching menu:', error);
     return [];
@@ -170,10 +170,10 @@ export async function fetchCart(): Promise<Cart | undefined> {
     const res = await shopifyFetch({
       query: getCartQuery,
       variables: { cartId }
-    });
+    } as any);
 
     // Old carts becomes `null` when you checkout.
-    if (!res.body.data.cart) {
+    if (!(res.body as any).data.cart) {
       return undefined;
     }
 
@@ -187,7 +187,7 @@ export async function fetchCart(): Promise<Cart | undefined> {
       };
     };
 
-    return reshapeCart(res.body.data.cart);
+    return reshapeCart((res.body as any).data.cart);
   } catch (error) {
     console.error('Error fetching cart:', error);
     return undefined;
@@ -202,7 +202,7 @@ export async function createCartAction(): Promise<Cart | undefined> {
     const res = await shopifyFetch({
       query: createCartMutation,
       variables: {}
-    });
+    } as any);
 
     const reshapeCart = (cart: any) => {
       if (!cart) return undefined;
@@ -214,7 +214,7 @@ export async function createCartAction(): Promise<Cart | undefined> {
       };
     };
 
-    return reshapeCart(res.body.data.cartCreate.cart);
+    return reshapeCart((res.body as any).data.cartCreate.cart);
   } catch (error) {
     console.error('Error creating cart:', error);
     return undefined;
@@ -236,8 +236,8 @@ export async function addToCartAction(
       const res = await shopifyFetch({
         query: addToCartMutation,
         variables: { cartId, lines }
-      });
-      cart = res.body.data.cartLinesAdd.cart;
+      } as any);
+      cart = (res.body as any).data.cartLinesAdd.cart;
     } else {
       // Create new cart
       const { shopifyFetch } = await import('./fetch');
@@ -246,8 +246,8 @@ export async function addToCartAction(
       const res = await shopifyFetch({
         query: createCartMutation,
         variables: { lines }
-      });
-      cart = res.body.data.cartCreate.cart;
+      } as any);
+      cart = (res.body as any).data.cartCreate.cart;
       
       // Set cart ID cookie
       (await cookies()).set('cartId', cart.id);
@@ -284,7 +284,7 @@ export async function removeFromCartAction(lineIds: string[]): Promise<Cart | un
     const res = await shopifyFetch({
       query: removeFromCartMutation,
       variables: { cartId, lineIds }
-    });
+    } as any);
 
     const reshapeCart = (cart: any) => {
       if (!cart) return undefined;
@@ -296,7 +296,7 @@ export async function removeFromCartAction(lineIds: string[]): Promise<Cart | un
       };
     };
 
-    return reshapeCart(res.body.data.cartLinesRemove.cart);
+    return reshapeCart((res.body as any).data.cartLinesRemove.cart);
   } catch (error) {
     console.error('Error removing from cart:', error);
     return undefined;
@@ -317,7 +317,7 @@ export async function updateCartAction(lines: Array<{ id: string; quantity: numb
     const res = await shopifyFetch({
       query: editCartItemsMutation,
       variables: { cartId, lines }
-    });
+    } as any);
 
     const reshapeCart = (cart: any) => {
       if (!cart) return undefined;
@@ -329,7 +329,7 @@ export async function updateCartAction(lines: Array<{ id: string; quantity: numb
       };
     };
 
-    return reshapeCart(res.body.data.cartLinesUpdate.cart);
+    return reshapeCart((res.body as any).data.cartLinesUpdate.cart);
   } catch (error) {
     console.error('Error updating cart:', error);
     return undefined;
