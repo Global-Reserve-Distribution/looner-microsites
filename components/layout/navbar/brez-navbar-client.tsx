@@ -74,23 +74,8 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
         top: '64px', // Start below the promotional banner + header
         height: 'calc(100vh - 64px)' // Take remaining viewport height
       }}>
-        {/* Close button */}
-        <div className="flex justify-end p-4 border-b border-gray-100">
-          <button
-            type="button"
-            className="rounded-md p-2 text-gray-400 hover:text-gray-500"
-            onClick={() => setOpen(false)}
-          >
-            <span className="sr-only">Close menu</span>
-            <div className="relative w-6 h-6">
-              <span className="absolute left-0 top-1/2 w-6 h-0.5 bg-gray-600 rotate-45" />
-              <span className="absolute left-0 top-1/2 w-6 h-0.5 bg-gray-600 -rotate-45" />
-            </div>
-          </button>
-        </div>
-
         {/* Mobile menu content */}
-        <div className="px-4 py-6 overflow-y-auto" style={{ height: 'calc(100% - 80px)' }}>
+        <div className="px-4 py-6 overflow-y-auto h-full">
           {/* Category tabs */}
           <div className="mb-6">
             <div className="flex border-b border-gray-200">
