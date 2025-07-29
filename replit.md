@@ -653,6 +653,13 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Menu positioned below promotional banner at fixed top position (4rem)
   - Background overlay provides proper touch target for closing menu
   - Resolved internal server errors through workflow restart and proper component separation
+- **LOGO REFINEMENT** (July 29, 2025): Enhanced logo display and removed text branding
+  - Replaced LogoSquare component to use actual logo.png file from public directory
+  - Removed "LOONER" text from both mobile and desktop navigation headers
+  - Centered logo on desktop using absolute positioning between navigation elements
+  - Increased logo size from 40x40px to 60x60px for better visibility (sm variant: 30x30px to 40x40px)
+  - Added body scroll prevention when mobile navigation drawer is open
+  - Fixed mobile drawer scrolling functionality with proper flex layout structure
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
