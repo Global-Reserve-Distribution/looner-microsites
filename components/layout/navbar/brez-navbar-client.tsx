@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { ShoppingBagIcon, UserIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -47,6 +47,20 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
   const [open, setOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('infused');
   const { cart } = useCart();
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to reset overflow when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [open]);
 
   const currentSection = navigation.categories[0]?.sections.find(section => section.id === activeTab) || navigation.categories[0]?.sections[0];
 
