@@ -23,25 +23,21 @@ async function getNavigationData() {
       )
       .slice(0, 6)
       .map(product => ({
-        name: product.title.replace(/\s*-.*$/, ''), // Clean up title
+        name: (product as any).displayName || product.title.replace(/\s*-.*$/, ''), // Use display name if available
         href: `/product/${product.handle}`,
         imageSrc: product.featuredImage?.url || '/placeholder-product.jpg',
         thcContent: extractTHCContent(product)
       }));
 
-    // Filter products for EDIBLES (gummies, chocolate, etc.)
+    // Filter products for EDIBLES (products with 'edible' tag)
     const edibleProducts = products
       .filter(product => 
-        product.tags.some((tag: string) => 
-          tag.toLowerCase().includes('edible') || 
-          tag.toLowerCase().includes('gummy') ||
-          tag.toLowerCase().includes('chocolate')
-        ) &&
+        product.tags.some((tag: string) => tag.toLowerCase() === 'edible') &&
         !product.tags.some((tag: string) => tag.toLowerCase().includes('bundle'))
       )
       .slice(0, 4)
       .map(product => ({
-        name: product.title.replace(/\s*-.*$/, ''),
+        name: (product as any).displayName || product.title.replace(/\s*-.*$/, ''), // Use display name if available
         href: `/product/${product.handle}`,
         imageSrc: product.featuredImage?.url || '/placeholder-product.jpg',
         thcContent: extractTHCContent(product)

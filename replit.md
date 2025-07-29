@@ -680,6 +680,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated mobile product list to horizontal layout with smaller images (40x50px)
   - Added bottom navigation links (Shop All, Testing and COAs, Contact Us) in vertical stack
   - Consistent product layout between mobile and desktop with responsive sizing
+- **DISPLAY NAMES AND EDIBLES FILTERING** (July 29, 2025): Updated product display and filtering logic
+  - Now uses Shopify custom.display_name metafield when available for cleaner product names
+  - Updated edibles filtering to only include products with exact 'edible' tag
+  - Enhanced product name display throughout navigation using display names with fallback to cleaned titles
+  - More precise product categorization for better navigation organization
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
