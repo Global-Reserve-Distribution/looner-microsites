@@ -660,6 +660,13 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated to use better quality logo.webp file with responsive sizing: Mobile 90x90px, Desktop 100x100px
   - Added body scroll prevention when mobile navigation drawer is open
   - Fixed mobile drawer scrolling functionality with proper flex layout structure
+- **REAL PRODUCT IMAGES IN NAVIGATION** (July 29, 2025): Integrated Shopify product data into navigation menu
+  - Updated navigation to fetch real Shopify products with actual product images
+  - Added automatic THC content detection from product titles and descriptions
+  - Implemented product filtering for INFUSED vs THC-FREE categories
+  - Product images now display in both desktop flyout and mobile drawer menus
+  - Added error handling with fallback to placeholder images when products unavailable
+  - Navigation shows up to 6 infused products and 3 THC-free products with real data
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
