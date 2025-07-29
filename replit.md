@@ -657,7 +657,7 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Replaced LogoSquare component to use actual logo.png file from public directory
   - Removed "LOONER" text from both mobile and desktop navigation headers
   - Centered logo on desktop using absolute positioning between navigation elements
-  - Increased logo size from 40x40px to 60x60px for better visibility (sm variant: 30x30px to 40x40px)
+  - Updated logo sizes to match reference design: Mobile 125x125px, Desktop 105x105px
   - Added body scroll prevention when mobile navigation drawer is open
   - Fixed mobile drawer scrolling functionality with proper flex layout structure
 
