@@ -1,8 +1,8 @@
 'use client';
 
 import { Fragment, useState } from 'react';
-import { Dialog, Popover, Transition } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon, ShoppingBagIcon, UserIcon } from '@heroicons/react/24/outline';
+import { Popover, Transition } from '@headlessui/react';
+import { ShoppingBagIcon, UserIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCart } from '../../cart/cart-context';
@@ -57,123 +57,85 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
         LOONER THC BEVERAGES + FREE SHIPPING $100+ →
       </div>
 
-      {/* Mobile menu */}
-      <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
-          <Transition.Child
-            as={Fragment}
-            enter="transition-opacity ease-linear duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity ease-linear duration-300"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
+      {/* Mobile menu overlay */}
+      {open && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-25 z-30 lg:hidden"
+          onClick={() => setOpen(false)}
+        />
+      )}
 
-          <div className="fixed inset-0 z-40 flex">
-            <Transition.Child
-              as={Fragment}
-              enter="transition ease-in-out duration-300 transform"
-              enterFrom="-translate-x-full"
-              enterTo="translate-x-0"
-              leave="transition ease-in-out duration-300 transform"
-              leaveFrom="translate-x-0"
-              leaveTo="-translate-x-full"
-            >
-              <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
-                {/* Mobile menu header */}
-                <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200">
-                  <div className="bg-yellow-300 px-3 py-1 rounded text-xs font-medium text-black">
-                    LOONER THC BEVERAGES + FREE SHIPPING $100+ →
-                  </div>
-                  <button
-                    type="button"
-                    className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
-                    onClick={() => setOpen(false)}
-                  >
-                    <span className="sr-only">Close menu</span>
-                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-                </div>
-
-                {/* Mobile menu content */}
-                <div className="px-4 py-6">
-                  {/* Logo centered */}
-                  <div className="text-center mb-6">
-                    <Link href="/" className="flex items-center justify-center">
-                      <LogoSquare />
-                      <span className="ml-2 text-xl font-bold text-black">LOONER</span>
-                    </Link>
-                  </div>
-
-                  {/* Category tabs */}
-                  <div className="mb-6">
-                    <div className="flex border-b border-gray-200">
-                      {navigation.categories[0]?.sections.map((section) => (
-                        <button
-                          key={section.id}
-                          onClick={() => setActiveTab(section.id)}
-                          className={classNames(
-                            section.id === activeTab
-                              ? 'text-black bg-white border-b-2 border-black'
-                              : 'text-gray-500 bg-gray-50',
-                            'flex-1 py-2 px-4 text-center text-sm font-medium'
-                          )}
-                        >
-                          {section.name}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Product grid */}
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    {currentSection?.items.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="group flex flex-col items-center p-3 rounded-lg bg-gray-50 hover:bg-gray-100"
-                        onClick={() => setOpen(false)}
-                      >
-                        <div className="w-16 h-16 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-2xl mb-2 flex items-center justify-center relative overflow-hidden">
-                          {item.imageSrc !== '/placeholder-product.jpg' ? (
-                            <Image
-                              src={item.imageSrc}
-                              alt={item.name}
-                              width={48}
-                              height={48}
-                              className="object-contain"
-                            />
-                          ) : (
-                            <div className="w-12 h-12 bg-white rounded-lg opacity-80 flex items-center justify-center">
-                              <span className="text-xs font-bold text-cannabis-600">L</span>
-                            </div>
-                          )}
-                        </div>
-                        <span className="text-sm font-medium text-gray-900 text-center">{item.name}</span>
-                        {item.thcContent && (
-                          <span className="text-xs text-gray-500">{item.thcContent}</span>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* Shop all button */}
-                  <Link
-                    href="/shop"
-                    className="block w-full text-center py-3 px-4 bg-gray-100 text-gray-600 font-medium rounded-lg hover:bg-gray-200"
-                    onClick={() => setOpen(false)}
-                  >
-                    SHOP ALL
-                  </Link>
-                </div>
-              </Dialog.Panel>
-            </Transition.Child>
+      {/* Mobile menu drawer - slides down from header */}
+      <div className={classNames(
+        "fixed left-0 right-0 bg-white shadow-lg z-40 lg:hidden transition-transform duration-300 ease-in-out max-h-screen overflow-y-auto",
+        open ? "translate-y-0" : "-translate-y-full"
+      )}
+      style={{ top: '4rem' }} // 64px to account for promotional banner + header
+      >
+        {/* Mobile menu content */}
+        <div className="px-4 py-6">
+          {/* Category tabs */}
+          <div className="mb-6">
+            <div className="flex border-b border-gray-200">
+              {navigation.categories[0]?.sections.map((section) => (
+                <button
+                  key={section.id}
+                  onClick={() => setActiveTab(section.id)}
+                  className={classNames(
+                    section.id === activeTab
+                      ? 'text-black bg-white border-b-2 border-black'
+                      : 'text-gray-500 bg-gray-50',
+                    'flex-1 py-2 px-4 text-center text-sm font-medium'
+                  )}
+                >
+                  {section.name}
+                </button>
+              ))}
+            </div>
           </div>
-        </Dialog>
-      </Transition.Root>
+
+          {/* Product grid */}
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            {currentSection?.items.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="group flex flex-col items-center p-3 rounded-lg bg-gray-50 hover:bg-gray-100"
+                onClick={() => setOpen(false)}
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-2xl mb-2 flex items-center justify-center relative overflow-hidden">
+                  {item.imageSrc !== '/placeholder-product.jpg' ? (
+                    <Image
+                      src={item.imageSrc}
+                      alt={item.name}
+                      width={48}
+                      height={48}
+                      className="object-contain"
+                    />
+                  ) : (
+                    <div className="w-12 h-12 bg-white rounded-lg opacity-80 flex items-center justify-center">
+                      <span className="text-xs font-bold text-cannabis-600">L</span>
+                    </div>
+                  )}
+                </div>
+                <span className="text-sm font-medium text-gray-900 text-center">{item.name}</span>
+                {item.thcContent && (
+                  <span className="text-xs text-gray-500">{item.thcContent}</span>
+                )}
+              </Link>
+            ))}
+          </div>
+
+          {/* Shop all button */}
+          <Link
+            href="/shop"
+            className="block w-full text-center py-3 px-4 bg-gray-100 text-gray-600 font-medium rounded-lg hover:bg-gray-200"
+            onClick={() => setOpen(false)}
+          >
+            SHOP ALL
+          </Link>
+        </div>
+      </div>
 
       {/* Desktop navigation */}
       <header className="relative bg-white">
@@ -181,14 +143,28 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
           <div className="flex h-16 items-center">
             {/* Mobile layout */}
             <div className="flex w-full items-center justify-between lg:hidden">
-              {/* Hamburger menu button - left side */}
+              {/* Hamburger/X menu button - left side with animation */}
               <button
                 type="button"
-                className="-ml-2 rounded-md bg-white p-2 text-gray-400"
-                onClick={() => setOpen(true)}
+                className="-ml-2 rounded-md bg-white p-2 text-gray-400 transition-transform duration-300"
+                onClick={() => setOpen(!open)}
               >
-                <span className="sr-only">Open menu</span>
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
+                <div className="relative w-6 h-6">
+                  {/* Hamburger lines */}
+                  <span className={classNames(
+                    "absolute left-0 top-1 w-6 h-0.5 bg-gray-600 transition-all duration-300 ease-in-out",
+                    open ? "rotate-45 translate-y-2" : "rotate-0 translate-y-0"
+                  )} />
+                  <span className={classNames(
+                    "absolute left-0 top-1/2 w-6 h-0.5 bg-gray-600 transition-all duration-300 ease-in-out",
+                    open ? "opacity-0" : "opacity-100"
+                  )} />
+                  <span className={classNames(
+                    "absolute left-0 bottom-1 w-6 h-0.5 bg-gray-600 transition-all duration-300 ease-in-out",
+                    open ? "-rotate-45 -translate-y-2" : "rotate-0 translate-y-0"
+                  )} />
+                </div>
               </button>
 
               {/* Logo centered */}
