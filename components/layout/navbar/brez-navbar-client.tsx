@@ -69,7 +69,8 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
         height: 'calc(100vh - 100px)' // Take remaining viewport height
       }}>
         {/* Mobile menu content */}
-        <div className="px-4 py-6 overflow-y-auto h-full">
+        <div className="flex flex-col h-full">
+          <div className="flex-1 px-4 py-6 overflow-y-auto">
           {/* Category tabs */}
           <div className="mb-6">
             <div className="flex border-b border-gray-200">
@@ -131,6 +132,7 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
             >
               SHOP ALL
             </Link>
+          </div>
           </div>
         </div>
       </div>
