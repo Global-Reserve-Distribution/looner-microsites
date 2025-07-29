@@ -174,7 +174,6 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
               {/* Logo centered */}
               <Link href="/" className="flex items-center">
                 <LogoSquare />
-                <span className="ml-2 text-lg font-bold text-black">LOONER</span>
               </Link>
 
               {/* Cart icon - right side */}
@@ -187,17 +186,9 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
             </div>
 
             {/* Desktop layout */}
-            <div className="hidden lg:flex lg:w-full lg:items-center lg:justify-between">
-              {/* Logo - left side on desktop */}
-              <div className="flex">
-                <Link href="/" className="flex items-center">
-                  <LogoSquare />
-                  <span className="ml-2 text-lg font-bold text-black">LOONER</span>
-                </Link>
-              </div>
-
-              {/* Flyout menus (desktop) */}
-              <Popover.Group className="ml-8 flex h-16 self-stretch">
+            <div className="hidden lg:flex lg:w-full lg:items-center lg:justify-between lg:relative">
+              {/* Left side - Flyout menus (desktop) */}
+              <Popover.Group className="flex h-16 self-stretch">
                 <div className="flex h-full space-x-8">
                 {navigation.categories.map((category) => (
                   <Popover key={category.name} className="flex">
@@ -313,6 +304,13 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                 ))}
                 </div>
               </Popover.Group>
+
+              {/* Logo - centered on desktop */}
+              <div className="absolute left-1/2 transform -translate-x-1/2">
+                <Link href="/" className="flex items-center">
+                  <LogoSquare />
+                </Link>
+              </div>
 
               {/* Right side icons - desktop */}
               <div className="flex items-center space-x-6">
