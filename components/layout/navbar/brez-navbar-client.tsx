@@ -65,18 +65,17 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
         />
       )}
 
-      {/* Mobile menu drawer - slides in from left */}
+      {/* Mobile menu drawer - slides in from left, positioned below header */}
       <div className={classNames(
-        "fixed top-0 left-0 h-full w-80 max-w-sm bg-white shadow-xl z-40 lg:hidden transition-transform duration-300 ease-in-out",
+        "fixed left-0 w-80 max-w-sm bg-white shadow-xl z-30 lg:hidden transition-transform duration-300 ease-in-out",
         open ? "translate-x-0" : "-translate-x-full"
-      )}>
-        {/* Mobile menu header */}
-        <div className="bg-yellow-300 px-4 py-3 text-center text-sm font-medium text-black">
-          LOONER THC BEVERAGES + FREE SHIPPING $100+ →
-        </div>
-        
+      )}
+      style={{ 
+        top: '64px', // Start below the promotional banner + header
+        height: 'calc(100vh - 64px)' // Take remaining viewport height
+      }}>
         {/* Close button */}
-        <div className="flex justify-end p-4">
+        <div className="flex justify-end p-4 border-b border-gray-100">
           <button
             type="button"
             className="rounded-md p-2 text-gray-400 hover:text-gray-500"
@@ -91,7 +90,7 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
         </div>
 
         {/* Mobile menu content */}
-        <div className="px-4 pb-6 overflow-y-auto h-full">
+        <div className="px-4 py-6 overflow-y-auto" style={{ height: 'calc(100% - 80px)' }}>
           {/* Category tabs */}
           <div className="mb-6">
             <div className="flex border-b border-gray-200">
@@ -158,8 +157,8 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
       </div>
 
       {/* Desktop navigation */}
-      <header className="relative bg-white">
-        <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-50">
+      <header className="relative bg-white z-50">
+        <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
           <div className="flex h-16 items-center">
             {/* Mobile layout */}
             <div className="flex w-full items-center justify-between lg:hidden">
