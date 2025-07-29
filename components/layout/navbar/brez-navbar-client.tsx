@@ -67,13 +67,12 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
 
       {/* Mobile menu drawer - slides down from header */}
       <div className={classNames(
-        "fixed left-0 right-0 bg-white shadow-lg z-40 lg:hidden transition-transform duration-300 ease-in-out max-h-screen overflow-y-auto",
+        "fixed left-0 right-0 bg-white shadow-lg z-40 lg:hidden transition-transform duration-300 ease-in-out",
         open ? "translate-y-0" : "-translate-y-full"
       )}
-      style={{ top: '4rem' }} // 64px to account for promotional banner + header
-      >
+      style={{ top: '64px' }}>
         {/* Mobile menu content */}
-        <div className="px-4 py-6">
+        <div className="px-4 py-6 max-h-screen overflow-y-auto">
           {/* Category tabs */}
           <div className="mb-6">
             <div className="flex border-b border-gray-200">
@@ -95,7 +94,7 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
           </div>
 
           {/* Product grid */}
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-2 gap-4">
             {currentSection?.items.map((item) => (
               <Link
                 key={item.name}
@@ -127,19 +126,21 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
           </div>
 
           {/* Shop all button */}
-          <Link
-            href="/shop"
-            className="block w-full text-center py-3 px-4 bg-gray-100 text-gray-600 font-medium rounded-lg hover:bg-gray-200"
-            onClick={() => setOpen(false)}
-          >
-            SHOP ALL
-          </Link>
+          <div className="mt-6 pt-4 border-t border-gray-200">
+            <Link
+              href="/shop"
+              className="block w-full text-center py-3 px-4 bg-gray-100 text-gray-600 font-medium rounded-lg hover:bg-gray-200"
+              onClick={() => setOpen(false)}
+            >
+              SHOP ALL
+            </Link>
+          </div>
         </div>
       </div>
 
       {/* Desktop navigation */}
       <header className="relative bg-white">
-        <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-50">
           <div className="flex h-16 items-center">
             {/* Mobile layout */}
             <div className="flex w-full items-center justify-between lg:hidden">
