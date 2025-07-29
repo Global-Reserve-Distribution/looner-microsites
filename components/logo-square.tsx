@@ -7,9 +7,9 @@ export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
       <Image
         src="/logo.png"
         alt="LOONER Cannabis Co Logo"
-        width={125}
-        height={125}
-        className="object-contain lg:w-[105px] lg:h-[105px] w-[125px] h-[125px]"
+        width={80}
+        height={80}
+        className="object-contain lg:w-[60px] lg:h-[60px] w-[80px] h-[80px]"
       />
     </div>
   );
