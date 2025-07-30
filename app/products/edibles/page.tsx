@@ -22,6 +22,10 @@ function getTagEmoji(tag: string): string {
   const tagLower = tag.toLowerCase();
   if (tagLower.includes("cannabis") || tagLower.includes("infused"))
     return "🌿";
+  if (tagLower.includes("gummy") || tagLower.includes("gummies")) return "🍯";
+  if (tagLower.includes("chocolate")) return "🍫";
+  if (tagLower.includes("cookie")) return "🍪";
+  if (tagLower.includes("brownie")) return "🧁";
   if (tagLower.includes("made") || tagLower.includes("cane")) return "🎯";
   if (tagLower.includes("iconic") || tagLower.includes("flavor")) return "⭐";
   if (tagLower.includes("made in") || tagLower.includes("minnesota"))
@@ -79,8 +83,8 @@ function transformAdminProductsToFlavors(products: any[]) {
       shortDescription: shortDescription || null,
       showBestSellerTag: showBestSellerTag,
       tags: product.tags || [
-        "Cannabis Infused",
-        "Made with Cane Sugar",
+        "Cannabis-Infused Edible",
+        "Precise Dosing",
         "Made in Minnesota",
         "High Quality",
       ],
@@ -120,8 +124,8 @@ function transformProductsToFlavors(products: any[]) {
       shortDescription: shortDescription || null,
       showBestSellerTag: showBestSellerTag,
       tags: product.tags || [
-        "Cannabis Infused",
-        "Made with Cane Sugar",
+        "Cannabis-Infused Edible",
+        "Precise Dosing",
         "Made in Minnesota",
         "High Quality",
       ],
@@ -157,24 +161,24 @@ function extractThcContent(product: any): string {
 
 function getFlavorBgClass(title: string, index: number): string {
   const titleLower = title.toLowerCase();
-  if (titleLower.includes("grape")) return "bg-purple-100";
+  if (titleLower.includes("berry")) return "bg-purple-100";
   if (titleLower.includes("orange")) return "bg-orange-100";
   if (titleLower.includes("cherry")) return "bg-red-100";
   if (titleLower.includes("strawberry")) return "bg-pink-100";
-  if (titleLower.includes("cream")) return "bg-blue-100";
-  if (titleLower.includes("vanilla")) return "bg-purple-100";
-  if (titleLower.includes("apple")) return "bg-green-100";
+  if (titleLower.includes("mint")) return "bg-green-100";
+  if (titleLower.includes("chocolate")) return "bg-amber-100";
+  if (titleLower.includes("honey")) return "bg-yellow-100";
   if (titleLower.includes("lemon")) return "bg-yellow-100";
   if (titleLower.includes("lime")) return "bg-lime-100";
-  if (titleLower.includes("ginger")) return "bg-orange-200";
+  if (titleLower.includes("grape")) return "bg-purple-200";
 
   const colors = [
     "bg-purple-100",
     "bg-orange-100",
     "bg-red-100",
     "bg-pink-100",
-    "bg-blue-100",
     "bg-green-100",
+    "bg-amber-100",
     "bg-yellow-100",
     "bg-lime-100",
   ];
@@ -182,7 +186,7 @@ function getFlavorBgClass(title: string, index: number): string {
 }
 
 // Component that uses searchParams - needs to be in Suspense
-function SodasPageContent() {
+function EdiblesPageContent() {
   const searchParams = useSearchParams();
   const slug = searchParams?.get("flavor");
 
@@ -211,7 +215,7 @@ function SodasPageContent() {
   useEffect(() => {
     async function loadFlavors() {
       try {
-        console.log("Starting to fetch soda products with Admin API...");
+        console.log("Starting to fetch edible products with Admin API...");
 
         let allTransformedFlavors: any[] = [];
         try {
@@ -237,31 +241,91 @@ function SodasPageContent() {
         console.log("Total transformed flavors:", allTransformedFlavors?.length || 0);
         setAllProducts(allTransformedFlavors);
 
-        // Filter to show ONLY soda products (excluding bundles)
+        // Filter to show ONLY edible products (excludes bundles)
         let filteredFlavors = allTransformedFlavors.filter((flavor) => {
           const tags = (flavor.tags || []).map((tag: string) => tag.toLowerCase());
+
+          // Must have exact 'edible' tag
+          const hasEdibleTag = tags.some((tag: string) => tag === 'edible');
+          if (!hasEdibleTag) {
+            console.log(`Product: ${flavor.title} excluded from edibles (no edible tag)`);
+            return false;
+          }
 
           // Exclude any products with 'bundle' tag
           const hasBundle = tags.some((tag: string) => tag.includes("bundle"));
           if (hasBundle) {
-            console.log(`Product: ${flavor.title} excluded from sodas (has bundle tag)`);
+            console.log(`Product: ${flavor.title} excluded from edibles (has bundle tag)`);
             return false;
           }
 
-          // If we have real category data from Admin API, use it
-          if (flavor.category?.name) {
-            const categoryName = flavor.category.name.toLowerCase();
-            console.log(`Product: ${flavor.title}, Category: ${flavor.category.name}, Is Soda: ${categoryName === "soda"}`);
-            return categoryName === "soda";
-          }
-
-          // For Storefront API, use tag matching
-          const hasSodaTag = tags.some((tag: string) => tag.includes("soda"));
-          console.log(`Product: ${flavor.title}, Tags: ${JSON.stringify(flavor.tags)}, Has Soda Tag: ${hasSodaTag}`);
-          return hasSodaTag;
+          console.log(`Product: ${flavor.title}, Is Edible: true`);
+          return true;
         });
 
-        console.log("Found soda flavors:", filteredFlavors.length);
+        // If no real edibles found, add placeholder products
+        if (filteredFlavors.length === 0) {
+          console.log("No real edibles found, adding placeholder products");
+          const placeholderEdibles = [
+            {
+              title: "Honey Gummies",
+              description: "Delicious honey-flavored gummies infused with premium THC extract. Perfect for precise dosing and discreet consumption.",
+              shortDescription: "Sweet honey gummies with precise THC dosing",
+              showBestSellerTag: true,
+              tags: ["Cannabis-Infused Edible", "Honey Flavored", "Precise Dosing", "High Quality"],
+              productType: "Gummies",
+              vendor: "LOONER",
+              category: "Edibles",
+              bgColor: "bg-yellow-100",
+              primaryColor: "#FEF3C7",
+              secondaryColor: "#FCD34D",
+              images: ["🍯"],
+              variants: [
+                { id: "honey-10mg", title: "10mg", price: 25.99, availableForSale: true, selectedOptions: [] },
+                { id: "honey-5mg", title: "5mg", price: 18.99, availableForSale: true, selectedOptions: [] }
+              ]
+            },
+            {
+              title: "Dark Chocolate Squares",
+              description: "Rich dark chocolate squares infused with high-quality THC. Each square is precisely dosed for consistent effects.",
+              shortDescription: "Premium dark chocolate with THC",
+              showBestSellerTag: false,
+              tags: ["Cannabis-Infused Edible", "Dark Chocolate", "Precise Dosing", "Premium"],
+              productType: "Chocolate",
+              vendor: "LOONER",
+              category: "Edibles",
+              bgColor: "bg-amber-100",
+              primaryColor: "#92400E",
+              secondaryColor: "#F59E0B",
+              images: ["🍫"],
+              variants: [
+                { id: "chocolate-10mg", title: "10mg", price: 28.99, availableForSale: true, selectedOptions: [] },
+                { id: "chocolate-5mg", title: "5mg", price: 22.99, availableForSale: true, selectedOptions: [] }
+              ]
+            },
+            {
+              title: "Mixed Berry Gummies", 
+              description: "A delightful mix of berry flavors including strawberry, blueberry, and raspberry. Naturally flavored with real fruit extracts.",
+              shortDescription: "Mixed berry gummies with natural fruit flavors",
+              showBestSellerTag: false,
+              tags: ["Cannabis-Infused Edible", "Berry Flavored", "Natural Fruit", "Vegetarian"],
+              productType: "Gummies",
+              vendor: "LOONER",
+              category: "Edibles", 
+              bgColor: "bg-purple-100",
+              primaryColor: "#8B5CF6",
+              secondaryColor: "#C4B5FD",
+              images: ["🫐"],
+              variants: [
+                { id: "berry-10mg", title: "10mg", price: 24.99, availableForSale: true, selectedOptions: [] },
+                { id: "berry-2.5mg", title: "2.5mg", price: 16.99, availableForSale: true, selectedOptions: [] }
+              ]
+            }
+          ];
+          filteredFlavors = placeholderEdibles;
+        }
+
+        console.log("Found edible flavors:", filteredFlavors.length);
         setFlavors(filteredFlavors);
 
         const defaultFlavor = filteredFlavors.find(
@@ -279,7 +343,7 @@ function SodasPageContent() {
         }
         setLoading(false);
       } catch (error) {
-        console.error("Error loading soda flavors:", error);
+        console.error("Error loading edible flavors:", error);
         setLoading(false);
       }
     }
@@ -287,13 +351,13 @@ function SodasPageContent() {
     loadFlavors();
   }, [slug]);
 
-  // Variety packs filtering for sodas page
+  // Variety packs filtering for edibles
   const varietyPacks = allProducts.filter((f) => {
     const title = f.title.toLowerCase();
     const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
-    const hasSoda = tags.some((tag: string) => tag.includes("soda"));
+    const hasEdible = tags.some((tag: string) => tag === 'edible');
     const hasBundle = tags.some((tag: string) => tag.includes("bundle"));
-    return hasSoda && hasBundle;
+    return hasEdible && hasBundle;
   });
 
   if (loading) {
@@ -322,7 +386,7 @@ function SodasPageContent() {
       <main className="min-h-screen flex items-center justify-center bg-gray-100">
         <div className="text-center">
           <h1 className="text-2xl font-semibold text-gray-800">
-            Soda flavors unavailable
+            Edible products unavailable
           </h1>
           <p className="text-gray-500">Please try again later.</p>
         </div>
@@ -333,7 +397,7 @@ function SodasPageContent() {
   return (
     <>
       <main className="relative overflow-hidden min-h-screen transition-all duration-500">
-        <FlavorBackground color={selectedFlavor?.primaryColor || "#FFE5B4"} />
+        <FlavorBackground color={selectedFlavor?.primaryColor || "#FEF3C7"} />
 
       <div className="relative z-10">
         {/* Mobile Title - Only visible on mobile, positioned at very top */}
@@ -342,7 +406,7 @@ function SodasPageContent() {
             {selectedFlavor?.displayName || selectedFlavor?.title}
           </h1>
           <p className="text-lg text-gray-600">
-            {selectedFlavor?.shortDescription || selectedFlavor?.description || "Premium cannabis soda."}
+            {selectedFlavor?.shortDescription || selectedFlavor?.description || "Premium cannabis-infused edible."}
           </p>
         </div>
 
@@ -362,7 +426,7 @@ function SodasPageContent() {
                 {selectedFlavor?.displayName || selectedFlavor?.title}
               </h1>
               <p className="text-lg lg:text-xl text-gray-600 mb-6">
-                {selectedFlavor?.shortDescription || selectedFlavor?.description || "Premium cannabis soda."}
+                {selectedFlavor?.shortDescription || selectedFlavor?.description || "Premium cannabis-infused edible."}
               </p>
             </div>
 
@@ -414,7 +478,7 @@ function SodasPageContent() {
           <div
             className="py-12 lg:py-16"
             style={{
-              backgroundColor: selectedFlavor?.secondaryColor || "#CCFBF1",
+              backgroundColor: selectedFlavor?.secondaryColor || "#FCD34D",
             }}
           >
             <div className="max-w-6xl mx-auto px-6">
@@ -422,79 +486,65 @@ function SodasPageContent() {
                 {/* Product Description */}
                 <div className="lg:col-span-2">
                   <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                    About This Soda
+                    Premium Cannabis-Infused Edibles
                   </h2>
                   <div className="prose prose-lg text-gray-700 mb-8">
                     <p>
                       {selectedFlavor?.description ||
-                        "Crafted with premium ingredients and precise THC dosing, our cannabis sodas deliver a consistent, enjoyable experience every time. Perfect for relaxation, creativity, or social moments."}
+                        "Our cannabis-infused edibles deliver precise dosing with delicious flavors. Perfect for discreet consumption, therapeutic use, or recreational enjoyment with consistent, long-lasting effects."}
                     </p>
                     <p className="text-sm text-gray-600 mt-4">
-                      <strong>Ingredients:</strong> Carbonated water, cane sugar,
-                      natural flavors, citric acid, cannabis extract, natural
-                      caffeine from green coffee beans, stevia leaf extract.
+                      <strong>Perfect for:</strong> Discreet consumption, longer-lasting effects, 
+                      therapeutic applications, and controlled dosing experiences.
                     </p>
                   </div>
                 </div>
 
-                {/* Nutrition Facts */}
+                {/* Dosage Information */}
                 <div
                   className="bg-white p-6 rounded-xl border-2 border-gray-300"
                   style={{ fontFamily: "Arial, sans-serif" }}
                 >
-                  <div className="text-center border-b-8 border-black pb-2 mb-2">
-                    <h3 className="text-2xl font-bold">Nutrition Facts</h3>
-                    <p className="text-sm">Per 12 fl oz (355mL)</p>
+                  <div className="text-center border-b-4 border-purple-600 pb-2 mb-4">
+                    <h3 className="text-2xl font-bold text-purple-700">Cannabis Edibles</h3>
+                    <p className="text-sm text-gray-600">Precise Edible Dosing</p>
                   </div>
-                  <div className="space-y-1 text-sm">
-                    <div className="flex justify-between border-b border-gray-400 py-1">
-                      <span className="font-bold">Calories</span>
-                      <span className="font-bold">35</span>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between py-2 border-b border-gray-200">
+                      <span className="font-semibold">Onset Time:</span>
+                      <span>30-120 min</span>
                     </div>
-                    <div className="text-right text-xs text-gray-600 border-b border-gray-300 pb-2">
-                      % Daily Value*
+                    <div className="flex justify-between py-2 border-b border-gray-200">
+                      <span className="font-semibold">Duration:</span>
+                      <span>4-8 hours</span>
                     </div>
-                    <div className="flex justify-between border-b border-gray-300 py-1">
-                      <span>Total Fat 0g</span>
-                      <span>0%</span>
+                    <div className="flex justify-between py-2 border-b border-gray-200">
+                      <span className="font-semibold">Experience:</span>
+                      <span>Long-lasting</span>
                     </div>
-                    <div className="flex justify-between border-b border-gray-300 py-1">
-                      <span>Sodium 25mg</span>
-                      <span>1%</span>
+                    <div className="flex justify-between py-2 border-b border-gray-200">
+                      <span className="font-semibold">Best For:</span>
+                      <span>Therapeutic Use</span>
                     </div>
-                    <div className="flex justify-between border-b border-gray-300 py-1 font-bold">
-                      <span>Total Carbohydrate 9g</span>
-                      <span>3%</span>
-                    </div>
-                    <div className="flex justify-between border-b border-gray-300 py-1 ml-4">
-                      <span>Total Sugars 8g</span>
-                      <span></span>
-                    </div>
-                    <div className="flex justify-between border-b-4 border-black py-1">
-                      <span>Protein 0g</span>
-                      <span></span>
-                    </div>
-                    <div className="flex justify-between py-1 font-bold text-green-700">
-                      <span>THC 10mg</span>
-                      <span></span>
+                    <div className="bg-purple-50 p-3 rounded-lg mt-4">
+                      <p className="text-xs text-purple-800 font-medium">
+                        <strong>Discreet & Long-lasting:</strong> Perfect for extended relief 
+                        and therapeutic benefits with precise dosing control.
+                      </p>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-600 mt-4">
-                    *The % Daily Value tells you how much a nutrient in a serving
-                    contributes to a daily diet.
-                  </p>
                 </div>
               </div>
 
               {/* Feature Icons */}
               <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mt-12">
                 {[
-                  { icon: "🧪", label: "Lab Tested" },
-                  { icon: "🌱", label: "Non-GMO" },
-                  { icon: "🍯", label: "Less Sugar" },
-                  { icon: "🌿", label: "Natural" },
+                  { icon: "🍯", label: "Delicious Flavors" },
                   { icon: "🎯", label: "Precise Dosing" },
-                  { icon: "✨", label: "Premium Quality" },
+                  { icon: "🧪", label: "Lab Tested" },
+                  { icon: "🌿", label: "Premium Extract" },
+                  { icon: "🤫", label: "Discreet" },
+                  { icon: "⏰", label: "Long Lasting" },
                 ].map((feature, index) => (
                   <div key={index} className="text-center">
                     <div className="text-3xl mb-2">{feature.icon}</div>
@@ -518,7 +568,7 @@ function SodasPageContent() {
             >
               <path
                 d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V0H1200V24.2C1132.19,1.08,1055.71,8.69,985.66,27.17Z"
-                fill={selectedFlavor?.secondaryColor || "#CCFBF1"}
+                fill={selectedFlavor?.secondaryColor || "#FCD34D"}
               ></path>
             </svg>
           </div>
@@ -547,7 +597,7 @@ function SodasPageContent() {
         isMainButtonVisible={isPurchaseButtonVisible}
         merchandiseId={selectedVariant?.id || selectedFlavor?.variants?.[0]?.id || ''}
         productTitle={selectedFlavor?.title || ''}
-        productPrice={`$${selectedVariant?.price || selectedFlavor?.variants?.[0]?.price || '35.99'}`}
+        productPrice={`$${selectedVariant?.price || selectedFlavor?.variants?.[0]?.price || '24.99'}`}
         productImage={selectedFlavor?.images?.[0]}
       />
     </main>
@@ -556,17 +606,17 @@ function SodasPageContent() {
 }
 
 // Main export component with Suspense boundary
-export default function SodasPage() {
+export default function EdiblesPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <div className="text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-green-800 mx-auto"></div>
-          <p className="mt-4 text-lg text-gray-600">Loading soda flavors...</p>
+          <p className="mt-4 text-lg text-gray-600">Loading edible products...</p>
         </div>
       </div>
     }>
-      <SodasPageContent />
+      <EdiblesPageContent />
     </Suspense>
   );
 }

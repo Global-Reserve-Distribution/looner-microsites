@@ -2,21 +2,21 @@
 
 import React, { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { FlavorHero } from "../../../components/FlavorHero";
-import { LifestyleImageGrid } from "../../../components/LifestyleImageGrid";
-import { FlavorPickerTabs } from "../../../components/FlavorPickerTabs";
-import { FlavorPickerVariants } from "../../../components/FlavorPickerVariants";
-import { PurchaseOptions } from "../../../components/PurchaseOptions";
-import { FlavorBackground } from "../../../components/FlavorBackground";
-import { OlipopStyleGrid } from "../../../components/OlipopStyleGrid";
-import { RecommendedFlavors } from "../../../components/RecommendedFlavors";
-import { StickyCartFooter } from "../../../components/StickyCartFooter";
+import { FlavorHero } from "../../../../components/FlavorHero";
+import { LifestyleImageGrid } from "../../../../components/LifestyleImageGrid";
+import { FlavorPickerTabs } from "../../../../components/FlavorPickerTabs";
+import { FlavorPickerVariants } from "../../../../components/FlavorPickerVariants";
+import { PurchaseOptions } from "../../../../components/PurchaseOptions";
+import { FlavorBackground } from "../../../../components/FlavorBackground";
+import { OlipopStyleGrid } from "../../../../components/OlipopStyleGrid";
+import { RecommendedFlavors } from "../../../../components/RecommendedFlavors";
+import { StickyCartFooter } from "../../../../components/StickyCartFooter";
 import {
   fetchProducts,
   fetchProductsWithAdminCategories,
-} from "../../../lib/shopify/server-actions";
-import { useCart } from "../../../hooks/useCart";
-import { useIntersectionObserver } from "../../../hooks/useIntersectionObserver";
+} from "../../../../lib/shopify/server-actions";
+import { useCart } from "../../../../hooks/useCart";
+import { useIntersectionObserver } from "../../../../hooks/useIntersectionObserver";
 
 function getTagEmoji(tag: string): string {
   const tagLower = tag.toLowerCase();
@@ -31,7 +31,6 @@ function getTagEmoji(tag: string): string {
   if (tagLower.includes("gmo")) return "🌱";
   if (tagLower.includes("sugar")) return "🍯";
   if (tagLower.includes("thc")) return "🌿";
-  if (tagLower.includes("edible")) return "🍯";
   return "✨";
 }
 
@@ -158,30 +157,32 @@ function extractThcContent(product: any): string {
 
 function getFlavorBgClass(title: string, index: number): string {
   const titleLower = title.toLowerCase();
-  if (titleLower.includes("chocolate")) return "bg-amber-100";
-  if (titleLower.includes("gummy")) return "bg-red-100";
-  if (titleLower.includes("mint")) return "bg-green-100";
-  if (titleLower.includes("berry")) return "bg-purple-100";
-  if (titleLower.includes("honey")) return "bg-yellow-100";
-  if (titleLower.includes("caramel")) return "bg-orange-100";
-  if (titleLower.includes("vanilla")) return "bg-stone-100";
-  if (titleLower.includes("cherry")) return "bg-pink-100";
+  if (titleLower.includes("grape")) return "bg-purple-100";
+  if (titleLower.includes("orange")) return "bg-orange-100";
+  if (titleLower.includes("cherry")) return "bg-red-100";
+  if (titleLower.includes("strawberry")) return "bg-pink-100";
+  if (titleLower.includes("cream")) return "bg-blue-100";
+  if (titleLower.includes("vanilla")) return "bg-purple-100";
+  if (titleLower.includes("apple")) return "bg-green-100";
+  if (titleLower.includes("lemon")) return "bg-yellow-100";
+  if (titleLower.includes("lime")) return "bg-lime-100";
+  if (titleLower.includes("ginger")) return "bg-orange-200";
 
   const colors = [
-    "bg-amber-100",
-    "bg-red-100",
-    "bg-green-100",
     "bg-purple-100",
-    "bg-yellow-100",
     "bg-orange-100",
-    "bg-stone-100",
+    "bg-red-100",
     "bg-pink-100",
+    "bg-blue-100",
+    "bg-green-100",
+    "bg-yellow-100",
+    "bg-lime-100",
   ];
-  return colors[index % colors.length] || "bg-amber-100";
+  return colors[index % colors.length] || "bg-purple-100";
 }
 
 // Component that uses searchParams - needs to be in Suspense
-function EdiblesPageContent() {
+function Sodas10mgPageContent() {
   const searchParams = useSearchParams();
   const slug = searchParams?.get("flavor");
 
@@ -210,7 +211,7 @@ function EdiblesPageContent() {
   useEffect(() => {
     async function loadFlavors() {
       try {
-        console.log("Starting to fetch edible products with Admin API...");
+        console.log("Starting to fetch 10mg soda products with Admin API...");
 
         let allTransformedFlavors: any[] = [];
         try {
@@ -236,79 +237,39 @@ function EdiblesPageContent() {
         console.log("Total transformed flavors:", allTransformedFlavors?.length || 0);
         setAllProducts(allTransformedFlavors);
 
-        // Filter to show ONLY edible products
+        // Filter to show ONLY 10mg soda products (excludes bundles)
         let filteredFlavors = allTransformedFlavors.filter((flavor) => {
           const tags = (flavor.tags || []).map((tag: string) => tag.toLowerCase());
+          const title = flavor.title.toLowerCase();
+          const description = (flavor.description || "").toLowerCase();
 
-          // Look for exact 'edible' tag match
-          const hasEdibleTag = tags.some((tag: string) => tag === "edible");
+          // Exclude any products with 'bundle' tag
+          const hasBundle = tags.some((tag: string) => tag.includes("bundle"));
+          if (hasBundle) {
+            console.log(`Product: ${flavor.title} excluded from 10mg sodas (has bundle tag)`);
+            return false;
+          }
 
-          console.log(`Product: ${flavor.title}, Tags: ${JSON.stringify(flavor.tags)}, Has Edible Tag: ${hasEdibleTag}`);
-          return hasEdibleTag;
+          // Must be a soda product
+          const hasSodaTag = tags.some((tag: string) => tag.includes("soda"));
+          if (!hasSodaTag) {
+            console.log(`Product: ${flavor.title} excluded from 10mg sodas (not a soda)`);
+            return false;
+          }
+
+          // Check for 10mg THC content specifically
+          const has10mgThc = 
+            title.includes("10mg") ||
+            title.includes("10 mg") ||
+            description.includes("10mg") ||
+            description.includes("10 mg") ||
+            tags.some((tag: string) => tag.includes("10mg") || tag.includes("10 mg"));
+
+          console.log(`Product: ${flavor.title}, Is 10mg Soda: ${has10mgThc}`);
+          return has10mgThc;
         });
 
-        // If no real edible products found, create placeholder edibles
-        if (filteredFlavors.length === 0) {
-          console.log("No real edible products found, creating placeholders");
-          const mockEdibles = [
-            {
-              title: "Honey Gummies",
-              description: "Delicious honey-flavored gummies with 10mg THC each.",
-              shortDescription: "Sweet honey gummies with precise dosing.",
-              showBestSellerTag: true,
-              tags: ["edible", "Cannabis Infused", "10mg THC", "Natural Honey"],
-              productType: "Edible",
-              vendor: "LOONER",
-              category: { name: "Edibles" },
-              bgColor: "bg-yellow-100",
-              primaryColor: "#FEF3C7",
-              secondaryColor: "#FCD34D",
-              images: ["🍯"],
-              variants: [
-                { id: "mock-honey-gummies-10", title: "10 Pack", price: 25.99, availableForSale: true, selectedOptions: [] }
-              ],
-            },
-            {
-              title: "Dark Chocolate Squares",
-              description: "Rich dark chocolate squares infused with premium THC.",
-              shortDescription: "Premium dark chocolate with THC.",
-              showBestSellerTag: false,
-              tags: ["edible", "Cannabis Infused", "5mg THC", "Dark Chocolate"],
-              productType: "Edible",
-              vendor: "LOONER",
-              category: { name: "Edibles" },
-              bgColor: "bg-amber-100",
-              primaryColor: "#D97706",
-              secondaryColor: "#F59E0B",
-              images: ["🍫"],
-              variants: [
-                { id: "mock-chocolate-squares-20", title: "20 Pack", price: 45.99, availableForSale: true, selectedOptions: [] }
-              ],
-            },
-            {
-              title: "Mixed Berry Gummies",
-              description: "Assorted berry flavors in perfectly dosed gummy form.",
-              shortDescription: "Mixed berry gummies with THC.",
-              showBestSellerTag: false,
-              tags: ["edible", "Cannabis Infused", "10mg THC", "Berry Mix"],
-              productType: "Edible",
-              vendor: "LOONER",
-              category: { name: "Edibles" },
-              bgColor: "bg-purple-100",
-              primaryColor: "#8B5CF6",
-              secondaryColor: "#A78BFA",
-              images: ["🫐"],
-              variants: [
-                { id: "mock-berry-gummies-10", title: "10 Pack", price: 28.99, availableForSale: true, selectedOptions: [] }
-              ],
-            }
-          ];
-          filteredFlavors = mockEdibles;
-          console.log("Using placeholder edibles:", filteredFlavors.length);
-        } else {
-          console.log("Found real edible flavors:", filteredFlavors.length);
-        }
-
+        console.log("Found 10mg soda flavors:", filteredFlavors.length);
         setFlavors(filteredFlavors);
 
         const defaultFlavor = filteredFlavors.find(
@@ -326,7 +287,7 @@ function EdiblesPageContent() {
         }
         setLoading(false);
       } catch (error) {
-        console.error("Error loading edible flavors:", error);
+        console.error("Error loading 10mg soda flavors:", error);
         setLoading(false);
       }
     }
@@ -334,13 +295,14 @@ function EdiblesPageContent() {
     loadFlavors();
   }, [slug]);
 
-  // Variety packs filtering for edibles page - look for edible bundles
+  // Variety packs filtering for 10mg sodas
   const varietyPacks = allProducts.filter((f) => {
     const title = f.title.toLowerCase();
     const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
-    const hasEdible = tags.some((tag: string) => tag.includes("edible"));
-    const hasBundle = tags.some((tag: string) => tag.includes("bundle")) || title.includes("variety") || title.includes("mix");
-    return hasEdible && hasBundle;
+    const hasSoda = tags.some((tag: string) => tag.includes("soda"));
+    const hasBundle = tags.some((tag: string) => tag.includes("bundle"));
+    const has10mg = title.includes("10mg") || title.includes("10 mg");
+    return hasSoda && hasBundle && has10mg;
   });
 
   if (loading) {
@@ -369,7 +331,7 @@ function EdiblesPageContent() {
       <main className="min-h-screen flex items-center justify-center bg-gray-100">
         <div className="text-center">
           <h1 className="text-2xl font-semibold text-gray-800">
-            Edible products unavailable
+            10mg Soda products unavailable
           </h1>
           <p className="text-gray-500">Please try again later.</p>
         </div>
@@ -380,7 +342,7 @@ function EdiblesPageContent() {
   return (
     <>
       <main className="relative overflow-hidden min-h-screen transition-all duration-500">
-        <FlavorBackground color={selectedFlavor?.primaryColor || "#FEF3C7"} />
+        <FlavorBackground color={selectedFlavor?.primaryColor || "#FFE5B4"} />
 
       <div className="relative z-10">
         {/* Mobile Title - Only visible on mobile, positioned at very top */}
@@ -389,7 +351,7 @@ function EdiblesPageContent() {
             {selectedFlavor?.displayName || selectedFlavor?.title}
           </h1>
           <p className="text-lg text-gray-600">
-            {selectedFlavor?.shortDescription || selectedFlavor?.description || "Premium cannabis edibles."}
+            {selectedFlavor?.shortDescription || selectedFlavor?.description || "Perfect 10mg THC soda."}
           </p>
         </div>
 
@@ -409,7 +371,7 @@ function EdiblesPageContent() {
                 {selectedFlavor?.displayName || selectedFlavor?.title}
               </h1>
               <p className="text-lg lg:text-xl text-gray-600 mb-6">
-                {selectedFlavor?.shortDescription || selectedFlavor?.description || "Premium cannabis edibles."}
+                {selectedFlavor?.shortDescription || selectedFlavor?.description || "Perfect 10mg THC soda."}
               </p>
             </div>
 
@@ -461,7 +423,7 @@ function EdiblesPageContent() {
           <div
             className="py-12 lg:py-16"
             style={{
-              backgroundColor: selectedFlavor?.secondaryColor || "#FCD34D",
+              backgroundColor: selectedFlavor?.secondaryColor || "#CCFBF1",
             }}
           >
             <div className="max-w-6xl mx-auto px-6">
@@ -469,51 +431,50 @@ function EdiblesPageContent() {
                 {/* Product Description */}
                 <div className="lg:col-span-2">
                   <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                    Premium Cannabis Edibles
+                    Perfect 10mg Soda Dosage
                   </h2>
                   <div className="prose prose-lg text-gray-700 mb-8">
                     <p>
                       {selectedFlavor?.description ||
-                        "Our premium cannabis edibles are crafted with precision and care, delivering consistent effects and exceptional taste. Each product is lab-tested for potency and purity."}
+                        "Our 10mg THC sodas combine refreshing carbonation with precise cannabis dosing. Perfect for social occasions, creative activities, or relaxation with a familiar soda experience."}
                     </p>
                     <p className="text-sm text-gray-600 mt-4">
-                      <strong>Ingredients:</strong> Organic cane sugar, natural flavors, 
-                      cannabis extract (THC), citric acid, natural coloring, and premium 
-                      ingredients specific to each product type.
+                      <strong>Perfect for:</strong> Social drinking, replacing alcohol, 
+                      microdosing, and enjoying a refreshing THC beverage experience.
                     </p>
                   </div>
                 </div>
 
-                {/* Edibles Information */}
+                {/* Dosage Information */}
                 <div
                   className="bg-white p-6 rounded-xl border-2 border-gray-300"
                   style={{ fontFamily: "Arial, sans-serif" }}
                 >
-                  <div className="text-center border-b-4 border-amber-600 pb-2 mb-4">
-                    <h3 className="text-2xl font-bold text-amber-700">Edibles</h3>
-                    <p className="text-sm text-gray-600">Long-Lasting Effects</p>
+                  <div className="text-center border-b-4 border-green-600 pb-2 mb-4">
+                    <h3 className="text-2xl font-bold text-green-700">10mg THC Soda</h3>
+                    <p className="text-sm text-gray-600">Perfect Social Dose</p>
                   </div>
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <span className="font-semibold">Onset Time:</span>
-                      <span>30-90 min</span>
+                      <span>15-45 min</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <span className="font-semibold">Duration:</span>
-                      <span>4-8 hours</span>
+                      <span>2-4 hours</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <span className="font-semibold">Experience:</span>
-                      <span>Full Body</span>
+                      <span>Mild to Moderate</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <span className="font-semibold">Best For:</span>
-                      <span>Sleep & Pain</span>
+                      <span>Social Events</span>
                     </div>
-                    <div className="bg-amber-50 p-3 rounded-lg mt-4">
-                      <p className="text-xs text-amber-800 font-medium">
-                        <strong>Start Low, Go Slow:</strong> Edibles take longer to take 
-                        effect. Wait at least 2 hours before consuming more.
+                    <div className="bg-green-50 p-3 rounded-lg mt-4">
+                      <p className="text-xs text-green-800 font-medium">
+                        <strong>Refreshing & Social:</strong> Perfect alternative to 
+                        alcoholic beverages with a familiar soda experience.
                       </p>
                     </div>
                   </div>
@@ -523,11 +484,11 @@ function EdiblesPageContent() {
               {/* Feature Icons */}
               <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mt-12">
                 {[
-                  { icon: "🍯", label: "Natural" },
-                  { icon: "⏰", label: "Long Lasting" },
+                  { icon: "🥤", label: "Refreshing Soda" },
+                  { icon: "🎯", label: "Perfect Dose" },
                   { icon: "🧪", label: "Lab Tested" },
-                  { icon: "🌿", label: "Organic" },
-                  { icon: "🎯", label: "Precise Dose" },
+                  { icon: "🌿", label: "Natural" },
+                  { icon: "🍾", label: "Social Drink" },
                   { icon: "✨", label: "Premium Quality" },
                 ].map((feature, index) => (
                   <div key={index} className="text-center">
@@ -552,7 +513,7 @@ function EdiblesPageContent() {
             >
               <path
                 d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V0H1200V24.2C1132.19,1.08,1055.71,8.69,985.66,27.17Z"
-                fill={selectedFlavor?.secondaryColor || "#FCD34D"}
+                fill={selectedFlavor?.secondaryColor || "#CCFBF1"}
               ></path>
             </svg>
           </div>
@@ -581,7 +542,7 @@ function EdiblesPageContent() {
         isMainButtonVisible={isPurchaseButtonVisible}
         merchandiseId={selectedVariant?.id || selectedFlavor?.variants?.[0]?.id || ''}
         productTitle={selectedFlavor?.title || ''}
-        productPrice={`$${selectedVariant?.price || selectedFlavor?.variants?.[0]?.price || '25.99'}`}
+        productPrice={`$${selectedVariant?.price || selectedFlavor?.variants?.[0]?.price || '35.99'}`}
         productImage={selectedFlavor?.images?.[0]}
       />
     </main>
@@ -590,17 +551,17 @@ function EdiblesPageContent() {
 }
 
 // Main export component with Suspense boundary
-export default function EdiblesPage() {
+export default function Sodas10mgPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-amber-800 mx-auto"></div>
-          <p className="mt-4 text-lg text-gray-600">Loading edible products...</p>
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-green-800 mx-auto"></div>
+          <p className="mt-4 text-lg text-gray-600">Loading 10mg soda products...</p>
         </div>
       </div>
     }>
-      <EdiblesPageContent />
+      <Sodas10mgPageContent />
     </Suspense>
   );
 }

@@ -713,6 +713,14 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Added URL parameter support for product preselection using ?flavor=product-name format
   - Updated mock fallback products to use correct routing structure for consistent navigation experience
   - Real Shopify products automatically route to appropriate sub-page based on tags and content analysis
+- **HIERARCHICAL PRODUCT STRUCTURE** (July 30, 2025): Restructured product pages to hierarchical routing system
+  - **New Structure**: `/products/sodas/10mg`, `/products/sodas/50mg`, `/products/edibles`
+  - Created specialized pages for 10mg soda products with social drinking focus
+  - Created specialized pages for 50mg soda products with premium high-dose experience
+  - Created edibles page with placeholder system for gummies, chocolates, and berry products
+  - Updated navigation routing logic to support 50mg vs 10mg detection with proper priority
+  - Removed old flat `/product/*` structure and consolidated into hierarchical system
+  - Each page maintains full Olipop-style layout with category-specific content and dosage information
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
