@@ -101,11 +101,27 @@ async function getNavigationData() {
     // Debug: Check what products were found
     console.log('Found infused products:', infusedProducts.length);
     console.log('Found edible products:', edibleProducts.length);
-    console.log('All products sample:', products.slice(0, 5).map(p => ({ 
+    console.log('All products available:', products.map(p => ({ 
       title: p.title, 
       tags: p.tags,
       hasImage: !!p.featuredImage?.url,
-      imageUrl: p.featuredImage?.url 
+      imageUrl: p.featuredImage?.url,
+      handle: p.handle
+    })));
+    
+    // Debug specific Pink Lemonade search
+    const pinkLemonadeProducts = products.filter(p => {
+      const title = p.title.toLowerCase();
+      const description = (p.description || '').toLowerCase();
+      const tags = (p.tags || []).map((tag: string) => tag.toLowerCase()).join(' ');
+      return title.includes('pink') || title.includes('lemonade') || 
+             description.includes('pink') || description.includes('lemonade') ||
+             tags.includes('pink') || tags.includes('lemonade');
+    });
+    console.log('Potential Pink Lemonade matches:', pinkLemonadeProducts.map(p => ({
+      title: p.title,
+      hasImage: !!p.featuredImage?.url,
+      imageUrl: p.featuredImage?.url
     })));
 
     // Map screenshot products to real Shopify data where possible
@@ -129,12 +145,22 @@ async function getNavigationData() {
         const description = (product.description || '').toLowerCase();
         const tags = (product.tags || []).map((tag: string) => tag.toLowerCase()).join(' ');
         
-        // For Pink Lemonade, prioritize exact match
+        // For Pink Lemonade, use broader search and log everything
         if (screenshotName === 'Pink Lemonade') {
-          if (title.includes('pink lemonade') || title.includes('lemonade pink') || 
-              description.includes('pink lemonade') || tags.includes('pink lemonade')) {
+          console.log('Checking product for Pink Lemonade:', {
+            title: product.title,
+            titleLower: title,
+            description: description.substring(0, 100),
+            tags: product.tags,
+            hasImage: !!product.featuredImage?.url,
+            imageUrl: product.featuredImage?.url
+          });
+          
+          if (title.includes('pink') || title.includes('lemonade') || 
+              description.includes('pink') || description.includes('lemonade') ||
+              tags.includes('pink') || tags.includes('lemonade')) {
             const { displayName } = extractMetafields(product);
-            console.log('Found Pink Lemonade product:', product.title, 'Image:', product.featuredImage?.url);
+            console.log('MATCHED Pink Lemonade product:', product.title, 'Image:', product.featuredImage?.url);
             return {
               name: screenshotName,
               href: getProductRoute(product),
@@ -156,11 +182,24 @@ async function getNavigationData() {
         }
       }
       
-      // Fallback if no match found
+      // Fallback if no match found - but provide specific image for Pink Lemonade if available
+      console.log('No match found for:', screenshotName, 'falling back to default');
+      
+      // Temporary: Use a specific image URL for Pink Lemonade if we know one exists
+      let fallbackImage = '/logo.webp';
+      if (screenshotName === 'Pink Lemonade') {
+        // Check if we have any products with images that could work
+        const anyProductWithImage = products.find(p => p.featuredImage?.url);
+        if (anyProductWithImage) {
+          fallbackImage = anyProductWithImage.featuredImage.url;
+          console.log('Using fallback image for Pink Lemonade:', fallbackImage);
+        }
+      }
+      
       return {
         name: screenshotName,
         href: `/products/sodas/10mg?flavor=${encodeURIComponent(screenshotName.toLowerCase().replace(/\s+/g, '-'))}`,
-        imageSrc: '/logo.webp',
+        imageSrc: fallbackImage,
         thcContent: '10mg'
       };
     };
