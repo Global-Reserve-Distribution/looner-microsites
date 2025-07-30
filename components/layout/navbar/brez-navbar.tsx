@@ -109,17 +109,14 @@ async function getNavigationData() {
       handle: p.handle
     })));
     
-    // Debug specific Pink Lemonade search
-    const pinkLemonadeProducts = products.filter(p => {
+    // Debug specific Pink Lemonade search - look for Sparkling Lemonades with variants
+    const lemonadeProducts = products.filter(p => {
       const title = p.title.toLowerCase();
-      const description = (p.description || '').toLowerCase();
-      const tags = (p.tags || []).map((tag: string) => tag.toLowerCase()).join(' ');
-      return title.includes('pink') || title.includes('lemonade') || 
-             description.includes('pink') || description.includes('lemonade') ||
-             tags.includes('pink') || tags.includes('lemonade');
+      return title.includes('lemonade') || title.includes('sparkling');
     });
-    console.log('Potential Pink Lemonade matches:', pinkLemonadeProducts.map(p => ({
+    console.log('Lemonade/Sparkling products found:', lemonadeProducts.map(p => ({
       title: p.title,
+      variants: p.variants ? p.variants.map((v: any) => v.title) : [],
       hasImage: !!p.featuredImage?.url,
       imageUrl: p.featuredImage?.url
     })));
@@ -145,22 +142,41 @@ async function getNavigationData() {
         const description = (product.description || '').toLowerCase();
         const tags = (product.tags || []).map((tag: string) => tag.toLowerCase()).join(' ');
         
-        // For Pink Lemonade, use broader search and log everything
+        // For Pink Lemonade, look for Sparkling Lemonades with variants
         if (screenshotName === 'Pink Lemonade') {
           console.log('Checking product for Pink Lemonade:', {
             title: product.title,
             titleLower: title,
-            description: description.substring(0, 100),
-            tags: product.tags,
+            variants: product.variants ? product.variants.length : 0,
             hasImage: !!product.featuredImage?.url,
             imageUrl: product.featuredImage?.url
           });
           
-          if (title.includes('pink') || title.includes('lemonade') || 
-              description.includes('pink') || description.includes('lemonade') ||
-              tags.includes('pink') || tags.includes('lemonade')) {
+          // Check if this is the Sparkling Lemonades product or contains lemonade
+          if (title.includes('sparkling lemonade') || title.includes('lemonade') || 
+              description.includes('lemonade') || tags.includes('lemonade')) {
+            
+            // Check if it has Pink Lemonade variant
+            if (product.variants && product.variants.length > 0) {
+              const pinkVariant = product.variants.find((variant: any) => 
+                variant.title && variant.title.toLowerCase().includes('pink')
+              );
+              
+              if (pinkVariant) {
+                console.log('FOUND Pink Lemonade variant in product:', product.title, 'Variant:', pinkVariant.title);
+                const { displayName } = extractMetafields(product);
+                return {
+                  name: screenshotName,
+                  href: getProductRoute(product),
+                  imageSrc: product.featuredImage?.url || '/logo.webp',
+                  thcContent: extractTHCContent(product) || '10mg'
+                };
+              }
+            }
+            
+            // Fallback: if it's any lemonade product, use it
+            console.log('MATCHED general lemonade product:', product.title, 'Image:', product.featuredImage?.url);
             const { displayName } = extractMetafields(product);
-            console.log('MATCHED Pink Lemonade product:', product.title, 'Image:', product.featuredImage?.url);
             return {
               name: screenshotName,
               href: getProductRoute(product),
