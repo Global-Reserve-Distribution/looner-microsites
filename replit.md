@@ -731,6 +731,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
     - Content messaging (titles, descriptions, features, dosage information)
   - **Reduced codebase**: Eliminated ~1000+ lines of duplicated code across three separate page files
   - **Maintainable architecture**: Single source of truth for product page functionality with easy configuration updates
+- **PRODUCT PAGE LAYOUT FIX** (July 30, 2025): Added missing layout wrapper to ensure all pages show header
+  - Created app/products/layout.tsx to wrap all product pages with LayoutWrapper component
+  - All product pages now consistently show BREZ navigation header and footer
+  - Fixed FlavorPickerVariants filtering issue - now uses filtered 'flavors' instead of 'allProducts'
+  - Product pages properly filter and display only relevant products (10mg sodas, 50mg sodas, edibles)
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
