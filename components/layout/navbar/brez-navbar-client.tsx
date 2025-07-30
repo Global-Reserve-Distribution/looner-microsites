@@ -223,10 +223,8 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                           leaveFrom="opacity-100"
                           leaveTo="opacity-0"
                         >
-                          <Popover.Panel className="absolute inset-x-0 top-full z-20">
-                            <div className="absolute inset-0 top-1/2 bg-white shadow-lg border border-gray-200" aria-hidden="true" />
-
-                            <div className="relative bg-white border border-gray-200 rounded-lg shadow-lg" style={{ maxWidth: '600px', margin: '0 auto' }}>
+                          <Popover.Panel className="absolute left-0 top-full z-20 mt-2">
+                            <div className="bg-white border border-gray-200 rounded-lg shadow-lg" style={{ width: '600px' }}>
                               <div className="looner-menu-panel-b7z9 looner-menu-panel--desktop p-6">
                                 <div className="looner-product-columns">
                                   {/* Two-column layout matching reference */}
