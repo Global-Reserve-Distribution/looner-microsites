@@ -102,18 +102,21 @@ async function getNavigationData() {
     console.log('Found edible products:', edibleProducts.length);
     console.log('All product tags sample:', products.slice(0, 3).map(p => ({ title: p.title, tags: p.tags })));
 
-    // Fallback to mock data if no products found
-    const mockProducts = infusedProducts.length === 0 ? [
+    // Use exact products from screenshot
+    const screenshotBeverageProducts = [
+      { name: 'Wild Grape', href: '/products/sodas/10mg?flavor=wild-grape', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
       { name: 'Professor Pepper', href: '/products/sodas/10mg?flavor=professor-pepper', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Lemon Lime', href: '/products/sodas/10mg?flavor=lemon-lime', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Cola High Dose', href: '/products/sodas/50mg?flavor=cola-high-dose', imageSrc: '/placeholder-product.jpg', thcContent: '50mg' },
-    ] : infusedProducts;
+      { name: 'Classic Root Beer', href: '/products/sodas/10mg?flavor=classic-root-beer', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Sweet Orange', href: '/products/sodas/10mg?flavor=sweet-orange', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Pink Lemonade', href: '/products/sodas/10mg?flavor=pink-lemonade', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+    ];
 
-    const mockEdibles = edibleProducts.length === 0 ? [
-      { name: 'Honey Gummies', href: '/products/edibles?flavor=honey-gummies', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Chocolate Squares', href: '/products/edibles?flavor=chocolate-squares', imageSrc: '/placeholder-product.jpg', thcContent: '5mg' },
-      { name: 'Berry Gummies', href: '/products/edibles?flavor=berry-gummies', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-    ] : edibleProducts;
+    const screenshotEdibleProducts = [
+      { name: 'Twilight Night', href: '/products/edibles?flavor=twilight-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Zenith Day', href: '/products/edibles?flavor=zenith-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Lunar Night', href: '/products/edibles?flavor=lunar-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Nooner Day', href: '/products/edibles?flavor=nooner-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+    ];
 
     return {
       categories: [
@@ -122,26 +125,27 @@ async function getNavigationData() {
           name: 'Shop',
           sections: [
             {
-              id: 'infused',
-              name: 'INFUSED',
-              items: mockProducts,
+              id: 'beverage',
+              name: 'BEVERAGE',
+              items: screenshotBeverageProducts,
             },
             {
               id: 'edibles', 
               name: 'EDIBLES',
-              items: mockEdibles,
+              items: screenshotEdibleProducts,
             },
           ],
         },
       ],
       pages: [
-        { name: 'Bundle & Save', href: '/bundles' },
-        { name: 'Store Locator', href: '/store-locator' },
+        { name: 'Shop All', href: '/shop' },
+        { name: 'Testing and COAs', href: '/testing' },
+        { name: 'Contact Us', href: '/contact' },
       ],
     };
   } catch (error) {
     console.error('Error fetching navigation products:', error);
-    // Fallback to static data on error
+    // Fallback to screenshot data on error
     return {
       categories: [
         {
@@ -149,27 +153,33 @@ async function getNavigationData() {
           name: 'Shop',
           sections: [
             {
-              id: 'infused',
-              name: 'INFUSED',
+              id: 'beverage',
+              name: 'BEVERAGE',
               items: [
+                { name: 'Wild Grape', href: '/products/sodas/10mg?flavor=wild-grape', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
                 { name: 'Professor Pepper', href: '/products/sodas/10mg?flavor=professor-pepper', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-                { name: 'Lemon Lime', href: '/products/sodas/10mg?flavor=lemon-lime', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+                { name: 'Classic Root Beer', href: '/products/sodas/10mg?flavor=classic-root-beer', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+                { name: 'Sweet Orange', href: '/products/sodas/10mg?flavor=sweet-orange', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+                { name: 'Pink Lemonade', href: '/products/sodas/10mg?flavor=pink-lemonade', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
               ],
             },
             {
               id: 'edibles', 
               name: 'EDIBLES',
               items: [
-                { name: 'Honey Gummies', href: '/products/edibles?flavor=honey-gummies', imageSrc: '🍯', thcContent: '10mg' },
-                { name: 'Chocolate Squares', href: '/products/edibles?flavor=chocolate-squares', imageSrc: '🍫', thcContent: '5mg' },
+                { name: 'Twilight Night', href: '/products/edibles?flavor=twilight-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+                { name: 'Zenith Day', href: '/products/edibles?flavor=zenith-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+                { name: 'Lunar Night', href: '/products/edibles?flavor=lunar-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+                { name: 'Nooner Day', href: '/products/edibles?flavor=nooner-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
               ],
             },
           ],
         },
       ],
       pages: [
-        { name: 'Bundle & Save', href: '/bundles' },
-        { name: 'Store Locator', href: '/store-locator' },
+        { name: 'Shop All', href: '/shop' },
+        { name: 'Testing and COAs', href: '/testing' },
+        { name: 'Contact Us', href: '/contact' },
       ],
     };
   }

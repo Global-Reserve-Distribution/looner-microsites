@@ -757,6 +757,13 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Enhanced URL parameter matching with step-by-step logging to track exact vs partial vs word-based matches
   - Fixed edibles page flavor picker to properly respond to ?flavor= URL parameters for both real and placeholder products
   - Added realistic product variants, colors, and descriptions for comprehensive edibles testing
+- **FLYOUT MENU SCREENSHOT MATCHING** (July 30, 2025): Updated navigation menu to match exact reference screenshot
+  - Replaced dynamic Shopify product fetching with hardcoded products matching screenshot exactly
+  - **BEVERAGE section**: Wild Grape, Professor Pepper, Classic Root Beer, Sweet Orange, Pink Lemonade
+  - **EDIBLES section**: Twilight Night, Zenith Day, Lunar Night, Nooner Day
+  - Updated section names from "INFUSED/THC-FREE" to "BEVERAGE/EDIBLES" matching reference design
+  - Updated bottom navigation links to "Shop All", "Testing and COAs", "Contact Us" matching screenshot
+  - All products route to appropriate sub-pages with correct flavor URL parameters for selection
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
