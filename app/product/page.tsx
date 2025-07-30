@@ -11,8 +11,7 @@ import { PurchaseOptions } from "../../components/PurchaseOptions";
 import { FlavorBackground } from "../../components/FlavorBackground";
 import { OlipopStyleGrid } from "../../components/OlipopStyleGrid";
 import { RecommendedFlavors } from "../../components/RecommendedFlavors";
-import { Header } from "../../components/Header";
-import { MobileHeader } from "../../components/MobileHeader";
+
 import { StickyCartFooter } from "../../components/StickyCartFooter";
 import {
   fetchProducts,
@@ -393,14 +392,6 @@ function ProductPageContent() {
 
   return (
     <>
-      {/* Desktop Header - Hidden on mobile */}
-      <div className="hidden md:block">
-        <Header backgroundColor="white" />
-      </div>
-      
-      {/* Mobile Header - Hidden on desktop, already has md:hidden */}
-      <MobileHeader backgroundColor="white" />
-      
       <main className="relative overflow-hidden min-h-screen transition-all duration-500">
         <FlavorBackground color={selectedFlavor?.primaryColor || "#FFE5B4"} />
 

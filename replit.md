@@ -694,7 +694,8 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Enhanced edibles placeholder display with honey emoji (🍯) for better visual distinction from beverages
 - **FIXED DUPLICATE HEADER ON PRODUCT PAGE** (July 29, 2025): Resolved header duplication issue
   - Updated product page layout to use same LayoutWrapper as main pages instead of old Header component
-  - Eliminated duplicate headers that were stacking on product pages
+  - Removed additional Header and MobileHeader components from product page content that were causing duplication
+  - Eliminated all duplicate headers including those embedded within product page components
   - Product pages now use consistent BREZ navigation matching the rest of the site
   - Streamlined layout architecture with single header system across all pages
 
