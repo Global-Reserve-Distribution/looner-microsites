@@ -698,6 +698,15 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Eliminated all duplicate headers including those embedded within product page components
   - Product pages now use consistent BREZ navigation matching the rest of the site
   - Streamlined layout architecture with single header system across all pages
+- **PRODUCT SUB-PAGES IMPLEMENTATION** (July 30, 2025): Created filtered product category pages
+  - Split main /product page into specialized sub-pages: /product/sodas, /product/10mg, /product/edibles
+  - **Sodas page**: Filters products by "soda" tag or Admin API category, excludes bundles
+  - **10mg page**: Filters products containing "10mg" or "10 mg" in title/description/tags
+  - **Edibles page**: Filters by exact "edible" tag, includes placeholder system for missing products
+  - Each page maintains full Olipop-style layout with flavor picker, purchase options, and recommendations
+  - Fixed TypeScript component prop interfaces to match existing component signatures
+  - All pages use correct FlavorPickerVariants, PurchaseOptions, and StickyCartFooter prop structures
+  - Enhanced filtering logic for variety packs specific to each product category
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
