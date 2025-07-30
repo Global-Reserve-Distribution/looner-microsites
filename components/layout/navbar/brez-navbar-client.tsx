@@ -97,29 +97,23 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                       onClick={() => setOpen(false)}
                     >
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-12 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-lg flex items-center justify-center overflow-hidden">
-                          {item.imageSrc.includes('logo.webp') ? (
-                            <Image
-                              src={item.imageSrc}
-                              alt={item.name}
-                              width={32}
-                              height={32}
-                              className="object-contain"
-                            />
-                          ) : item.imageSrc !== '/placeholder-product.jpg' ? (
+                        <div className="w-10 h-12 bg-white rounded-lg flex items-center justify-center overflow-hidden border border-gray-200">
+                          {item.imageSrc && item.imageSrc !== '/placeholder-product.jpg' ? (
                             <Image
                               src={item.imageSrc}
                               alt={item.name}
                               width={40}
-                              height={50}
-                              className="object-contain"
+                              height={48}
+                              className="object-contain w-full h-full"
                             />
                           ) : (
-                            section.name === 'EDIBLES' ? (
-                              <span className="text-xs font-bold text-white">🍯</span>
-                            ) : (
-                              <span className="text-xs font-bold text-white">L</span>
-                            )
+                            <div className="w-full h-full bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-lg flex items-center justify-center">
+                              {section.name === 'EDIBLES' ? (
+                                <span className="text-xs font-bold text-white">🍯</span>
+                              ) : (
+                                <span className="text-xs font-bold text-white">L</span>
+                              )}
+                            </div>
                           )}
                         </div>
                       </div>
@@ -250,29 +244,23 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                                                 className="group flex items-center space-x-3 py-2 hover:bg-gray-50 rounded transition-colors"
                                               >
                                                 <div className="flex-shrink-0">
-                                                  <div className="w-10 h-12 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded flex items-center justify-center overflow-hidden">
-                                                    {item.imageSrc.includes('logo.webp') ? (
-                                                      <Image
-                                                        src={item.imageSrc}
-                                                        alt={item.name}
-                                                        width={32}
-                                                        height={32}
-                                                        className="object-contain"
-                                                      />
-                                                    ) : item.imageSrc !== '/placeholder-product.jpg' ? (
+                                                  <div className="w-10 h-12 bg-white rounded flex items-center justify-center overflow-hidden border border-gray-200">
+                                                    {item.imageSrc && item.imageSrc !== '/placeholder-product.jpg' ? (
                                                       <Image
                                                         src={item.imageSrc}
                                                         alt={item.name}
                                                         width={40}
-                                                        height={50}
-                                                        className="object-contain"
+                                                        height={48}
+                                                        className="object-contain w-full h-full"
                                                       />
                                                     ) : (
-                                                      section.name === 'EDIBLES' ? (
-                                                        <span className="text-xs font-bold text-white">🍯</span>
-                                                      ) : (
-                                                        <span className="text-xs font-bold text-white">L</span>
-                                                      )
+                                                      <div className="w-full h-full bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded flex items-center justify-center">
+                                                        {section.name === 'EDIBLES' ? (
+                                                          <span className="text-xs font-bold text-white">🍯</span>
+                                                        ) : (
+                                                          <span className="text-xs font-bold text-white">L</span>
+                                                        )}
+                                                      </div>
                                                     )}
                                                   </div>
                                                 </div>

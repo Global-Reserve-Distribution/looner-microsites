@@ -102,21 +102,55 @@ async function getNavigationData() {
     console.log('Found edible products:', edibleProducts.length);
     console.log('All product tags sample:', products.slice(0, 3).map(p => ({ title: p.title, tags: p.tags })));
 
-    // Use exact products from screenshot with proper images
-    const screenshotBeverageProducts = [
-      { name: 'Wild Grape', href: '/products/sodas/10mg?flavor=wild-grape', imageSrc: '/logo.webp', thcContent: '10mg' },
-      { name: 'Professor Pepper', href: '/products/sodas/10mg?flavor=professor-pepper', imageSrc: '/logo.webp', thcContent: '10mg' },
-      { name: 'Classic Root Beer', href: '/products/sodas/10mg?flavor=classic-root-beer', imageSrc: '/logo.webp', thcContent: '10mg' },
-      { name: 'Sweet Orange', href: '/products/sodas/10mg?flavor=sweet-orange', imageSrc: '/logo.webp', thcContent: '10mg' },
-      { name: 'Pink Lemonade', href: '/products/sodas/10mg?flavor=pink-lemonade', imageSrc: '/logo.webp', thcContent: '10mg' },
-    ];
+    // Map screenshot products to real Shopify data where possible
+    const mapProductToShopify = (screenshotName: string, products: any[]) => {
+      const productMap: { [key: string]: string[] } = {
+        'Wild Grape': ['wild grape', 'grape'],
+        'Professor Pepper': ['professor pepper', 'pepper', 'dr pepper'],
+        'Classic Root Beer': ['root beer', 'classic root'],
+        'Sweet Orange': ['orange', 'sweet orange'],
+        'Pink Lemonade': ['lemonade', 'pink lemonade'],
+        'Twilight Night': ['twilight', 'night'],
+        'Zenith Day': ['zenith', 'day'],
+        'Lunar Night': ['lunar', 'night'],
+        'Nooner Day': ['nooner', 'day']
+      };
 
+      const searchTerms = productMap[screenshotName] || [screenshotName.toLowerCase()];
+      
+      for (const product of products) {
+        const title = product.title.toLowerCase();
+        const description = (product.description || '').toLowerCase();
+        
+        if (searchTerms.some(term => title.includes(term) || description.includes(term))) {
+          const { displayName } = extractMetafields(product);
+          return {
+            name: screenshotName, // Keep screenshot name for consistency
+            href: getProductRoute(product),
+            imageSrc: product.featuredImage?.url || '/logo.webp',
+            thcContent: extractTHCContent(product) || '10mg'
+          };
+        }
+      }
+      
+      // Fallback if no match found
+      return {
+        name: screenshotName,
+        href: `/products/sodas/10mg?flavor=${encodeURIComponent(screenshotName.toLowerCase().replace(/\s+/g, '-'))}`,
+        imageSrc: '/logo.webp',
+        thcContent: '10mg'
+      };
+    };
+
+    // Create beverage products using real Shopify data where available
+    const screenshotBeverageProducts = [
+      'Wild Grape', 'Professor Pepper', 'Classic Root Beer', 'Sweet Orange', 'Pink Lemonade'
+    ].map(name => mapProductToShopify(name, infusedProducts.length > 0 ? products : []));
+
+    // Create edible products using real Shopify data where available  
     const screenshotEdibleProducts = [
-      { name: 'Twilight Night', href: '/products/edibles?flavor=twilight-night', imageSrc: '/logo.webp', thcContent: '10mg' },
-      { name: 'Zenith Day', href: '/products/edibles?flavor=zenith-day', imageSrc: '/logo.webp', thcContent: '10mg' },
-      { name: 'Lunar Night', href: '/products/edibles?flavor=lunar-night', imageSrc: '/logo.webp', thcContent: '10mg' },
-      { name: 'Nooner Day', href: '/products/edibles?flavor=nooner-day', imageSrc: '/logo.webp', thcContent: '10mg' },
-    ];
+      'Twilight Night', 'Zenith Day', 'Lunar Night', 'Nooner Day'
+    ].map(name => mapProductToShopify(name, edibleProducts.length > 0 ? products : []));
 
     return {
       categories: [
