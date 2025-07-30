@@ -764,6 +764,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated section names from "INFUSED/THC-FREE" to "BEVERAGE/EDIBLES" matching reference design
   - Updated bottom navigation links to "Shop All", "Testing and COAs", "Contact Us" matching screenshot
   - All products route to appropriate sub-pages with correct flavor URL parameters for selection
+- **FLYOUT MENU PRODUCT IMAGES** (July 30, 2025): Added proper product images to flyout menu
+  - Updated all flyout menu products to use logo.webp instead of placeholder images
+  - Enhanced image display logic to handle LOONER logo images with proper sizing (32x32px)
+  - Added gradient background containers for all product images with cannabis-themed colors
+  - Both desktop and mobile flyout menus now display LOONER logo for all products with consistent styling
+  - Images appear within rounded containers with cannabis gradient backgrounds for professional branding
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

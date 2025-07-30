@@ -97,23 +97,31 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                       onClick={() => setOpen(false)}
                     >
                       <div className="flex-shrink-0">
-                        {item.imageSrc !== '/placeholder-product.jpg' ? (
-                          <Image
-                            src={item.imageSrc}
-                            alt={item.name}
-                            width={40}
-                            height={50}
-                            className="object-contain"
-                          />
-                        ) : (
-                          <div className="w-10 h-12 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-lg flex items-center justify-center">
-                            {section.name === 'EDIBLES' ? (
+                        <div className="w-10 h-12 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-lg flex items-center justify-center overflow-hidden">
+                          {item.imageSrc.includes('logo.webp') ? (
+                            <Image
+                              src={item.imageSrc}
+                              alt={item.name}
+                              width={32}
+                              height={32}
+                              className="object-contain"
+                            />
+                          ) : item.imageSrc !== '/placeholder-product.jpg' ? (
+                            <Image
+                              src={item.imageSrc}
+                              alt={item.name}
+                              width={40}
+                              height={50}
+                              className="object-contain"
+                            />
+                          ) : (
+                            section.name === 'EDIBLES' ? (
                               <span className="text-xs font-bold text-white">🍯</span>
                             ) : (
                               <span className="text-xs font-bold text-white">L</span>
-                            )}
-                          </div>
-                        )}
+                            )
+                          )}
+                        </div>
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 group-hover:text-gray-700 leading-tight">
@@ -242,23 +250,31 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                                                 className="group flex items-center space-x-3 py-2 hover:bg-gray-50 rounded transition-colors"
                                               >
                                                 <div className="flex-shrink-0">
-                                                  {item.imageSrc !== '/placeholder-product.jpg' ? (
-                                                    <Image
-                                                      src={item.imageSrc}
-                                                      alt={item.name}
-                                                      width={40}
-                                                      height={50}
-                                                      className="looner-product-image object-contain rounded"
-                                                    />
-                                                  ) : (
-                                                    <div className="w-10 h-12 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded flex items-center justify-center">
-                                                      {section.name === 'EDIBLES' ? (
+                                                  <div className="w-10 h-12 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded flex items-center justify-center overflow-hidden">
+                                                    {item.imageSrc.includes('logo.webp') ? (
+                                                      <Image
+                                                        src={item.imageSrc}
+                                                        alt={item.name}
+                                                        width={32}
+                                                        height={32}
+                                                        className="object-contain"
+                                                      />
+                                                    ) : item.imageSrc !== '/placeholder-product.jpg' ? (
+                                                      <Image
+                                                        src={item.imageSrc}
+                                                        alt={item.name}
+                                                        width={40}
+                                                        height={50}
+                                                        className="object-contain"
+                                                      />
+                                                    ) : (
+                                                      section.name === 'EDIBLES' ? (
                                                         <span className="text-xs font-bold text-white">🍯</span>
                                                       ) : (
                                                         <span className="text-xs font-bold text-white">L</span>
-                                                      )}
-                                                    </div>
-                                                  )}
+                                                      )
+                                                    )}
+                                                  </div>
                                                 </div>
                                                 <span className="text-sm font-medium text-gray-900 group-hover:text-gray-700">
                                                   {item.name}

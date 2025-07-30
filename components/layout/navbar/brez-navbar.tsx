@@ -102,20 +102,20 @@ async function getNavigationData() {
     console.log('Found edible products:', edibleProducts.length);
     console.log('All product tags sample:', products.slice(0, 3).map(p => ({ title: p.title, tags: p.tags })));
 
-    // Use exact products from screenshot
+    // Use exact products from screenshot with proper images
     const screenshotBeverageProducts = [
-      { name: 'Wild Grape', href: '/products/sodas/10mg?flavor=wild-grape', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Professor Pepper', href: '/products/sodas/10mg?flavor=professor-pepper', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Classic Root Beer', href: '/products/sodas/10mg?flavor=classic-root-beer', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Sweet Orange', href: '/products/sodas/10mg?flavor=sweet-orange', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Pink Lemonade', href: '/products/sodas/10mg?flavor=pink-lemonade', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Wild Grape', href: '/products/sodas/10mg?flavor=wild-grape', imageSrc: '/logo.webp', thcContent: '10mg' },
+      { name: 'Professor Pepper', href: '/products/sodas/10mg?flavor=professor-pepper', imageSrc: '/logo.webp', thcContent: '10mg' },
+      { name: 'Classic Root Beer', href: '/products/sodas/10mg?flavor=classic-root-beer', imageSrc: '/logo.webp', thcContent: '10mg' },
+      { name: 'Sweet Orange', href: '/products/sodas/10mg?flavor=sweet-orange', imageSrc: '/logo.webp', thcContent: '10mg' },
+      { name: 'Pink Lemonade', href: '/products/sodas/10mg?flavor=pink-lemonade', imageSrc: '/logo.webp', thcContent: '10mg' },
     ];
 
     const screenshotEdibleProducts = [
-      { name: 'Twilight Night', href: '/products/edibles?flavor=twilight-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Zenith Day', href: '/products/edibles?flavor=zenith-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Lunar Night', href: '/products/edibles?flavor=lunar-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Nooner Day', href: '/products/edibles?flavor=nooner-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Twilight Night', href: '/products/edibles?flavor=twilight-night', imageSrc: '/logo.webp', thcContent: '10mg' },
+      { name: 'Zenith Day', href: '/products/edibles?flavor=zenith-day', imageSrc: '/logo.webp', thcContent: '10mg' },
+      { name: 'Lunar Night', href: '/products/edibles?flavor=lunar-night', imageSrc: '/logo.webp', thcContent: '10mg' },
+      { name: 'Nooner Day', href: '/products/edibles?flavor=nooner-day', imageSrc: '/logo.webp', thcContent: '10mg' },
     ];
 
     return {
@@ -156,21 +156,21 @@ async function getNavigationData() {
               id: 'beverage',
               name: 'BEVERAGE',
               items: [
-                { name: 'Wild Grape', href: '/products/sodas/10mg?flavor=wild-grape', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-                { name: 'Professor Pepper', href: '/products/sodas/10mg?flavor=professor-pepper', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-                { name: 'Classic Root Beer', href: '/products/sodas/10mg?flavor=classic-root-beer', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-                { name: 'Sweet Orange', href: '/products/sodas/10mg?flavor=sweet-orange', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-                { name: 'Pink Lemonade', href: '/products/sodas/10mg?flavor=pink-lemonade', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+                { name: 'Wild Grape', href: '/products/sodas/10mg?flavor=wild-grape', imageSrc: '/logo.webp', thcContent: '10mg' },
+                { name: 'Professor Pepper', href: '/products/sodas/10mg?flavor=professor-pepper', imageSrc: '/logo.webp', thcContent: '10mg' },
+                { name: 'Classic Root Beer', href: '/products/sodas/10mg?flavor=classic-root-beer', imageSrc: '/logo.webp', thcContent: '10mg' },
+                { name: 'Sweet Orange', href: '/products/sodas/10mg?flavor=sweet-orange', imageSrc: '/logo.webp', thcContent: '10mg' },
+                { name: 'Pink Lemonade', href: '/products/sodas/10mg?flavor=pink-lemonade', imageSrc: '/logo.webp', thcContent: '10mg' },
               ],
             },
             {
               id: 'edibles', 
               name: 'EDIBLES',
               items: [
-                { name: 'Twilight Night', href: '/products/edibles?flavor=twilight-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-                { name: 'Zenith Day', href: '/products/edibles?flavor=zenith-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-                { name: 'Lunar Night', href: '/products/edibles?flavor=lunar-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-                { name: 'Nooner Day', href: '/products/edibles?flavor=nooner-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+                { name: 'Twilight Night', href: '/products/edibles?flavor=twilight-night', imageSrc: '/logo.webp', thcContent: '10mg' },
+                { name: 'Zenith Day', href: '/products/edibles?flavor=zenith-day', imageSrc: '/logo.webp', thcContent: '10mg' },
+                { name: 'Lunar Night', href: '/products/edibles?flavor=lunar-night', imageSrc: '/logo.webp', thcContent: '10mg' },
+                { name: 'Nooner Day', href: '/products/edibles?flavor=nooner-day', imageSrc: '/logo.webp', thcContent: '10mg' },
               ],
             },
           ],
