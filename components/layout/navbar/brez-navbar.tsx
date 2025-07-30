@@ -28,6 +28,34 @@ async function getNavigationData() {
       return thcMatch ? `${thcMatch[1]}mg` : '';
     };
 
+    // Generate product route based on product characteristics
+    const getProductRoute = (product: any) => {
+      const tags = product.tags.map((tag: string) => tag.toLowerCase());
+      const title = product.title.toLowerCase();
+      const description = (product.description || '').toLowerCase();
+      
+      // Check if it's an edible
+      if (tags.some((tag: string) => tag === 'edible')) {
+        return `/product/edibles?flavor=${encodeURIComponent(title.replace(/\s+/g, '-'))}`;
+      }
+      
+      // Check if it has 10mg THC content
+      if (title.includes('10mg') || title.includes('10 mg') || 
+          description.includes('10mg') || description.includes('10 mg') ||
+          tags.some((tag: string) => tag.includes('10mg') || tag.includes('10 mg'))) {
+        return `/product/10mg?flavor=${encodeURIComponent(title.replace(/\s+/g, '-'))}`;
+      }
+      
+      // Default to sodas page for THC beverages
+      if (tags.some((tag: string) => tag.includes('soda')) && 
+          !tags.some((tag: string) => tag.includes('bundle'))) {
+        return `/product/sodas?flavor=${encodeURIComponent(title.replace(/\s+/g, '-'))}`;
+      }
+      
+      // Fallback to main product page
+      return `/product?flavor=${encodeURIComponent(title.replace(/\s+/g, '-'))}`;
+    };
+
     // Filter products for INFUSED (THC products)
     const infusedProducts = products
       .filter(product => 
@@ -40,7 +68,7 @@ async function getNavigationData() {
         const { displayName } = extractMetafields(product);
         return {
           name: displayName && displayName.trim() !== "" ? displayName : product.title.replace(/\s*-.*$/, ''),
-          href: `/product/${product.handle}`,
+          href: getProductRoute(product),
           imageSrc: product.featuredImage?.url || '/placeholder-product.jpg',
           thcContent: extractTHCContent(product)
         };
@@ -56,8 +84,8 @@ async function getNavigationData() {
       .map(product => {
         const { displayName } = extractMetafields(product);
         return {
-          name: displayName && displayName.trim() !== "" ? displayName : product.title.replace(/\s*-.*$/, ''),
-          href: `/product/${product.handle}`,
+          name: displayName && displayName.trim() !== "" ? displayName : product.title.replace(/\s+/g, '-'),
+          href: getProductRoute(product),
           imageSrc: product.featuredImage?.url || '/placeholder-product.jpg',
           thcContent: extractTHCContent(product)
         };
@@ -69,16 +97,15 @@ async function getNavigationData() {
 
     // Fallback to mock data if no products found
     const mockProducts = infusedProducts.length === 0 ? [
-      { name: 'Professor Pepper', href: '/product/professor-pepper', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Lemon Lime', href: '/product/lemon-lime', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Cola', href: '/product/cola', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Professor Pepper', href: '/product/10mg?flavor=professor-pepper', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Lemon Lime', href: '/product/sodas?flavor=lemon-lime', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Cola', href: '/product/sodas?flavor=cola', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
     ] : infusedProducts;
 
     const mockEdibles = edibleProducts.length === 0 ? [
-      { name: 'Twilight Night', href: '/product/twilight-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Zenith Day', href: '/product/zenith-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-      { name: 'Lunar Night', href: '/product/lunar-night', imageSrc: '/placeholder-product.jpg', thcContent: '5mg' },
-      { name: 'Nooner Day', href: '/product/nooner-day', imageSrc: '/placeholder-product.jpg', thcContent: '2.5mg' },
+      { name: 'Honey Gummies', href: '/product/edibles?flavor=honey-gummies', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+      { name: 'Chocolate Squares', href: '/product/edibles?flavor=chocolate-squares', imageSrc: '/placeholder-product.jpg', thcContent: '5mg' },
+      { name: 'Berry Gummies', href: '/product/edibles?flavor=berry-gummies', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
     ] : edibleProducts;
 
     return {
@@ -118,16 +145,16 @@ async function getNavigationData() {
               id: 'infused',
               name: 'INFUSED',
               items: [
-                { name: 'Professor Pepper', href: '/product/professor-pepper', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-                { name: 'Lemon Lime', href: '/product/lemon-lime', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+                { name: 'Professor Pepper', href: '/product/10mg?flavor=professor-pepper', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+                { name: 'Lemon Lime', href: '/product/sodas?flavor=lemon-lime', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
               ],
             },
             {
               id: 'edibles', 
               name: 'EDIBLES',
               items: [
-                { name: 'Twilight Night', href: '/product/twilight-night', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
-                { name: 'Zenith Day', href: '/product/zenith-day', imageSrc: '/placeholder-product.jpg', thcContent: '10mg' },
+                { name: 'Honey Gummies', href: '/product/edibles?flavor=honey-gummies', imageSrc: '🍯', thcContent: '10mg' },
+                { name: 'Chocolate Squares', href: '/product/edibles?flavor=chocolate-squares', imageSrc: '🍫', thcContent: '5mg' },
               ],
             },
           ],

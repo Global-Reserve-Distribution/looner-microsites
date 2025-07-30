@@ -707,6 +707,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Fixed TypeScript component prop interfaces to match existing component signatures
   - All pages use correct FlavorPickerVariants, PurchaseOptions, and StickyCartFooter prop structures
   - Enhanced filtering logic for variety packs specific to each product category
+- **NAVIGATION MENU PRODUCT ROUTING** (July 30, 2025): Updated header flyout menu to route to appropriate sub-pages
+  - Added intelligent product routing logic based on product characteristics (edible tag, 10mg content, soda tag)
+  - Navigation menu products now link to correct sub-pages: /product/edibles, /product/10mg, /product/sodas
+  - Added URL parameter support for product preselection using ?flavor=product-name format
+  - Updated mock fallback products to use correct routing structure for consistent navigation experience
+  - Real Shopify products automatically route to appropriate sub-page based on tags and content analysis
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
