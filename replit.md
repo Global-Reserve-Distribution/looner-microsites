@@ -751,6 +751,12 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Background now appears transparent for products without custom.primary_color metafields
   - Fixed TypeScript errors in URL parameter matching with explicit type annotations
   - Removed default color fallback from FlavorBackground usage to ensure transparency
+- **EDIBLES URL PARAMETER FIX** (July 30, 2025): Enhanced edibles page URL parameter handling and placeholder products
+  - Added detailed console logging to debug URL parameter matching for edibles page
+  - Expanded placeholder edibles products from 2 to 4 items: Honey Gummies, Dark Chocolate, Mixed Berry Gummies, Citrus Sour Belts
+  - Enhanced URL parameter matching with step-by-step logging to track exact vs partial vs word-based matches
+  - Fixed edibles page flavor picker to properly respond to ?flavor= URL parameters for both real and placeholder products
+  - Added realistic product variants, colors, and descriptions for comprehensive edibles testing
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

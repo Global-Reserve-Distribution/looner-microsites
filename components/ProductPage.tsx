@@ -265,6 +265,42 @@ function getPlaceholderProducts(config: ProductPageConfig) {
             { id: "chocolate-10mg", title: "10mg", price: 28.99, availableForSale: true, selectedOptions: [] },
             { id: "chocolate-5mg", title: "5mg", price: 22.99, availableForSale: true, selectedOptions: [] }
           ]
+        },
+        {
+          title: "Mixed Berry Gummies",
+          description: "Assorted berry-flavored gummies with balanced THC content. Made with real fruit flavors for a delicious edible experience.",
+          shortDescription: "Mixed berry gummies with THC",
+          showBestSellerTag: false,
+          tags: ["Cannabis-Infused Edible", "Berry Flavored", "Gummies", "Fruit"],
+          productType: "Gummies",
+          vendor: "LOONER",
+          category: "Edibles",
+          bgColor: "bg-pink-100",
+          primaryColor: "#EC4899",
+          secondaryColor: "#F9A8D4",
+          images: ["🫐"],
+          variants: [
+            { id: "berry-10mg", title: "10mg", price: 24.99, availableForSale: true, selectedOptions: [] },
+            { id: "berry-5mg", title: "5mg", price: 19.99, availableForSale: true, selectedOptions: [] }
+          ]
+        },
+        {
+          title: "Citrus Sour Belts",
+          description: "Tangy citrus sour belts infused with premium THC extract. A perfect balance of sweet and sour for edible enthusiasts.",
+          shortDescription: "Tangy citrus sour candy with THC",
+          showBestSellerTag: false,
+          tags: ["Cannabis-Infused Edible", "Citrus", "Sour Candy", "Tangy"],
+          productType: "Candy",
+          vendor: "LOONER",
+          category: "Edibles",
+          bgColor: "bg-yellow-100",
+          primaryColor: "#FDE047",
+          secondaryColor: "#FACC15",
+          images: ["🍋"],
+          variants: [
+            { id: "citrus-10mg", title: "10mg", price: 26.99, availableForSale: true, selectedOptions: [] },
+            { id: "citrus-5mg", title: "5mg", price: 21.99, availableForSale: true, selectedOptions: [] }
+          ]
         }
       ];
     default:
@@ -339,27 +375,48 @@ function ProductPageContent({ config }: ProductPageProps) {
           const flavorSlug = f.title.toLowerCase().replace(/\s+/g, "-");
           const decodedSlug = decodeURIComponent(slug).toLowerCase();
           
+          console.log(`Trying to match URL param "${decodedSlug}" with flavor "${f.title}" (slug: "${flavorSlug}")`);
+          
           // Try exact match first
-          if (flavorSlug === decodedSlug) return true;
+          if (flavorSlug === decodedSlug) {
+            console.log(`Exact match found: ${f.title}`);
+            return true;
+          }
           
           // Try matching without dosage info (e.g., "classic-root-beer" matches "classic-root-beer---10mg")
           const slugWithoutDosage = decodedSlug.replace(/---?\d+mg$/, '');
-          if (flavorSlug === slugWithoutDosage) return true;
+          if (flavorSlug === slugWithoutDosage) {
+            console.log(`Match without dosage found: ${f.title}`);
+            return true;
+          }
           
           // Try partial match at the beginning
-          if (decodedSlug.startsWith(flavorSlug)) return true;
-          if (flavorSlug.startsWith(decodedSlug)) return true;
+          if (decodedSlug.startsWith(flavorSlug)) {
+            console.log(`Partial match (slug starts with title): ${f.title}`);
+            return true;
+          }
+          if (flavorSlug.startsWith(decodedSlug)) {
+            console.log(`Partial match (title starts with slug): ${f.title}`);
+            return true;
+          }
           
           // Try matching by display name or title (case insensitive)
           const titleWords = f.title.toLowerCase().split(/\s+/);
           const slugWords = decodedSlug.split(/[-\s]+/);
           
           // Check if the slug contains the main words from the title
-          return titleWords.some((word: string) => 
+          const wordMatch = titleWords.some((word: string) => 
             word.length > 2 && slugWords.some((slugWord: string) => 
               slugWord.includes(word) || word.includes(slugWord)
             )
           );
+          
+          if (wordMatch) {
+            console.log(`Word-based match found: ${f.title}`);
+            return true;
+          }
+          
+          return false;
         }) : null;
         
         const selectedFlavor = defaultFlavor || filteredFlavors[0];
