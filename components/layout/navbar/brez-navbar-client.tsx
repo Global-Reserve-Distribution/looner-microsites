@@ -223,84 +223,78 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                           leaveFrom="opacity-100"
                           leaveTo="opacity-0"
                         >
-                          <Popover.Panel className="absolute inset-x-0 top-full z-20 text-sm text-gray-500">
-                            <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
+                          <Popover.Panel className="absolute inset-x-0 top-full z-20">
+                            <div className="absolute inset-0 top-1/2 bg-white shadow-lg border border-gray-200" aria-hidden="true" />
 
-                            <div className="relative bg-white">
-                              <div className="mx-auto max-w-7xl px-8">
-                                <div className="grid grid-cols-1 gap-x-8 gap-y-10 py-16">
-
-
-                                  {/* Category sections - New Layout */}
-                                  <div className="grid grid-cols-2 gap-x-16">
+                            <div className="relative bg-white border border-gray-200 rounded-lg shadow-lg" style={{ maxWidth: '600px', margin: '0 auto' }}>
+                              <div className="looner-menu-panel-b7z9 looner-menu-panel--desktop p-6">
+                                <div className="looner-product-columns">
+                                  {/* Two-column layout matching reference */}
+                                  <div className="grid grid-cols-2 gap-8">
                                     {category.sections.map((section) => (
-                                      <div key={section.name}>
-                                        <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-6">
+                                      <div key={section.name} className="looner-column">
+                                        <h3 className="looner-column-title text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4 pb-2 border-b border-gray-200">
                                           {section.name === 'INFUSED' ? 'BEVERAGE' : 'EDIBLES'}
                                         </h3>
-                                        <div className="space-y-4">
+                                        <ul className="looner-product-list space-y-3">
                                           {section.items.map((item) => (
-                                            <Link
-                                              key={item.name}
-                                              href={item.href}
-                                              className="group flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-50 transition-colors"
-                                            >
-                                              <div className="flex-shrink-0">
-                                                {item.imageSrc !== '/placeholder-product.jpg' ? (
-                                                  <Image
-                                                    src={item.imageSrc}
-                                                    alt={item.name}
-                                                    width={48}
-                                                    height={60}
-                                                    className="object-contain"
-                                                  />
-                                                ) : (
-                                                  <div className="w-12 h-15 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded-lg flex items-center justify-center">
-                                                    {section.name === 'EDIBLES' ? (
-                                                      <span className="text-xs font-bold text-white">🍯</span>
-                                                    ) : (
-                                                      <span className="text-xs font-bold text-white">L</span>
-                                                    )}
-                                                  </div>
-                                                )}
-                                              </div>
-                                              <div className="flex-1 min-w-0">
-                                                <p className="text-base font-medium text-gray-900 group-hover:text-gray-700">
+                                            <li key={item.name}>
+                                              <Link
+                                                href={item.href}
+                                                className="group flex items-center space-x-3 py-2 hover:bg-gray-50 rounded transition-colors"
+                                              >
+                                                <div className="flex-shrink-0">
+                                                  {item.imageSrc !== '/placeholder-product.jpg' ? (
+                                                    <Image
+                                                      src={item.imageSrc}
+                                                      alt={item.name}
+                                                      width={40}
+                                                      height={50}
+                                                      className="looner-product-image object-contain rounded"
+                                                    />
+                                                  ) : (
+                                                    <div className="w-10 h-12 bg-gradient-to-br from-cannabis-300 to-cannabis-500 rounded flex items-center justify-center">
+                                                      {section.name === 'EDIBLES' ? (
+                                                        <span className="text-xs font-bold text-white">🍯</span>
+                                                      ) : (
+                                                        <span className="text-xs font-bold text-white">L</span>
+                                                      )}
+                                                    </div>
+                                                  )}
+                                                </div>
+                                                <span className="text-sm font-medium text-gray-900 group-hover:text-gray-700">
                                                   {item.name}
-                                                </p>
-                                                {item.thcContent && (
-                                                  <span className="text-xs text-gray-500">{item.thcContent}</span>
-                                                )}
-                                              </div>
-                                            </Link>
+                                                </span>
+                                              </Link>
+                                            </li>
                                           ))}
-                                        </div>
+                                        </ul>
                                       </div>
                                     ))}
                                   </div>
-
-                                  {/* Bottom navigation links */}
-                                  <div className="mt-8 pt-6 border-t border-gray-200">
-                                    <div className="flex justify-between items-center">
-                                      <Link
-                                        href="/shop"
-                                        className="text-base font-medium text-gray-900 hover:text-gray-700"
-                                      >
-                                        Shop All
-                                      </Link>
-                                      <Link
-                                        href="/testing"
-                                        className="text-base font-medium text-gray-900 hover:text-gray-700"
-                                      >
-                                        Testing and COAs
-                                      </Link>
-                                      <Link
-                                        href="/contact"
-                                        className="text-base font-medium text-gray-900 hover:text-gray-700"
-                                      >
-                                        Contact Us
-                                      </Link>
-                                    </div>
+                                </div>
+                                
+                                {/* Footer links exactly as in reference */}
+                                <div className="looner-footer-links mt-6 pt-4 border-t border-gray-200">
+                                  <div className="flex justify-center space-x-8">
+                                    <Link
+                                      href="/shop"
+                                      className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+                                    >
+                                      Shop All
+                                    </Link>
+                                    <Link
+                                      href="/testing"
+                                      className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+                                    >
+                                      Testing and COAs
+                                    </Link>
+                                    <Link
+                                      href="/contact"
+                                      className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+                                    >
+                                      Contact Us
+                                    </Link>
                                   </div>
                                 </div>
                               </div>

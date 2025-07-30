@@ -1,0 +1,28 @@
+<div class="looner-menu-panel-b7z9 looner-menu-panel--desktop" id="desktop-flyout-panel">
+            <div class="looner-product-columns">
+                <div class="looner-column">
+                  <h3 class="looner-column-title">BEVERAGE</h3>
+                  <ul class="looner-product-list">
+                    <li><a href="https://loonersodas.com/products/wild-grape-10mg"><img class="looner-product-image" src="https://cdn.shopify.com/s/files/1/0715/5767/7360/files/gempages_572703006932337479-e5fd8a80-2c03-440a-a4fd-6df15c478b21.png?v=1752509105" alt="Wild Grape"><span>Wild Grape</span></a></li>
+                    <li><a href="https://loonersodas.com/products/professor-pepper-10mg"><img class="looner-product-image" src="https://cdn.shopify.com/s/files/1/0715/5767/7360/files/Looner_Professor_Pepper_10mg_P_e1cc0408-7715-4167-baad-5a4a1b93742a.png?v=1732297933" alt="Professor Pepper"><span>Professor Pepper</span></a></li>
+                    <li><a href="https://loonersodas.com/products/classic-root-beer-10mg"><img class="looner-product-image" src="https://cdn.shopify.com/s/files/1/0715/5767/7360/files/Looner_Classic_Rootbeer_10mg_P.png?v=1732297933" alt="Classic Root Beer"><span>Classic Root Beer</span></a></li>
+                    <li><a href="https://loonersodas.com/products/looner-10mg"><img class="looner-product-image" src="https://cdn.shopify.com/s/files/1/0715/5767/7360/files/Looner_Orange_10mg_P_4bef23bf-cb77-43e4-912a-0608d102785e.png?v=1732297943" alt="Sweet Orange"><span>Sweet Orange</span></a></li>
+                     <li><a href="https://loonersodas.com/products/10mg-sparkling-lemonades?variant=49502534435120"><img class="looner-product-image" src="https://loonersodas.com/cdn/shop/files/Looner_Pink_Lemonade_Mockup.png?v=1738614203" alt="Pink Lemonade"><span>Pink Lemonade</span></a></li>
+                  </ul>
+                </div>
+                <div class="looner-column">
+                  <h3 class="looner-column-title">EDIBLES</h3>
+                  <ul class="looner-product-list">
+                    <li><a href="https://loonersodas.com/products/twilight-extra-strength-night-gummies-5mg-thc-25mg-cbn"><img class="looner-product-image" src="https://cdn.shopify.com/s/files/1/0715/5767/7360/files/Twilight_Gummies_for_website_copy_602c3917-b44a-4d90-badd-8b1f8c5893bd.png?v=1732298416" alt="Twilight Night"><span>Twilight Night</span></a></li>
+                    <li><a href="https://loonersodas.com/products/zenith-extra-strength-day-gummies-5mg-thc-25mg-cbg"><img class="looner-product-image" src="https://cdn.shopify.com/s/files/1/0715/5767/7360/files/Zenith_Gummies_for_website_copy_2_6d58cb68-3e7a-414b-92f4-9975c90688b9.png?v=1732298415" alt="Zenith Day"><span>Zenith Day</span></a></li>
+                    <li><a href="https://loonersodas.com/products/lunar-night-gummies"><img class="looner-product-image" src="https://cdn.shopify.com/s/files/1/0715/5767/7360/files/Lunar_Gummies_for_website_70715cb6-f3b9-4e07-a323-55923a1db87a.png?v=1732298416" alt="Lunar Night"><span>Lunar Night</span></a></li>
+                    <li><a href="https://loonersodas.com/products/nooner-day-gummies-5mg-thc-10mg-cbg"><img class="looner-product-image" src="https://cdn.shopify.com/s/files/1/0715/5767/7360/files/Nooner_Gummies_for_website_19cf44ef-0163-460d-9bd2-53088bb0cb76.png?v=1732298416" alt="Nooner Day"><span>Nooner Day</span></a></li>
+                  </ul>
+                </div>
+            </div>
+            <div class="looner-footer-links">
+                <a href="https://loonersodas.com/collections/looner-site">Shop All</a>
+                <a href="https://loonersodas.com/pages/testing">Testing and COAs</a>
+                <a href="https://loonersodas.com/pages/contact">Contact Us</a>
+            </div>
+        </div>
