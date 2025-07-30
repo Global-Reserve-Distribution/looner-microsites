@@ -1,4 +1,4 @@
-import { Header } from '../../components/Header';
+import LayoutWrapper from '../../components/layout/layout-wrapper';
 
 export default function ProductLayout({
   children,
@@ -6,9 +6,8 @@ export default function ProductLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <Header />
+    <LayoutWrapper>
       {children}
-    </>
+    </LayoutWrapper>
   );
 }
