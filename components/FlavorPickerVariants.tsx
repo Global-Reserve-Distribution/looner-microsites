@@ -58,19 +58,35 @@ export function FlavorPickerVariants({
           ? flavors.filter(f => {
               const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
               const hasBundle = tags.some((tag: string) => tag.includes('bundle'));
+              
+              // Check what type of product this is
               const hasSoda = tags.some((tag: string) => tag.includes('soda'));
+              const hasEdible = tags.some((tag: string) => tag === 'edible');
               
-              // Only show products that have soda tag AND don't have bundle tag
-              const isSodaFlavor = hasSoda && !hasBundle;
-              
-              // If we have real category data from Admin API, use it
-              if (f.category?.name) {
-                const categoryName = f.category.name.toLowerCase();
-                return categoryName === 'soda' && !hasBundle;
+              // For soda products - exclude bundles
+              if (hasSoda) {
+                const isSodaFlavor = hasSoda && !hasBundle;
+                
+                // If we have real category data from Admin API, use it
+                if (f.category?.name) {
+                  const categoryName = f.category.name.toLowerCase();
+                  return categoryName === 'soda' && !hasBundle;
+                }
+                
+                console.log(`Soda filter - Product: ${f.title}, Tags: ${JSON.stringify(f.tags)}, HasSoda: ${hasSoda}, HasBundle: ${hasBundle}, IsSodaFlavor: ${isSodaFlavor}`);
+                return isSodaFlavor;
               }
               
-              console.log(`Flavor filter - Product: ${f.title}, Tags: ${JSON.stringify(f.tags)}, HasSoda: ${hasSoda}, HasBundle: ${hasBundle}, IsSodaFlavor: ${isSodaFlavor}`);
-              return isSodaFlavor;
+              // For edible products - exclude bundles
+              if (hasEdible) {
+                const isEdibleFlavor = hasEdible && !hasBundle;
+                console.log(`Edible filter - Product: ${f.title}, Tags: ${JSON.stringify(f.tags)}, HasEdible: ${hasEdible}, HasBundle: ${hasBundle}, IsEdibleFlavor: ${isEdibleFlavor}`);
+                return isEdibleFlavor;
+              }
+              
+              // If no specific tags, assume it's a valid flavor if not a bundle
+              console.log(`Generic filter - Product: ${f.title}, Tags: ${JSON.stringify(f.tags)}, HasBundle: ${hasBundle}`);
+              return !hasBundle;
             })
           : flavors.filter(f => {
               const tags = (f.tags || []).map((tag: string) => tag.toLowerCase());
