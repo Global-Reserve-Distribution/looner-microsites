@@ -777,6 +777,13 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - Updated debugging to show product variants and their titles for lemonade products
   - Fixed issue where Pink Lemonade was a variant of main product rather than standalone product
   - Enhanced product matching to work with Shopify's variant system for accurate image display
+- **ROUTE RESTRUCTURE: EDIBLES TO GUMMIES** (July 30, 2025): Updated product route structure from /products/edibles to /products/gummies
+  - Renamed app/products/edibles directory to app/products/gummies for better product categorization
+  - Updated product routing logic in navigation to use /products/gummies for edible products
+  - Modified product configurations from 'edibles' to 'gummies' type for consistency
+  - Updated ProductPageConfig interface and filtering logic to support 'gummies' product type
+  - Enhanced product configuration titles and descriptions to reflect gummy-specific branding
+  - Maintained backward compatibility for edible tag filtering while using gummies routing structure
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

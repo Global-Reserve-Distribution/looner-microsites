@@ -59,17 +59,17 @@ export const productConfigs = {
     ]
   },
 
-  'edibles': {
-    productType: 'edibles' as const,
-    title: 'Edible Products',
-    description: 'Premium cannabis-infused edible.',
-    sectionTitle: 'Premium Cannabis-Infused Edibles',
-    sectionDescription: 'Our cannabis-infused edibles deliver precise dosing with delicious flavors. Perfect for discreet consumption, therapeutic use, or recreational enjoyment with consistent, long-lasting effects.',
+  'gummies': {
+    productType: 'gummies' as const,
+    title: 'Gummy Products',
+    description: 'Premium cannabis-infused gummy.',
+    sectionTitle: 'Premium Cannabis-Infused Gummies',
+    sectionDescription: 'Our cannabis-infused gummies deliver precise dosing with delicious flavors. Perfect for discreet consumption, therapeutic use, or recreational enjoyment with consistent, long-lasting effects.',
     defaultColor: '#FEF3C7',
     defaultSecondaryColor: '#FCD34D',
     dosageInfo: {
-      title: 'Cannabis Edibles',
-      subtitle: 'Precise Edible Dosing',
+      title: 'Cannabis Gummies',
+      subtitle: 'Precise Gummy Dosing',
       borderColor: 'border-purple-600',
       textColor: 'text-purple-700',
       onsetTime: '30-120 min',

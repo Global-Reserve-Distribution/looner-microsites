@@ -16,7 +16,7 @@ import { useCart } from "../hooks/useCart";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 interface ProductPageConfig {
-  productType: 'soda-10mg' | 'soda-50mg' | 'edibles';
+  productType: 'soda-10mg' | 'soda-50mg' | 'edibles' | 'gummies';
   title: string;
   description: string;
   sectionTitle: string;
@@ -159,6 +159,7 @@ function getDefaultTags(productType: string): string[] {
     case 'soda-50mg':
       return ["Cannabis Infused", "Made with Cane Sugar", "Made in Minnesota", "High Quality"];
     case 'edibles':
+    case 'gummies':
       return ["Cannabis-Infused Edible", "Precise Dosing", "Made in Minnesota", "High Quality"];
     default:
       return ["Cannabis Infused", "High Quality"];
@@ -217,6 +218,7 @@ function filterProducts(products: any[], config: ProductPageConfig) {
         return hasSodaTag50 && has50mgThc;
 
       case 'edibles':
+      case 'gummies':
         return tags.some((tag: string) => tag === 'edible');
 
       default:
@@ -229,6 +231,7 @@ function filterProducts(products: any[], config: ProductPageConfig) {
 function getPlaceholderProducts(config: ProductPageConfig) {
   switch (config.productType) {
     case 'edibles':
+    case 'gummies':
       return [
         {
           title: "Honey Gummies",

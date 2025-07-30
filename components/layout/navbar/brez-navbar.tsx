@@ -36,7 +36,7 @@ async function getNavigationData() {
       
       // Check if it's an edible
       if (tags.some((tag: string) => tag === 'edible')) {
-        return `/products/edibles?flavor=${encodeURIComponent(title.replace(/\s+/g, '-'))}`;
+        return `/products/gummies?flavor=${encodeURIComponent(title.replace(/\s+/g, '-'))}`;
       }
       
       // Check if it has 50mg THC content (higher priority than 10mg)
