@@ -355,8 +355,8 @@ function ProductPageContent({ config }: ProductPageProps) {
           const slugWords = decodedSlug.split(/[-\s]+/);
           
           // Check if the slug contains the main words from the title
-          return titleWords.some(word => 
-            word.length > 2 && slugWords.some(slugWord => 
+          return titleWords.some((word: string) => 
+            word.length > 2 && slugWords.some((slugWord: string) => 
               slugWord.includes(word) || word.includes(slugWord)
             )
           );
@@ -421,7 +421,7 @@ function ProductPageContent({ config }: ProductPageProps) {
   return (
     <>
       <main className="relative overflow-hidden min-h-screen transition-all duration-500">
-        <FlavorBackground color={selectedFlavor?.primaryColor || config.defaultColor} />
+        <FlavorBackground color={selectedFlavor?.primaryColor} />
 
         <div className="relative z-10">
           {/* Mobile Title - Only visible on mobile, positioned at very top */}

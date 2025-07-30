@@ -1,6 +1,11 @@
 import { motion, AnimatePresence } from 'framer-motion';
 
-export function FlavorBackground({ color }: { color: string }) {
+export function FlavorBackground({ color }: { color: string | null }) {
+  // Only render background if there's a real metafield color (not fallback)
+  if (!color || color.startsWith('bg-')) {
+    return null;
+  }
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
