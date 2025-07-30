@@ -98,9 +98,15 @@ async function getNavigationData() {
         };
       });
 
-    // Debug: Check what edible products were found
+    // Debug: Check what products were found
+    console.log('Found infused products:', infusedProducts.length);
     console.log('Found edible products:', edibleProducts.length);
-    console.log('All product tags sample:', products.slice(0, 3).map(p => ({ title: p.title, tags: p.tags })));
+    console.log('All products sample:', products.slice(0, 5).map(p => ({ 
+      title: p.title, 
+      tags: p.tags,
+      hasImage: !!p.featuredImage?.url,
+      imageUrl: p.featuredImage?.url 
+    })));
 
     // Map screenshot products to real Shopify data where possible
     const mapProductToShopify = (screenshotName: string, products: any[]) => {
@@ -109,7 +115,7 @@ async function getNavigationData() {
         'Professor Pepper': ['professor pepper', 'pepper', 'dr pepper'],
         'Classic Root Beer': ['root beer', 'classic root'],
         'Sweet Orange': ['orange', 'sweet orange'],
-        'Pink Lemonade': ['lemonade', 'pink lemonade'],
+        'Pink Lemonade': ['pink lemonade', 'pink', 'lemonade pink'],
         'Twilight Night': ['twilight', 'night'],
         'Zenith Day': ['zenith', 'day'],
         'Lunar Night': ['lunar', 'night'],
@@ -121,15 +127,32 @@ async function getNavigationData() {
       for (const product of products) {
         const title = product.title.toLowerCase();
         const description = (product.description || '').toLowerCase();
+        const tags = (product.tags || []).map((tag: string) => tag.toLowerCase()).join(' ');
         
-        if (searchTerms.some(term => title.includes(term) || description.includes(term))) {
-          const { displayName } = extractMetafields(product);
-          return {
-            name: screenshotName, // Keep screenshot name for consistency
-            href: getProductRoute(product),
-            imageSrc: product.featuredImage?.url || '/logo.webp',
-            thcContent: extractTHCContent(product) || '10mg'
-          };
+        // For Pink Lemonade, prioritize exact match
+        if (screenshotName === 'Pink Lemonade') {
+          if (title.includes('pink lemonade') || title.includes('lemonade pink') || 
+              description.includes('pink lemonade') || tags.includes('pink lemonade')) {
+            const { displayName } = extractMetafields(product);
+            console.log('Found Pink Lemonade product:', product.title, 'Image:', product.featuredImage?.url);
+            return {
+              name: screenshotName,
+              href: getProductRoute(product),
+              imageSrc: product.featuredImage?.url || '/logo.webp',
+              thcContent: extractTHCContent(product) || '10mg'
+            };
+          }
+        } else {
+          // For other products, use normal matching
+          if (searchTerms.some(term => title.includes(term) || description.includes(term) || tags.includes(term))) {
+            const { displayName } = extractMetafields(product);
+            return {
+              name: screenshotName,
+              href: getProductRoute(product),
+              imageSrc: product.featuredImage?.url || '/logo.webp',
+              thcContent: extractTHCContent(product) || '10mg'
+            };
+          }
         }
       }
       
