@@ -98,9 +98,6 @@ async function getNavigationData() {
               items: mockEdibles,
             },
           ],
-          shopAll: { name: 'SHOP ALL', href: '/shop' },
-          bundleAndSave: { name: 'BUNDLE & SAVE', href: '/bundles' },
-          giftCard: { name: 'GIFT CARD', href: '/gift-cards' },
         },
       ],
       pages: [
@@ -134,9 +131,6 @@ async function getNavigationData() {
               ],
             },
           ],
-          shopAll: { name: 'SHOP ALL', href: '/shop' },
-          bundleAndSave: { name: 'BUNDLE & SAVE', href: '/bundles' },
-          giftCard: { name: 'GIFT CARD', href: '/gift-cards' },
         },
       ],
       pages: [

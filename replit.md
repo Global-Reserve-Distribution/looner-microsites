@@ -687,6 +687,11 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - More precise product categorization for better navigation organization
   - Updated mock edibles data to include realistic product images for navigation display
   - Both beverage and edible products now properly extract and display custom display names from Shopify metafields
+- **REMOVED TOP NAVIGATION BUTTONS** (July 29, 2025): Simplified navigation menu layout
+  - Removed "Shop All", "Bundle & Save", and "Gift Card" buttons from top of navigation menu
+  - Updated both server component data structure and client component interface
+  - Cleaned navigation now shows only BEVERAGE and EDIBLES sections without top button row
+  - Enhanced edibles placeholder display with honey emoji (🍯) for better visual distinction from beverages
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED

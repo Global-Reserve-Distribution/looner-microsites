@@ -29,9 +29,6 @@ interface NavigationCategory {
   id: string;
   name: string;
   sections: NavigationSection[];
-  shopAll: { name: string; href: string };
-  bundleAndSave: { name: string; href: string };
-  giftCard: { name: string; href: string };
 }
 
 interface NavigationData {
@@ -232,27 +229,7 @@ export default function BrezNavbarClient({ navigation }: BrezNavbarClientProps) 
                             <div className="relative bg-white">
                               <div className="mx-auto max-w-7xl px-8">
                                 <div className="grid grid-cols-1 gap-x-8 gap-y-10 py-16">
-                                  {/* Top navigation row */}
-                                  <div className="flex justify-center space-x-8 border-b border-gray-200 pb-8">
-                                    <Link
-                                      href={category.shopAll.href}
-                                      className="text-sm font-medium text-black bg-white px-4 py-2 border-b-2 border-black hover:text-cannabis-600"
-                                    >
-                                      {category.shopAll.name}
-                                    </Link>
-                                    <Link
-                                      href={category.bundleAndSave.href}
-                                      className="text-sm font-medium text-gray-500 px-4 py-2 hover:text-gray-700"
-                                    >
-                                      {category.bundleAndSave.name}
-                                    </Link>
-                                    <Link
-                                      href={category.giftCard.href}
-                                      className="text-sm font-medium text-gray-500 px-4 py-2 hover:text-gray-700"
-                                    >
-                                      {category.giftCard.name}
-                                    </Link>
-                                  </div>
+
 
                                   {/* Category sections - New Layout */}
                                   <div className="grid grid-cols-2 gap-x-16">
