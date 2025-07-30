@@ -334,17 +334,44 @@ function ProductPageContent({ config }: ProductPageProps) {
         console.log(`Found ${config.productType} flavors:`, filteredFlavors.length);
         setFlavors(filteredFlavors);
 
-        const defaultFlavor = filteredFlavors.find(
-          (f) => f.title.toLowerCase().replace(/\s+/g, "-") === slug,
-        ) || filteredFlavors[0];
+        // More robust URL parameter matching
+        const defaultFlavor = slug ? filteredFlavors.find((f) => {
+          const flavorSlug = f.title.toLowerCase().replace(/\s+/g, "-");
+          const decodedSlug = decodeURIComponent(slug).toLowerCase();
+          
+          // Try exact match first
+          if (flavorSlug === decodedSlug) return true;
+          
+          // Try matching without dosage info (e.g., "classic-root-beer" matches "classic-root-beer---10mg")
+          const slugWithoutDosage = decodedSlug.replace(/---?\d+mg$/, '');
+          if (flavorSlug === slugWithoutDosage) return true;
+          
+          // Try partial match at the beginning
+          if (decodedSlug.startsWith(flavorSlug)) return true;
+          if (flavorSlug.startsWith(decodedSlug)) return true;
+          
+          // Try matching by display name or title (case insensitive)
+          const titleWords = f.title.toLowerCase().split(/\s+/);
+          const slugWords = decodedSlug.split(/[-\s]+/);
+          
+          // Check if the slug contains the main words from the title
+          return titleWords.some(word => 
+            word.length > 2 && slugWords.some(slugWord => 
+              slugWord.includes(word) || word.includes(slugWord)
+            )
+          );
+        }) : null;
+        
+        const selectedFlavor = defaultFlavor || filteredFlavors[0];
 
-        if (defaultFlavor) {
-          setSelectedFlavor(defaultFlavor);
-          if (defaultFlavor.variants && defaultFlavor.variants.length > 0) {
-            setSelectedVariant(defaultFlavor.variants[0]);
-            console.log("Setting default variant:", defaultFlavor.variants[0]);
+        if (selectedFlavor) {
+          console.log(`URL parameter "${slug}" matched to flavor: "${selectedFlavor.title}"`);
+          setSelectedFlavor(selectedFlavor);
+          if (selectedFlavor.variants && selectedFlavor.variants.length > 0) {
+            setSelectedVariant(selectedFlavor.variants[0]);
+            console.log("Setting default variant:", selectedFlavor.variants[0]);
           } else {
-            console.error("No variants found for default flavor:", defaultFlavor.title);
+            console.error("No variants found for selected flavor:", selectedFlavor.title);
           }
         }
         setLoading(false);

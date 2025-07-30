@@ -736,6 +736,15 @@ SHOPIFY_STORE_DOMAIN="[your-store].myshopify.com"
   - All product pages now consistently show BREZ navigation header and footer
   - Fixed FlavorPickerVariants filtering issue - now uses filtered 'flavors' instead of 'allProducts'
   - Product pages properly filter and display only relevant products (10mg sodas, 50mg sodas, edibles)
+- **URL PARAMETER MATCHING FIX** (July 30, 2025): Enhanced flavor selection from URL parameters
+  - Fixed issue where ?flavor=classic-root-beer---10mg was not selecting "Classic Root Beer" product
+  - Implemented robust URL parameter matching with multiple fallback strategies:
+    - Exact slug matching with URL decoding
+    - Matching without dosage suffixes (removes ---10mg, --50mg patterns)
+    - Partial matching for both directions (slug starts with title, title starts with slug)
+    - Word-based matching for complex product names with multiple words
+  - Added console logging to track URL parameter matching for debugging
+  - Navigation menu product links now correctly preselect the intended flavor on product pages
 
 ## Next Steps
 1. ✅ Configure Shopify environment variables - COMPLETED
