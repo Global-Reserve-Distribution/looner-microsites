@@ -629,7 +629,12 @@ function ProductPageContent({ config }: ProductPageProps) {
             </div>
 
             {/* Bottom Waves */}
-            <div className="w-full overflow-hidden">
+            <div 
+              className="w-full overflow-hidden"
+              style={{
+                backgroundColor: selectedFlavor?.secondaryColor || config.defaultSecondaryColor,
+              }}
+            >
               <svg
                 className="relative block w-full h-16"
                 data-name="Layer 1"
@@ -638,7 +643,7 @@ function ProductPageContent({ config }: ProductPageProps) {
                 preserveAspectRatio="none"
               >
                 <path
-                  d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V0H1200V24.2C1132.19,1.08,1055.71,8.69,985.66,27.17Z"
+                  d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
                   fill="white"
                 ></path>
               </svg>
