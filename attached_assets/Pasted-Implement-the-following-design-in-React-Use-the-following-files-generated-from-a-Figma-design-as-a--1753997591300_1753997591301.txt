@@ -1,0 +1,6565 @@
+Implement the following design in React. Use the following files generated from a Figma design as a specification and guide:
+
+```src/styles/BodyOlipopFlavors.module.css
+@import "https://fonts.googleapis.com/css?family=Inter:0,400;0,700;0,undefined;0,900&display=swap";
+.BodyOlipopFlavors_217_1789 {
+  flex-shrink: 0;
+  width: 3600px;
+  height: 5332.88px;
+}
+.DivRebuyCartFlyout_217_39 {
+  flex-flow: column;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: flex-start;
+  gap: -0.00218582px;
+  width: 480px;
+  height: 1125.01px;
+  padding-bottom: 0.008px;
+  display: flex;
+  overflow: hidden;
+}
+.DivRebuyCartFlyoutFooter_217_40 {
+  background: #d5eddf;
+  flex-flow: row;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 480px;
+  height: 163.42px;
+  display: flex;
+}
+.DivRebuyCartFlyoutActions_217_41 {
+  flex-shrink: 0;
+  width: 440px;
+  height: 84.2px;
+}
+.DayMoneyBackGuarantee_217_42 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19.2px;
+  display: inline-block;
+}
+.ButtonRebuyCheckoutBtn_217_43 {
+  background: #16433d;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  width: 440px;
+  padding: 14.625px 0 15.395px;
+  display: flex;
+}
+.Checkout_217_44 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
+  display: inline-block;
+}
+.DivRebuyCartFlyoutSubtotal_217_45 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 340.629px;
+  padding: 0.988px 0 1.125px;
+  display: flex;
+}
+._99_217_46,
+.Subtotal_217_47 {
+  color: #16433d;
+  font-family: Inter;
+  font-size: 12.9px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+  display: inline-block;
+}
+.ButtonRebuyCartFlyoutFooterDiscountButton_217_48 {
+  background: #fff0;
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 312.004px;
+  padding-bottom: 9.115px;
+  display: flex;
+}
+.Icon_217_49 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.AddPromoCode_217_52 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 13.7px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+  display: inline-block;
+}
+.DivRebuyCartFlyoutBody_217_53 {
+  background: #fff7e6;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 480px;
+  height: 877.13px;
+  display: flex;
+  overflow: hidden;
+}
+.DivRebuyCartFlyoutContent_217_54 {
+  background: #fff7e6;
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 480px;
+  height: 877.13px;
+  display: flex;
+  overflow: hidden;
+}
+.BeamSelectNonprofit_217_55 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 10px;
+  width: 440px;
+  height: 69.2px;
+  padding-bottom: 328.379px;
+  display: flex;
+}
+.Div_217_56 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 2.473px;
+  width: 440px;
+  height: 35px;
+  padding: 0 116.719px 348.178px 0;
+  display: flex;
+}
+.AtNoExtraCostChooseYourImpact_217_57 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 13.2px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 19.6px;
+  display: inline-block;
+}
+.SelectANonprofitAnd_1OfYourPurchaseWillBeDonated_217_58 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14.4px;
+  display: inline-block;
+}
+.DivOptions_217_59 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 7.988px;
+  width: 416.04px;
+  height: 34.2px;
+  padding-right: 3046.5px;
+  display: flex;
+}
+.DivOption_217_60 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1.25px solid #14433d;
+  border-radius: 40px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 104.01px;
+  padding: 5.234px 0 9.976px;
+  display: flex;
+}
+.Image_217_61 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 18.99px;
+  height: 18.99px;
+  overflow: hidden;
+}
+.DivOption_217_62 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1.25px solid #14433d;
+  border-radius: 40px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 104.01px;
+  padding: 5.234px 0 9.976px;
+  display: flex;
+}
+.Image_217_63 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 18.99px;
+  height: 18.99px;
+  overflow: hidden;
+}
+.DivOption_217_64 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1.25px solid #14433d;
+  border-radius: 40px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 104.01px;
+  padding: 5.234px 0 9.976px;
+  display: flex;
+}
+.Image_217_65 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 18.99px;
+  height: 18.99px;
+  overflow: hidden;
+}
+.DivOption_217_66 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1.25px solid #14433d;
+  border-radius: 40px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 104.01px;
+  padding: 5.234px 0 9.976px;
+  display: flex;
+}
+.Image_217_67 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 18.99px;
+  height: 18.99px;
+  overflow: hidden;
+}
+.DivRebuyUpsell_217_68 {
+  box-sizing: border-box;
+  border-bottom: 1.25px solid #14433d40;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 480px;
+  height: 92.47px;
+  padding: 15.996px 0 158.418px 20px;
+  display: flex;
+}
+.DivTwFlex_217_69 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 165.031px;
+  padding: 0 59.989px 12.01px 0;
+  display: flex;
+}
+.DivTwFlex_217_70 {
+  align-items: flex-start;
+  gap: 26.016px;
+  height: 13.99px;
+  padding-right: 3498.05px;
+  display: flex;
+}
+.Icon_217_71,
+.Icon_217_73 {
+  width: 13.99px;
+  height: 16px;
+  overflow: hidden;
+}
+.StockUpOnYourFavoriteFlavors_217_75 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 13.2px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 14px;
+  display: inline-block;
+}
+.DivKeenSlider_217_76 {
+  flex-flow: row;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 7.99376px;
+  height: 66.47px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwP_2_217_77 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1.25px solid #14433d40;
+  border-radius: 10px;
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 214.85px;
+  height: 66.47px;
+  display: flex;
+  overflow: hidden;
+}
+.ButtonTwTextWhite_217_78 {
+  background: #14433d;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 6.988px 12.498px 8.982px 11.992px;
+  display: inline-flex;
+}
+.Add_217_79 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 11.2px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  display: inline-block;
+}
+.DivProductInfoWrapper_217_80 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 7.98px;
+  width: 102.43px;
+  height: 24px;
+  padding: 0 32.344px 272.121px 0;
+  display: flex;
+}
+.CreamSoda_217_81,
+._99_217_82 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  display: inline-block;
+}
+.ImageProductImage_217_83 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 36.47px;
+  height: 47.99px;
+  overflow: hidden;
+}
+.DivTwP_2_217_84 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1.25px solid #14433d40;
+  border-radius: 10px;
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 214.85px;
+  height: 66.47px;
+  display: flex;
+  overflow: hidden;
+}
+.ButtonTwTextWhite_217_85 {
+  background: #14433d;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 6.988px 12.498px 8.982px 11.992px;
+  display: inline-flex;
+}
+.Add_217_86 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 11.2px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  display: inline-block;
+}
+.DivProductInfoWrapper_217_87 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 7.98px;
+  width: 102.43px;
+  height: 24px;
+  padding: 0 35.723px 272.121px 0;
+  display: flex;
+}
+.CrispApple_217_88,
+._99_217_89 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  display: inline-block;
+}
+.ImageProductImage_217_90 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 36.47px;
+  height: 47.99px;
+  overflow: hidden;
+}
+.DivTwP_2_217_91 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1.25px solid #14433d40;
+  border-radius: 10px;
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 214.85px;
+  height: 66.47px;
+  display: flex;
+  overflow: hidden;
+}
+.ButtonTwTextWhite_217_92 {
+  background: #14433d;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 6.988px 12.498px 8.982px 11.992px;
+  display: inline-flex;
+}
+.Add_217_93 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 11.2px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  display: inline-block;
+}
+.DivProductInfoWrapper_217_94 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 7.98px;
+  width: 102.43px;
+  height: 24px;
+  padding: 0 4.297px 272.121px 0;
+  display: flex;
+}
+.PeachesCream_217_95,
+._99_217_96 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  display: inline-block;
+}
+.ImageProductImage_217_97 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 36.47px;
+  height: 47.99px;
+  overflow: hidden;
+}
+.DivTwP_2_217_98 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1.25px solid #14433d40;
+  border-radius: 10px;
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 214.85px;
+  height: 66.47px;
+  display: flex;
+  overflow: hidden;
+}
+.ButtonTwTextWhite_217_99 {
+  background: #14433d;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 6.988px 12.498px 8.982px 11.992px;
+  display: inline-flex;
+}
+.Add_217_100 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 11.2px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  display: inline-block;
+}
+.DivProductInfoWrapper_217_101 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 7.98px;
+  width: 102.43px;
+  height: 24px;
+  padding: 0 21.68px 272.121px 0;
+  display: flex;
+}
+.ClassicGrape_217_102,
+._99_217_103 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  display: inline-block;
+}
+.ImageProductImage_217_104 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 36.47px;
+  height: 47.99px;
+  overflow: hidden;
+}
+.DivTwP_2_217_105 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1.25px solid #14433d40;
+  border-radius: 10px;
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 214.85px;
+  height: 66.47px;
+  display: flex;
+  overflow: hidden;
+}
+.ButtonTwTextWhite_217_106 {
+  background: #14433d;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 6.988px 12.498px 8.982px 11.992px;
+  display: inline-flex;
+}
+.Add_217_107 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 11.2px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  display: inline-block;
+}
+.DivProductInfoWrapper_217_108 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 7.98px;
+  width: 102.43px;
+  height: 24px;
+  padding: 0 5.762px 272.121px 0;
+  display: flex;
+}
+.WatermelonLime_217_109,
+._99_217_110 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  display: inline-block;
+}
+.ImageProductImage_217_111 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 36.47px;
+  height: 47.99px;
+  overflow: hidden;
+}
+.DivTwP_2_217_112 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1.25px solid #14433d40;
+  border-radius: 10px;
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 214.85px;
+  height: 66.47px;
+  display: flex;
+  overflow: hidden;
+}
+.ButtonTwTextWhite_217_113 {
+  background: #14433d;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 6.988px 12.498px 8.982px 11.992px;
+  display: inline-flex;
+}
+.Add_217_114 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 11.2px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  display: inline-block;
+}
+.DivProductInfoWrapper_217_115 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 7.98px;
+  width: 102.43px;
+  height: 24px;
+  padding: 0 18.262px 272.121px 0;
+  display: flex;
+}
+.OrangeCream_217_116,
+._99_217_117 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  display: inline-block;
+}
+.ImageProductImage_217_118 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 36.47px;
+  height: 47.99px;
+  overflow: hidden;
+}
+.DivRebuyCartFlyoutItems_217_119 {
+  box-sizing: border-box;
+  background: #fff7e6;
+  border-bottom: 1.25px solid #e3e3e3;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 480px;
+  height: 140.43px;
+  padding-bottom: 1.25px;
+  display: flex;
+}
+.DivRebuyCartFlyoutItem_217_120 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 480px;
+  height: 139.18px;
+  display: flex;
+}
+.ButtonRebuyButton_217_121 {
+  background: #16433d;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 6.988px 119.172px 8.982px 118.828px;
+  display: inline-flex;
+}
+.UpgradeToSubscriptionSave_15_217_122 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 12px;
+  display: inline-block;
+}
+.DivRebuyCartFlyoutItemInfo_217_123 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.74219px;
+  padding-left: 20px;
+  display: flex;
+}
+.DivRebuyCartFlyoutItemQuantityWrapper_217_124 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 375px;
+  height: 36.49px;
+  display: flex;
+}
+.Svg_217_125 {
+  flex-shrink: 0;
+  width: 12.27px;
+  height: 13.75px;
+}
+.DivRebuyCartFlyoutItemQuantityWidget_217_127 {
+  box-sizing: border-box;
+  border: 1.25px solid #16433d;
+  border-radius: 100px;
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 83.97px;
+  height: 28.5px;
+  padding: 1.25px 3177.01px 1.25px 1.25px;
+  display: flex;
+}
+.ButtonRebuyCartFlyoutItemQuantityWidgetButton_217_128 {
+  background: #fff;
+  border-radius: 100px 0 0 100px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 27.99px;
+  padding: 5.996px 9.488px 8.754px 9.492px;
+  display: flex;
+}
+.Svg_217_129 {
+  flex-shrink: 0;
+  width: 9.01px;
+  height: 11.25px;
+}
+.SpanRebuyCartFlyoutItemQuantityWidgetLabel_217_131 {
+  background: #fff;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 27.99px;
+  display: flex;
+}
+.generated_1_217_132 {
+  color: #16433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  display: inline-block;
+}
+.ButtonRebuyCartFlyoutItemQuantityWidgetButton_217_133 {
+  background: #fff;
+  border-radius: 0 100px 100px 0;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 27.99px;
+  padding: 5.996px 9.488px 8.754px 9.492px;
+  display: flex;
+}
+.Svg_217_134 {
+  flex-shrink: 0;
+  width: 9.01px;
+  height: 11.25px;
+}
+.Cans_217_136 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  display: inline-block;
+}
+.DivRebuyCartFlyoutItemTitleWrapper_217_137 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 234.629px;
+  height: 14.5px;
+  display: flex;
+}
+._99_217_138 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 13.2px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 14px;
+  display: inline-block;
+}
+.TropicalPunch_217_139 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 12.9px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+  display: inline-block;
+}
+.Image_217_140 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 45px;
+  height: 59.34px;
+  overflow: hidden;
+}
+.DivRebuyCartFlyoutShippingBar_217_141 {
+  box-sizing: border-box;
+  background: #fff;
+  border-bottom: 1.25px solid #14433d40;
+  flex-flow: row;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 480px;
+  height: 45.2px;
+  display: flex;
+}
+.DivRebuyCartFlyoutShippingBarMeter_217_142 {
+  box-sizing: border-box;
+  background: #eee;
+  border: 1.25px solid #14433d;
+  border-radius: 10px;
+  flex-shrink: 0;
+  align-items: center;
+  height: 7.99px;
+  padding: 1.25px 128.12px 0.74px 1.25px;
+  display: inline-flex;
+}
+.DivRebuyCartFlyoutShippingBarMeterFill_217_143 {
+  background: #008b70;
+  border-radius: 10px 0 0 10px;
+  width: 310.63px;
+  height: 6px;
+  overflow: hidden;
+}
+.Spend_14_01OrSubscribeToUnlockFreeShipping_217_144 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 13.5px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  display: inline-block;
+}
+.DivRebuyCartFlyoutHeader_217_145 {
+  box-sizing: border-box;
+  background: #14433d;
+  border-bottom: 1.25px solid #e3e3e3;
+  flex-flow: row;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 341px;
+  height: 39.26px;
+  padding: 4.004px 10px 5.256px 20px;
+  display: flex;
+}
+.ButtonRebuyCartFlyoutClose_217_146 {
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 7.539px 6.014px 4.471px 5.996px;
+  display: flex;
+}
+.Icon_217_147 {
+  flex-shrink: 0;
+  width: 17.99px;
+  height: 17.99px;
+  overflow: hidden;
+}
+.YourCart_217_149 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  display: inline-block;
+}
+.DivPageContainer_217_150 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: flex-start;
+  gap: -0.00341797px;
+  width: 1800px;
+  padding-bottom: 0.003px;
+  display: flex;
+}
+.DivSlideshowInfo_217_166 {
+  width: 73px;
+  height: 247.5px;
+}
+.DivMainContent_217_167 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 1800px;
+  height: 4782.23px;
+  display: flex;
+}
+.DivTwRelative_217_168 {
+  background: #fff7e5;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: -39.004px;
+  width: 1800px;
+  height: 781px;
+  padding-bottom: 68.984px;
+  display: flex;
+}
+.ImageTwHAuto_217_169 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 1800px;
+  height: 740px;
+  overflow: hidden;
+}
+.Icon_217_170 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 1800px;
+  height: 41px;
+  padding: 0.872px 0 0.128px;
+  display: flex;
+  overflow: hidden;
+}
+.DivCollectionList_217_172 {
+  background: #fff7e5;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 1800px;
+  padding: 36.992px 0 0.008px;
+  display: flex;
+}
+.Div_217_173 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 1800px;
+  height: 4005.23px;
+  display: flex;
+}
+.Div_217_174 {
+  flex-flow: column;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: -0.00268555px;
+  width: 1800px;
+  height: 3969.49px;
+  display: flex;
+}
+.DivCollectionGroup_217_175 {
+  background: #edf6f3;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 1800px;
+  height: 549.98px;
+  padding: 0 310px;
+  display: flex;
+}
+.Div_217_176 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 1180px;
+  height: 549.98px;
+  display: flex;
+}
+.DivVarietyPacksTemplate_23917416415391CollectionList_217_177 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 20px;
+  width: 840px;
+  height: 420px;
+  padding: 0 30px 60px 0;
+  display: flex;
+}
+.DivProductCard_217_178 {
+  background: #ead8d6;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_179 {
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 105.98px;
+  padding: 0 82.375px 86.605px 80.625px;
+  display: flex;
+}
+.ClassicSoda_217_180 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_181 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_182 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_183 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_184 {
+  background: #ead8d6;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_185 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_187 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_194 {
+  width: 52px;
+  height: 101.25px;
+}
+.DivProductCard_217_195 {
+  background: #ffc1d4;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_196 {
+  align-items: center;
+  width: 280px;
+  height: 105.98px;
+  padding: 0 96.754px 86.605px 92.246px;
+  display: flex;
+}
+.FruityFun_217_197 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_198 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_199 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_200 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_201 {
+  background: #ffc1d4;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_202 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_204 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_211 {
+  width: 51px;
+  height: 101.25px;
+}
+.DivProductCard_217_212 {
+  background: #bcdff8;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_213 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 280px;
+  height: 105.98px;
+  padding: 0 96.563px 86.605px 98.438px;
+  display: flex;
+}
+.ParagraphTwMy_2_217_214 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 240px;
+  height: 40px;
+  display: flex;
+}
+.Favorites_217_217 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_218 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_219 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_220 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_221 {
+  background: #bcdff8;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_222 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_224 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_230 {
+  width: 67px;
+  height: 85px;
+}
+.OlipopVarietyPacksAreNowConvenientlyAvailableInOurPantryReadyLineLearnMore_217_231 {
+  color: #14433d;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: auto;
+  display: inline-block;
+}
+.VarietyPacks_217_232 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 46.8px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 52px;
+  display: inline-block;
+}
+.DivCollectionGroup_217_233 {
+  background: #edf6f3;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: center;
+  width: 1800px;
+  height: 2091.99px;
+  padding: 60px 310px 0;
+  display: flex;
+}
+.Div_217_234 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40.9922px;
+  width: 1180px;
+  display: flex;
+}
+.DivOurFlavorsTemplate_23917416415391CollectionList_217_235 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 1180px;
+  height: 1940px;
+  display: flex;
+}
+.DivProductCard_217_236 {
+  background: #85c062;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_237 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 60.512px 56.996px 60.488px;
+  display: flex;
+}
+.DivTwMtAuto_217_238 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.DivCedccb64_202c_4697Bdb5Dc796fa30ee6_217_262 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_270 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_271 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_272 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 1040px;
+  display: flex;
+}
+.Icon_217_273,
+.Icon_217_275,
+.Icon_217_277,
+.Icon_217_279,
+.Icon_217_281 {
+  width: 10px;
+  height: 10px;
+}
+.ParagraphTwMy_2_217_283 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 240px;
+  padding: 0 9.891px 0 12.109px;
+  display: flex;
+}
+.WatermelonLime_217_286 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_287 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_288 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_289 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_290 {
+  background: #85c062;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_291 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_293 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_298 {
+  width: 87px;
+  height: 68.75px;
+}
+.DivProductCard_217_299 {
+  background: #fee967;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_300 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 75.699px 56.996px 73.301px;
+  display: flex;
+}
+.DivTwMtAuto_217_301 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_68e59523_32ce_418dA1bc_3105fd94f53e_217_325 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_333 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_334 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_335 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 740px;
+  display: flex;
+}
+.Icon_217_336,
+.Icon_217_338,
+.Icon_217_340,
+.Icon_217_342,
+.Icon_217_344 {
+  width: 10px;
+  height: 10px;
+}
+.ParagraphTwMy_2_217_346 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 240px;
+  height: 40px;
+  display: flex;
+}
+.BananaCream_217_349 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_350 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_351 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_352 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_353 {
+  background: #fee967;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_354 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_356 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_361 {
+  width: 55px;
+  height: 68.75px;
+}
+.DivProductCard_217_362 {
+  background: #cae6e8;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_363 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 105.98px;
+  display: flex;
+}
+.DivTwMtAuto_217_364 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  width: 240px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_98313d39_86b9_4ba9Bfe5_0f3b10946505_217_388 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_396 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_397 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_398 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 440px;
+  display: flex;
+}
+.Icon_217_399,
+.Icon_217_401,
+.Icon_217_403,
+.Icon_217_405,
+.Icon_217_407 {
+  width: 10px;
+  height: 10px;
+}
+.TropicalPunch_217_409 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_410 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_411 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_412 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_413 {
+  background: #cae6e8;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_414 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_416 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_421 {
+  width: 58px;
+  height: 68.75px;
+}
+.DivProductCard_217_422 {
+  background: #ffc3b3;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_423 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 57.41px 56.996px 54.59px;
+  display: flex;
+}
+.DivTwMtAuto_217_424 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_1812fd57_8939_473e_9c31_7dcf046e0661_217_448 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_456 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_457 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_458 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 1340px;
+  display: flex;
+}
+.Icon_217_459,
+.Icon_217_461,
+.Icon_217_463,
+.Icon_217_465,
+.Icon_217_467 {
+  width: 10px;
+  height: 10px;
+}
+.StrawberryVanilla_217_469 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_470 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_471 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_472 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_473 {
+  background: #ffc3b3;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_474 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_476 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_481 {
+  width: 82px;
+  height: 68.75px;
+}
+.DivProductCard_217_482 {
+  background: #ffc1d4;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_483 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 76.137px 56.996px 74.863px;
+  display: flex;
+}
+.DivTwMtAuto_217_484 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_04b8e20bD360_4b0dA210_7d51b8d1216a_217_508 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_516 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_517 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_518 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 1040px;
+  display: flex;
+}
+.Icon_217_519,
+.Icon_217_521,
+.Icon_217_523,
+.Icon_217_525,
+.Icon_217_527 {
+  width: 10px;
+  height: 10px;
+}
+.CherryVanilla_217_529 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_530 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_531 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_532 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_533 {
+  background: #ffc1d4;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_534 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_536 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_541 {
+  width: 50px;
+  height: 68.75px;
+}
+.DivProductCard_217_542 {
+  background: #ffada5;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_543 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 86.609px 56.996px 85.391px;
+  display: flex;
+}
+.DivTwMtAuto_217_544 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_78659b91Db74_4df8_87d6B920b319b2aa_217_568 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_576 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_577 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_578 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 740px;
+  display: flex;
+}
+.Icon_217_579,
+.Icon_217_581,
+.Icon_217_583,
+.Icon_217_585,
+.Icon_217_587 {
+  width: 10px;
+  height: 10px;
+}
+.CherryCola_217_589 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_590 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_591 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_592 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_593 {
+  background: #ffada5;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_594 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_596 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_601 {
+  width: 50px;
+  height: 68.75px;
+}
+.DivProductCard_217_602 {
+  background: #fee6a7;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_603 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 77.473px 56.996px 75.527px;
+  display: flex;
+}
+.DivTwMtAuto_217_604 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.DivBb68f003_9729_426b_99aaB76c214154ef_217_628 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_636 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_637 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_638 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 440px;
+  display: flex;
+}
+.Icon_217_639,
+.Icon_217_641,
+.Icon_217_643,
+.Icon_217_645,
+.Icon_217_647 {
+  width: 10px;
+  height: 10px;
+}
+.ParagraphTwMy_2_217_649 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 240px;
+  height: 40px;
+  display: flex;
+}
+.GingerLemon_217_652 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_653 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_654 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_655 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_656 {
+  background: #fee6a7;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_657 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_659 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_664 {
+  width: 50px;
+  height: 68.75px;
+}
+.DivProductCard_217_665 {
+  background: #4ac1e0;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_666 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 86.957px 56.996px 84.043px;
+  display: flex;
+}
+.DivTwMtAuto_217_667 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_29398e14E71d_4f7bB3f3_92ca6399ff51_217_691 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_699 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_700 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_701 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 1340px;
+  display: flex;
+}
+.Icon_217_702,
+.Icon_217_704,
+.Icon_217_706,
+.Icon_217_708,
+.Icon_217_710 {
+  width: 10px;
+  height: 10px;
+}
+.CreamSoda_217_712 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_713 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_714 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_715 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_716 {
+  background: #4ac1e0;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_717 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_719 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_724 {
+  width: 48px;
+  height: 68.75px;
+}
+.DivProductCard_217_725 {
+  background: #f2d6bd;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_726 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 68.785px 56.996px 65.215px;
+  display: flex;
+}
+.DivTwMtAuto_217_727 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.DivBa1819e2D849_455fB930_5bc0bf911405_217_751 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_759 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_760 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_761 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 1040px;
+  display: flex;
+}
+.Icon_217_762,
+.Icon_217_764,
+.Icon_217_766,
+.Icon_217_768,
+.Icon_217_770 {
+  width: 10px;
+  height: 10px;
+}
+.ParagraphTwMy_2_217_772 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 240px;
+  padding: 0 23.527px 0 24.473px;
+  display: flex;
+}
+.DoctorGoodwin_217_775 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_776 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_777 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_778 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_779 {
+  background: #f2d6bd;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_780 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_782 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_787 {
+  width: 65px;
+  height: 68.75px;
+}
+.DivProductCard_217_788 {
+  background: #ffe1b5;
+  border-radius: 16px;
+  flex-shrink: 0;
+  width: 280px;
+  height: 360px;
+  overflow: hidden;
+}
+.DivTwRelative_217_789 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  padding: 0 75.156px 56.996px 74.844px;
+  display: flex;
+}
+.DivTwMtAuto_217_790 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.DivF62765a7_6b27_40c7_9981_77228d794cc9_217_814 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_822 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_823 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_824 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 740px;
+  display: flex;
+}
+.Icon_217_825,
+.Icon_217_827,
+.Icon_217_829,
+.Icon_217_831,
+.Icon_217_833 {
+  width: 10px;
+  height: 10px;
+}
+.OrangeCream_217_835 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_836 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.ImageLazyautosizes_217_837 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_838 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_839 {
+  background: #ffe1b5;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_840 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_842 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_843 {
+  background: #fffc;
+  border-radius: 0 0 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 10.467px 19.68px 10.273px 20px;
+  display: inline-flex;
+}
+.New_217_844 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 12.9px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16.8px;
+  display: inline-block;
+}
+.SpanSrOnly_217_849 {
+  flex-shrink: 0;
+  width: 54px;
+  height: 68.75px;
+}
+.DivProductCard_217_850 {
+  background: #a9df71;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_851 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 105.98px;
+  display: flex;
+}
+.DivTwMtAuto_217_852 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  width: 240px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_27188567_9b3d_4840A7efDfb9c5dc0b52_217_876 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_884 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_885 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_886 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 440px;
+  display: flex;
+}
+.Icon_217_887,
+.Icon_217_889,
+.Icon_217_891,
+.Icon_217_893,
+.Icon_217_895 {
+  width: 10px;
+  height: 10px;
+}
+.LemonLime_217_897 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_898 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_899 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_900 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_901 {
+  background: #a9df71;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_902 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_904 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_909 {
+  width: 50px;
+  height: 68.75px;
+}
+.DivProductCard_217_910 {
+  background: #e1eab4;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_911 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 91.828px 56.996px 91.172px;
+  display: flex;
+}
+.DivTwMtAuto_217_912 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.DivB04d1e96Be5a_4ee5Aba4F914f38e3273_217_936 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_944 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_945 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_946 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 1340px;
+  display: flex;
+}
+.Icon_217_947,
+.Icon_217_949,
+.Icon_217_951,
+.Icon_217_953,
+.Icon_217_955 {
+  width: 10px;
+  height: 10px;
+}
+.ParagraphTwMy_2_217_957 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 240px;
+  padding: 0 1.188px 0 2.813px;
+  display: flex;
+}
+.GingerAle_217_960 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_961 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_962 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_963 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_964 {
+  background: #e1eab4;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_965 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_967 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_972 {
+  width: 49px;
+  height: 68.75px;
+}
+.DivProductCard_217_973 {
+  background: #ffd0b5;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_974 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 64.535px 56.996px 66.465px;
+  display: flex;
+}
+.DivTwMtAuto_217_975 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_8fceb35a_0b33_4341Aa90_0282bbbb0313_217_999 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_1007 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_1008 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_1009 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 1040px;
+  display: flex;
+}
+.Icon_217_1010,
+.Icon_217_1012,
+.Icon_217_1014,
+.Icon_217_1016,
+.Icon_217_1018 {
+  width: 10px;
+  height: 10px;
+}
+.ParagraphTwMy_2_217_1020 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 240px;
+  display: flex;
+}
+.OrangeSqueeze_217_1023 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_1024 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_1025 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1026 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_1027 {
+  background: #ffd0b5;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_1028 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_1030 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_1035 {
+  width: 64px;
+  height: 68.75px;
+}
+.DivProductCard_217_1036 {
+  background: #95d95d;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_1037 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 90.402px 56.996px 87.598px;
+  display: flex;
+}
+.DivTwMtAuto_217_1038 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_87a5c2d2F1bd_423fA2d8Ddd98382bcac_217_1062 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_1070 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_1071 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_1072 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 740px;
+  display: flex;
+}
+.Icon_217_1073,
+.Icon_217_1075,
+.Icon_217_1077,
+.Icon_217_1079,
+.Icon_217_1081 {
+  width: 10px;
+  height: 10px;
+}
+.RidgeRush_217_1083 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_1084 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_1085 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1086 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_1087 {
+  background: #95d95d;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_1088 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_1090 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_1095 {
+  width: 42px;
+  height: 68.75px;
+}
+.DivProductCard_217_1096 {
+  background: #ffdccc;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_1097 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 105.98px;
+  display: flex;
+}
+.DivTwMtAuto_217_1098 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  width: 240px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_78d1f8c6F88d_4803A047_79c565204106_217_1122 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_1130 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_1131 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_1132 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 440px;
+  display: flex;
+}
+.Icon_217_1133,
+.Icon_217_1135,
+.Icon_217_1137,
+.Icon_217_1139,
+.Icon_217_1141 {
+  width: 10px;
+  height: 10px;
+}
+.PeachesCream_217_1143 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_1144 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_1145 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1146 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_1147 {
+  background: #ffdccc;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_1148 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_1150 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_1156 {
+  width: 63px;
+  height: 85px;
+}
+.DivProductCard_217_1157 {
+  background: #febac4;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_1158 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 87.063px 56.996px 85.938px;
+  display: flex;
+}
+.DivTwMtAuto_217_1159 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.DivE44daa50_7100_4bf1_935a_44775b6d5b93_217_1183 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_1191 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_1192 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_1193 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 1340px;
+  display: flex;
+}
+.Icon_217_1194,
+.Icon_217_1196,
+.Icon_217_1198,
+.Icon_217_1200,
+.Icon_217_1202 {
+  width: 10px;
+  height: 10px;
+}
+.CrispApple_217_1204 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_1205 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_1206 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1207 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_1208 {
+  background: #febac4;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_1209 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_1211 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_1216 {
+  width: 42px;
+  height: 68.75px;
+}
+.DivProductCard_217_1217 {
+  background: #e3d2ed;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_1218 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 77.574px 56.996px 76.426px;
+  display: flex;
+}
+.DivTwMtAuto_217_1219 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.DivF21e96e8_87c9_48f7_99f0_7c48aa9b97bd_217_1243 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_1251 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_1252 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_1253 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 1040px;
+  display: flex;
+}
+.Icon_217_1254,
+.Icon_217_1256,
+.Icon_217_1258,
+.Icon_217_1260,
+.Icon_217_1262 {
+  width: 10px;
+  height: 10px;
+}
+.ClassicGrape_217_1264 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_1265 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_1266 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1267 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_1268 {
+  background: #e3d2ed;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_1269 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_1271 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_1276 {
+  width: 52px;
+  height: 68.75px;
+}
+.DivProductCard_217_1277 {
+  background: #f8d5c0;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_1278 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 105.98px;
+  display: flex;
+}
+.DivTwMtAuto_217_1279 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  width: 240px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.DivAd410a3e_6477_41d8_95cbBbded98eb8b7_217_1303 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_1311 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_1312 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_1313 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 740px;
+  display: flex;
+}
+.Icon_217_1314,
+.Icon_217_1316,
+.Icon_217_1318,
+.Icon_217_1320,
+.Icon_217_1322 {
+  width: 10px;
+  height: 10px;
+}
+.ParagraphTwMy_2_217_1324 {
+  flex-shrink: 0;
+  width: 240px;
+  height: 40px;
+}
+.ClassicRootBeer_217_1327 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_1328 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_1329 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1330 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_1331 {
+  background: #f8d5c0;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_1332 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_1334 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_1340 {
+  width: 52px;
+  height: 85px;
+}
+.DivProductCard_217_1341 {
+  background: #ffb7b4;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_1342 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 80.813px 56.996px 82.188px;
+  display: flex;
+}
+.DivTwMtAuto_217_1343 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_90b74c29_9b97_4a52_8cc6A80512eca617_217_1367 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_1375 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_1376 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_1377 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 440px;
+  display: flex;
+}
+.Icon_217_1378,
+.Icon_217_1380,
+.Icon_217_1382,
+.Icon_217_1384,
+.Icon_217_1386 {
+  width: 10px;
+  height: 10px;
+}
+.ParagraphTwMy_2_217_1388 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 240px;
+  height: 40px;
+  display: flex;
+}
+.VintageCola_217_1391 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_1392 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_1393 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1394 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_1395 {
+  background: #ffb7b4;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_1396 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_1398 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_1403 {
+  width: 56px;
+  height: 68.75px;
+}
+.OurFlavors_217_1404 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 46.8px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 52px;
+  display: inline-block;
+}
+.DivCollectionGroup_217_1405 {
+  background: #edf6f3;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  height: 672px;
+  padding: 0 310px 160px;
+  display: flex;
+}
+.Div_217_1406 {
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 40.9922px;
+  width: 1180px;
+  height: 512px;
+  padding: 0 900px 60.008px 0;
+  display: flex;
+}
+.LinkTwGroup_217_1407 {
+  background: #fffcf6;
+  border-radius: 16px;
+  flex-flow: row;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1408 {
+  background: #a7d1c5;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 245.51px;
+  padding-bottom: 245.502px;
+  display: flex;
+}
+.Icon_217_1409 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.DivMerchDesc_217_1411 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 122.76px;
+  padding: 0 100.773px 103.385px 97.227px;
+  display: flex;
+}
+.GiftCard_217_1412 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.Image_217_1413 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200px;
+  height: 183.27px;
+  overflow: hidden;
+}
+.GiftCards_217_1414 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 46.8px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 52px;
+  display: inline-block;
+}
+.Div_217_1415 {
+  flex-flow: row;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 1180px;
+  height: 655.53px;
+  display: flex;
+}
+.DivSummerTemplate_23917416415391CollectionList_217_1416 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 20px;
+  width: 1120px;
+  height: 420px;
+  padding: 0 30px 60px 0;
+  display: flex;
+}
+.DivProductCard_217_1417 {
+  background: #ffe1b5;
+  border-radius: 16px;
+  flex-shrink: 0;
+  width: 280px;
+  height: 360px;
+  overflow: hidden;
+}
+.DivTwRelative_217_1418 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  padding: 0 75.156px 56.996px 74.844px;
+  display: flex;
+}
+.DivTwMtAuto_217_1419 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_5df54c97_56d2_4ca8A292E3d659c17628_217_1443 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_1451 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_1452 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_1453 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 440px;
+  display: flex;
+}
+.Icon_217_1454,
+.Icon_217_1456,
+.Icon_217_1458,
+.Icon_217_1460,
+.Icon_217_1462 {
+  width: 10px;
+  height: 10px;
+}
+.OrangeCream_217_1464 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_1465 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.ImageLazyautosizes_217_1466 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1467 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_1468 {
+  background: #ffe1b5;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_1469 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_1471 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1472 {
+  background: #fffc;
+  border-radius: 0 0 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 10.467px 19.68px 10.273px 20px;
+  display: inline-flex;
+}
+.New_217_1473 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 12.9px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16.8px;
+  display: inline-block;
+}
+.SpanSrOnly_217_1478 {
+  flex-shrink: 0;
+  width: 54px;
+  height: 68.75px;
+}
+.DivProductCard_217_1479 {
+  background: #ffada5;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_1480 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 86.609px 56.996px 85.391px;
+  display: flex;
+}
+.DivTwMtAuto_217_1481 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_2ee08f55_3b63_4272_96ac_3f2c9ee21e0e_217_1505 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_1513 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_1514 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_1515 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 740px;
+  display: flex;
+}
+.Icon_217_1516,
+.Icon_217_1518,
+.Icon_217_1520,
+.Icon_217_1522,
+.Icon_217_1524 {
+  width: 10px;
+  height: 10px;
+}
+.CherryCola_217_1526 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_1527 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_1528 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1529 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_1530 {
+  background: #ffada5;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_1531 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_1533 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_1538 {
+  width: 50px;
+  height: 68.75px;
+}
+.DivProductCard_217_1539 {
+  background: #ffc3b3;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_1540 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 57.41px 56.996px 54.59px;
+  display: flex;
+}
+.DivTwMtAuto_217_1541 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.Div_29f32bdeE827_400eB2b9_02d943adaef3_217_1565 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_1573 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_1574 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_1575 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 1040px;
+  display: flex;
+}
+.Icon_217_1576,
+.Icon_217_1578,
+.Icon_217_1580,
+.Icon_217_1582,
+.Icon_217_1584 {
+  width: 10px;
+  height: 10px;
+}
+.StrawberryVanilla_217_1586 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_1587 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_1588 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1589 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_1590 {
+  background: #ffc3b3;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_1591 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_1593 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_1598 {
+  width: 82px;
+  height: 68.75px;
+}
+.DivProductCard_217_1599 {
+  background: #4ac1e0;
+  border-radius: 16px;
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25.9895px;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwRelative_217_1600 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19.6094px;
+  width: 280px;
+  padding: 0 86.957px 56.996px 84.043px;
+  display: flex;
+}
+.DivTwMtAuto_217_1601 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 7.98578px;
+  height: 27.99px;
+  padding: 0 25.035px 0 25.039px;
+  display: flex;
+}
+.DivF01bcf7f_3d1b_40b8Bd3e_8dd8d1325a0d_217_1625 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 65.94px;
+  height: 10px;
+  display: flex;
+}
+.DivBvOffScreen_217_1633 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 117.5px;
+}
+.DivBvStarsButtonContainer_217_1634 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 66px;
+  height: 10px;
+  padding-right: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.SpanBvStarsSvgNoWrap_217_1635 {
+  align-items: flex-start;
+  gap: 3.984px;
+  height: 10px;
+  padding-right: 1340px;
+  display: flex;
+}
+.Icon_217_1636,
+.Icon_217_1638,
+.Icon_217_1640,
+.Icon_217_1642,
+.Icon_217_1644 {
+  width: 10px;
+  height: 10px;
+}
+.CreamSoda_217_1646 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwRelative_217_1647 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 280px;
+  height: 254.03px;
+  display: flex;
+}
+.ImageLazyautosizes_217_1648 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 200.04px;
+  height: 200.04px;
+  overflow: hidden;
+}
+.DivTwAbsolute_217_1649 {
+  flex-shrink: 0;
+  width: 280px;
+  height: 254.03px;
+}
+.DivTwAbsolute_217_1650 {
+  background: #4ac1e0;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 254.03px;
+  padding-bottom: 253.534px;
+  display: flex;
+}
+.Icon_217_1651 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 12px;
+  display: flex;
+  overflow: hidden;
+}
+.ImageTwTop_0_217_1653 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 280px;
+  height: 190.51px;
+  overflow: hidden;
+}
+.SpanSrOnly_217_1658 {
+  width: 48px;
+  height: 68.75px;
+}
+.DivPromotionalSubtitle_217_1659 {
+  flex-shrink: 0;
+  width: 1180px;
+  height: 97.62px;
+}
+.EverySipHitsLikeABreezeAndTastesLikeAnOhSoRefreshingDessertNoForkRequired_217_1660,
+.FromBeachChairsToBbQsTheseNostalgicCraveWorthyFlavorsScreamSummer_217_1661 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28.8px;
+  display: inline-block;
+}
+.ImagePromotionalGraphic_217_1662 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 500px;
+  height: 117.91px;
+  overflow: hidden;
+}
+.DropDownContainerTwBlock_217_1663 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 590px;
+  height: 27.99px;
+  display: flex;
+  overflow: hidden;
+}
+.DropDownTwFlex_217_1664 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 590px;
+  height: 27.99px;
+  display: flex;
+  overflow: hidden;
+}
+.LinkTwMr_2_217_1665 {
+  background: #fff;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 5.496px 14.348px 6.494px 11.992px;
+  display: inline-flex;
+}
+.GiftCards_217_1666 {
+  color: #3a3a3a;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  display: inline-block;
+}
+.LinkTwMr_2_217_1667 {
+  background: #fff;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 5.496px 11.568px 6.494px 11.992px;
+  display: inline-flex;
+}
+.VarietyPacks_217_1668 {
+  color: #3a3a3a;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  display: inline-block;
+}
+.LinkTwMr_2_217_1669 {
+  background: #fff;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 5.496px 13.208px 6.494px 11.992px;
+  display: inline-flex;
+}
+.OurFlavors_217_1670 {
+  color: #3a3a3a;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  display: inline-block;
+}
+.LinkTwMr_2_217_1671 {
+  background: #fff;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 5.496px 9.728px 6.494px 11.992px;
+  display: inline-flex;
+}
+.Summer_217_1672 {
+  color: #3a3a3a;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  display: inline-block;
+}
+.ShopBy_217_1673 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 14.4px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  display: inline-block;
+}
+.DivAmbientHeroBannerBgImageTemplate_23917416415391AmbientHeroBannerGhEtVj_217_1674 {
+  align-items: center;
+  width: 1800px;
+  padding: 59.375px 775.488px 20.625px 759.512px;
+  display: flex;
+}
+.Olishop_217_1675 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 69.1px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 80px;
+  display: inline-block;
+}
+.FooterTwRelative_217_1676 {
+  background: #14433d;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: -0.00171661px;
+  width: 1800px;
+  padding-bottom: 126.49px;
+  display: flex;
+}
+.DivTwMy_0_217_1677 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 23.985px;
+  width: 1320px;
+  padding: 40px 0 4875.96px;
+  display: flex;
+}
+.DivTwFlex_217_1678 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 56.3822px;
+  width: 1320px;
+  height: 296.45px;
+  padding-right: 0;
+  display: flex;
+}
+.DivFooterMenu_217_1679 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 470.41px;
+  height: 284.46px;
+  display: flex;
+}
+.Icon_217_1680 {
+  flex-shrink: 0;
+  width: 47.99px;
+  height: 80px;
+  overflow: hidden;
+}
+.ListSocialIcons_217_1682 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 27.988px;
+  width: 167.94px;
+  height: 75.96px;
+  padding: 23.984px 1061.6px 23.984px 162.539px;
+  display: flex;
+}
+.Icon_217_1683,
+.Icon_217_1687,
+.Icon_217_1689,
+.Icon_217_1691,
+.Icon_217_1693,
+.Icon_217_1695 {
+  flex-shrink: 0;
+  width: 27.99px;
+  height: 27.99px;
+  overflow: hidden;
+}
+.DivKlaviyoFormWrapper_217_1697 {
+  flex-shrink: 0;
+  width: 470.41px;
+  height: 48.01px;
+}
+.Span_1753978911198_0_217_1698 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  display: flex;
+}
+.BackgroundImages_217_1701 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.BackgroundImage_217_1699 {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+}
+.InputKlaviyoFormFooter_217_1702 {
+  background: #fff;
+  border-radius: 49px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: center;
+  height: 47.99px;
+  padding: 13.194px 0 13.196px 24px;
+  display: inline-flex;
+  overflow: hidden;
+}
+.YourEmailAddress_217_1703 {
+  color: #008b70;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 308.99px;
+  height: 21.6px;
+  font-family: Inter;
+  font-size: 16.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21.6px;
+  display: inline-block;
+  overflow: hidden;
+}
+.ButtonSubscribe_217_1704 {
+  background: #f4c142;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  padding: 9.125px 33.238px 10.885px 31.992px;
+  display: inline-flex;
+}
+.Subscribe_217_1705 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 16.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  display: inline-block;
+}
+.SignUpToGet_15OffYourFirstOrder_217_1706 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 14.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  display: inline-block;
+}
+.DivFooterMenu_217_1707 {
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 9.10938px;
+  width: 211.16px;
+  padding-bottom: 128.466px;
+  display: flex;
+}
+.ListFooterMenuItems_4_217_1708 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7.992px;
+  width: 211.16px;
+  padding-bottom: 4932.19px;
+  display: flex;
+}
+.MyAccount_217_1709,
+.PantryReadyLine_217_1710,
+.Press_217_1711,
+.Careers_217_1712,
+.AffiliateProgram_217_1713,
+.RegisteredDietitianProgram_217_1714 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 15.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  display: inline-block;
+}
+.Olipop_217_1715 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 14.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  display: inline-block;
+}
+.DivFooterMenu_217_1716 {
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 9.10938px;
+  width: 173.64px;
+  padding-bottom: 152.466px;
+  display: flex;
+}
+.ListFooterMenuItems_3_217_1717 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7.992px;
+  width: 173.64px;
+  padding: 0 0 4932.19px;
+  display: flex;
+}
+.Faq_217_1718,
+.ContactUs_217_1719,
+.Accessibility_217_1720,
+.SatisfactionGuarantee_217_1721,
+.ManageSubscriptions_217_1722 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 15.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  display: inline-block;
+}
+.Help_217_1723 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 14.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  display: inline-block;
+}
+.DivFooterMenu_217_1724 {
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 9.10938px;
+  width: 121.16px;
+  padding-bottom: 128.466px;
+  display: flex;
+}
+.ListFooterMenuItems_2_217_1725 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7.992px;
+  width: 121.16px;
+  padding-bottom: 4932.19px;
+  display: flex;
+}
+.OurStory_217_1726,
+.Blog_217_1727,
+.DigestiveHealth_217_1728,
+.Sustainability_217_1729,
+.Ingredients_217_1730,
+.QualitySafety_217_1731 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 15.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  display: inline-block;
+}
+.Learn_217_1732 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 14.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  display: inline-block;
+}
+.DivFooterMenu_217_1733 {
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 9.10938px;
+  width: 118.11px;
+  padding-bottom: 128.466px;
+  display: flex;
+}
+.ListFooterMenuItems_1_217_1734 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7.992px;
+  width: 118.11px;
+  padding-bottom: 4932.19px;
+  display: flex;
+}
+.Drinks_217_1735,
+.GiftCards_217_1736,
+.FindInStore_217_1737,
+.ReferAFriend_217_1738,
+.Wholesale_217_1739,
+.HeroesProgram_217_1740 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 15.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  display: inline-block;
+}
+.Shop_217_1741 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 14.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  display: inline-block;
+}
+.DivTwMb_6_217_1742 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 539.277px;
+  display: flex;
+}
+.ListTwMb_3_217_1743 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 27.1856px;
+  height: 17.73px;
+  padding: 0 0.001px 0 23.984px;
+  display: flex;
+}
+.LinkTwBaseSmM_217_1744 {
+  opacity: 0.6;
+  justify-content: center;
+  align-items: center;
+  height: 17.73px;
+  display: flex;
+}
+.DoNotSellMyInformation_217_1745 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 15.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19.2px;
+  display: inline-block;
+}
+.LinkTwBaseSmM_217_1746 {
+  opacity: 0.6;
+  justify-content: center;
+  align-items: center;
+  height: 16.25px;
+  display: flex;
+}
+.PrivacyPolicy_217_1747 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 15.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19.2px;
+  display: inline-block;
+}
+.LinkTwBaseSmM_217_1748 {
+  opacity: 0.6;
+  justify-content: flex-end;
+  align-items: center;
+  height: 16.25px;
+  display: flex;
+}
+.TermsOfService_217_1749 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 15.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19.2px;
+  display: inline-block;
+}
+.OlipopIncAllRightsReserved_217_1750 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 15.1px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 19.2px;
+  display: inline-block;
+}
+.DivWaveSeparatorSvgCurveUpLeftMaskGroup_217_1756 {
+  width: 1800px;
+  height: 97.99px;
+}
+.SectionShopifySectionHeader_217_1757 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 1800px;
+  height: 109.99px;
+  display: flex;
+}
+.SliderContainerAnnouncementsBar_217_1758 {
+  background: #ff9422;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 1800px;
+  height: 40px;
+  display: flex;
+  overflow: hidden;
+}
+.DivKeenSliderSlide_217_1759 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 1800px;
+  height: 40px;
+  padding: 10.887px 0 13.113px;
+  display: flex;
+  overflow: hidden;
+}
+.FlavorsThatTasteLikeDessertAndFeelLikeADayOffShopSummer_217_1760 {
+  color: #14433d;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  font-family: Inter;
+  font-size: 15.1px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: auto;
+  display: inline-block;
+}
+.HeaderHeaderWrapper_217_1761 {
+  background: #fff7e5;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 1800px;
+  height: 69.99px;
+  padding: 0 240px;
+  display: flex;
+}
+.DivSiteHeader_217_1762 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 1320px;
+  height: 69.99px;
+  display: flex;
+}
+.DivTwColSpan_2_217_1763 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: -0.00202942px;
+  width: 228.13px;
+  padding-right: 0.002px;
+  display: flex;
+}
+.DivSiteHeaderIconsWrapper_217_1764 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 17.9866px;
+  width: 95.96px;
+  height: 47.99px;
+  display: flex;
+}
+.DivCartBtns_217_1765 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 49.99px;
+  height: 47.99px;
+  display: flex;
+}
+.Icon_217_1766 {
+  flex-shrink: 0;
+  width: 27.99px;
+  height: 27.99px;
+  overflow: hidden;
+}
+.DivTwPointerEventsNone_217_1768 {
+  background: #fcc100;
+  border-radius: 17.988px;
+  justify-content: center;
+  align-items: center;
+  width: 17.99px;
+  height: 17.99px;
+  padding: 3.984px 0 4.006px;
+  display: flex;
+  overflow: hidden;
+}
+.generated_1_217_1769 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 8.3px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 10px;
+  display: inline-block;
+}
+.Icon_217_1770 {
+  flex-shrink: 0;
+  width: 27.99px;
+  height: 27.99px;
+  overflow: hidden;
+}
+.ListSiteNav_217_1772 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 132.17px;
+  height: 32.5px;
+  padding: 0.625px 40.17px 1.875px 0;
+  display: flex;
+}
+.FindInStore_217_1773 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 15.1px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  display: inline-block;
+}
+.ImageJs_217_1774 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 116.49px;
+  height: 40.14px;
+  overflow: hidden;
+}
+.ListSiteNav_217_1775 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: -0.787499px;
+  padding-right: 40.886px;
+  display: flex;
+}
+.ItemSiteNavHasDropdown_217_1776 {
+  align-items: center;
+  height: 72.5px;
+  padding: 20.625px 40.6px 21.875px 0;
+  display: flex;
+}
+.Shop_217_1777 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 15.1px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  display: inline-block;
+}
+.ItemSiteNavHasDropdown_217_1778 {
+  align-items: center;
+  height: 72.5px;
+  padding: 20.625px 41.66px 21.875px 0;
+  display: flex;
+}
+.Learn_217_1779,
+.Subscribe_217_1780 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 15.1px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  display: inline-block;
+}
+.LinkRefWidgetWrapper_217_1781 {
+  background: #006954;
+  border-radius: 50px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 122.72px;
+  height: 30px;
+  display: flex;
+}
+.DivRefWidget_217_1782 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 122.72px;
+  height: 30px;
+  display: flex;
+}
+.ImageRefIcon_217_1783 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 43.99px;
+  height: 30px;
+  overflow: hidden;
+}
+.Get_15Off_217_1784 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 13.3px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+  display: inline-block;
+}
+.LinkInPageLink_217_1788 {
+  flex-shrink: 0;
+  width: 56px;
+  height: 52.5px;
+}
+
+```
+
+---
+
+```src/components/assets/Icon.tsx
+import React from 'react';
+export default function Icon() {
+  return <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clipPath="url(#clip0_217_1770)">
+<path fillRule="evenodd" clipRule="evenodd" d="M12.7826 0.949585C5.90601 0.949585 0.312012 6.54409 0.312012 13.4201C0.312012 20.2962 5.90601 25.8912 12.7826 25.8912C19.6591 25.8912 25.2536 20.2962 25.2536 13.4201C25.2536 6.54409 19.6591 0.949585 12.7826 0.949585ZM19.8005 21.4128C19.1918 17.8111 16.6222 15.0391 13.4518 14.6942C15.639 14.3698 17.3194 12.4895 17.3194 10.2118C17.3194 7.70667 15.2882 5.6754 12.7826 5.6754C10.277 5.6754 8.24618 7.70667 8.24618 10.2118C8.24618 12.4895 9.92608 14.3698 12.1133 14.6942C8.94293 15.0391 6.37335 17.8111 5.76456 21.4128C3.54386 19.461 2.13836 16.6025 2.13836 13.4201C2.13836 7.55123 6.91315 2.77593 12.7826 2.77593C18.652 2.77593 23.4268 7.55123 23.4268 13.4201C23.4268 16.6025 22.0213 19.461 19.8005 21.4128Z" fill="#14433D"/>
+</g>
+<defs>
+<clipPath id="clip0_217_1770">
+<rect width="27.99" height="27.99" fill="white" transform="translate(0.0429688 0.933594)"/>
+</clipPath>
+</defs>
+</svg>
+;
+}
+```
+
+---
+
+```src/components/assets/Svg.tsx
+import React from 'react';
+export default function Svg() {
+  return <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.22751 5.59766H9.60626C9.71527 5.59766 9.80537 5.63047 9.87656 5.69609C9.94664 5.76276 9.98168 5.84714 9.98168 5.94922V6.65234C9.98168 6.75443 9.94664 6.8388 9.87656 6.90547C9.80537 6.97109 9.71527 7.00391 9.60626 7.00391H6.22751V10.168C6.22751 10.2701 6.19247 10.3544 6.1224 10.4211C6.05121 10.4867 5.96111 10.5195 5.8521 10.5195H5.10126C4.99225 10.5195 4.90215 10.4867 4.83096 10.4211C4.76089 10.3544 4.72585 10.2701 4.72585 10.168V7.00391H1.3471C1.23809 7.00391 1.14799 6.97109 1.0768 6.90547C1.00672 6.8388 0.97168 6.75443 0.97168 6.65234V5.94922C0.97168 5.84714 1.00672 5.76276 1.0768 5.69609C1.14799 5.63047 1.23809 5.59766 1.3471 5.59766H4.72585V2.43359C4.72585 2.33151 4.76089 2.24714 4.83096 2.18047C4.90215 2.11484 4.99225 2.08203 5.10126 2.08203H5.8521C5.96111 2.08203 6.05121 2.11484 6.1224 2.18047C6.19247 2.24714 6.22751 2.33151 6.22751 2.43359V5.59766Z" fill="#16433D"/>
+</svg>
+;
+}
+```
+
+---
+
+```src/components/assets/BackgroundImage.tsx
+import React from 'react';
+export default function BackgroundImage() {
+  return <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.0898 5.72952C14.0898 5.63517 13.9955 5.54082 13.8634 5.50307L12.2784 4.91807C12.0142 4.80482 11.7123 4.93692 11.7123 5.12567V12.0231C11.7197 12.0769 11.741 12.1278 11.7741 12.1708C11.8072 12.2138 11.8509 12.2475 11.901 12.2685L13.5239 12.8535C13.7692 12.9478 14.09 12.8157 14.09 12.6081L14.0898 5.72952ZM10.0692 10.9851C10.0692 10.8908 9.97486 10.7964 9.84276 10.7587L8.25776 10.1737C7.99361 10.0604 7.69166 10.1925 7.69166 10.3812V14.6838C7.6991 14.7375 7.72041 14.7884 7.7535 14.8314C7.78659 14.8745 7.83031 14.9081 7.88036 14.9291L9.50326 15.5141C9.74856 15.6085 10.0694 15.4764 10.0694 15.2688L10.0692 10.9851ZM10.0692 2.19117C10.0692 2.09682 9.97486 2.00247 9.84276 1.96472L8.25776 1.37972C7.99361 1.26647 7.69166 1.39857 7.69166 1.58727V5.88982C7.6991 5.94358 7.72041 5.99448 7.7535 6.0375C7.78659 6.08053 7.83031 6.11419 7.88036 6.13517L9.50326 6.72017C9.74856 6.81452 10.0694 6.68242 10.0694 6.47482L10.0692 2.19117ZM6.06896 1.86117C6.06896 1.76677 5.97461 1.67242 5.84251 1.63472L4.25751 1.04972C3.99336 0.936467 3.69141 1.06857 3.69141 1.25727V15.0328C3.69884 15.0866 3.72015 15.1375 3.75324 15.1805C3.78633 15.2235 3.83006 15.2571 3.88011 15.2781L5.50301 15.8631C5.74831 15.9575 6.06911 15.8254 6.06911 15.6178L6.06896 1.86117Z" fill="#0E6476"/>
+</svg>
+;
+}
+```
+
+---
+
+```src/components/assets/DivWaveSeparatorSvgCurveUpLeftMaskGroup.tsx
+import React from 'react';
+export default function DivWaveSeparatorSvgCurveUpLeftMaskGroup() {
+  return <svg width="1800" height="99" viewBox="0 0 1800 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_217_1756" style={{"maskType":"alpha"}} maskUnits="userSpaceOnUse" x="0" y="0" width="1800" height="99">
+<g clipPath="url(#clip0_217_1756)">
+<g clipPath="url(#clip1_217_1756)">
+<g clipPath="url(#clip2_217_1756)">
+<path d="M1800 98.2087H0.000375486L6.86218e-06 5.12474C-0.0572028 5.08761 357.606 -12.2956 897.5 26.5062C1437.4 65.308 1800 1.16553 1800 1.16553V98.2087Z" fill="#1C4539"/>
+</g>
+</g>
+</g>
+</mask>
+<g mask="url(#mask0_217_1756)">
+<rect width="1800" height="97.99" transform="translate(0 0.21875)" fill="#14433D"/>
+</g>
+<defs>
+<clipPath id="clip0_217_1756">
+<rect width="1800" height="97.99" fill="white" transform="translate(0 0.21875)"/>
+</clipPath>
+<clipPath id="clip1_217_1756">
+<rect width="1800" height="97.99" fill="white" transform="translate(0 0.21875)"/>
+</clipPath>
+<clipPath id="clip2_217_1756">
+<rect width="1800" height="97.99" fill="white" transform="translate(0 0.21875)"/>
+</clipPath>
+</defs>
+</svg>
+;
+}
+```
+
+---
+
+```src/components/BodyOlipopFlavors.tsx
+import React from 'react';
+import styles from '../styles/BodyOlipopFlavors.module.css';
+import Icon from './assets/Icon';
+import Svg from './assets/Svg';
+import BackgroundImage from './assets/BackgroundImage';
+import DivWaveSeparatorSvgCurveUpLeftMaskGroup from './assets/DivWaveSeparatorSvgCurveUpLeftMaskGroup';
+
+export default function BodyOlipopFlavors() {
+  return (
+    <div className={styles.BodyOlipopFlavors_217_1789}>
+      <div className={styles.DivRebuyCartFlyout_217_39}>
+        <div className={styles.DivRebuyCartFlyoutFooter_217_40}>
+          <div className={styles.DivRebuyCartFlyoutActions_217_41}><span className={styles.DayMoneyBackGuarantee_217_42}>45 Day Money-Back Guarantee</span>
+            <div className={styles.ButtonRebuyCheckoutBtn_217_43}><span className={styles.Checkout_217_44}>Checkout </span></div>
+          </div>
+          <div className={styles.DivRebuyCartFlyoutSubtotal_217_45}><span className={styles._99_217_46}>$35.99</span><span className={styles.Subtotal_217_47}>Subtotal</span></div>
+          <div className={styles.ButtonRebuyCartFlyoutFooterDiscountButton_217_48}>
+            <div className={styles.Icon_217_49}>
+              <Icon />
+            </div><span className={styles.AddPromoCode_217_52}>Add Promo Code</span>
+          </div>
+        </div>
+        <div className={styles.DivRebuyCartFlyoutBody_217_53}>
+          <div className={styles.DivRebuyCartFlyoutContent_217_54}>
+            <div className={styles.BeamSelectNonprofit_217_55}>
+              <div className={styles.Div_217_56}><span className={styles.AtNoExtraCostChooseYourImpact_217_57}>At no extra cost, choose your impact</span><span className={styles.SelectANonprofitAnd_1OfYourPurchaseWillBeDonated_217_58}>Select a nonprofit and 1% of your purchase will be donated.</span></div>
+              <div className={styles.DivOptions_217_59}>
+                <div className={styles.DivOption_217_60}>
+                  <div className={styles.Image_217_61}></div>
+                </div>
+                <div className={styles.DivOption_217_62}>
+                  <div className={styles.Image_217_63}></div>
+                </div>
+                <div className={styles.DivOption_217_64}>
+                  <div className={styles.Image_217_65}></div>
+                </div>
+                <div className={styles.DivOption_217_66}>
+                  <div className={styles.Image_217_67}></div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.DivRebuyUpsell_217_68}>
+              <div className={styles.DivTwFlex_217_69}>
+                <div className={styles.DivTwFlex_217_70}>
+                  <div className={styles.Icon_217_71}>
+                    <Icon />
+                  </div>
+                  <div className={styles.Icon_217_73}>
+                    <Icon />
+                  </div>
+                </div><span className={styles.StockUpOnYourFavoriteFlavors_217_75}>Stock up on your favorite flavors</span>
+              </div>
+              <div className={styles.DivKeenSlider_217_76}>
+                <div className={styles.DivTwP_2_217_77}>
+                  <div className={styles.ButtonTwTextWhite_217_78}><span className={styles.Add_217_79}>Add</span></div>
+                  <div className={styles.DivProductInfoWrapper_217_80}><span className={styles.CreamSoda_217_81}>Cream Soda</span><span className={styles._99_217_82}>$35.99</span></div>
+                  <div className={styles.ImageProductImage_217_83}></div>
+                </div>
+                <div className={styles.DivTwP_2_217_84}>
+                  <div className={styles.ButtonTwTextWhite_217_85}><span className={styles.Add_217_86}>Add</span></div>
+                  <div className={styles.DivProductInfoWrapper_217_87}><span className={styles.CrispApple_217_88}>Crisp Apple</span><span className={styles._99_217_89}>$35.99</span></div>
+                  <div className={styles.ImageProductImage_217_90}></div>
+                </div>
+                <div className={styles.DivTwP_2_217_91}>
+                  <div className={styles.ButtonTwTextWhite_217_92}><span className={styles.Add_217_93}>Add</span></div>
+                  <div className={styles.DivProductInfoWrapper_217_94}><span className={styles.PeachesCream_217_95}>Peaches &#x26; Cream</span><span className={styles._99_217_96}>$35.99</span></div>
+                  <div className={styles.ImageProductImage_217_97}></div>
+                </div>
+                <div className={styles.DivTwP_2_217_98}>
+                  <div className={styles.ButtonTwTextWhite_217_99}><span className={styles.Add_217_100}>Add</span></div>
+                  <div className={styles.DivProductInfoWrapper_217_101}><span className={styles.ClassicGrape_217_102}>Classic Grape</span><span className={styles._99_217_103}>$35.99</span></div>
+                  <div className={styles.ImageProductImage_217_104}></div>
+                </div>
+                <div className={styles.DivTwP_2_217_105}>
+                  <div className={styles.ButtonTwTextWhite_217_106}><span className={styles.Add_217_107}>Add</span></div>
+                  <div className={styles.DivProductInfoWrapper_217_108}><span className={styles.WatermelonLime_217_109}>Watermelon Lime</span><span className={styles._99_217_110}>$35.99</span></div>
+                  <div className={styles.ImageProductImage_217_111}></div>
+                </div>
+                <div className={styles.DivTwP_2_217_112}>
+                  <div className={styles.ButtonTwTextWhite_217_113}><span className={styles.Add_217_114}>Add</span></div>
+                  <div className={styles.DivProductInfoWrapper_217_115}><span className={styles.OrangeCream_217_116}>Orange Cream</span><span className={styles._99_217_117}>$35.99</span></div>
+                  <div className={styles.ImageProductImage_217_118}></div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.DivRebuyCartFlyoutItems_217_119}>
+              <div className={styles.DivRebuyCartFlyoutItem_217_120}>
+                <div className={styles.ButtonRebuyButton_217_121}><span className={styles.UpgradeToSubscriptionSave_15_217_122}>Upgrade to Subscription &#x26; Save 15%</span></div>
+                <div className={styles.DivRebuyCartFlyoutItemInfo_217_123}>
+                  <div className={styles.DivRebuyCartFlyoutItemQuantityWrapper_217_124}>
+                    <div className={styles.Svg_217_125}><Svg /></div>
+                    <div className={styles.DivRebuyCartFlyoutItemQuantityWidget_217_127}>
+                      <div className={styles.ButtonRebuyCartFlyoutItemQuantityWidgetButton_217_128}>
+                        <div className={styles.Svg_217_129}><Svg /></div>
+                      </div>
+                      <div className={styles.SpanRebuyCartFlyoutItemQuantityWidgetLabel_217_131}><span className={styles.generated_1_217_132}>1</span></div>
+                      <div className={styles.ButtonRebuyCartFlyoutItemQuantityWidgetButton_217_133}>
+                        <div className={styles.Svg_217_134}><Svg /></div>
+                      </div>
+                    </div>
+                  </div><span className={styles.Cans_217_136}>12 Cans</span>
+                  <div className={styles.DivRebuyCartFlyoutItemTitleWrapper_217_137}><span className={styles._99_217_138}>$35.99</span><span className={styles.TropicalPunch_217_139}>Tropical Punch</span></div>
+                </div>
+                <div className={styles.Image_217_140}></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.DivRebuyCartFlyoutShippingBar_217_141}>
+          <div className={styles.DivRebuyCartFlyoutShippingBarMeter_217_142}>
+            <div className={styles.DivRebuyCartFlyoutShippingBarMeterFill_217_143}></div>
+          </div><span className={styles.Spend_14_01OrSubscribeToUnlockFreeShipping_217_144}>Spend $14.01 or subscribe to unlock FREE shipping</span>
+        </div>
+        <div className={styles.DivRebuyCartFlyoutHeader_217_145}>
+          <div className={styles.ButtonRebuyCartFlyoutClose_217_146}>
+            <div className={styles.Icon_217_147}>
+              <Icon />
+            </div>
+          </div><span className={styles.YourCart_217_149}>Your Cart</span>
+        </div>
+      </div>
+      <div className={styles.DivPageContainer_217_150}>
+        <div className={styles.DivMainContent_217_167}>
+          <div className={styles.DivTwRelative_217_168}>
+            <div className={styles.ImageTwHAuto_217_169}></div>
+            <div className={styles.Icon_217_170}>
+              <Icon />
+            </div>
+          </div>
+          <div className={styles.DivCollectionList_217_172}>
+            <div className={styles.Div_217_173}>
+              <div className={styles.Div_217_174}>
+                <div className={styles.DivCollectionGroup_217_175}>
+                  <div className={styles.Div_217_176}>
+                    <div className={styles.DivVarietyPacksTemplate_23917416415391CollectionList_217_177}>
+                      <div className={styles.DivProductCard_217_178}>
+                        <div className={styles.DivTwRelative_217_179}><span className={styles.ClassicSoda_217_180}>Classic Soda</span></div>
+                        <div className={styles.DivTwRelative_217_181}>
+                          <div className={styles.ImageLazyautosizes_217_182}></div>
+                          <div className={styles.DivTwAbsolute_217_183}>
+                            <div className={styles.DivTwAbsolute_217_184}>
+                              <div className={styles.Icon_217_185}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_187}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_195}>
+                        <div className={styles.DivTwRelative_217_196}><span className={styles.FruityFun_217_197}>Fruity Fun</span></div>
+                        <div className={styles.DivTwRelative_217_198}>
+                          <div className={styles.ImageLazyautosizes_217_199}></div>
+                          <div className={styles.DivTwAbsolute_217_200}>
+                            <div className={styles.DivTwAbsolute_217_201}>
+                              <div className={styles.Icon_217_202}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_204}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_212}>
+                        <div className={styles.DivTwRelative_217_213}><span className={styles.Favorites_217_217}>Favorites</span></div>
+                        <div className={styles.DivTwRelative_217_218}>
+                          <div className={styles.ImageLazyautosizes_217_219}></div>
+                          <div className={styles.DivTwAbsolute_217_220}>
+                            <div className={styles.DivTwAbsolute_217_221}>
+                              <div className={styles.Icon_217_222}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_224}></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><span className={styles.OlipopVarietyPacksAreNowConvenientlyAvailableInOurPantryReadyLineLearnMore_217_231}>OLIPOP Variety Packs are now conveniently available in our Pantry Ready line. Learn More</span><span className={styles.VarietyPacks_217_232}>Variety Packs</span>
+                  </div>
+                </div>
+                <div className={styles.DivCollectionGroup_217_233}>
+                  <div className={styles.Div_217_234}>
+                    <div className={styles.DivOurFlavorsTemplate_23917416415391CollectionList_217_235}>
+                      <div className={styles.DivProductCard_217_236}>
+                        <div className={styles.DivTwRelative_217_237}>
+                          <div className={styles.DivCedccb64_202c_4697Bdb5Dc796fa30ee6_217_262}>
+                            <div className={styles.DivBvStarsButtonContainer_217_271}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_272}>
+                                <div className={styles.Icon_217_273}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_275}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_277}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_279}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_281}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.WatermelonLime_217_286}>Watermelon Lime</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_287}>
+                          <div className={styles.ImageLazyautosizes_217_288}></div>
+                          <div className={styles.DivTwAbsolute_217_289}>
+                            <div className={styles.DivTwAbsolute_217_290}>
+                              <div className={styles.Icon_217_291}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_293}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_299}>
+                        <div className={styles.DivTwRelative_217_300}>
+                          <div className={styles.Div_68e59523_32ce_418dA1bc_3105fd94f53e_217_325}>
+                            <div className={styles.DivBvStarsButtonContainer_217_334}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_335}>
+                                <div className={styles.Icon_217_336}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_338}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_340}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_342}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_344}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.BananaCream_217_349}>Banana Cream</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_350}>
+                          <div className={styles.ImageLazyautosizes_217_351}></div>
+                          <div className={styles.DivTwAbsolute_217_352}>
+                            <div className={styles.DivTwAbsolute_217_353}>
+                              <div className={styles.Icon_217_354}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_356}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_362}>
+                        <div className={styles.DivTwRelative_217_363}>
+                          <div className={styles.Div_98313d39_86b9_4ba9Bfe5_0f3b10946505_217_388}>
+                            <div className={styles.DivBvStarsButtonContainer_217_397}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_398}>
+                                <div className={styles.Icon_217_399}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_401}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_403}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_405}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_407}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.TropicalPunch_217_409}>Tropical Punch</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_410}>
+                          <div className={styles.ImageLazyautosizes_217_411}></div>
+                          <div className={styles.DivTwAbsolute_217_412}>
+                            <div className={styles.DivTwAbsolute_217_413}>
+                              <div className={styles.Icon_217_414}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_416}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_422}>
+                        <div className={styles.DivTwRelative_217_423}>
+                          <div className={styles.Div_1812fd57_8939_473e_9c31_7dcf046e0661_217_448}>
+                            <div className={styles.DivBvStarsButtonContainer_217_457}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_458}>
+                                <div className={styles.Icon_217_459}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_461}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_463}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_465}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_467}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.StrawberryVanilla_217_469}>Strawberry Vanilla</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_470}>
+                          <div className={styles.ImageLazyautosizes_217_471}></div>
+                          <div className={styles.DivTwAbsolute_217_472}>
+                            <div className={styles.DivTwAbsolute_217_473}>
+                              <div className={styles.Icon_217_474}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_476}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_482}>
+                        <div className={styles.DivTwRelative_217_483}>
+                          <div className={styles.Div_04b8e20bD360_4b0dA210_7d51b8d1216a_217_508}>
+                            <div className={styles.DivBvStarsButtonContainer_217_517}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_518}>
+                                <div className={styles.Icon_217_519}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_521}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_523}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_525}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_527}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.CherryVanilla_217_529}>Cherry Vanilla</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_530}>
+                          <div className={styles.ImageLazyautosizes_217_531}></div>
+                          <div className={styles.DivTwAbsolute_217_532}>
+                            <div className={styles.DivTwAbsolute_217_533}>
+                              <div className={styles.Icon_217_534}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_536}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_542}>
+                        <div className={styles.DivTwRelative_217_543}>
+                          <div className={styles.Div_78659b91Db74_4df8_87d6B920b319b2aa_217_568}>
+                            <div className={styles.DivBvStarsButtonContainer_217_577}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_578}>
+                                <div className={styles.Icon_217_579}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_581}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_583}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_585}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_587}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.CherryCola_217_589}>Cherry Cola</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_590}>
+                          <div className={styles.ImageLazyautosizes_217_591}></div>
+                          <div className={styles.DivTwAbsolute_217_592}>
+                            <div className={styles.DivTwAbsolute_217_593}>
+                              <div className={styles.Icon_217_594}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_596}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_602}>
+                        <div className={styles.DivTwRelative_217_603}>
+                          <div className={styles.DivBb68f003_9729_426b_99aaB76c214154ef_217_628}>
+                            <div className={styles.DivBvStarsButtonContainer_217_637}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_638}>
+                                <div className={styles.Icon_217_639}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_641}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_643}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_645}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_647}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.GingerLemon_217_652}>Ginger Lemon</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_653}>
+                          <div className={styles.ImageLazyautosizes_217_654}></div>
+                          <div className={styles.DivTwAbsolute_217_655}>
+                            <div className={styles.DivTwAbsolute_217_656}>
+                              <div className={styles.Icon_217_657}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_659}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_665}>
+                        <div className={styles.DivTwRelative_217_666}>
+                          <div className={styles.Div_29398e14E71d_4f7bB3f3_92ca6399ff51_217_691}>
+                            <div className={styles.DivBvStarsButtonContainer_217_700}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_701}>
+                                <div className={styles.Icon_217_702}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_704}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_706}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_708}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_710}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.CreamSoda_217_712}>Cream Soda</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_713}>
+                          <div className={styles.ImageLazyautosizes_217_714}></div>
+                          <div className={styles.DivTwAbsolute_217_715}>
+                            <div className={styles.DivTwAbsolute_217_716}>
+                              <div className={styles.Icon_217_717}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_719}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_725}>
+                        <div className={styles.DivTwRelative_217_726}>
+                          <div className={styles.DivBa1819e2D849_455fB930_5bc0bf911405_217_751}>
+                            <div className={styles.DivBvStarsButtonContainer_217_760}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_761}>
+                                <div className={styles.Icon_217_762}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_764}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_766}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_768}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_770}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.DoctorGoodwin_217_775}>Doctor Goodwin</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_776}>
+                          <div className={styles.ImageLazyautosizes_217_777}></div>
+                          <div className={styles.DivTwAbsolute_217_778}>
+                            <div className={styles.DivTwAbsolute_217_779}>
+                              <div className={styles.Icon_217_780}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_782}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_788}>
+                        <div className={styles.DivTwRelative_217_789}>
+                          <div className={styles.DivF62765a7_6b27_40c7_9981_77228d794cc9_217_814}>
+                            <div className={styles.DivBvStarsButtonContainer_217_823}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_824}>
+                                <div className={styles.Icon_217_825}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_827}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_829}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_831}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_833}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.OrangeCream_217_835}>Orange Cream</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_836}>
+                          <div className={styles.ImageLazyautosizes_217_837}></div>
+                          <div className={styles.DivTwAbsolute_217_838}>
+                            <div className={styles.DivTwAbsolute_217_839}>
+                              <div className={styles.Icon_217_840}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_842}></div>
+                          </div>
+                        </div>
+                        <div className={styles.DivTwAbsolute_217_843}><span className={styles.New_217_844}>New</span></div>
+                      </div>
+                      <div className={styles.DivProductCard_217_850}>
+                        <div className={styles.DivTwRelative_217_851}>
+                          <div className={styles.Div_27188567_9b3d_4840A7efDfb9c5dc0b52_217_876}>
+                            <div className={styles.DivBvStarsButtonContainer_217_885}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_886}>
+                                <div className={styles.Icon_217_887}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_889}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_891}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_893}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_895}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.LemonLime_217_897}>Lemon Lime</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_898}>
+                          <div className={styles.ImageLazyautosizes_217_899}></div>
+                          <div className={styles.DivTwAbsolute_217_900}>
+                            <div className={styles.DivTwAbsolute_217_901}>
+                              <div className={styles.Icon_217_902}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_904}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_910}>
+                        <div className={styles.DivTwRelative_217_911}>
+                          <div className={styles.DivB04d1e96Be5a_4ee5Aba4F914f38e3273_217_936}>
+                            <div className={styles.DivBvStarsButtonContainer_217_945}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_946}>
+                                <div className={styles.Icon_217_947}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_949}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_951}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_953}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_955}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.GingerAle_217_960}>Ginger Ale</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_961}>
+                          <div className={styles.ImageLazyautosizes_217_962}></div>
+                          <div className={styles.DivTwAbsolute_217_963}>
+                            <div className={styles.DivTwAbsolute_217_964}>
+                              <div className={styles.Icon_217_965}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_967}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_973}>
+                        <div className={styles.DivTwRelative_217_974}>
+                          <div className={styles.Div_8fceb35a_0b33_4341Aa90_0282bbbb0313_217_999}>
+                            <div className={styles.DivBvStarsButtonContainer_217_1008}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_1009}>
+                                <div className={styles.Icon_217_1010}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1012}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1014}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1016}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1018}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.OrangeSqueeze_217_1023}>Orange Squeeze</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_1024}>
+                          <div className={styles.ImageLazyautosizes_217_1025}></div>
+                          <div className={styles.DivTwAbsolute_217_1026}>
+                            <div className={styles.DivTwAbsolute_217_1027}>
+                              <div className={styles.Icon_217_1028}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_1030}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_1036}>
+                        <div className={styles.DivTwRelative_217_1037}>
+                          <div className={styles.Div_87a5c2d2F1bd_423fA2d8Ddd98382bcac_217_1062}>
+                            <div className={styles.DivBvStarsButtonContainer_217_1071}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_1072}>
+                                <div className={styles.Icon_217_1073}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1075}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1077}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1079}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1081}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.RidgeRush_217_1083}>Ridge Rush</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_1084}>
+                          <div className={styles.ImageLazyautosizes_217_1085}></div>
+                          <div className={styles.DivTwAbsolute_217_1086}>
+                            <div className={styles.DivTwAbsolute_217_1087}>
+                              <div className={styles.Icon_217_1088}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_1090}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_1096}>
+                        <div className={styles.DivTwRelative_217_1097}>
+                          <div className={styles.Div_78d1f8c6F88d_4803A047_79c565204106_217_1122}>
+                            <div className={styles.DivBvStarsButtonContainer_217_1131}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_1132}>
+                                <div className={styles.Icon_217_1133}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1135}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1137}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1139}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1141}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.PeachesCream_217_1143}>Peaches &#x26; Cream</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_1144}>
+                          <div className={styles.ImageLazyautosizes_217_1145}></div>
+                          <div className={styles.DivTwAbsolute_217_1146}>
+                            <div className={styles.DivTwAbsolute_217_1147}>
+                              <div className={styles.Icon_217_1148}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_1150}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_1157}>
+                        <div className={styles.DivTwRelative_217_1158}>
+                          <div className={styles.DivE44daa50_7100_4bf1_935a_44775b6d5b93_217_1183}>
+                            <div className={styles.DivBvStarsButtonContainer_217_1192}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_1193}>
+                                <div className={styles.Icon_217_1194}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1196}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1198}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1200}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1202}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.CrispApple_217_1204}>Crisp Apple</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_1205}>
+                          <div className={styles.ImageLazyautosizes_217_1206}></div>
+                          <div className={styles.DivTwAbsolute_217_1207}>
+                            <div className={styles.DivTwAbsolute_217_1208}>
+                              <div className={styles.Icon_217_1209}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_1211}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_1217}>
+                        <div className={styles.DivTwRelative_217_1218}>
+                          <div className={styles.DivF21e96e8_87c9_48f7_99f0_7c48aa9b97bd_217_1243}>
+                            <div className={styles.DivBvStarsButtonContainer_217_1252}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_1253}>
+                                <div className={styles.Icon_217_1254}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1256}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1258}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1260}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1262}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.ClassicGrape_217_1264}>Classic Grape</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_1265}>
+                          <div className={styles.ImageLazyautosizes_217_1266}></div>
+                          <div className={styles.DivTwAbsolute_217_1267}>
+                            <div className={styles.DivTwAbsolute_217_1268}>
+                              <div className={styles.Icon_217_1269}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_1271}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_1277}>
+                        <div className={styles.DivTwRelative_217_1278}>
+                          <div className={styles.DivAd410a3e_6477_41d8_95cbBbded98eb8b7_217_1303}>
+                            <div className={styles.DivBvStarsButtonContainer_217_1312}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_1313}>
+                                <div className={styles.Icon_217_1314}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1316}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1318}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1320}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1322}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.ClassicRootBeer_217_1327}>Classic Root Beer</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_1328}>
+                          <div className={styles.ImageLazyautosizes_217_1329}></div>
+                          <div className={styles.DivTwAbsolute_217_1330}>
+                            <div className={styles.DivTwAbsolute_217_1331}>
+                              <div className={styles.Icon_217_1332}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_1334}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.DivProductCard_217_1341}>
+                        <div className={styles.DivTwRelative_217_1342}>
+                          <div className={styles.Div_90b74c29_9b97_4a52_8cc6A80512eca617_217_1367}>
+                            <div className={styles.DivBvStarsButtonContainer_217_1376}>
+                              <div className={styles.SpanBvStarsSvgNoWrap_217_1377}>
+                                <div className={styles.Icon_217_1378}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1380}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1382}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1384}>
+                                  <Icon />
+                                </div>
+                                <div className={styles.Icon_217_1386}>
+                                  <Icon />
+                                </div>
+                              </div>
+                            </div>
+                          </div><span className={styles.VintageCola_217_1391}>Vintage Cola</span>
+                        </div>
+                        <div className={styles.DivTwRelative_217_1392}>
+                          <div className={styles.ImageLazyautosizes_217_1393}></div>
+                          <div className={styles.DivTwAbsolute_217_1394}>
+                            <div className={styles.DivTwAbsolute_217_1395}>
+                              <div className={styles.Icon_217_1396}>
+                                <Icon />
+                              </div>
+                            </div>
+                            <div className={styles.ImageTwTop_0_217_1398}></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><span className={styles.OurFlavors_217_1404}>Our Flavors</span>
+                  </div>
+                </div>
+                <div className={styles.DivCollectionGroup_217_1405}>
+                  <div className={styles.Div_217_1406}>
+                    <div className={styles.LinkTwGroup_217_1407}>
+                      <div className={styles.DivTwAbsolute_217_1408}>
+                        <div className={styles.Icon_217_1409}>
+                          <Icon />
+                        </div>
+                      </div>
+                      <div className={styles.DivMerchDesc_217_1411}><span className={styles.GiftCard_217_1412}>Gift Card</span></div>
+                      <div className={styles.Image_217_1413}></div>
+                    </div><span className={styles.GiftCards_217_1414}>Gift Cards</span>
+                  </div>
+                </div>
+                <div className={styles.Div_217_1415}>
+                  <div className={styles.DivSummerTemplate_23917416415391CollectionList_217_1416}>
+                    <div className={styles.DivProductCard_217_1417}>
+                      <div className={styles.DivTwRelative_217_1418}>
+                        <div className={styles.Div_5df54c97_56d2_4ca8A292E3d659c17628_217_1443}>
+                          <div className={styles.DivBvStarsButtonContainer_217_1452}>
+                            <div className={styles.SpanBvStarsSvgNoWrap_217_1453}>
+                              <div className={styles.Icon_217_1454}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1456}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1458}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1460}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1462}>
+                                <Icon />
+                              </div>
+                            </div>
+                          </div>
+                        </div><span className={styles.OrangeCream_217_1464}>Orange Cream</span>
+                      </div>
+                      <div className={styles.DivTwRelative_217_1465}>
+                        <div className={styles.ImageLazyautosizes_217_1466}></div>
+                        <div className={styles.DivTwAbsolute_217_1467}>
+                          <div className={styles.DivTwAbsolute_217_1468}>
+                            <div className={styles.Icon_217_1469}>
+                              <Icon />
+                            </div>
+                          </div>
+                          <div className={styles.ImageTwTop_0_217_1471}></div>
+                        </div>
+                      </div>
+                      <div className={styles.DivTwAbsolute_217_1472}><span className={styles.New_217_1473}>New</span></div>
+                    </div>
+                    <div className={styles.DivProductCard_217_1479}>
+                      <div className={styles.DivTwRelative_217_1480}>
+                        <div className={styles.Div_2ee08f55_3b63_4272_96ac_3f2c9ee21e0e_217_1505}>
+                          <div className={styles.DivBvStarsButtonContainer_217_1514}>
+                            <div className={styles.SpanBvStarsSvgNoWrap_217_1515}>
+                              <div className={styles.Icon_217_1516}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1518}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1520}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1522}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1524}>
+                                <Icon />
+                              </div>
+                            </div>
+                          </div>
+                        </div><span className={styles.CherryCola_217_1526}>Cherry Cola</span>
+                      </div>
+                      <div className={styles.DivTwRelative_217_1527}>
+                        <div className={styles.ImageLazyautosizes_217_1528}></div>
+                        <div className={styles.DivTwAbsolute_217_1529}>
+                          <div className={styles.DivTwAbsolute_217_1530}>
+                            <div className={styles.Icon_217_1531}>
+                              <Icon />
+                            </div>
+                          </div>
+                          <div className={styles.ImageTwTop_0_217_1533}></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className={styles.DivProductCard_217_1539}>
+                      <div className={styles.DivTwRelative_217_1540}>
+                        <div className={styles.Div_29f32bdeE827_400eB2b9_02d943adaef3_217_1565}>
+                          <div className={styles.DivBvStarsButtonContainer_217_1574}>
+                            <div className={styles.SpanBvStarsSvgNoWrap_217_1575}>
+                              <div className={styles.Icon_217_1576}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1578}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1580}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1582}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1584}>
+                                <Icon />
+                              </div>
+                            </div>
+                          </div>
+                        </div><span className={styles.StrawberryVanilla_217_1586}>Strawberry Vanilla</span>
+                      </div>
+                      <div className={styles.DivTwRelative_217_1587}>
+                        <div className={styles.ImageLazyautosizes_217_1588}></div>
+                        <div className={styles.DivTwAbsolute_217_1589}>
+                          <div className={styles.DivTwAbsolute_217_1590}>
+                            <div className={styles.Icon_217_1591}>
+                              <Icon />
+                            </div>
+                          </div>
+                          <div className={styles.ImageTwTop_0_217_1593}></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className={styles.DivProductCard_217_1599}>
+                      <div className={styles.DivTwRelative_217_1600}>
+                        <div className={styles.DivF01bcf7f_3d1b_40b8Bd3e_8dd8d1325a0d_217_1625}>
+                          <div className={styles.DivBvStarsButtonContainer_217_1634}>
+                            <div className={styles.SpanBvStarsSvgNoWrap_217_1635}>
+                              <div className={styles.Icon_217_1636}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1638}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1640}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1642}>
+                                <Icon />
+                              </div>
+                              <div className={styles.Icon_217_1644}>
+                                <Icon />
+                              </div>
+                            </div>
+                          </div>
+                        </div><span className={styles.CreamSoda_217_1646}>Cream Soda</span>
+                      </div>
+                      <div className={styles.DivTwRelative_217_1647}>
+                        <div className={styles.ImageLazyautosizes_217_1648}></div>
+                        <div className={styles.DivTwAbsolute_217_1649}>
+                          <div className={styles.DivTwAbsolute_217_1650}>
+                            <div className={styles.Icon_217_1651}>
+                              <Icon />
+                            </div>
+                          </div>
+                          <div className={styles.ImageTwTop_0_217_1653}></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.DivPromotionalSubtitle_217_1659}><span className={styles.EverySipHitsLikeABreezeAndTastesLikeAnOhSoRefreshingDessertNoForkRequired_217_1660}>Every sip hits like a breeze and tastes like an oh-so-refreshing dessert&#x2014;no fork required.</span><span className={styles.FromBeachChairsToBbQsTheseNostalgicCraveWorthyFlavorsScreamSummer_217_1661}>From beach chairs to BBQs, these nostalgic, crave-worthy flavors scream summer.</span></div>
+                  <div className={styles.ImagePromotionalGraphic_217_1662}></div>
+                </div>
+              </div>
+              <div className={styles.DropDownContainerTwBlock_217_1663}>
+                <div className={styles.DropDownTwFlex_217_1664}>
+                  <div className={styles.LinkTwMr_2_217_1665}><span className={styles.GiftCards_217_1666}>Gift Cards</span></div>
+                  <div className={styles.LinkTwMr_2_217_1667}><span className={styles.VarietyPacks_217_1668}>Variety Packs</span></div>
+                  <div className={styles.LinkTwMr_2_217_1669}><span className={styles.OurFlavors_217_1670}>Our Flavors</span></div>
+                  <div className={styles.LinkTwMr_2_217_1671}><span className={styles.Summer_217_1672}>Summer</span></div><span className={styles.ShopBy_217_1673}>Shop By</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.DivAmbientHeroBannerBgImageTemplate_23917416415391AmbientHeroBannerGhEtVj_217_1674}><span className={styles.Olishop_217_1675}>Olishop</span></div>
+        </div>
+        <div className={styles.FooterTwRelative_217_1676}>
+          <div className={styles.DivTwMy_0_217_1677}>
+            <div className={styles.DivTwFlex_217_1678}>
+              <div className={styles.DivFooterMenu_217_1679}>
+                <div className={styles.Icon_217_1680}>
+                  <Icon />
+                </div>
+                <div className={styles.ListSocialIcons_217_1682}>
+                  <div className={styles.Icon_217_1683}>
+                    <Icon />
+                  </div>
+                  <div className={styles.Icon_217_1687}>
+                    <Icon />
+                  </div>
+                  <div className={styles.Icon_217_1689}>
+                    <Icon />
+                  </div>
+                  <div className={styles.Icon_217_1691}>
+                    <Icon />
+                  </div>
+                  <div className={styles.Icon_217_1693}>
+                    <Icon />
+                  </div>
+                  <div className={styles.Icon_217_1695}>
+                    <Icon />
+                  </div>
+                </div>
+                <div className={styles.DivKlaviyoFormWrapper_217_1697}>
+                  <div className={styles.Span_1753978911198_0_217_1698}>
+                    <div className={styles.BackgroundImages_217_1701}>
+                      <div className={styles.BackgroundImage_217_1699}>
+                        <BackgroundImage />
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.InputKlaviyoFormFooter_217_1702}><span className={styles.YourEmailAddress_217_1703}>Your Email Address</span></div>
+                  <div className={styles.ButtonSubscribe_217_1704}><span className={styles.Subscribe_217_1705}>Subscribe</span></div>
+                </div><span className={styles.SignUpToGet_15OffYourFirstOrder_217_1706}>Sign up to get 15% off your first order</span>
+              </div>
+              <div className={styles.DivFooterMenu_217_1707}>
+                <div className={styles.ListFooterMenuItems_4_217_1708}><span className={styles.MyAccount_217_1709}>My Account</span><span className={styles.PantryReadyLine_217_1710}>Pantry Ready Line</span><span className={styles.Press_217_1711}>Press</span><span className={styles.Careers_217_1712}>Careers</span><span className={styles.AffiliateProgram_217_1713}>Affiliate Program</span><span className={styles.RegisteredDietitianProgram_217_1714}>Registered Dietitian Program</span></div><span className={styles.Olipop_217_1715}>OLIPOP</span>
+              </div>
+              <div className={styles.DivFooterMenu_217_1716}>
+                <div className={styles.ListFooterMenuItems_3_217_1717}><span className={styles.Faq_217_1718}>FAQ</span><span className={styles.ContactUs_217_1719}>Contact Us</span><span className={styles.Accessibility_217_1720}>Accessibility</span><span className={styles.SatisfactionGuarantee_217_1721}>Satisfaction Guarantee</span><span className={styles.ManageSubscriptions_217_1722}>Manage Subscriptions</span></div><span className={styles.Help_217_1723}>Help</span>
+              </div>
+              <div className={styles.DivFooterMenu_217_1724}>
+                <div className={styles.ListFooterMenuItems_2_217_1725}><span className={styles.OurStory_217_1726}>Our Story</span><span className={styles.Blog_217_1727}>Blog</span><span className={styles.DigestiveHealth_217_1728}>Digestive Health</span><span className={styles.Sustainability_217_1729}>Sustainability</span><span className={styles.Ingredients_217_1730}>Ingredients</span><span className={styles.QualitySafety_217_1731}>Quality &#x26; Safety</span></div><span className={styles.Learn_217_1732}>Learn</span>
+              </div>
+              <div className={styles.DivFooterMenu_217_1733}>
+                <div className={styles.ListFooterMenuItems_1_217_1734}><span className={styles.Drinks_217_1735}>Drinks</span><span className={styles.GiftCards_217_1736}>Gift Cards</span><span className={styles.FindInStore_217_1737}>Find In Store</span><span className={styles.ReferAFriend_217_1738}>Refer a Friend</span><span className={styles.Wholesale_217_1739}>Wholesale</span><span className={styles.HeroesProgram_217_1740}>Heroes Program</span></div><span className={styles.Shop_217_1741}>Shop</span>
+              </div>
+            </div>
+            <div className={styles.DivTwMb_6_217_1742}>
+              <div className={styles.ListTwMb_3_217_1743}>
+                <div className={styles.LinkTwBaseSmM_217_1744}><span className={styles.DoNotSellMyInformation_217_1745}>Do Not Sell My Information</span></div>
+                <div className={styles.LinkTwBaseSmM_217_1746}><span className={styles.PrivacyPolicy_217_1747}>Privacy Policy</span></div>
+                <div className={styles.LinkTwBaseSmM_217_1748}><span className={styles.TermsOfService_217_1749}>Terms of Service</span></div>
+              </div><span className={styles.OlipopIncAllRightsReserved_217_1750}>&#xA9; 2025 Olipop, Inc. All Rights Reserved</span>
+            </div>
+          </div>
+          <div className={styles.DivWaveSeparatorSvgCurveUpLeftMaskGroup_217_1756}>
+            <DivWaveSeparatorSvgCurveUpLeftMaskGroup />
+          </div>
+        </div>
+      </div>
+      <div className={styles.SectionShopifySectionHeader_217_1757}>
+        <div className={styles.SliderContainerAnnouncementsBar_217_1758}>
+          <div className={styles.DivKeenSliderSlide_217_1759}><span className={styles.FlavorsThatTasteLikeDessertAndFeelLikeADayOffShopSummer_217_1760}>Flavors that taste like dessert and feel like a day off. Shop Summer</span></div>
+        </div>
+        <div className={styles.HeaderHeaderWrapper_217_1761}>
+          <div className={styles.DivSiteHeader_217_1762}>
+            <div className={styles.DivTwColSpan_2_217_1763}>
+              <div className={styles.DivSiteHeaderIconsWrapper_217_1764}>
+                <div className={styles.DivCartBtns_217_1765}>
+                  <div className={styles.Icon_217_1766}>
+                    <Icon />
+                  </div>
+                  <div className={styles.DivTwPointerEventsNone_217_1768}><span className={styles.generated_1_217_1769}>1</span></div>
+                </div>
+                <div className={styles.Icon_217_1770}>
+                  <Icon />
+                </div>
+              </div>
+              <div className={styles.ListSiteNav_217_1772}><span className={styles.FindInStore_217_1773}>Find In Store</span></div>
+            </div>
+            <div className={styles.ImageJs_217_1774}></div>
+            <div className={styles.ListSiteNav_217_1775}>
+              <div className={styles.ItemSiteNavHasDropdown_217_1776}><span className={styles.Shop_217_1777}>Shop</span></div>
+              <div className={styles.ItemSiteNavHasDropdown_217_1778}><span className={styles.Learn_217_1779}>Learn</span></div><span className={styles.Subscribe_217_1780}>Subscribe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.LinkRefWidgetWrapper_217_1781}>
+        <div className={styles.DivRefWidget_217_1782}>
+          <div className={styles.ImageRefIcon_217_1783}></div><span className={styles.Get_15Off_217_1784}>Get $15 Off</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
