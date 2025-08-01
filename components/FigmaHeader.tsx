@@ -152,10 +152,10 @@ export function FigmaHeaderClient({ navigation }: FigmaHeaderClientProps) {
             <Image
               src="/logo.webp"
               alt="LOONER Cannabis Co"
-              width={240}
-              height={80}
+              width={320}
+              height={120}
               style={{ height: 'auto', width: 'auto' }}
-              className="h-16 max-h-16"
+              className="h-24 max-h-24"
             />
           </Link>
         </div>
