@@ -28,51 +28,45 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
   return (
     <div>
       {/* Desktop Layout - Based on Figma Design */}
-      <div className="hidden md:block w-full max-w-[642px] mx-auto space-y-5">
+      <div className="hidden md:block w-full space-y-5">
         {/* Top Section: Two image cards */}
-        <div className="flex gap-5">
-          <div className="w-[301px] h-[301px] rounded-2xl bg-gray-300 overflow-hidden"
+        <div className="grid grid-cols-2 gap-5">
+          <div className="aspect-square rounded-2xl bg-gray-300 overflow-hidden flex items-center justify-center"
                style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
-            <div className="w-full h-full flex items-center justify-center">
-              {selectedFlavor?.images?.[0] ? (
-                <img
-                  src={selectedFlavor.images[0]}
-                  alt={selectedFlavor.title}
-                  className="w-60 h-60 object-contain drop-shadow-xl"
-                />
-              ) : (
-                <div className="text-white text-xl font-bold">LOONER</div>
-              )}
-            </div>
+            {selectedFlavor?.images?.[0] ? (
+              <img
+                src={selectedFlavor.images[0]}
+                alt={selectedFlavor.title}
+                className="w-3/4 h-3/4 object-contain drop-shadow-xl"
+              />
+            ) : (
+              <div className="text-white text-xl font-bold">LOONER</div>
+            )}
           </div>
-          <div className="w-[301px] h-[301px] rounded-2xl bg-gray-300 overflow-hidden"
+          <div className="aspect-square rounded-2xl bg-gray-300 overflow-hidden flex items-center justify-center"
                style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
-            <div className="w-full h-full flex items-center justify-center">
-              {selectedFlavor?.images?.[0] ? (
-                <img
-                  src={selectedFlavor.images[0]}
-                  alt={selectedFlavor.title}
-                  className="w-60 h-60 object-contain drop-shadow-xl transform rotate-12"
-                />
-              ) : (
-                <div className="text-white text-xl font-bold">LOONER</div>
-              )}
-            </div>
+            {selectedFlavor?.images?.[0] ? (
+              <img
+                src={selectedFlavor.images[0]}
+                alt={selectedFlavor.title}
+                className="w-3/4 h-3/4 object-contain drop-shadow-xl transform rotate-12"
+              />
+            ) : (
+              <div className="text-white text-xl font-bold">LOONER</div>
+            )}
           </div>
         </div>
 
         {/* Video Section */}
-        <div className="w-full h-[353px] rounded-2xl bg-gray-300 overflow-hidden"
+        <div className="w-full aspect-[622/353] rounded-2xl bg-gray-300 overflow-hidden flex items-center justify-center"
              style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="text-white text-2xl font-bold">Video Coming Soon</div>
-          </div>
+          <div className="text-white text-2xl font-bold">Video Coming Soon</div>
         </div>
 
         {/* Featured Block with Product and Badges */}
-        <div className="flex gap-5 h-[400px]">
+        <div className="grid grid-cols-[442fr_160fr] gap-5 h-[400px]">
           {/* Main Product Display */}
-          <div className="w-[442px] h-[400px] rounded-2xl flex items-center justify-center px-6"
+          <div className="rounded-2xl relative flex items-center justify-center"
                style={{ backgroundColor: "#ffbd4e" }}>
             {/* Best Seller Tag */}
             {selectedFlavor?.showBestSellerTag && (
@@ -82,12 +76,12 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
                 </div>
               </div>
             )}
-            <div className="w-[395px] h-[418px] flex items-center justify-center">
+            <div className="flex items-center justify-center p-6">
               {selectedFlavor?.images?.[0] ? (
                 <img
                   src={selectedFlavor.images[0]}
                   alt={selectedFlavor.title}
-                  className="w-full h-full object-contain drop-shadow-2xl"
+                  className="max-w-full max-h-full object-contain drop-shadow-2xl"
                 />
               ) : (
                 <div className="text-white text-3xl font-bold">LOONER</div>
@@ -96,27 +90,27 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
           </div>
 
           {/* Feature Badges Column */}
-          <div className="w-[160px] flex flex-col gap-5">
+          <div className="flex flex-col gap-5">
             {/* 10mg THC Badge */}
-            <div className="w-[160px] h-[120px] rounded-2xl flex items-center justify-center"
+            <div className="flex-1 rounded-2xl flex items-center justify-center"
                  style={{ backgroundColor: "#faa81e" }}>
-              <span className="text-white text-center font-bold text-lg leading-6">
+              <span className="text-white text-center font-bold text-lg leading-tight">
                 10mg<br />THC
               </span>
             </div>
 
             {/* Made with Cane Sugar Badge */}
-            <div className="w-[160px] h-[120px] rounded-2xl flex items-center justify-center"
+            <div className="flex-1 rounded-2xl flex items-center justify-center"
                  style={{ backgroundColor: "#faa81e" }}>
-              <span className="text-white text-center font-bold text-lg leading-5">
+              <span className="text-white text-center font-bold text-lg leading-tight">
                 Made with<br />Cane Sugar
               </span>
             </div>
 
             {/* Gluten Free Badge */}
-            <div className="w-[160px] h-[120px] rounded-2xl flex items-center justify-center"
+            <div className="flex-1 rounded-2xl flex items-center justify-center"
                  style={{ backgroundColor: "#faa81e" }}>
-              <span className="text-white text-center font-bold text-lg leading-6">
+              <span className="text-white text-center font-bold text-lg leading-tight">
                 Gluten<br />Free
               </span>
             </div>
