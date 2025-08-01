@@ -84,15 +84,15 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
         </div>
 
         {/* Middle Section: Video */}
-        <div className="w-full aspect-[622/353] rounded-2xl bg-gray-300 overflow-hidden flex items-center justify-center"
-             style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
+        <div className="w-full aspect-[622/353] rounded-2xl overflow-hidden flex items-center justify-center"
+             style={{ backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF" }}>
           <div className="text-white text-2xl font-bold">Video Coming Soon</div>
         </div>
 
         {/* Bottom Section: Two image cards */}
         <div className="grid grid-cols-2 gap-5">
-          <div className="aspect-square rounded-2xl bg-gray-300 overflow-hidden flex items-center justify-center"
-               style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
+          <div className="aspect-square rounded-2xl overflow-hidden flex items-center justify-center"
+               style={{ backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF" }}>
             {selectedFlavor?.images?.[0] ? (
               <img
                 src={selectedFlavor.images[0]}
@@ -103,8 +103,8 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
               <div className="text-white text-xl font-bold">LOONER</div>
             )}
           </div>
-          <div className="aspect-square rounded-2xl bg-gray-300 overflow-hidden flex items-center justify-center"
-               style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
+          <div className="aspect-square rounded-2xl overflow-hidden flex items-center justify-center"
+               style={{ backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF" }}>
             {selectedFlavor?.images?.[0] ? (
               <img
                 src={selectedFlavor.images[0]}
