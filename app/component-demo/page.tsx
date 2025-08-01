@@ -3,7 +3,6 @@ import {
   CartIndicator,
   PageTitle,
   ProductImageSection,
-  FlavorSelector,
   PurchaseOptions,
   QuantitySelector,
   AddToCartButton,
@@ -14,6 +13,8 @@ import {
   YouMayAlsoLike,
   Footer
 } from '../../components/product-page';
+import { FlavorPickerVariants } from '../../components/FlavorPickerVariants';
+import { InteractiveFlavorSelector } from '../../components/product/interactive-flavor-selector';
 
 export default function ComponentDemo() {
   return (
@@ -50,10 +51,29 @@ export default function ComponentDemo() {
           />
         </section>
 
-        {/* FlavorSelector */}
+        {/* Existing FlavorPickerVariants */}
         <section className="border border-gray-200 p-4 rounded-lg">
-          <h2 className="text-xl font-semibold mb-4">FlavorSelector Component</h2>
-          <FlavorSelector />
+          <h2 className="text-xl font-semibold mb-4">Existing FlavorPickerVariants Component</h2>
+          <FlavorPickerVariants 
+            flavors={[
+              { name: 'Half & Half', color: '#f4d03f' },
+              { name: 'Peach Lemonade', color: '#f8c471' },
+              { name: 'Classic Lemonade', color: '#f7dc6f' },
+              { name: 'Pink Lemonade', color: '#f1948a' }
+            ]}
+            selectedFlavor={{ name: 'Half & Half', color: '#f4d03f' }}
+            onFlavorSelect={() => {}}
+            variant="premium"
+          />
+        </section>
+
+        {/* Existing InteractiveFlavorSelector */}
+        <section className="border border-gray-200 p-4 rounded-lg">
+          <h2 className="text-xl font-semibold mb-4">Existing InteractiveFlavorSelector Component</h2>
+          <InteractiveFlavorSelector 
+            products={[]}
+            selectedProductTitle="Orange Cream"
+          />
         </section>
 
         {/* PurchaseOptions */}
