@@ -480,8 +480,17 @@ function ProductPageContent({ config }: ProductPageProps) {
 
   return (
     <>
-      <main className="relative overflow-hidden min-h-screen transition-all duration-500">
-        <FlavorBackground color={selectedFlavor?.primaryColor} />
+      <main 
+        className="relative overflow-hidden min-h-screen transition-all duration-500"
+        style={{
+          backgroundImage: 'url(/lake-background.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Lake background overlay for better content readability */}
+        <div className="absolute inset-0 bg-white/20 backdrop-blur-[0.5px]" />
 
         <div className="relative z-10">
           {/* Mobile Title - Only visible on mobile, positioned at very top */}
