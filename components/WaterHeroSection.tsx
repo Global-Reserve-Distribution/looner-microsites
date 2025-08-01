@@ -6,7 +6,7 @@ export function WaterHeroSection() {
       <div 
         className="w-full h-[453px] bg-cover bg-center bg-no-repeat flex-shrink-0"
         style={{
-          backgroundImage: 'url(/water-hero-background.png)',
+          backgroundImage: 'url(/water-hero-can.png)',
           backgroundColor: '#d3d3d3'
         }}
       />
