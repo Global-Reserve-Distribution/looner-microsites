@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Fragment } from "react";
 import Link from "next/link";
-import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import Image from 'next/image';
 
@@ -98,27 +97,25 @@ export function FigmaHeaderClient({ navigation }: FigmaHeaderClientProps) {
                             <ul className="space-y-3">
                               {section.items.map((item) => (
                                 <li key={item.name}>
-                                  <Link
+                                  <Link 
                                     href={item.href}
-                                    className="group flex items-center space-x-3 py-2 hover:bg-gray-50 rounded transition-colors"
+                                    className="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-colors"
                                   >
-                                    <div className="flex-shrink-0">
-                                      <div className="w-10 h-12 bg-white rounded flex items-center justify-center overflow-hidden border border-gray-200">
-                                        <Image
-                                          src={item.imageSrc}
-                                          alt={item.name}
-                                          width={40}
-                                          height={48}
-                                          className="object-contain w-full h-full"
-                                        />
-                                      </div>
+                                    <div className="w-12 h-12 rounded-md overflow-hidden bg-gray-100 flex-shrink-0">
+                                      <Image
+                                        src={item.imageSrc}
+                                        alt={item.name}
+                                        width={48}
+                                        height={48}
+                                        className="w-full h-full object-cover"
+                                      />
                                     </div>
-                                    <div className="flex flex-col">
-                                      <span className="text-sm font-medium text-gray-900 group-hover:text-gray-700">
-                                        {item.name}
-                                      </span>
+                                    <div className="flex-1">
+                                      <div className="font-medium text-gray-900">{item.name}</div>
                                       {item.thcContent && (
-                                        <span className="text-xs text-gray-500">{item.thcContent}</span>
+                                        <div className="text-xs text-cannabis-600 font-semibold">
+                                          {item.thcContent}
+                                        </div>
                                       )}
                                     </div>
                                   </Link>
@@ -134,62 +131,45 @@ export function FigmaHeaderClient({ navigation }: FigmaHeaderClientProps) {
               </>
             )}
           </Popover>
+
           <Link 
-            href="/learn" 
+            href="/testing" 
             className="text-[#14433d] font-semibold text-[15.1px] leading-[30px] hover:opacity-70 transition-opacity"
-            style={{ fontFamily: 'Inter, sans-serif' }}
           >
-            Learn
+            Testing
           </Link>
           <Link 
-            href="/subscribe" 
+            href="/contact" 
             className="text-[#14433d] font-semibold text-[15.1px] leading-[30px] hover:opacity-70 transition-opacity"
-            style={{ fontFamily: 'Inter, sans-serif' }}
           >
-            Subscribe
+            Contact
           </Link>
         </nav>
 
         {/* Center: Logo */}
-        <div className="flex-shrink-0">
-          <Link href="/" className="block">
-            <img 
-              src="/logo.webp" 
-              alt="LOONER" 
-              className="h-[44px] w-[128px] object-contain"
+        <div className="absolute left-1/2 transform -translate-x-1/2">
+          <Link href="/">
+            <Image
+              src="/logo.webp"
+              alt="LOONER Cannabis Co"
+              width={120}
+              height={40}
+              style={{ height: 'auto', width: 'auto' }}
+              className="h-10"
             />
           </Link>
         </div>
 
-        {/* Right Section: Find In Store + User Icons */}
-        <div className="flex items-center gap-7">
-          <Link 
-            href="/find-in-store" 
-            className="text-[#14433d] font-semibold text-[15.1px] leading-[30px] hover:opacity-70 transition-opacity"
-            style={{ fontFamily: 'Inter, sans-serif' }}
-          >
-            Find In Store
-          </Link>
-          
-          {/* User Icons */}
-          <div className="flex items-center gap-7">
-            <button className="p-1 hover:opacity-70 transition-opacity">
-              <ShoppingBagIcon />
-            </button>
-            
-            <div className="flex flex-col items-center gap-0.5">
-              <button className="p-1 hover:opacity-70 transition-opacity">
-                <UserIcon />
-              </button>
-              <span 
-                className="text-[#14433d] font-bold text-[16.6px] leading-[30px] text-center"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                Log in
-              </span>
-            </div>
-          </div>
+        {/* Right Section: User Actions */}
+        <div className="flex items-center gap-6">
+          <button className="hover:opacity-70 transition-opacity">
+            <UserIcon />
+          </button>
+          <button className="hover:opacity-70 transition-opacity">
+            <ShoppingBagIcon />
+          </button>
         </div>
+      </div>
     </header>
   );
 }
