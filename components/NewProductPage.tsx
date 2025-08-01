@@ -2,19 +2,8 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-// Removed cart import temporarily for testing
-// Temporary simplified add to cart button
-function AddToCartButton({ children, className, ...props }: any) {
-  return (
-    <button 
-      className={className}
-      onClick={() => console.log('Add to cart clicked')}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-}
+import { useCart } from '../hooks/useCart';
+import { AddToCart } from './cart/add-to-cart';
 
 interface ProductPageProps {
   config: {
@@ -44,23 +33,23 @@ function FlavorSelector({ selectedFlavor, onFlavorChange }: {
 }) {
   return (
     <div className="mb-8">
-      <h3 className="text-lg font-medium text-gray-900 mb-4">Our Flavors</h3>
-      <div className="grid grid-cols-3 gap-4">
+      <h3 className="text-lg font-medium text-black mb-4">Our Flavors</h3>
+      <div className="grid grid-cols-3 gap-3">
         {FLAVOR_VARIANTS.map((flavor) => (
           <button
             key={flavor.id}
             onClick={() => onFlavorChange(flavor.id)}
-            className={`p-4 rounded-lg border-2 text-center transition-all ${
+            className={`p-3 rounded-lg border-2 text-center transition-all ${
               selectedFlavor === flavor.id 
-                ? 'border-gray-900 bg-gray-50' 
-                : 'border-gray-200 hover:border-gray-300'
+                ? 'border-black bg-gray-50' 
+                : 'border-gray-300 hover:border-gray-400'
             }`}
           >
             <div 
-              className="w-16 h-16 rounded-full mx-auto mb-2"
+              className="w-12 h-12 rounded-full mx-auto mb-2"
               style={{ backgroundColor: flavor.color }}
             />
-            <span className="text-sm font-medium text-gray-900">
+            <span className="text-xs font-medium text-black leading-tight">
               {flavor.name}
             </span>
           </button>
@@ -84,9 +73,11 @@ function PurchaseOptions({ product }: { product: any }) {
 
   return (
     <div className="space-y-6">
-      {/* Purchase Type Selection */}
+      {/* Purchase Type Selection - Matching PDF Design */}
       <div className="space-y-3">
-        <label className="flex items-center justify-between p-4 border-2 border-gray-300 rounded-lg cursor-pointer">
+        <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer ${
+          purchaseType === 'one-time' ? 'border-black bg-gray-50' : 'border-gray-300'
+        }`}>
           <div className="flex items-center">
             <input
               type="radio"
@@ -97,18 +88,20 @@ function PurchaseOptions({ product }: { product: any }) {
               className="mr-3"
             />
             <div>
-              <div className="font-semibold text-gray-900">One-time Purchase</div>
-              <div className="text-sm text-gray-600">
-                12 Cans <span className="font-semibold">${basePrice}</span> <span className="line-through text-gray-400">$99</span>
+              <div className="font-semibold text-black">One-time Purchase</div>
+              <div className="text-sm text-black">
+                12 Cans <span className="font-bold">${basePrice.toFixed(0)}</span> <span className="line-through text-gray-500">$99</span>
               </div>
             </div>
           </div>
-          <div className="bg-yellow-200 px-2 py-1 rounded text-xs font-semibold">
+          <div className="bg-yellow-300 px-3 py-1 rounded text-xs font-bold text-black">
             Save 15%
           </div>
         </label>
 
-        <label className="flex items-center justify-between p-4 border-2 border-gray-300 rounded-lg cursor-pointer">
+        <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer ${
+          purchaseType === 'subscription' ? 'border-black bg-gray-50' : 'border-gray-300'
+        }`}>
           <div className="flex items-center">
             <input
               type="radio"
@@ -119,13 +112,13 @@ function PurchaseOptions({ product }: { product: any }) {
               className="mr-3"
             />
             <div>
-              <div className="font-semibold text-gray-900">Subscribe & Save</div>
-              <div className="text-sm text-gray-600">
-                12 Cans <span className="font-semibold">${subscriptionPrice}</span> <span className="line-through text-gray-400">${basePrice}</span>
+              <div className="font-semibold text-black">Subscribe & Save</div>
+              <div className="text-sm text-black">
+                12 Cans <span className="font-bold">${subscriptionPrice}</span> <span className="line-through text-gray-500">${basePrice.toFixed(0)}</span>
               </div>
             </div>
           </div>
-          <div className="bg-yellow-200 px-2 py-1 rounded text-xs font-semibold">
+          <div className="bg-yellow-300 px-3 py-1 rounded text-xs font-bold text-black">
             Save 15%
           </div>
         </label>
@@ -152,16 +145,11 @@ function PurchaseOptions({ product }: { product: any }) {
       </div>
 
       {/* Add to Cart Button */}
-      <AddToCartButton
-        merchandiseId={firstVariant?.id || ''}
-        quantity={quantity}
-        productTitle={product?.title}
-        productPrice={`$${currentPrice}`}
-        variant="primary"
-        className="w-full bg-black text-white py-3 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-colors"
-      >
-        Add to Cart - ${(currentPrice * quantity).toFixed(0)}
-      </AddToCartButton>
+      {product && (
+        <div className="w-full">
+          <AddToCart product={product} />
+        </div>
+      )}
     </div>
   );
 }
@@ -224,6 +212,7 @@ function NutritionFacts() {
 function ProductContent({ config, products }: ProductPageProps) {
   const [selectedFlavor, setSelectedFlavor] = useState(FLAVOR_VARIANTS[0]?.id || 'half-half');
   const searchParams = useSearchParams();
+  const { cart } = useCart();
 
   const mainProduct = products?.[0] || {};
 
