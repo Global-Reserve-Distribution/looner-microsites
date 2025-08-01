@@ -12,8 +12,8 @@ export function NutritionLabel({
   ingredients = "Carbonated Water, Cane Sugar, Citric Acid, Sodium Benzoate (preserves freshness), FD&C Yellow No. 6, Natural Flavors (orange oils), hemp extract"
 }: NutritionLabelProps) {
   return (
-    <div className="bg-white rounded-2xl border-4 border-orange-400 p-6 max-w-2xl mx-auto shadow-lg">
-      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6">
+    <div className="bg-white rounded-2xl border-4 border-orange-400 p-4 md:p-6 max-w-2xl mx-auto shadow-lg">
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 md:gap-6">
         {/* Left side - Product info */}
         <div>
           <h2 className="text-2xl font-bold text-orange-500 mb-2">{productName}</h2>
@@ -25,38 +25,38 @@ export function NutritionLabel({
           </div>
 
           {/* Feature badges */}
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-2 md:gap-4 justify-center">
             <div className="flex flex-col items-center">
-              <div className="w-12 h-12 rounded-full border-2 border-gray-400 flex items-center justify-center mb-1">
-                <span className="text-xl">🌿</span>
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gray-400 flex items-center justify-center mb-1">
+                <span className="text-lg md:text-xl">🌿</span>
               </div>
               <span className="text-xs font-medium text-center">Plant-Derived<br />THC</span>
             </div>
             
             <div className="flex flex-col items-center">
-              <div className="w-12 h-12 rounded-full border-2 border-gray-400 flex items-center justify-center mb-1">
-                <span className="text-xl">🍯</span>
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gray-400 flex items-center justify-center mb-1">
+                <span className="text-lg md:text-xl">🍯</span>
               </div>
               <span className="text-xs font-medium text-center">Made with<br />Cane Sugar</span>
             </div>
             
             <div className="flex flex-col items-center">
-              <div className="w-12 h-12 rounded-full border-2 border-gray-400 flex items-center justify-center mb-1">
-                <span className="text-xl font-bold">V</span>
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gray-400 flex items-center justify-center mb-1">
+                <span className="text-lg md:text-xl font-bold">V</span>
               </div>
               <span className="text-xs font-medium text-center">Vegan</span>
             </div>
             
             <div className="flex flex-col items-center">
-              <div className="w-12 h-12 rounded-full border-2 border-gray-400 flex items-center justify-center mb-1">
-                <span className="text-xl">🌾</span>
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gray-400 flex items-center justify-center mb-1">
+                <span className="text-lg md:text-xl">🌾</span>
               </div>
               <span className="text-xs font-medium text-center">Gluten-Free</span>
             </div>
             
             <div className="flex flex-col items-center">
-              <div className="w-12 h-12 rounded-full border-2 border-gray-400 flex items-center justify-center mb-1">
-                <span className="text-xl">P</span>
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gray-400 flex items-center justify-center mb-1">
+                <span className="text-lg md:text-xl">P</span>
               </div>
               <span className="text-xs font-medium text-center">Filtered<br />Water</span>
             </div>
@@ -64,7 +64,7 @@ export function NutritionLabel({
         </div>
 
         {/* Right side - Nutrition Facts */}
-        <div className="bg-white border-2 border-black p-4 rounded-lg">
+        <div className="bg-white border-2 border-black p-3 md:p-4 rounded-lg">
           <div className="text-center border-b-4 border-orange-400 pb-2 mb-3">
             <h3 className="text-lg font-bold text-orange-500">Nutrition Facts</h3>
             <p className="text-xs text-gray-600">1 Serving Per Container</p>

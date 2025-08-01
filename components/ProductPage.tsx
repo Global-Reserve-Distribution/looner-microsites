@@ -664,8 +664,8 @@ function ProductPageContent({ config }: ProductPageProps) {
           <WaterHeroSection />
 
           {/* Nutrition Label Section */}
-          <div className="py-12 lg:py-16 bg-white">
-            <div className="max-w-6xl mx-auto px-6">
+          <div className="py-8 md:py-12 lg:py-16 bg-white">
+            <div className="max-w-6xl mx-auto px-4 md:px-6">
               <NutritionLabel 
                 productName={selectedFlavor?.displayName || selectedFlavor?.title || "LOONER THC Beverage"}
                 flavorDescription={selectedFlavor?.shortDescription || selectedFlavor?.description || "Premium cannabis-infused beverage with natural flavors and precise THC dosing."}
@@ -675,8 +675,8 @@ function ProductPageContent({ config }: ProductPageProps) {
           </div>
 
           {/* Recommended Flavors */}
-          <div className="py-12 lg:py-16 bg-white">
-            <div className="max-w-6xl mx-auto px-6">
+          <div className="py-8 md:py-12 lg:py-16 bg-white">
+            <div className="max-w-6xl mx-auto px-4 md:px-6">
               <RecommendedFlavors
                 allFlavors={flavors}
                 currentFlavor={selectedFlavor}
