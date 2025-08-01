@@ -13,9 +13,9 @@ export function IconicFlavorsBadges() {
 
   return (
     <div className="w-full py-4 md:py-8 bg-white">
-      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 px-4 max-w-6xl mx-auto">
+      <div className="flex justify-between items-center px-4 w-full max-w-none">
         {badges.map((badge, index) => (
-          <div key={index} className="flex-shrink-0">
+          <div key={index} className="flex-1 flex justify-center">
             <Image
               src={badge.src}
               alt={badge.alt}
