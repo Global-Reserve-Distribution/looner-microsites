@@ -67,7 +67,7 @@ interface FigmaHeaderClientProps {
 export function FigmaHeaderClient({ navigation }: FigmaHeaderClientProps) {
   return (
     <header className="w-full h-[70px] bg-white border-b border-gray-100">
-      <div className="max-w-[1320px] mx-auto h-full flex items-center justify-between px-6">
+      <div className="max-w-[1425px] mx-auto h-full flex items-center justify-between px-6">
         {/* Left Section: Navigation Links */}
         <nav className="flex items-center gap-10">
           <Popover className="relative">
@@ -89,7 +89,7 @@ export function FigmaHeaderClient({ navigation }: FigmaHeaderClientProps) {
                   <Popover.Panel className="absolute left-0 z-50 mt-3 w-[600px] transform">
                     <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6">
                       <div className="grid grid-cols-2 gap-8">
-                        {navigation.categories[0].sections.map((section) => (
+                        {navigation.categories[0]?.sections?.map((section) => (
                           <div key={section.name}>
                             <h3 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4 pb-2 border-b border-gray-200">
                               {section.name}

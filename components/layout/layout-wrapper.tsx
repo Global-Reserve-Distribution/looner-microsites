@@ -29,7 +29,9 @@ export default async function LayoutWrapper({
       {/* Content */}
       <main className="pt-[70px] relative z-10">
         <div className="bg-white/5 min-h-screen">
-          {children}
+          <div className="max-w-[1425px] mx-auto">
+            {children}
+          </div>
         </div>
       </main>
       
