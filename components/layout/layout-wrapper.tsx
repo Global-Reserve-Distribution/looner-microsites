@@ -12,7 +12,7 @@ export default async function LayoutWrapper({
       <div 
         className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/lake-background.svg')"
+          backgroundImage: "url('/lake-background-figma.svg')"
         }}
       />
       
