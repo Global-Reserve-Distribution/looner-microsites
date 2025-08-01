@@ -108,16 +108,16 @@ export function PurchaseOptionsNew({ flavor, variant, onVariantChange, onAddToCa
             </span>
             <div className="flex items-center gap-2">
               <span 
-                className="text-[#14433d] text-[11.4px] leading-4"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                {oneTimeOption.cans} Cans
-              </span>
-              <span 
                 className="text-[#14433d] text-[13px] font-bold leading-5"
                 style={{ fontFamily: 'Inter, sans-serif' }}
               >
                 ${oneTimeOption.price}
+              </span>
+              <span 
+                className="text-[#14433d] text-[11.4px] leading-4"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                {oneTimeOption.cans} Cans
               </span>
             </div>
           </div>
