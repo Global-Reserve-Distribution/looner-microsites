@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface IngredientIcon {
   label: string;
   icon: string;
@@ -13,8 +15,14 @@ export default function IngredientIcons({ icons }: IngredientIconsProps) {
       <div className="flex flex-wrap justify-center gap-8 md:gap-12">
         {icons.map((item, index) => (
           <div key={index} className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 mb-3 flex items-center justify-center bg-green-50 rounded-full">
-              <span className="text-3xl">{item.icon}</span>
+            <div className="relative w-16 h-16 mb-3">
+              <Image
+                src={item.icon}
+                alt={item.label}
+                fill
+                className="object-contain"
+                sizes="64px"
+              />
             </div>
             <span className="text-sm font-medium text-gray-700 max-w-20">
               {item.label}
