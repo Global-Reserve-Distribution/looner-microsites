@@ -7,7 +7,7 @@ export function WaterHeroSection() {
         className="bg-cover bg-center bg-no-repeat flex-shrink-0"
         style={{
           width: '1425px',
-          height: '403px',
+          height: '452.97px',
           backgroundImage: 'url(/water-hero-can.png)',
           backgroundColor: '#d3d3d3'
         }}
