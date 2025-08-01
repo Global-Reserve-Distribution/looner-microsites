@@ -5,7 +5,7 @@ import React from 'react';
 export default function FigmaIngredientsSection() {
   return (
     <div className="w-[1425px] h-[693px] flex-shrink-0">
-      <div className="w-[1425px] h-[693px] bg-[#b2fffb] flex-shrink-0 relative">
+      <div className="w-[1425px] h-[693px] flex-shrink-0 relative">
         {/* Main container with centered white rounded rectangle */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1184px] h-[599px] bg-[#fffefd] border-[5px] border-[#ffa13c] rounded-[50px] flex">
           
