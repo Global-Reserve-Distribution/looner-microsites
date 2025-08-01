@@ -509,14 +509,14 @@ function ProductPageContent({ config }: ProductPageProps) {
             />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-4 lg:gap-8 py-4 lg:py-6 px-4 lg:px-6 max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-4 lg:gap-[78px] py-4 lg:py-6 px-4 lg:px-6 max-w-[1400px] mx-auto">
             {/* Left Column: Product Display */}
             <div className="order-1 lg:order-1">
               <OlipopStyleGrid selectedFlavor={selectedFlavor} />
             </div>
 
             {/* Right Column: Product Info & Selection */}
-            <div className="order-2 lg:order-2 space-y-6 lg:space-y-[78px]">
+            <div className="order-2 lg:order-2 space-y-6 lg:space-y-8">
               {/* Product Header with Stars and Badges */}
               <div className="hidden lg:block">
                 <ProductHeader 
