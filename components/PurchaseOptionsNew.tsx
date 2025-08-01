@@ -88,6 +88,42 @@ export function PurchaseOptionsNew({ flavor, variant, onVariantChange, onAddToCa
 
   return (
     <div className="w-full space-y-4">
+      {/* One-Time Purchase Option */}
+      <div
+        className={`bg-white border-2 rounded-[10px] cursor-pointer transition-all p-[14px] ${
+          selectedOption === 'one-time' 
+            ? 'border-[#22423d]' 
+            : 'border-[#14433d40]'
+        }`}
+        onClick={() => setSelectedOption('one-time')}
+      >
+        <div className="flex items-center gap-3">
+          <RadioButton selected={selectedOption === 'one-time'} />
+          <div className="flex-1">
+            <span 
+              className="text-[#14433d] text-[15.1px] font-bold leading-6 tracking-[0.29px] block mb-1"
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              One-Time Purchase
+            </span>
+            <div className="flex items-center gap-2">
+              <span 
+                className="text-[#14433d] text-[11.4px] leading-4"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                {oneTimeOption.cans} Cans
+              </span>
+              <span 
+                className="text-[#14433d] text-[13px] font-bold leading-5"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                ${oneTimeOption.price}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Subscribe & Save Option */}
       <div
         className={`relative bg-white border-2 rounded-[10px] cursor-pointer transition-all ${
@@ -184,42 +220,6 @@ export function PurchaseOptionsNew({ flavor, variant, onVariantChange, onAddToCa
                 <span>No commitment, </span>
                 <span>cancel anytime</span>
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* One-Time Purchase Option */}
-      <div
-        className={`bg-white border-2 rounded-[10px] cursor-pointer transition-all p-[14px] ${
-          selectedOption === 'one-time' 
-            ? 'border-[#22423d]' 
-            : 'border-[#14433d40]'
-        }`}
-        onClick={() => setSelectedOption('one-time')}
-      >
-        <div className="flex items-center gap-3">
-          <RadioButton selected={selectedOption === 'one-time'} />
-          <div className="flex-1">
-            <span 
-              className="text-[#14433d] text-[15.1px] font-bold leading-6 tracking-[0.29px] block mb-1"
-              style={{ fontFamily: 'Inter, sans-serif' }}
-            >
-              One-Time Purchase
-            </span>
-            <div className="flex items-center gap-2">
-              <span 
-                className="text-[#14433d] text-[11.4px] leading-4"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                {oneTimeOption.cans} Cans
-              </span>
-              <span 
-                className="text-[#14433d] text-[13px] font-bold leading-5"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                ${oneTimeOption.price}
-              </span>
             </div>
           </div>
         </div>
