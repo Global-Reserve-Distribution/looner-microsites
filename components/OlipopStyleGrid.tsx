@@ -30,10 +30,10 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
       {/* Desktop Layout - Based on Figma Design */}
       <div className="hidden md:block w-full space-y-5">
         {/* Top Section: Featured Block with Product and Badges */}
-        <div className="grid grid-cols-[442fr_160fr] gap-5 h-[400px]">
+        <div className="grid grid-cols-[442fr_160fr] gap-5 min-h-[400px]">
           {/* Main Product Display */}
-          <div className="rounded-2xl relative flex items-center justify-center"
-               style={{ backgroundColor: "#ffbd4e" }}>
+          <div className="rounded-2xl relative flex items-center justify-center p-6"
+               style={{ backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF" }}>
             {/* Best Seller Tag */}
             {selectedFlavor?.showBestSellerTag && (
               <div className="absolute top-4 left-4 z-10">
@@ -42,7 +42,7 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
                 </div>
               </div>
             )}
-            <div className="flex items-center justify-center p-6">
+            <div className="flex items-center justify-center">
               {selectedFlavor?.images?.[0] ? (
                 <img
                   src={selectedFlavor.images[0]}
@@ -56,26 +56,26 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
           </div>
 
           {/* Feature Badges Column */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 min-h-[400px]">
             {/* 10mg THC Badge */}
-            <div className="flex-1 rounded-2xl flex items-center justify-center"
-                 style={{ backgroundColor: "#faa81e" }}>
+            <div className="flex-1 rounded-2xl flex items-center justify-center min-h-[120px]"
+                 style={{ backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6" }}>
               <span className="text-white text-center font-bold text-lg leading-tight">
                 10mg<br />THC
               </span>
             </div>
 
             {/* Made with Cane Sugar Badge */}
-            <div className="flex-1 rounded-2xl flex items-center justify-center"
-                 style={{ backgroundColor: "#faa81e" }}>
+            <div className="flex-1 rounded-2xl flex items-center justify-center min-h-[120px]"
+                 style={{ backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6" }}>
               <span className="text-white text-center font-bold text-lg leading-tight">
                 Made with<br />Cane Sugar
               </span>
             </div>
 
             {/* Gluten Free Badge */}
-            <div className="flex-1 rounded-2xl flex items-center justify-center"
-                 style={{ backgroundColor: "#faa81e" }}>
+            <div className="flex-1 rounded-2xl flex items-center justify-center min-h-[120px]"
+                 style={{ backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6" }}>
               <span className="text-white text-center font-bold text-lg leading-tight">
                 Gluten<br />Free
               </span>

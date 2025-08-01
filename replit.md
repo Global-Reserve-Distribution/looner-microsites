@@ -51,6 +51,8 @@ The application is built on Next.js 15 (App Router, React 19, TypeScript) and st
   - Fixed grid proportions to properly scale and match reference image layout
   - Updated layout order: large product with badges at top, video in middle, two product images at bottom
   - Fixed background colors to use selected product's secondary color dynamically across all sections
+  - Resolved overlapping layout issues with proper spacing and min-height constraints
+  - Fixed hardcoded orange colors to use dynamic flavor-specific colors (grape now shows purple)
 
 - **MOBILE RESPONSIVE OPTIMIZATION** (August 1, 2025): Made all new components fully mobile responsive
   - Updated IconicFlavorsBadges with flexible wrapping and smaller mobile badge sizes
