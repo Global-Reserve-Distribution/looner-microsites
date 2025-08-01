@@ -13,6 +13,7 @@ import { IconicFlavorsBadges } from "./IconicFlavorsBadges";
 import FigmaIngredientsSection from "./FigmaIngredientsSection";
 import ReviewsSection from "./ReviewsSection";
 import { WaterHeroSection } from "./WaterHeroSection";
+import { VideoComingSoon } from "./VideoComingSoon";
 import { ProductHeader } from "./ProductHeader";
 
 import {
@@ -47,6 +48,7 @@ interface ProductPageConfig {
 
 interface ProductPageProps {
   config: ProductPageConfig;
+  products?: any[];
 }
 
 function getTagEmoji(tag: string): string {
@@ -560,6 +562,11 @@ function ProductPageContent({ config }: ProductPageProps) {
 
           {/* Iconic Flavors Badges */}
           <IconicFlavorsBadges />
+
+          {/* Video Coming Soon Section */}
+          <div className="w-full max-w-[1425px] mx-auto px-4 py-8">
+            <VideoComingSoon />
+          </div>
 
           {/* Water Hero Section */}
           <WaterHeroSection />
