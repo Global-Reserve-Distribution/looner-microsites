@@ -4,6 +4,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useCart } from '../hooks/useCart';
 import { AddToCart } from './cart/add-to-cart';
+import { ProductProvider } from './product/product-context';
 
 interface ProductPageProps {
   config: {
@@ -391,8 +392,10 @@ function ProductContent({ config, products }: ProductPageProps) {
 
 export default function NewProductPage(props: ProductPageProps) {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center">Loading...</div>}>
-      <ProductContent {...props} />
-    </Suspense>
+    <ProductProvider>
+      <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center">Loading...</div>}>
+        <ProductContent {...props} />
+      </Suspense>
+    </ProductProvider>
   );
 }
