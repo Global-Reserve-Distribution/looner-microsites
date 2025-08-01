@@ -58,7 +58,9 @@ The application is built on Next.js 15 (App Router, React 19, TypeScript) and st
   - Added ProductHeader component with star ratings (4.3/5), review count (249), and "Single Flavor" badge
   - Applied proper typography using Poppins font for product name and Inter font for other elements
   - Updated product name color to use dynamic primaryColor from Shopify product metafields (like image grid)
-  - Used exact Figma colors: dynamic primaryColor for product title, #14433d for text, #003a5d for borders
+  - Applied Futura Bold font and #2C2C2C color to subtitle text matching Figma typography specs
+  - Made subtitle configurable per page type (10mg Soda, 50mg Soda, Cannabis Edibles)
+  - Used exact Figma colors: dynamic primaryColor for product title, #2C2C2C for subtitle, #14433d for badges, #003a5d for borders
 
 - **MOBILE RESPONSIVE OPTIMIZATION** (August 1, 2025): Made all new components fully mobile responsive
   - Updated IconicFlavorsBadges with flexible wrapping and smaller mobile badge sizes

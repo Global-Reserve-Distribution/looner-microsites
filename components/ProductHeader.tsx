@@ -8,6 +8,7 @@ interface ProductHeaderProps {
   rating?: number;
   showSingleFlavorBadge?: boolean;
   primaryColor?: string;
+  subtitle?: string;
 }
 
 export function ProductHeader({ 
@@ -15,7 +16,8 @@ export function ProductHeader({
   reviewCount = 249, 
   rating = 4.3,
   showSingleFlavorBadge = true,
-  primaryColor = "#fba91d"
+  primaryColor = "#fba91d",
+  subtitle = "10mg Soda"
 }: ProductHeaderProps) {
   // Generate star display based on rating
   const renderStars = () => {
@@ -105,10 +107,10 @@ export function ProductHeader({
       
       {/* Subtitle */}
       <p 
-        className="text-[#14433d] text-lg font-medium"
-        style={{ fontFamily: 'Inter, sans-serif' }}
+        className="text-[#2C2C2C] text-lg font-bold"
+        style={{ fontFamily: 'Futura, Arial, sans-serif' }}
       >
-        10mg Soda
+        {subtitle}
       </p>
     </div>
   );

@@ -505,6 +505,7 @@ function ProductPageContent({ config }: ProductPageProps) {
               rating={4.3}
               showSingleFlavorBadge={true}
               primaryColor={selectedFlavor?.primaryColor || "#fba91d"}
+              subtitle={config.productType === 'soda-10mg' ? '10mg Soda' : config.productType === 'soda-50mg' ? '50mg Soda' : 'Cannabis Edibles'}
             />
           </div>
 
@@ -524,6 +525,7 @@ function ProductPageContent({ config }: ProductPageProps) {
                   rating={4.3}
                   showSingleFlavorBadge={true}
                   primaryColor={selectedFlavor?.primaryColor || "#fba91d"}
+                  subtitle={config.productType === 'soda-10mg' ? '10mg Soda' : config.productType === 'soda-50mg' ? '50mg Soda' : 'Cannabis Edibles'}
                 />
               </div>
 
