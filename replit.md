@@ -53,6 +53,8 @@ The application is built on Next.js 15 (App Router, React 19, TypeScript) and st
   - Fixed background colors to use selected product's secondary color dynamically across all sections
   - Resolved overlapping layout issues with proper spacing and min-height constraints
   - Fixed hardcoded orange colors to use dynamic flavor-specific colors (grape now shows purple)
+  - Updated flavor picker to display 4 items per row matching Figma specifications
+  - Adjusted image sizes and spacing for optimal 4-column layout presentation
 
 - **MOBILE RESPONSIVE OPTIMIZATION** (August 1, 2025): Made all new components fully mobile responsive
   - Updated IconicFlavorsBadges with flexible wrapping and smaller mobile badge sizes
