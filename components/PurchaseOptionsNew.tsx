@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { AddToCartButtons } from "./AddToCartButtons";
 
 interface PurchaseOption {
   id: string;
@@ -18,6 +19,7 @@ interface PurchaseOptionsNewProps {
   flavor?: any;
   variant?: any;
   onVariantChange?: (variant: any) => void;
+  onAddToCart?: (quantity: number) => void;
 }
 
 // Radio button component matching Figma design
@@ -53,7 +55,7 @@ const CancelIcon = () => (
   </div>
 );
 
-export function PurchaseOptionsNew({ flavor, variant, onVariantChange }: PurchaseOptionsNewProps) {
+export function PurchaseOptionsNew({ flavor, variant, onVariantChange, onAddToCart }: PurchaseOptionsNewProps) {
   const [selectedOption, setSelectedOption] = useState<'subscription' | 'one-time'>('one-time');
 
   const purchaseOptions: PurchaseOption[] = [
@@ -221,6 +223,14 @@ export function PurchaseOptionsNew({ flavor, variant, onVariantChange }: Purchas
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Add to Cart Buttons */}
+      <div className="mt-6">
+        <AddToCartButtons 
+          onAddToCart={onAddToCart}
+          primaryColor={flavor?.primaryColor || "#f3841d"}
+        />
       </div>
     </div>
   );

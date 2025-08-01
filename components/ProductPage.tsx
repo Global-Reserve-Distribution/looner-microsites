@@ -551,6 +551,10 @@ function ProductPageContent({ config }: ProductPageProps) {
                   flavor={selectedFlavor}
                   variant={selectedVariant}
                   onVariantChange={setSelectedVariant}
+                  onAddToCart={(quantity) => {
+                    console.log(`Adding ${quantity} items to cart`);
+                    // Add to cart logic here
+                  }}
                 />
               </div>
             </div>
