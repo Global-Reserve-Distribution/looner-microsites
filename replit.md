@@ -41,6 +41,17 @@ The application is built on Next.js 15 (App Router, React 19, TypeScript) and st
 
 ## Recent Changes
 
+- **FIGMA PRODUCT PAGE REDESIGN** (August 1, 2025): Implemented comprehensive Olipop-style product page redesign
+  - Created NewProductPage component based on exact Figma specifications from design team
+  - Implemented product gallery with main images, video section, and dynamic color variant backgrounds
+  - Added comprehensive ingredients section with blue background (#b2fffb) featuring nutrition facts panel
+  - Built interactive flavor selector with 6 color variants (Half & Half, Peach Lemonade, Classic Lemonade, Pink Lemonade, Mule Mocktail, Cherry Cola)
+  - Integrated purchase options with one-time purchase vs subscription pricing models
+  - Added product features grid (10mg THC, Made with Cane Sugar, Gluten Free badges)
+  - Implemented "You May Also Like" recommendations section
+  - Updated /products/sodas/10mg and /products/sodas/50mg routes to use new design
+  - Maintained real Shopify product data integration with proper error handling
+
 - **OLIPOP-STYLE SHOP PAGE** (July 30, 2025): Implemented comprehensive shop page based on Figma specifications
   - Created new /shop route with Olipop-inspired design system featuring cream background (#fff7e5)
   - Built ShopGrid component with product filtering by collection (Beverages, Gummies)  
