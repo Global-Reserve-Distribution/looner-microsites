@@ -49,6 +49,7 @@ The application is built on Next.js 15 (App Router, React 19, TypeScript) and st
   - Used exact Figma colors: #ffbd4e for main product background, #faa81e for badges
   - Preserved mobile carousel functionality while upgrading desktop layout to match design
   - Fixed grid proportions to properly scale and match reference image layout
+  - Updated layout order: large product with badges at top, video in middle, two product images at bottom
 
 - **MOBILE RESPONSIVE OPTIMIZATION** (August 1, 2025): Made all new components fully mobile responsive
   - Updated IconicFlavorsBadges with flexible wrapping and smaller mobile badge sizes

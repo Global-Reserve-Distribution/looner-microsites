@@ -29,41 +29,7 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
     <div>
       {/* Desktop Layout - Based on Figma Design */}
       <div className="hidden md:block w-full space-y-5">
-        {/* Top Section: Two image cards */}
-        <div className="grid grid-cols-2 gap-5">
-          <div className="aspect-square rounded-2xl bg-gray-300 overflow-hidden flex items-center justify-center"
-               style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
-            {selectedFlavor?.images?.[0] ? (
-              <img
-                src={selectedFlavor.images[0]}
-                alt={selectedFlavor.title}
-                className="w-3/4 h-3/4 object-contain drop-shadow-xl"
-              />
-            ) : (
-              <div className="text-white text-xl font-bold">LOONER</div>
-            )}
-          </div>
-          <div className="aspect-square rounded-2xl bg-gray-300 overflow-hidden flex items-center justify-center"
-               style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
-            {selectedFlavor?.images?.[0] ? (
-              <img
-                src={selectedFlavor.images[0]}
-                alt={selectedFlavor.title}
-                className="w-3/4 h-3/4 object-contain drop-shadow-xl transform rotate-12"
-              />
-            ) : (
-              <div className="text-white text-xl font-bold">LOONER</div>
-            )}
-          </div>
-        </div>
-
-        {/* Video Section */}
-        <div className="w-full aspect-[622/353] rounded-2xl bg-gray-300 overflow-hidden flex items-center justify-center"
-             style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
-          <div className="text-white text-2xl font-bold">Video Coming Soon</div>
-        </div>
-
-        {/* Featured Block with Product and Badges */}
+        {/* Top Section: Featured Block with Product and Badges */}
         <div className="grid grid-cols-[442fr_160fr] gap-5 h-[400px]">
           {/* Main Product Display */}
           <div className="rounded-2xl relative flex items-center justify-center"
@@ -114,6 +80,40 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
                 Gluten<br />Free
               </span>
             </div>
+          </div>
+        </div>
+
+        {/* Middle Section: Video */}
+        <div className="w-full aspect-[622/353] rounded-2xl bg-gray-300 overflow-hidden flex items-center justify-center"
+             style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
+          <div className="text-white text-2xl font-bold">Video Coming Soon</div>
+        </div>
+
+        {/* Bottom Section: Two image cards */}
+        <div className="grid grid-cols-2 gap-5">
+          <div className="aspect-square rounded-2xl bg-gray-300 overflow-hidden flex items-center justify-center"
+               style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
+            {selectedFlavor?.images?.[0] ? (
+              <img
+                src={selectedFlavor.images[0]}
+                alt={selectedFlavor.title}
+                className="w-3/4 h-3/4 object-contain drop-shadow-xl"
+              />
+            ) : (
+              <div className="text-white text-xl font-bold">LOONER</div>
+            )}
+          </div>
+          <div className="aspect-square rounded-2xl bg-gray-300 overflow-hidden flex items-center justify-center"
+               style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
+            {selectedFlavor?.images?.[0] ? (
+              <img
+                src={selectedFlavor.images[0]}
+                alt={selectedFlavor.title}
+                className="w-3/4 h-3/4 object-contain drop-shadow-xl transform rotate-12"
+              />
+            ) : (
+              <div className="text-white text-xl font-bold">LOONER</div>
+            )}
           </div>
         </div>
       </div>
