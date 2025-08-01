@@ -46,7 +46,7 @@ const FLAVOR_VARIANTS = [
 ];
 
 function ProductGallery({ selectedFlavor, products }: { selectedFlavor: string; products: any[] }) {
-  const mainProduct = products[0] || {};
+  const mainProduct = products?.[0] || {};
   const selectedVariant = FLAVOR_VARIANTS.find(v => v.id === selectedFlavor) || FLAVOR_VARIANTS[0];
 
   return (
@@ -54,10 +54,10 @@ function ProductGallery({ selectedFlavor, products }: { selectedFlavor: string; 
       {/* Main Product Images */}
       <div className="flex gap-5 mb-5">
         <div className="w-[301px] h-[301px] bg-gray-300 rounded-2xl overflow-hidden">
-          {mainProduct.featuredImage?.url ? (
+          {mainProduct?.featuredImage?.url ? (
             <img
               src={mainProduct.featuredImage.url}
-              alt={mainProduct.title}
+              alt={mainProduct.title || 'Product'}
               className="w-full h-full object-cover"
             />
           ) : (
@@ -85,13 +85,13 @@ function ProductGallery({ selectedFlavor, products }: { selectedFlavor: string; 
         {/* Main Product Display */}
         <div 
           className="w-[442px] h-[400px] rounded-2xl flex items-center justify-center"
-          style={{ backgroundColor: selectedVariant.color }}
+          style={{ backgroundColor: selectedVariant?.color || FLAVOR_VARIANTS[0]?.color || '#cd9848' }}
         >
           <div className="w-[395px] h-[418px] bg-gray-300 overflow-hidden">
-            {mainProduct.featuredImage?.url ? (
+            {mainProduct?.featuredImage?.url ? (
               <img
                 src={mainProduct.featuredImage.url}
-                alt={mainProduct.title}
+                alt={mainProduct.title || 'Product'}
                 className="w-full h-full object-contain"
               />
             ) : (
@@ -161,7 +161,7 @@ function PurchaseSection({ product }: { product: any }) {
   
   const firstVariant = product?.variants?.[0];
   const price = typeof firstVariant?.price === 'object' 
-    ? firstVariant.price.amount 
+    ? firstVariant?.price?.amount || '59'
     : firstVariant?.price || '59';
 
   return (
@@ -261,25 +261,25 @@ function PurchaseSection({ product }: { product: any }) {
 }
 
 function ProductPageContent({ config, products }: ProductPageProps) {
-  const [selectedFlavor, setSelectedFlavor] = useState(FLAVOR_VARIANTS[0].id);
+  const [selectedFlavor, setSelectedFlavor] = useState(FLAVOR_VARIANTS[0]?.id || 'half-half');
   const searchParams = useSearchParams();
   const { cart } = useCart();
 
-  const mainProduct = products[0] || {};
+  const mainProduct = products?.[0] || {};
 
   useEffect(() => {
     const flavorParam = searchParams.get('flavor');
-    if (flavorParam) {
+    if (flavorParam && Array.isArray(FLAVOR_VARIANTS)) {
       const matchingFlavor = FLAVOR_VARIANTS.find(f => 
-        f.name.toLowerCase().replace(/\s+/g, '-') === flavorParam.toLowerCase()
+        f?.name?.toLowerCase().replace(/\s+/g, '-') === flavorParam.toLowerCase()
       );
-      if (matchingFlavor) {
+      if (matchingFlavor?.id) {
         setSelectedFlavor(matchingFlavor.id);
       }
     }
   }, [searchParams]);
 
-  const selectedVariant = FLAVOR_VARIANTS.find(v => v.id === selectedFlavor) || FLAVOR_VARIANTS[0];
+  const selectedVariant = FLAVOR_VARIANTS.find(v => v?.id === selectedFlavor) || FLAVOR_VARIANTS[0];
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#e3edd0' }}>
@@ -454,13 +454,13 @@ function ProductPageContent({ config, products }: ProductPageProps) {
             You May Also Like
           </h2>
           <div className="grid grid-cols-4 gap-6">
-            {products.slice(1, 5).map((product, index) => (
-              <div key={product.id || index} className="bg-[#f3f4f6] rounded-lg p-4 text-center">
+            {(products || []).slice(1, 5).map((product, index) => (
+              <div key={product?.id || index} className="bg-[#f3f4f6] rounded-lg p-4 text-center">
                 <div className="w-full h-32 bg-gray-200 rounded mb-4 flex items-center justify-center">
-                  {product.featuredImage?.url ? (
+                  {product?.featuredImage?.url ? (
                     <img
                       src={product.featuredImage.url}
-                      alt={product.title}
+                      alt={product?.title || 'Product'}
                       className="w-full h-full object-contain"
                     />
                   ) : (
@@ -468,10 +468,12 @@ function ProductPageContent({ config, products }: ProductPageProps) {
                   )}
                 </div>
                 <h3 className="font-semibold text-[#14433d] text-sm mb-2">
-                  {product.title || 'Product Name'}
+                  {product?.title || 'Product Name'}
                 </h3>
                 <p className="text-[#14433d] text-xs">
-                  ${product.variants?.[0]?.price || '35'}
+                  ${typeof product?.variants?.[0]?.price === 'object' 
+                    ? product?.variants?.[0]?.price?.amount || '35'
+                    : product?.variants?.[0]?.price || '35'}
                 </p>
               </div>
             ))}
