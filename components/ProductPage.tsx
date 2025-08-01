@@ -10,6 +10,7 @@ import { RecommendedFlavors } from "./RecommendedFlavors";
 import { StickyCartFooter } from "./StickyCartFooter";
 import { IconicFlavorsBadges } from "./IconicFlavorsBadges";
 import { NutritionLabel } from "./NutritionLabel";
+import { WaterHeroSection } from "./WaterHeroSection";
 import {
   fetchProducts,
   fetchProductsWithAdminCategories,
@@ -658,6 +659,9 @@ function ProductPageContent({ config }: ProductPageProps) {
 
           {/* Iconic Flavors Badges */}
           <IconicFlavorsBadges />
+
+          {/* Water Hero Section */}
+          <WaterHeroSection />
 
           {/* Nutrition Label Section */}
           <div className="py-12 lg:py-16 bg-white">
