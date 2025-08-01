@@ -147,15 +147,15 @@ export function FigmaHeaderClient({ navigation }: FigmaHeaderClientProps) {
         </nav>
 
         {/* Center: Logo */}
-        <div className="absolute left-1/2 transform -translate-x-1/2">
-          <Link href="/">
+        <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center h-full">
+          <Link href="/" className="flex items-center">
             <Image
               src="/logo.webp"
               alt="LOONER Cannabis Co"
               width={120}
               height={40}
               style={{ height: 'auto', width: 'auto' }}
-              className="h-10"
+              className="h-8 max-h-8"
             />
           </Link>
         </div>
