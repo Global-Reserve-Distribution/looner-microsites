@@ -27,17 +27,53 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
 
   return (
     <div>
-      {/* Desktop Layout */}
-      <div className="hidden md:block space-y-6">
-        {/* Top section: Main image with tags on the side */}
-        <div className="grid grid-cols-[3fr_1fr] gap-4">
-          {/* Large Product Image Card */}
-          <div
-            className="rounded-3xl overflow-hidden relative h-96"
-            style={{
-              backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
-            }}
-          >
+      {/* Desktop Layout - Based on Figma Design */}
+      <div className="hidden md:block w-full max-w-[642px] mx-auto space-y-5">
+        {/* Top Section: Two image cards */}
+        <div className="flex gap-5">
+          <div className="w-[301px] h-[301px] rounded-2xl bg-gray-300 overflow-hidden"
+               style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
+            <div className="w-full h-full flex items-center justify-center">
+              {selectedFlavor?.images?.[0] ? (
+                <img
+                  src={selectedFlavor.images[0]}
+                  alt={selectedFlavor.title}
+                  className="w-60 h-60 object-contain drop-shadow-xl"
+                />
+              ) : (
+                <div className="text-white text-xl font-bold">LOONER</div>
+              )}
+            </div>
+          </div>
+          <div className="w-[301px] h-[301px] rounded-2xl bg-gray-300 overflow-hidden"
+               style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
+            <div className="w-full h-full flex items-center justify-center">
+              {selectedFlavor?.images?.[0] ? (
+                <img
+                  src={selectedFlavor.images[0]}
+                  alt={selectedFlavor.title}
+                  className="w-60 h-60 object-contain drop-shadow-xl transform rotate-12"
+                />
+              ) : (
+                <div className="text-white text-xl font-bold">LOONER</div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Video Section */}
+        <div className="w-full h-[353px] rounded-2xl bg-gray-300 overflow-hidden"
+             style={{ backgroundColor: selectedFlavor?.secondaryColor || "#d3d3d3" }}>
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-white text-2xl font-bold">Video Coming Soon</div>
+          </div>
+        </div>
+
+        {/* Featured Block with Product and Badges */}
+        <div className="flex gap-5 h-[400px]">
+          {/* Main Product Display */}
+          <div className="w-[442px] h-[400px] rounded-2xl flex items-center justify-center px-6"
+               style={{ backgroundColor: "#ffbd4e" }}>
             {/* Best Seller Tag */}
             {selectedFlavor?.showBestSellerTag && (
               <div className="absolute top-4 left-4 z-10">
@@ -46,109 +82,43 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
                 </div>
               </div>
             )}
-            <div className="h-full w-full flex items-center justify-center">
+            <div className="w-[395px] h-[418px] flex items-center justify-center">
               {selectedFlavor?.images?.[0] ? (
                 <img
                   src={selectedFlavor.images[0]}
                   alt={selectedFlavor.title}
-                  className="w-80 h-80 object-contain drop-shadow-2xl"
+                  className="w-full h-full object-contain drop-shadow-2xl"
                 />
               ) : (
-                <div className="w-72 h-80 bg-white/20 rounded-3xl flex items-center justify-center backdrop-blur-sm">
-                  <span className="text-white text-4xl font-bold">LOONER</span>
-                </div>
+                <div className="text-white text-3xl font-bold">LOONER</div>
               )}
             </div>
           </div>
 
-          {/* Feature Tags Container - Right column, secondary background */}
-          <div className="h-96 flex flex-col justify-between space-y-4">
-            {filteredTags.slice(0, 3).map((tag: string, index: number) => (
-              <div
-                key={tag}
-                className="rounded-2xl p-4 text-center flex-1 flex flex-col items-center justify-center"
-                style={{
-                  backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
-                }}
-              >
-                <div className="text-2xl mb-1">{getTagEmoji(tag)}</div>
-                <h3 className="font-bold text-gray-800 text-sm leading-tight">
-                  {tag}
-                </h3>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Middle section: Full-width card with multiple products */}
-        <div className="w-full">
-          <div
-            className="rounded-2xl h-56 flex items-center justify-center gap-8 px-8"
-            style={{
-              backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
-            }}
-          >
-            {/* Three product cans arranged horizontally */}
-            {[0, 1, 2].map((index) => (
-              <div key={index} className="flex items-center justify-center">
-                {selectedFlavor?.images?.[0] ? (
-                  <img
-                    src={selectedFlavor.images[0]}
-                    alt={selectedFlavor.title}
-                    className="w-16 h-20 object-contain drop-shadow-lg transform rotate-12"
-                    style={{
-                      transform: `rotate(${index === 1 ? "0deg" : index === 0 ? "-12deg" : "12deg"})`,
-                    }}
-                  />
-                ) : (
-                  <div className="w-16 h-20 bg-white/20 rounded-lg flex items-center justify-center">
-                    <span className="text-xs text-gray-600">LOONER</span>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom section: Two half-width cards */}
-        <div className="grid grid-cols-2 gap-4 w-full">
-          <div
-            className="rounded-2xl h-64 flex items-center justify-center"
-            style={{
-              backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
-            }}
-          >
-            <div className="text-center">
-              <h3 className="text-4xl font-bold text-white">Better than</h3>
-              <h3 className="text-4xl font-bold text-white">Dessert</h3>
+          {/* Feature Badges Column */}
+          <div className="w-[160px] flex flex-col gap-5">
+            {/* 10mg THC Badge */}
+            <div className="w-[160px] h-[120px] rounded-2xl flex items-center justify-center"
+                 style={{ backgroundColor: "#faa81e" }}>
+              <span className="text-white text-center font-bold text-lg leading-6">
+                10mg<br />THC
+              </span>
             </div>
-          </div>
 
-          <div
-            className="rounded-2xl h-64 flex items-center justify-center relative overflow-hidden"
-            style={{
-              backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF",
-            }}
-          >
-            <div className="flex items-center gap-4">
-              {/* Glass with liquid */}
-              <div className="w-12 h-20 bg-white/30 rounded-lg flex items-end">
-                <div
-                  className="w-full h-3/4 rounded-b-lg"
-                  style={{
-                    backgroundColor: selectedFlavor?.primaryColor || "#8B5CF6",
-                    opacity: 0.7,
-                  }}
-                ></div>
-              </div>
-              {/* Product can */}
-              {selectedFlavor?.images?.[0] && (
-                <img
-                  src={selectedFlavor.images[0]}
-                  alt={selectedFlavor.title}
-                  className="w-16 h-20 object-contain drop-shadow-lg"
-                />
-              )}
+            {/* Made with Cane Sugar Badge */}
+            <div className="w-[160px] h-[120px] rounded-2xl flex items-center justify-center"
+                 style={{ backgroundColor: "#faa81e" }}>
+              <span className="text-white text-center font-bold text-lg leading-5">
+                Made with<br />Cane Sugar
+              </span>
+            </div>
+
+            {/* Gluten Free Badge */}
+            <div className="w-[160px] h-[120px] rounded-2xl flex items-center justify-center"
+                 style={{ backgroundColor: "#faa81e" }}>
+              <span className="text-white text-center font-bold text-lg leading-6">
+                Gluten<br />Free
+              </span>
             </div>
           </div>
         </div>

@@ -41,12 +41,20 @@ The application is built on Next.js 15 (App Router, React 19, TypeScript) and st
 
 ## Recent Changes
 
+- **FIGMA PRODUCT GRID IMPLEMENTATION** (August 1, 2025): Updated product grid to match exact Figma specifications
+  - Rebuilt OlipopStyleGrid component following precise Figma design structure (642px width container)
+  - Implemented exact dimensions: 301x301px image cards, 353px video section, 400px featured block
+  - Added feature badges with proper styling: 10mg THC, Made with Cane Sugar, Gluten Free
+  - Used exact Figma colors: #ffbd4e for main product background, #faa81e for badges
+  - Preserved mobile carousel functionality while upgrading desktop layout to match design
+
 - **MOBILE RESPONSIVE OPTIMIZATION** (August 1, 2025): Made all new components fully mobile responsive
   - Updated IconicFlavorsBadges with flexible wrapping and smaller mobile badge sizes
   - Enhanced WaterHeroSection with aspect ratio scaling and responsive dimensions
   - Optimized NutritionLabel with mobile-friendly grid layouts and smaller feature badges
   - Reduced padding and improved touch targets throughout all sections
   - Components now perfectly match mobile design patterns as shown in user mockups
+  - Fixed mobile layout order so product grid appears above flavor picker
 
 - **WATER HERO SECTION INTEGRATION** (August 1, 2025): Added water hero section with floating LOONER can
   - Created WaterHeroSection component using exact Figma specifications (1425x453px)

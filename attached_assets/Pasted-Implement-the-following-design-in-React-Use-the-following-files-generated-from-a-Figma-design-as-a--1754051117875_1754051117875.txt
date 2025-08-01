@@ -1,0 +1,173 @@
+Implement the following design in React. Use the following files generated from a Figma design as a specification and guide:
+
+```src/styles/ProductGalleryProductGallery.module.css
+@import "https://fonts.googleapis.com/css?family=Inter:0,700&display=swap";
+.ProductGalleryProductGallery_38_899 {
+  flex-shrink: 0;
+  width: 642px;
+  height: 1093.88px;
+  overflow: hidden;
+}
+.ImageTransitionFadeIn_38_900,
+.ImageTransitionFadeIn_38_901 {
+  background: #d3d3d3 url(<path-to-image>) 50% / cover no-repeat;
+  border-radius: 16px;
+  flex-shrink: 0;
+  width: 301px;
+  height: 301px;
+  overflow: hidden;
+}
+.VideoTwRounded_2xl_38_902 {
+  background: #d3d3d3 url(<path-to-image>) 50% / cover no-repeat;
+  border-radius: 16px;
+  flex-shrink: 0;
+  width: 622px;
+  height: 352.88px;
+  overflow: hidden;
+}
+.ProductGallerySlideFeaturedBlock_38_903 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 20px;
+  width: 602px;
+  height: 400px;
+  display: flex;
+}
+.DivTransitionColorFade_38_904 {
+  background: #ffbd4e;
+  border-radius: 16px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 442px;
+  height: 400px;
+  padding: 0 23.5px;
+  display: flex;
+}
+.ImageCgiImg_38_905 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 395px;
+  height: 418px;
+  overflow: hidden;
+}
+.DivTwFlex_38_906 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 20px;
+  width: 160px;
+  height: 360px;
+  padding-bottom: 78px;
+  display: flex;
+}
+.DivTransitionColorFade_38_907 {
+  background: #faa81e;
+  border-radius: 16px;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  padding: 42px 52.5px 32px;
+  display: flex;
+}
+.mgThc_38_908 {
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 18.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  display: inline-block;
+}
+.DivTransitionColorFade_38_911 {
+  background: #faa81e;
+  border-radius: 16px;
+  flex-shrink: 0;
+  width: 160px;
+  height: 120px;
+}
+.MadeWithCaneSugar_38_912 {
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 18.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.ImageTwH_8_38_913 {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+}
+.DivTransitionColorFade_38_918 {
+  background: #faa81e;
+  border-radius: 16px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 120px;
+  padding: 56px 16.404px 24px 16.406px;
+  display: flex;
+}
+.SpanTwWhitespaceNowrap_38_919 {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 127.19px;
+  height: 40px;
+  padding: 0 33.096px 12px 33.094px;
+  display: flex;
+}
+.GlutenFree_38_923 {
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 18.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  display: inline-block;
+}
+
+```
+
+---
+
+```src/components/ProductGalleryProductGallery.tsx
+import React from 'react';
+import styles from '../styles/ProductGalleryProductGallery.module.css';
+
+
+export default function ProductGalleryProductGallery() {
+  return (
+    <div className={styles.ProductGalleryProductGallery_38_899}>
+      <div className={styles.ImageTransitionFadeIn_38_900}></div>
+      <div className={styles.ImageTransitionFadeIn_38_901}></div>
+      <div className={styles.VideoTwRounded_2xl_38_902}></div>
+      <div className={styles.ProductGallerySlideFeaturedBlock_38_903}>
+        <div className={styles.DivTransitionColorFade_38_904}>
+          <div className={styles.ImageCgiImg_38_905}></div>
+        </div>
+        <div className={styles.DivTwFlex_38_906}>
+          <div className={styles.DivTransitionColorFade_38_907}><span className={styles.mgThc_38_908}>10mg
+              THC</span></div>
+          <div className={styles.DivTransitionColorFade_38_911}><span className={styles.MadeWithCaneSugar_38_912}>Made with
+              Cane Sugar</span>
+            <div className={styles.ImageTwH_8_38_913}></div>
+          </div>
+          <div className={styles.DivTransitionColorFade_38_918}>
+            <div className={styles.SpanTwWhitespaceNowrap_38_919}><span className={styles.GlutenFree_38_923}>Gluten
+                Free</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
