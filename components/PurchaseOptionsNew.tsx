@@ -165,12 +165,6 @@ export function PurchaseOptionsNew({ flavor, variant, onVariantChange, onAddToCa
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span 
-                  className="text-[#14433d] text-[11.4px] leading-4"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
-                >
-                  {subscriptionOption.cans} Cans
-                </span>
                 <div className="flex items-center gap-1">
                   <span 
                     className="text-[#14433d] text-[11.4px] leading-4 line-through"
@@ -185,6 +179,12 @@ export function PurchaseOptionsNew({ flavor, variant, onVariantChange, onAddToCa
                     ${subscriptionOption.price}
                   </span>
                 </div>
+                <span 
+                  className="text-[#14433d] text-[11.4px] leading-4"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                >
+                  {subscriptionOption.cans} Cans
+                </span>
               </div>
             </div>
           </div>
