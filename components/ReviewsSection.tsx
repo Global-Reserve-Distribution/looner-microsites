@@ -2,9 +2,16 @@
 
 import React from 'react';
 
-export default function ReviewsSection() {
+interface ReviewsSectionProps {
+  backgroundColor?: string;
+}
+
+export default function ReviewsSection({ backgroundColor = "#ffa13c" }: ReviewsSectionProps) {
   return (
-    <div className="w-full bg-[#ffa13c] py-12">
+    <div 
+      className="w-full py-12" 
+      style={{ backgroundColor }}
+    >
       <div className="max-w-[1425px] mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">

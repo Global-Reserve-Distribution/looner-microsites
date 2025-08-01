@@ -12,6 +12,7 @@ import { StickyCartFooter } from "./StickyCartFooter";
 import { IconicFlavorsBadges } from "./IconicFlavorsBadges";
 import FigmaIngredientsSection from "./FigmaIngredientsSection";
 import ReviewsSection from "./ReviewsSection";
+import { WaterHeroSection } from "./WaterHeroSection";
 import { ProductHeader } from "./ProductHeader";
 
 import {
@@ -557,11 +558,14 @@ function ProductPageContent({ config }: ProductPageProps) {
             <FigmaIngredientsSection />
           </div>
 
-          {/* Reviews Section */}
-          <ReviewsSection />
-
           {/* Iconic Flavors Badges */}
           <IconicFlavorsBadges />
+
+          {/* Water Hero Section */}
+          <WaterHeroSection />
+
+          {/* Reviews Section */}
+          <ReviewsSection backgroundColor={selectedFlavor?.secondaryColor || config.defaultSecondaryColor} />
 
           {/* Recommended Flavors */}
           <div className="py-8 md:py-12 lg:py-16 bg-white">
