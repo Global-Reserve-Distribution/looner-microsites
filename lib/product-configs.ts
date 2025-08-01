@@ -2,6 +2,7 @@ export const productConfigs = {
   'soda-10mg': {
     productType: 'soda-10mg' as const,
     title: '10mg Soda Products',
+    thcAmount: '10mg',
     description: 'Perfect 10mg THC soda.',
     sectionTitle: 'Perfect 10mg Soda Dosage',
     sectionDescription: 'Our 10mg THC sodas combine refreshing carbonation with precise cannabis dosing. Perfect for social occasions, creative activities, or relaxation with a familiar soda experience.',
@@ -32,6 +33,7 @@ export const productConfigs = {
   'soda-50mg': {
     productType: 'soda-50mg' as const,
     title: '50mg Soda Products',
+    thcAmount: '50mg',
     description: 'Premium 50mg THC soda.',
     sectionTitle: 'Premium 50mg High-Dose Experience',
     sectionDescription: 'Our 50mg THC sodas deliver a premium high-dose cannabis experience for experienced users. Perfect for deep relaxation, creative exploration, or therapeutic relief with familiar soda refreshment.',
@@ -62,6 +64,7 @@ export const productConfigs = {
   'gummies': {
     productType: 'gummies' as const,
     title: 'Gummy Products',
+    thcAmount: '5mg',
     description: 'Premium cannabis-infused gummy.',
     sectionTitle: 'Premium Cannabis-Infused Gummies',
     sectionDescription: 'Our cannabis-infused gummies deliver precise dosing with delicious flavors. Perfect for discreet consumption, therapeutic use, or recreational enjoyment with consistent, long-lasting effects.',

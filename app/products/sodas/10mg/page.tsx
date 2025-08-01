@@ -1,4 +1,4 @@
-import SimpleProductPage from "../../../../components/SimpleProductPage";
+import ProductPage from "../../../../components/ProductPage";
 import { productConfigs } from "../../../../lib/product-configs";
 import { fetchProducts } from "../../../../lib/shopify/server-actions";
 
@@ -27,5 +27,5 @@ export default async function Sodas10mgPage() {
     return hasSodaTag && has10mgThc;
   });
 
-  return <SimpleProductPage config={config} products={products} />;
+  return <ProductPage config={config} products={products} />;
 }
