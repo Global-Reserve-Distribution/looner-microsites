@@ -1,26 +1,28 @@
 import React from 'react';
+import Image from 'next/image';
 
 export function IconicFlavorsBadges() {
   const badges = [
-    { text: "Iconic\nFLAVORS", color: "bg-orange-400", textColor: "text-white" },
-    { text: "Made in\nMINNESOTA", color: "bg-blue-400", textColor: "text-white" },
-    { text: "Cannabis\nINFUSED", color: "bg-green-400", textColor: "text-white" },
-    { text: "Made with\nCANE SUGAR", color: "bg-purple-400", textColor: "text-white" },
-    { text: "Plant\nDERIVED", color: "bg-green-500", textColor: "text-white" },
-    { text: "Iconic\nFLAVORS", color: "bg-orange-400", textColor: "text-white" }
+    { src: '/iconic-flavors-1.png', alt: 'Iconic Flavors' },
+    { src: '/made-in-minnesota.png', alt: 'Made in Minnesota' },
+    { src: '/cannabis-infused.png', alt: 'Cannabis Infused' },
+    { src: '/made-with-cane-sugar.png', alt: 'Made with Cane Sugar' },
+    { src: '/plant-derived.png', alt: 'Plant Derived' },
+    { src: '/iconic-flavors-2.png', alt: 'Iconic Flavors' }
   ];
 
   return (
-    <div className="w-full py-8 bg-gradient-to-r from-cyan-100 to-cyan-200">
-      <div className="flex justify-center items-center gap-8 px-4">
+    <div className="w-full py-8 bg-white">
+      <div className="flex justify-center items-center gap-8 px-4 max-w-6xl mx-auto">
         {badges.map((badge, index) => (
-          <div
-            key={index}
-            className={`${badge.color} ${badge.textColor} px-6 py-3 rounded-lg font-bold text-center text-sm leading-tight min-w-[120px]`}
-          >
-            {badge.text.split('\n').map((line, lineIndex) => (
-              <div key={lineIndex}>{line}</div>
-            ))}
+          <div key={index} className="flex-shrink-0">
+            <Image
+              src={badge.src}
+              alt={badge.alt}
+              width={120}
+              height={60}
+              className="h-auto w-auto"
+            />
           </div>
         ))}
       </div>
