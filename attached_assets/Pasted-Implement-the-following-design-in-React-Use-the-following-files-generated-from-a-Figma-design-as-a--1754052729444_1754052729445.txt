@@ -1,0 +1,177 @@
+Implement the following design in React. Use the following files generated from a Figma design as a specification and guide:
+
+```src/styles/Group_1.module.css
+@import "https://fonts.googleapis.com/css?family=Inter:0,700&display=swap";
+.Group_1_239_7 {
+  flex-shrink: 0;
+  width: 472px;
+  height: 122px;
+}
+.ButtonTwPx_10_38_945 {
+  background: #fff;
+  border-radius: 50px;
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 472px;
+  height: 48px;
+  padding: 10px 155.609px 10px 157.391px;
+  display: flex;
+}
+.FindMeInStore_38_946 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 16.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  display: inline-block;
+}
+.Icon_38_947 {
+  flex-flow: row;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  overflow: hidden;
+}
+.DivTwMt_4_38_950 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 8px;
+  width: 472px;
+  height: 48px;
+  padding-right: 536.5px;
+  display: flex;
+}
+.DivTwMr_2_38_951 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 2px solid #14433d;
+  border-radius: 100px;
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 106px;
+  padding: 16px 18px 14px;
+  display: flex;
+}
+.Icon_38_952 {
+  flex-shrink: 0;
+  width: 11px;
+  height: 10px;
+  overflow: hidden;
+}
+.InputProductQuantity_38_954 {
+  border-radius: 2px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: center;
+  width: 24px;
+  height: 18px;
+  padding-left: 5px;
+  display: flex;
+  overflow: hidden;
+}
+.generated_1_38_955 {
+  -webkit-line-clamp: 1;
+  color: #14433d;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  flex-shrink: 0;
+  width: 24px;
+  font-family: Inter;
+  font-size: 16.7px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  display: inline-block;
+  overflow: hidden;
+}
+.Icon_38_956 {
+  flex-shrink: 0;
+  width: 11px;
+  height: 4px;
+  overflow: hidden;
+}
+.ButtonAddToCart_43069390880927_38_958 {
+  box-sizing: border-box;
+  background: #f3841d;
+  border-radius: 50px;
+  flex-shrink: 0;
+  align-items: center;
+  width: 366px;
+  padding: 10.2px 132.656px 7.8px 128.344px;
+  display: flex;
+}
+.AddToCart_38_959 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 18.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 29.6px;
+  display: inline-block;
+}
+
+```
+
+---
+
+```src/components/assets/Icon.tsx
+import React from 'react';
+export default function Icon() {
+  return <svg width="11" height="5" viewBox="0 0 11 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clipPath="url(#clip0_38_956)">
+<path d="M0.5 2.8125H10.5" stroke="#14433D" strokeWidth="3"/>
+</g>
+<defs>
+<clipPath id="clip0_38_956">
+<rect width="11" height="4" fill="white" transform="translate(0 0.8125)"/>
+</clipPath>
+</defs>
+</svg>
+;
+}
+```
+
+---
+
+```src/components/Group_1.tsx
+import React from 'react';
+import styles from '../styles/Group_1.module.css';
+import Icon from './assets/Icon';
+
+export default function Group_1() {
+  return (
+    <div className={styles.Group_1_239_7}>
+      <div className={styles.ButtonTwPx_10_38_945}><span className={styles.FindMeInStore_38_946}> Find Me In Store</span>
+        <div className={styles.Icon_38_947}>
+          <Icon />
+        </div>
+      </div>
+      <div className={styles.DivTwMt_4_38_950}>
+        <div className={styles.DivTwMr_2_38_951}>
+          <div className={styles.Icon_38_952}>
+            <Icon />
+          </div>
+          <div className={styles.InputProductQuantity_38_954}><span className={styles.generated_1_38_955}>1</span></div>
+          <div className={styles.Icon_38_956}>
+            <Icon />
+          </div>
+        </div>
+        <div className={styles.ButtonAddToCart_43069390880927_38_958}><span className={styles.AddToCart_38_959}>Add to Cart</span></div>
+      </div>
+    </div>
+  );
+}
+```
+

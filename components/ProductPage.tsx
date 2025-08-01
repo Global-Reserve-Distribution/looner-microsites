@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { FlavorPickerVariants } from "./FlavorPickerVariants";
 import { PurchaseOptions } from "./PurchaseOptions";
+import { PurchaseOptionsNew } from "./PurchaseOptionsNew";
 import { FlavorBackground } from "./FlavorBackground";
 import { OlipopStyleGrid } from "./OlipopStyleGrid";
 import { RecommendedFlavors } from "./RecommendedFlavors";
@@ -546,7 +547,7 @@ function ProductPageContent({ config }: ProductPageProps) {
 
               {/* Purchase Options */}
               <div ref={purchaseButtonRef}>
-                <PurchaseOptions
+                <PurchaseOptionsNew
                   flavor={selectedFlavor}
                   variant={selectedVariant}
                   onVariantChange={setSelectedVariant}

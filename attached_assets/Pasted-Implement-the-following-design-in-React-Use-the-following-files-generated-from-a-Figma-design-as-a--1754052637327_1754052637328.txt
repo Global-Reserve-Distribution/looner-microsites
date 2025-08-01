@@ -1,0 +1,500 @@
+Implement the following design in React. Use the following files generated from a Figma design as a specification and guide:
+
+```src/styles/Fieldset_7682917990559.module.css
+@import "https://fonts.googleapis.com/css?family=Inter:0,400;0,700&display=swap";
+.Fieldset_7682917990559_38_960 {
+  flex-shrink: 0;
+  width: 480px;
+  height: 206px;
+}
+.LabelRtxOption_38_961 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 2px solid #14433d40;
+  border-radius: 10px;
+  flex-shrink: 0;
+  width: 480px;
+  height: 122px;
+}
+.DivTwFlex_38_962 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 16.656px;
+  width: 402px;
+  height: 46px;
+  padding: 12px 712.5px 2px 8.328px;
+  display: flex;
+}
+.DivTwFlex_38_963 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  display: flex;
+}
+.ParagraphTwWhitespaceNormal_38_964 {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 110px;
+  padding: 0 4.406px 1118px 4px;
+  display: flex;
+}
+.Save_15OnEvery_38_965,
+.Subscription_38_966 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  display: inline-block;
+}
+.Image_38_967 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+.DivTwFlex_38_968 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  display: flex;
+}
+.ParagraphTwWhitespaceNormal_38_969 {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 110px;
+  padding: 0 5.797px 1118px 4px;
+  display: flex;
+}
+.FreeShippingIn_38_970,
+.TheContiguousUs_38_971 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  display: inline-block;
+}
+.Image_38_972 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+.DivTwFlex_38_973 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  display: flex;
+}
+.ParagraphTwWhitespaceNormal_38_974 {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 110px;
+  padding: 0 19.203px 1118px 4px;
+  display: flex;
+}
+.NoCommitment_38_975,
+.CancelAnytime_38_976 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  display: inline-block;
+}
+.Image_38_977 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+.DivTwFlex_38_978 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 261.66px;
+  height: 48px;
+  padding-right: 620.844px;
+  display: flex;
+}
+.DivTwFlex_38_979 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 24px;
+  padding: 12px 0;
+  display: flex;
+}
+.SpanTwRelative_38_980 {
+  box-sizing: border-box;
+  border: 2px solid #14433d;
+  border-radius: 24px;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+.InputProductSubsave_7682917990559_1_38_981 {
+  justify-content: flex-end;
+  align-items: center;
+  height: 1px;
+  padding-left: 5px;
+  display: flex;
+  overflow: hidden;
+}
+.Subsave_38_982 {
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 1px;
+  height: 19.2px;
+  font-family: Inter;
+  font-size: 15.1px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19.2px;
+  display: inline-block;
+  overflow: hidden;
+}
+.DivTwFlex_38_983 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 237.66px;
+  height: 48px;
+  padding: 0 0 1054px 12px;
+  display: flex;
+}
+.DivRtxOptionHeading_38_984 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8.29688px;
+  padding-right: 0.003px;
+  display: flex;
+}
+.SpanRtxOptionBadge_38_985 {
+  background: #d3e8e3e6;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  height: 22px;
+  padding: 6px 9.36px 6px 10px;
+  display: flex;
+}
+.MostPopular_38_986 {
+  color: #14433d;
+  letter-spacing: 0.29px;
+  font-family: Inter;
+  font-size: 9.5px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 10px;
+  display: inline-block;
+}
+.SubscribeSave_38_987 {
+  color: #14433d;
+  letter-spacing: 0.29px;
+  font-family: Inter;
+  font-size: 15.1px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  display: inline-block;
+}
+.DivTwFlex_38_988 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 7.9975px;
+  padding: 4px 83.223px 0 0;
+  display: flex;
+}
+.Cans_38_989 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  display: inline-block;
+}
+.DivRtxOptionSubheading_38_990 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 91.44px;
+  height: 20px;
+  display: flex;
+}
+._99_38_991 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  text-decoration-line: line-through;
+  display: inline-block;
+}
+.SpanTwSrOnly_38_992 {
+  justify-content: flex-end;
+  align-items: center;
+  height: 1px;
+  display: inline-flex;
+  overflow: hidden;
+}
+.Price_38_993 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.SpanTwSrOnly_38_994 {
+  justify-content: flex-end;
+  align-items: center;
+  height: 1px;
+  display: inline-flex;
+  overflow: hidden;
+}
+.CompareAtPrice_38_995,
+._59_38_996 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwFlex_38_997 {
+  background: #fdda79;
+  border-radius: 0 8px 0 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 19.22px 5px 16px;
+  display: inline-flex;
+}
+.Save_15_38_998 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.LabelRtxOption_38_999 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 2px solid #22423d;
+  border-radius: 10px;
+  flex-flow: row;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+  height: 76px;
+  padding: 14px 277.84px 14px 13px;
+  display: flex;
+}
+.DivTwFlex_38_1000 {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 164.16px;
+  padding: 0 0 970px 12px;
+  display: flex;
+}
+.OneTimePurchase_38_1001 {
+  color: #14433d;
+  letter-spacing: 0.29px;
+  font-family: Inter;
+  font-size: 15.1px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  display: inline-block;
+}
+.DivTwFlex_38_1002 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 7.995px;
+  padding: 4px 60.785px 0 0;
+  display: flex;
+}
+.Cans_38_1003 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 11.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  display: inline-block;
+}
+.DivRtxOptionSubheading_38_1004 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 45.38px;
+  height: 20px;
+  display: flex;
+}
+.SpanTwSrOnly_38_1005 {
+  justify-content: flex-end;
+  align-items: center;
+  height: 1px;
+  display: inline-flex;
+  overflow: hidden;
+}
+.SubscriptionPrice_38_1006 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.SpanTwSrOnly_38_1007 {
+  justify-content: flex-end;
+  align-items: center;
+  height: 1px;
+  display: inline-flex;
+  overflow: hidden;
+}
+.SubscriptionCompareAtPrice_38_1008,
+._99_38_1009 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.DivTwFlex_38_1014 {
+  width: 25px;
+  height: 24px;
+}
+.H2FrequencySelector_38_1015 {
+  justify-content: flex-end;
+  align-items: center;
+  height: 1px;
+  display: inline-flex;
+  overflow: hidden;
+}
+.ChooseAFrequency_38_1016 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 47.9px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 62px;
+  display: inline-block;
+}
+
+```
+
+---
+
+```src/components/assets/DivTwFlex.tsx
+import React from 'react';
+export default function DivTwFlex() {
+  return <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 1C19.0751 1 24 5.92487 24 12C24 18.0751 19.0751 23 13 23C6.92487 23 2 18.0751 2 12C2 5.92487 6.92487 1 13 1Z" stroke="#14433D" strokeWidth="2"/>
+<path d="M5.80005 11.9998C5.80005 8.02336 9.0236 4.7998 13 4.7998C16.9765 4.7998 20.2 8.02336 20.2 11.9998C20.2 15.9763 16.9765 19.1998 13 19.1998C9.0236 19.1998 5.80005 15.9763 5.80005 11.9998Z" fill="#14433D"/>
+</svg>
+;
+}
+```
+
+---
+
+```src/components/Fieldset_7682917990559.tsx
+import React from 'react';
+import styles from '../styles/Fieldset_7682917990559.module.css';
+import DivTwFlex from './assets/DivTwFlex';
+
+export default function Fieldset_7682917990559() {
+  return (
+    <div className={styles.Fieldset_7682917990559_38_960}>
+      <div className={styles.LabelRtxOption_38_961}>
+        <div className={styles.DivTwFlex_38_962}>
+          <div className={styles.DivTwFlex_38_963}>
+            <div className={styles.ParagraphTwWhitespaceNormal_38_964}><span className={styles.Save_15OnEvery_38_965}>Save 15% on every </span><span className={styles.Subscription_38_966}>subscription</span></div>
+            <div className={styles.Image_38_967}></div>
+          </div>
+          <div className={styles.DivTwFlex_38_968}>
+            <div className={styles.ParagraphTwWhitespaceNormal_38_969}><span className={styles.FreeShippingIn_38_970}>Free shipping in </span><span className={styles.TheContiguousUs_38_971}>the contiguous US</span></div>
+            <div className={styles.Image_38_972}></div>
+          </div>
+          <div className={styles.DivTwFlex_38_973}>
+            <div className={styles.ParagraphTwWhitespaceNormal_38_974}><span className={styles.NoCommitment_38_975}>No commitment, </span><span className={styles.CancelAnytime_38_976}>cancel anytime</span></div>
+            <div className={styles.Image_38_977}></div>
+          </div>
+        </div>
+        <div className={styles.DivTwFlex_38_978}>
+          <div className={styles.DivTwFlex_38_979}>
+            <div className={styles.SpanTwRelative_38_980}></div>
+            <div className={styles.InputProductSubsave_7682917990559_1_38_981}><span className={styles.Subsave_38_982}>subsave</span></div>
+          </div>
+          <div className={styles.DivTwFlex_38_983}>
+            <div className={styles.DivRtxOptionHeading_38_984}>
+              <div className={styles.SpanRtxOptionBadge_38_985}><span className={styles.MostPopular_38_986}>Most Popular</span></div><span className={styles.SubscribeSave_38_987}>Subscribe &#x26; Save</span>
+            </div>
+            <div className={styles.DivTwFlex_38_988}><span className={styles.Cans_38_989}>12&#xA0;Cans</span>
+              <div className={styles.DivRtxOptionSubheading_38_990}><span className={styles._99_38_991}>$35.99</span>
+                <div className={styles.SpanTwSrOnly_38_992}><span className={styles.Price_38_993}>price</span></div>
+                <div className={styles.SpanTwSrOnly_38_994}><span className={styles.CompareAtPrice_38_995}>compare at price</span></div><span className={styles._59_38_996}>$30.59</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.DivTwFlex_38_997}><span className={styles.Save_15_38_998}>Save 15%</span></div>
+      </div>
+      <div className={styles.LabelRtxOption_38_999}>
+        <div className={styles.DivTwFlex_38_1000}><span className={styles.OneTimePurchase_38_1001}>One-Time Purchase</span>
+          <div className={styles.DivTwFlex_38_1002}><span className={styles.Cans_38_1003}>4&#xA0;Cans</span>
+            <div className={styles.DivRtxOptionSubheading_38_1004}>
+              <div className={styles.SpanTwSrOnly_38_1005}><span className={styles.SubscriptionPrice_38_1006}>subscription price</span></div>
+              <div className={styles.SpanTwSrOnly_38_1007}><span className={styles.SubscriptionCompareAtPrice_38_1008}>subscription compare at price</span></div><span className={styles._99_38_1009}>$19.99</span>
+            </div>
+          </div>
+        </div>
+        <div className={styles.DivTwFlex_38_1014}>
+          <DivTwFlex />
+        </div>
+      </div>
+      <div className={styles.H2FrequencySelector_38_1015}><span className={styles.ChooseAFrequency_38_1016}>Choose a frequency</span></div>
+    </div>
+  );
+}
+```
+
