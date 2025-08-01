@@ -160,7 +160,7 @@ export default function ComponentDemo() {
         {/* NutritionPanel */}
         <section className="border border-gray-200 p-4 rounded-lg">
           <h2 className="text-xl font-semibold mb-4">NutritionPanel Component</h2>
-          <NutritionPanel src="https://via.placeholder.com/300x400/f8f9fa/6c757d?text=Nutrition+Facts" />
+          <NutritionPanel src="https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Looner_Classic_Lemonade_Mockup.png?v=1753176292" />
         </section>
 
         {/* IngredientIcons */}
@@ -168,9 +168,9 @@ export default function ComponentDemo() {
           <h2 className="text-xl font-semibold mb-4">IngredientIcons Component</h2>
           <IngredientIcons 
             icons={[
-              { label: "Plant-Based", icon: "https://via.placeholder.com/64x64/22c55e/ffffff?text=🌿" },
-              { label: "Low Sugar", icon: "https://via.placeholder.com/64x64/f59e0b/ffffff?text=🍬" },
-              { label: "No Gluten", icon: "https://via.placeholder.com/64x64/dc2626/ffffff?text=🚫" }
+              { label: "Plant-Based", icon: "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Looner_Classic_Lemonade_Mockup.png?v=1753176292" },
+              { label: "Low Sugar", icon: "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/LoonerGrape50mg.png?v=1753176313" },
+              { label: "No Gluten", icon: "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Canna_Express_Mango-Website.png?v=1753176336" }
             ]}
           />
         </section>
@@ -200,10 +200,10 @@ export default function ComponentDemo() {
           <h2 className="text-xl font-semibold mb-4">LocalSourcingSection Component</h2>
           <LocalSourcingSection 
             images={[
-              "https://via.placeholder.com/300x300/10b981/ffffff?text=MN+Farm+1",
-              "https://via.placeholder.com/300x300/3b82f6/ffffff?text=MN+Farm+2", 
-              "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=MN+Farm+3",
-              "https://via.placeholder.com/300x300/f59e0b/ffffff?text=MN+Farm+4"
+              "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Looner_Classic_Lemonade_Mockup.png?v=1753176292",
+              "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/LoonerGrape50mg.png?v=1753176313", 
+              "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Canna_Express_Mango-Website.png?v=1753176336",
+              "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Looner_Classic_Lemonade_Mockup.png?v=1753176292"
             ]}
           />
         </section>

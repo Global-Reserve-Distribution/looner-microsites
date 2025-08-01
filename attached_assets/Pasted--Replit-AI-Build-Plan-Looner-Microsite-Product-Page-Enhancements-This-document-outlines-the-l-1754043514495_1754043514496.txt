@@ -1,0 +1,254 @@
+## 🧠 Replit AI Build Plan: Looner Microsite Product Page Enhancements
+
+This document outlines the list of components and tasks Replit AI should work on, based on the live product page and visual cues from the Figma design. Each task includes Figma-accurate styling cues, prop mocks, Copilot prompts, and test scaffolds.
+
+---
+
+### ✅ Already Completed (Do Not Rebuild)
+
+* Flavor selector with routing (`?flavor=...`)
+* Hero grid (product name, price, size selector, quantity, add-to-cart)
+* Basic layout, header, footer, and Shopify integration
+
+---
+
+### 🟠 Phase 1: Lifestyle Image Gallery
+
+**Component:** `ProductImageGallery`
+
+**Figma Reference:** Appears directly below the hero. Displays 3 lifestyle images side-by-side, full-bleed width with rounded corners.
+
+**To Do:**
+
+* Accept an array of image URLs as props
+* Render as a 3-column grid (or responsive)
+* Use `<Image />` from `next/image`
+* Match spacing from Figma (e.g. `gap-4`, `rounded-2xl`, `w-full`)
+
+**Props Mock:**
+
+```ts
+const lifestyleImages = [
+  "/images/grape-chill.jpg",
+  "/images/can-in-hand.jpg",
+  "/images/fridge-stack.jpg"
+];
+```
+
+**Copilot Prompt:**
+"Create a `ProductImageGallery` component showing a 3-column grid of lifestyle images with rounded corners using Tailwind."
+
+**Test Stub:**
+
+```tsx
+test("renders lifestyle image grid", () => {
+  render(<ProductImageGallery images={["/test1.jpg", "/test2.jpg"]} />);
+});
+```
+
+---
+
+### 🟠 Phase 2: Nutrition Panel
+
+**Component:** `NutritionPanel`
+
+**Figma Reference:** Full-width section with a bold heading "Nutrition Facts" followed by a vertical image block (white label with black typography).
+
+**To Do:**
+
+* Accept a nutrition facts image URL as a prop
+* Render image in centered column, max width 500–600px
+* Add white background + padding + drop shadow per Figma
+
+**Props Mock:**
+
+```ts
+const nutritionImage = "/images/nutrition-facts-grape.jpg";
+```
+
+**Copilot Prompt:**
+"Build a `NutritionPanel` that centers a nutrition facts image with white background and rounded border."
+
+**Test Stub:**
+
+```tsx
+test("renders nutrition panel", () => {
+  render(<NutritionPanel src="/nutrition.jpg" />);
+});
+```
+
+---
+
+### 🟠 Phase 3: Ingredient Icons
+
+**Component:** `IngredientIcons`
+
+**Figma Reference:** Icons arranged in a horizontal row with text below each, e.g.:
+
+* 🌿 Plant-Based
+* 🍬 Low Sugar
+* 🚫 No Gluten
+
+**To Do:**
+
+* Accept array of icon + label pairs
+* Style with `text-center`, `gap-4`, and `w-16 h-16` icons
+* Support inline SVG or image icons
+
+**Props Mock:**
+
+```ts
+const icons = [
+  { label: "Plant-Based", icon: "/icons/plant.svg" },
+  { label: "Low Sugar", icon: "/icons/sugar.svg" },
+  { label: "No Gluten", icon: "/icons/gluten.svg" }
+];
+```
+
+**Copilot Prompt:**
+"Render a row of icon-label pairs for features like 'Plant-Based' and 'Low Sugar'. Use Tailwind to space evenly and center-align labels."
+
+**Test Stub:**
+
+```tsx
+test("renders icons with labels", () => {
+  render(<IngredientIcons icons={icons} />);
+});
+```
+
+---
+
+### 🟠 Phase 4: Reviews Section
+
+**Components:** `ReviewsSummary`, `ReviewCard`
+
+**Figma Reference:**
+
+* Top of section: bold star rating text (e.g. "4.9 ★★★★★")
+* Below: quote cards with italic text and reviewer name (no images)
+
+**To Do:**
+
+* Show summary line with average rating (centered)
+* Map array of reviews into `ReviewCard`
+* Quote in italics, name in small caps or grey text
+
+**Props Mock:**
+
+```ts
+const reviews = [
+  { name: "Taylor", rating: 5, quote: "Obsessed with this flavor." },
+  { name: "Alex", rating: 4, quote: "Refreshing and light." }
+];
+```
+
+**Copilot Prompt:**
+"Create a reviews section with an average star rating and cards for each customer quote styled like the Figma."
+
+**Test Stub:**
+
+```tsx
+test("displays review cards", () => {
+  render(<ReviewsSummary reviews={reviews} />);
+});
+```
+
+---
+
+### 🟠 Phase 5: Brand Story Block
+
+**Component:** `BrandStorySection`
+
+**Figma Reference:** Full-width block with orange-tinted background and centered text: "Naturally Derived. Always." with small body copy.
+
+**To Do:**
+
+* Add large heading (`text-3xl font-bold`)
+* One or two sentences of description
+* Background `bg-orange-50` or custom Tailwind orange tint
+
+**Props Mock:**
+
+```ts
+// Static block; no props
+```
+
+**Copilot Prompt:**
+"Render a centered brand message section with orange background and large heading + supporting paragraph."
+
+**Test Stub:**
+
+```tsx
+test("renders brand message", () => {
+  render(<BrandStorySection />);
+});
+```
+
+---
+
+### 🟠 Phase 6: Local Sourcing Grid
+
+**Component:** `LocalSourcingSection`
+
+**Figma Reference:** Grid of 4 lifestyle images with caption below: “Proudly Made in Minnesota.”
+
+**To Do:**
+
+* Accept array of images as props
+* Render 2x2 grid with `gap-4`, rounded corners
+* Add a centered paragraph block with custom font weight
+
+**Props Mock:**
+
+```ts
+const localImages = ["/minnesota1.jpg", "/minnesota2.jpg", "/minnesota3.jpg", "/minnesota4.jpg"];
+```
+
+**Copilot Prompt:**
+"Render a 2x2 image grid with the caption 'Proudly Made in Minnesota' styled like the Figma."
+
+**Test Stub:**
+
+```tsx
+test("renders local image grid", () => {
+  render(<LocalSourcingSection images={localImages} />);
+});
+```
+
+---
+
+### 🟠 Phase 7: Related Flavors Section
+
+**Component:** `RelatedFlavors`
+
+**Figma Reference:** At bottom of PDP. 2 or 3 cards, each showing a flavor image and name like "Sweet Orange" with border and hover effect.
+
+**To Do:**
+
+* Accept related product list as props
+* Render using 2–3 column grid
+* Style each card with `rounded-xl`, border, and hover\:scale
+
+**Props Mock:**
+
+```ts
+const related = [
+  { name: "Sweet Orange", slug: "sweet-orange", image: "/orange.jpg" },
+  { name: "Lime Mint", slug: "lime-mint", image: "/lime.jpg" }
+];
+```
+
+**Copilot Prompt:**
+"Build a RelatedFlavors section with 2–3 flavor cards in a row, each linking to a different PDP and styled like the Figma with borders and scale-on-hover."
+
+**Test Stub:**
+
+```tsx
+test("renders flavor recommendations", () => {
+  render(<RelatedFlavors products={related} />);
+});
+```
+
+---
+
+Each component should follow brand visuals from the Figma: bright colors, large rounded corners, clean white sections, and modern typography. All images should use `next/image` where possible. Prioritize layout and responsive behavior first; logic and data wiring can follow.
