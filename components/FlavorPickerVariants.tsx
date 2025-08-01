@@ -144,7 +144,7 @@ export function FlavorPickerVariants({
               <div className="absolute bottom-0 left-0 right-0 bg-white h-1/3 flex items-center justify-center rounded-b-2xl">
                 <div className="text-center px-2 py-1">
                   <h4 className="font-bold text-gray-900 text-xs leading-tight">
-                    {flavor.title.replace(/\s*-\s*\d+mg.*$/, "")}
+                    {flavor.title ? flavor.title.replace(/\s*-\s*\d+mg.*$/, "") : "LOONER"}
                   </h4>
                 </div>
               </div>
