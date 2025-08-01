@@ -504,6 +504,7 @@ function ProductPageContent({ config }: ProductPageProps) {
               reviewCount={249}
               rating={4.3}
               showSingleFlavorBadge={true}
+              primaryColor={selectedFlavor?.primaryColor || "#fba91d"}
             />
           </div>
 
@@ -522,6 +523,7 @@ function ProductPageContent({ config }: ProductPageProps) {
                   reviewCount={249}
                   rating={4.3}
                   showSingleFlavorBadge={true}
+                  primaryColor={selectedFlavor?.primaryColor || "#fba91d"}
                 />
               </div>
 

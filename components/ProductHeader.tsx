@@ -7,13 +7,15 @@ interface ProductHeaderProps {
   reviewCount?: number;
   rating?: number;
   showSingleFlavorBadge?: boolean;
+  primaryColor?: string;
 }
 
 export function ProductHeader({ 
   productName, 
   reviewCount = 249, 
   rating = 4.3,
-  showSingleFlavorBadge = true 
+  showSingleFlavorBadge = true,
+  primaryColor = "#fba91d"
 }: ProductHeaderProps) {
   // Generate star display based on rating
   const renderStars = () => {
@@ -92,8 +94,11 @@ export function ProductHeader({
 
       {/* Product Name */}
       <h1 
-        className="text-[#fba91d] text-5xl font-extrabold leading-tight"
-        style={{ fontFamily: 'Poppins, sans-serif' }}
+        className="text-5xl font-extrabold leading-tight"
+        style={{ 
+          fontFamily: 'Poppins, sans-serif',
+          color: primaryColor
+        }}
       >
         {productName}
       </h1>
