@@ -14,6 +14,11 @@ interface ShopProductCardProps {
 export default function ShopProductCard({ product, backgroundColor }: ShopProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   
+  // Safety checks for product data
+  if (!product) {
+    return null;
+  }
+  
   // Get the first variant for pricing
   const firstVariant = product.variants?.[0];
   const price = typeof firstVariant?.price === 'object' 
@@ -22,7 +27,11 @@ export default function ShopProductCard({ product, backgroundColor }: ShopProduc
   
   // Determine product route based on tags
   const getProductRoute = () => {
-    const tags = product.tags.map(tag => tag.toLowerCase());
+    if (!product.tags || !Array.isArray(product.tags)) {
+      return '/products/sodas/10mg'; // Default fallback
+    }
+    
+    const tags = product.tags.map(tag => String(tag).toLowerCase());
     
     if (tags.includes('10mg') || tags.includes('10')) {
       return '/products/sodas/10mg';
@@ -37,8 +46,8 @@ export default function ShopProductCard({ product, backgroundColor }: ShopProduc
 
   // Extract THC content from product title or tags
   const getThcContent = () => {
-    const title = product.title.toLowerCase();
-    const tags = product.tags.join(' ').toLowerCase();
+    const title = (product.title || '').toLowerCase();
+    const tags = Array.isArray(product.tags) ? product.tags.join(' ').toLowerCase() : '';
     
     if (title.includes('10mg') || tags.includes('10mg')) return '10mg';
     if (title.includes('50mg') || tags.includes('50mg')) return '50mg';
@@ -104,7 +113,7 @@ export default function ShopProductCard({ product, backgroundColor }: ShopProduc
 
         {/* Product Title */}
         <h3 className="text-[#14433d] font-black text-lg mb-2 line-clamp-2">
-          {product.title}
+          {product.title || 'Untitled Product'}
         </h3>
 
         {/* Price and Add to Cart */}
@@ -123,7 +132,7 @@ export default function ShopProductCard({ product, backgroundColor }: ShopProduc
         </div>
 
         {/* Short Description */}
-        {product.description && (
+        {product.description && typeof product.description === 'string' && (
           <p className="text-[#14433d]/70 text-sm mt-2 line-clamp-2">
             {product.description.length > 80 
               ? `${product.description.substring(0, 80)}...`

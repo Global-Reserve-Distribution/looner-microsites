@@ -5,8 +5,9 @@ import ShopProductCard from './ShopProductCard';
 import { useState } from 'react';
 
 interface ShopGridProps {
-  products: Product[];
-  collections: Collection[];
+  beverageProducts: Product[];
+  gummyProducts: Product[];
+  allProducts: Product[];
 }
 
 // Color scheme mapping for different product types/collections
@@ -30,32 +31,20 @@ const PRODUCT_COLORS = [
   '#ddd6fe', // Light purple
 ];
 
-export default function ShopGrid({ products, collections }: ShopGridProps) {
+export default function ShopGrid({ beverageProducts = [], gummyProducts = [], allProducts = [] }: ShopGridProps) {
   const [selectedCollection, setSelectedCollection] = useState<string | null>(null);
 
+  // Safety check for undefined arrays
+  const safeBeverageProducts = beverageProducts || [];
+  const safeGummyProducts = gummyProducts || [];
+  const safeAllProducts = allProducts || [];
+
   // Filter products based on selected collection
-  const filteredProducts = selectedCollection
-    ? products.filter(product => 
-        product.tags.some(tag => tag.toLowerCase().includes(selectedCollection.toLowerCase()))
-      )
-    : products;
-
-  // Group products by collection/type
-  const beverageProducts = products.filter(product => 
-    product.tags.some(tag => 
-      ['beverage', 'soda', 'sparkling', 'drink'].some(term => 
-        tag.toLowerCase().includes(term)
-      )
-    )
-  );
-
-  const gummyProducts = products.filter(product =>
-    product.tags.some(tag => 
-      ['gummy', 'gummies', 'edible', 'edibles'].some(term => 
-        tag.toLowerCase().includes(term)
-      )
-    )
-  );
+  const filteredProducts = selectedCollection === 'beverage' 
+    ? safeBeverageProducts 
+    : selectedCollection === 'gummy' 
+    ? safeGummyProducts 
+    : safeAllProducts;
 
   return (
     <div className="max-w-7xl mx-auto px-6">
@@ -69,7 +58,7 @@ export default function ShopGrid({ products, collections }: ShopGridProps) {
               : 'bg-white text-[#14433d] border-2 border-[#14433d]'
           }`}
         >
-          All Products
+          All Products ({safeAllProducts.length})
         </button>
         <button
           onClick={() => setSelectedCollection('beverage')}
@@ -79,7 +68,7 @@ export default function ShopGrid({ products, collections }: ShopGridProps) {
               : 'bg-white text-[#14433d] border-2 border-[#14433d]'
           }`}
         >
-          Beverages ({beverageProducts.length})
+          Beverages ({safeBeverageProducts.length})
         </button>
         <button
           onClick={() => setSelectedCollection('gummy')}
@@ -89,12 +78,12 @@ export default function ShopGrid({ products, collections }: ShopGridProps) {
               : 'bg-white text-[#14433d] border-2 border-[#14433d]'
           }`}
         >
-          Gummies ({gummyProducts.length})
+          Gummies ({safeGummyProducts.length})
         </button>
       </div>
 
       {/* Beverages Section */}
-      {(!selectedCollection || selectedCollection === 'beverage') && beverageProducts.length > 0 && (
+      {(!selectedCollection || selectedCollection === 'beverage') && safeBeverageProducts.length > 0 && (
         <div className="mb-16">
           <div className="bg-[#edf6f3] rounded-2xl p-8 mb-8">
             <h2 className="text-3xl font-bold text-[#14433d] text-center mb-2">
@@ -105,7 +94,7 @@ export default function ShopGrid({ products, collections }: ShopGridProps) {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {beverageProducts.map((product, index) => (
+            {safeBeverageProducts.map((product, index) => (
               <ShopProductCard
                 key={product.id}
                 product={product}
@@ -117,7 +106,7 @@ export default function ShopGrid({ products, collections }: ShopGridProps) {
       )}
 
       {/* Gummies Section */}
-      {(!selectedCollection || selectedCollection === 'gummy') && gummyProducts.length > 0 && (
+      {(!selectedCollection || selectedCollection === 'gummy') && safeGummyProducts.length > 0 && (
         <div className="mb-16">
           <div className="bg-[#edf6f3] rounded-2xl p-8 mb-8">
             <h2 className="text-3xl font-bold text-[#14433d] text-center mb-2">
@@ -128,7 +117,7 @@ export default function ShopGrid({ products, collections }: ShopGridProps) {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {gummyProducts.map((product, index) => (
+            {safeGummyProducts.map((product, index) => (
               <ShopProductCard
                 key={product.id}
                 product={product}
