@@ -66,7 +66,7 @@ interface FigmaHeaderClientProps {
 
 export function FigmaHeaderClient({ navigation }: FigmaHeaderClientProps) {
   return (
-    <header className="w-full h-[70px] bg-white border-b border-gray-100">
+    <header className="w-full h-[70px] bg-transparent">
       <div className="max-w-[1425px] mx-auto h-full flex items-center justify-between px-6">
         {/* Left Section: Navigation Links */}
         <nav className="flex items-center gap-10">
@@ -152,10 +152,10 @@ export function FigmaHeaderClient({ navigation }: FigmaHeaderClientProps) {
             <Image
               src="/logo.webp"
               alt="LOONER Cannabis Co"
-              width={120}
-              height={40}
+              width={180}
+              height={60}
               style={{ height: 'auto', width: 'auto' }}
-              className="h-8 max-h-8"
+              className="h-12 max-h-12"
             />
           </Link>
         </div>
