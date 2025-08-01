@@ -20,5 +20,5 @@ export default async function FigmaHeroPage() {
     return hasSodaTag && has10mgThc;
   });
 
-  return <FigmaProductHero product={product} />;
+  return <FigmaProductHero product={product} allProducts={allProducts} />;
 }

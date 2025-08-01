@@ -2,24 +2,16 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { Header } from './Header';
+import { FlavorPickerVariants } from './FlavorPickerVariants';
 
 interface FigmaProductHeroProps {
   product?: any;
+  allProducts?: any[];
 }
 
-const FLAVORS = [
-  { name: 'Classic Lemonade', color: '#f7dc6f', bgColor: '#FFF3CD' },
-  { name: 'Pink Lemonade', color: '#f1948a', bgColor: '#FFE5E5' },
-  { name: 'Peach Lemonade', color: '#f8c471', bgColor: '#FFE8CC' },
-  { name: 'Half & Half', color: '#f4d03f', bgColor: '#FFF8DC' },
-  { name: 'Mule Mocktail', color: '#95cba8', bgColor: '#E8F5E8' },
-  { name: 'Cherry Cola', color: '#ae252f', bgColor: '#FFE5E5' },
-  { name: 'Orange Cream', color: '#ff8c42', bgColor: '#FFE8CC' },
-  { name: 'Root Beer', color: '#8b4513', bgColor: '#F5DEB3' },
-];
-
-export default function FigmaProductHero({ product }: FigmaProductHeroProps) {
-  const [selectedFlavor, setSelectedFlavor] = useState(0);
+export default function FigmaProductHero({ product, allProducts = [] }: FigmaProductHeroProps) {
+  const [selectedFlavor, setSelectedFlavor] = useState(product || allProducts[0]);
   const [purchaseType, setPurchaseType] = useState('one-time');
   const [quantity, setQuantity] = useState(1);
 
@@ -39,23 +31,9 @@ export default function FigmaProductHero({ product }: FigmaProductHeroProps) {
         Subscribe Today and Take 15% Off Your First Order
       </div>
 
-      {/* Navigation */}
-      <div className="relative z-10 bg-white/95 backdrop-blur-sm border-b">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-8">
-            <span className="text-gray-600">Shop</span>
-            <span className="text-gray-600">Learn</span>
-            <span className="text-gray-600">Subscribe</span>
-          </div>
-          
-          {/* Logo */}
-          <div className="text-2xl font-bold text-orange-500">LOONER</div>
-          
-          <div className="flex items-center space-x-4">
-            <span className="text-gray-600">Find a Store</span>
-            <div className="w-6 h-6 bg-gray-300 rounded"></div>
-          </div>
-        </div>
+      {/* Use existing Header component */}
+      <div className="relative z-10">
+        <Header backgroundColor="rgba(255, 255, 255, 0.95)" />
       </div>
 
       {/* Main Content */}
@@ -108,40 +86,14 @@ export default function FigmaProductHero({ product }: FigmaProductHeroProps) {
 
             <div className="grid grid-cols-2 gap-8">
               
-              {/* Flavor Grid */}
+              {/* Use existing FlavorPickerVariants component */}
               <div>
-                <h3 className="text-lg font-semibold mb-4">Our Flavors</h3>
-                <div className="grid grid-cols-4 gap-3">
-                  {FLAVORS.map((flavor, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setSelectedFlavor(index)}
-                      className={`aspect-square rounded-2xl p-3 flex flex-col items-center justify-center text-xs font-medium transition-all ${
-                        selectedFlavor === index 
-                          ? 'ring-2 ring-orange-400 scale-105' 
-                          : 'hover:scale-105'
-                      }`}
-                      style={{ backgroundColor: flavor.bgColor }}
-                    >
-                      <div 
-                        className="w-6 h-6 rounded-full mb-2"
-                        style={{ backgroundColor: flavor.color }}
-                      />
-                      <span className="text-center leading-tight text-gray-700">
-                        {flavor.name.replace(' ', '\n')}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-
-                <div className="mt-4">
-                  <h4 className="text-sm font-semibold mb-2">Variety Packs</h4>
-                  <div className="flex gap-2">
-                    <button className="bg-orange-100 text-orange-700 px-3 py-2 rounded-lg text-sm font-medium">
-                      Half & Stuff
-                    </button>
-                  </div>
-                </div>
+                <FlavorPickerVariants
+                  flavors={allProducts}
+                  selectedFlavor={selectedFlavor}
+                  onFlavorSelect={setSelectedFlavor}
+                  variant="premium"
+                />
               </div>
 
               {/* Purchase Options */}
