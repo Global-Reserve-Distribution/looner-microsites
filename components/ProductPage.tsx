@@ -552,9 +552,6 @@ function ProductPageContent({ config }: ProductPageProps) {
 
 
 
-          {/* Iconic Flavors Badges */}
-          <IconicFlavorsBadges />
-
           {/* Figma Ingredients Section */}
           <div className="flex justify-center">
             <FigmaIngredientsSection />
@@ -562,6 +559,9 @@ function ProductPageContent({ config }: ProductPageProps) {
 
           {/* Reviews Section */}
           <ReviewsSection />
+
+          {/* Iconic Flavors Badges */}
+          <IconicFlavorsBadges />
 
           {/* Recommended Flavors */}
           <div className="py-8 md:py-12 lg:py-16 bg-white">
