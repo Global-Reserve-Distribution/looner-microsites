@@ -1,0 +1,839 @@
+Implement the following design in React. Use the following files generated from a Figma design as a specification and guide:
+
+```src/styles/DivShopifySectionProductIngredientsSection.module.css
+@import "https://fonts.googleapis.com/css?family=Inter:0,700;0,400;0,900&display=swap";
+@import "https://fonts.googleapis.com/css?family=Kantumruy+Pro:0,700&display=swap";
+@import "https://fonts.googleapis.com/css?family=Inter:0,700;0,400;0,900&display=swap";
+.DivShopifySectionProductIngredientsSection_38_795 {
+  flex-shrink: 0;
+  width: 1425px;
+  height: 693px;
+}
+.DivProductIngredientsSection_38_796 {
+  background: #b2fffb;
+  flex-shrink: 0;
+  width: 1425px;
+  height: 693px;
+}
+.Rectangle_9_204_379 {
+  box-sizing: border-box;
+  background: #fffefd;
+  border: 5px solid #ffa13c;
+  border-radius: 50px;
+  flex-shrink: 0;
+  width: 1184px;
+  height: 599px;
+}
+.DivTwMxAuto_38_797 {
+  flex-shrink: 0;
+  width: 1100px;
+  height: 693px;
+  overflow: hidden;
+}
+.ListTwGrid_38_798 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 8px;
+  width: 1012.06px;
+  height: 108.5px;
+  padding-right: 37.922px;
+  display: flex;
+}
+.ItemTwFlex_38_799 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+  padding: 0 16.58px 0 15px;
+  display: flex;
+}
+.PlantDerivedThc_38_800 {
+  color: #14433d;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.ImageTwMaxW_15_38_801 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  width: 60px;
+  height: 60.5px;
+  overflow: hidden;
+}
+.ItemTwFlex_38_802 {
+  flex-shrink: 0;
+  width: 144.58px;
+  height: 108.5px;
+}
+.ParagraphTwPt_5_38_803 {
+  align-items: center;
+  padding: 14px 20.47px 0 0;
+  display: inline-flex;
+}
+.MadeWithCaneSugar_38_807 {
+  color: #14433d;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.ImageTwMaxW_15_38_808 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+}
+.ItemTwFlex_38_809 {
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 144.58px;
+  padding: 0 42.299px 0.5px 42.281px;
+  display: flex;
+}
+.Vegan_38_810 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 16.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  display: inline-block;
+}
+.ImageTwMaxW_15_38_811 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+}
+.ItemTwFlex_38_812 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 0 23.32px 0.5px 23.26px;
+  display: flex;
+}
+.GlutenFree_38_813 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 16.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  display: inline-block;
+}
+.ImageTwMaxW_15_38_814 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+}
+.ItemTwFlex_38_815 {
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 0 40.901px 0 41.679px;
+  display: flex;
+}
+.FilteredWater_38_816 {
+  color: #14433d;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.ImageTwMaxW_15_38_817 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+}
+.SectionTwW_250px_38_824 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 250px;
+  height: 397px;
+  padding-bottom: 1522.66px;
+  display: flex;
+}
+.DivTwOverflowAuto_38_826 {
+  box-sizing: border-box;
+  border: 1px solid #ffa13c;
+  flex-shrink: 0;
+  width: 250px;
+  height: 369px;
+  overflow: hidden;
+}
+.DivTwMt_1_38_827 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 240px;
+  height: 45px;
+  padding: 0 24.594px 2213.66px 0;
+  display: flex;
+}
+.NotASignificantSourceOfSaturatedFat_38_828,
+.TransFatCholesterolVitaminDCalcium_38_829,
+.IronPotassiumAndVitaminA_38_830 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 11.1px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
+  display: inline-block;
+}
+.DivTwBorderB_10px_38_831 {
+  box-sizing: border-box;
+  border-bottom: 10px solid #ffa13c;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 240px;
+  height: 80px;
+  padding-bottom: 1893.66px;
+  display: flex;
+}
+.DivTwBorderB_38_832 {
+  box-sizing: border-box;
+  border-bottom: 1px solid #ffa13c;
+  align-items: center;
+  padding: 0 13.906px 0 7.094px;
+  display: flex;
+}
+.NutritionFacts_38_833 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 29.4px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 28px;
+  display: inline-block;
+}
+.ServingsPerContainer_38_834 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  display: inline-block;
+}
+.Tr_38_835 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 62.578px;
+  width: 181px;
+  height: 21px;
+  padding: 0.5px 901.797px 0.5px 0;
+  display: flex;
+}
+.ServingSize_38_836,
+.FlOz_355mL_38_837 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 13.7px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.TablePerformanceFactsTable_38_838 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 0.5px;
+  width: 240px;
+  height: 225px;
+  padding-bottom: 1785.66px;
+  display: flex;
+}
+.AmountPerServing_38_839 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 11.8px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  display: inline-block;
+}
+.Tbody_38_840 {
+  flex-shrink: 0;
+  width: 240px;
+  height: 209px;
+}
+.TrTwBorderB_10px_38_841 {
+  box-sizing: border-box;
+  border-bottom: 10px solid #ffa13c;
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 240px;
+  height: 30px;
+  padding: 0 957.594px 0.5px 0;
+  display: flex;
+}
+.ThTwWhitespaceNowrap_38_842 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 200.1px;
+  padding: 1px 0 5.5px;
+  display: flex;
+}
+.Protein_0g_38_843 {
+  color: #ffa13c;
+  flex-shrink: 0;
+  width: 200.1px;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  display: inline-block;
+}
+.TdTwBorder_0_38_844 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 0 6.5px 19.666px;
+  display: flex;
+}
+.generated_0_208_305 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 13.7px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.Tr_38_845 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  width: 240px;
+  height: 22px;
+  display: flex;
+}
+.TdTwWhitespaceNowrap_38_846 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  justify-content: flex-end;
+  align-items: center;
+  height: 22px;
+  padding: 1px 0 1px 10.672px;
+  display: flex;
+}
+.generated_46_38_847 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 13.7px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.ThTwWhitespaceNowrap_38_848 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  flex-shrink: 0;
+  align-items: center;
+  width: 184.1px;
+  height: 22px;
+  padding: 1px 14.1px 1px 0;
+  display: flex;
+}
+.Includes_23gAddedSugars_38_849 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  display: inline-block;
+}
+.TdTwW_4_38_850 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  flex-shrink: 0;
+  width: 16px;
+  height: 22px;
+}
+.Tr_38_851 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  width: 240px;
+  height: 21px;
+  display: flex;
+}
+.TdTwBorder_0_38_852 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  flex-shrink: 0;
+  width: 39.91px;
+  height: 21px;
+}
+.ThTwWhitespaceNowrap_38_853 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  flex-shrink: 0;
+  align-items: center;
+  width: 184.1px;
+  height: 21px;
+  padding: 0.5px 79.1px 0.5px 0;
+  display: flex;
+}
+.TotalSugars_23g_38_854 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  display: inline-block;
+}
+.TdTwW_4_38_855 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  flex-shrink: 0;
+  width: 16px;
+  height: 21px;
+}
+.Tr_38_856 {
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  width: 240px;
+  height: 22px;
+  display: flex;
+}
+.TdTwWhitespaceNowrap_38_857 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  justify-content: flex-end;
+  align-items: center;
+  height: 22px;
+  padding: 1px 0 1px 11.891px;
+  display: flex;
+}
+.generated_32_38_858 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 13.7px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.ThTwWhitespaceNowrap_38_859 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  flex-shrink: 0;
+  align-items: center;
+  width: 184.1px;
+  height: 22px;
+  padding: 1px 85.1px 1px 0;
+  display: flex;
+}
+.DietaryFiber_0g_38_860 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  display: inline-block;
+}
+.TdTwW_4_38_861 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  flex-shrink: 0;
+  width: 16px;
+  height: 22px;
+}
+.Tr_38_862 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 240.01px;
+  height: 22px;
+  padding-right: 957.594px;
+  display: flex;
+}
+.ThTwWhitespaceNowrap_38_863 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 200.1px;
+  height: 22px;
+  padding: 1px 0;
+  display: flex;
+}
+.TotalCarbohydrate_24g_38_864 {
+  color: #ffa13c;
+  flex-shrink: 0;
+  width: 200.1px;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  display: inline-block;
+}
+.TdTwWhitespaceNowrap_38_865 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1px 0 1px 19.672px;
+  display: flex;
+}
+.generated_9_38_866 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 13.7px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.Tr_38_867 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 240.01px;
+  height: 22px;
+  padding-right: 957.594px;
+  display: flex;
+}
+.ThTwWhitespaceNowrap_38_868 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 200.1px;
+  height: 22px;
+  padding: 1px 0;
+  display: flex;
+}
+.Sodium_10mg_38_869 {
+  color: #ffa13c;
+  flex-shrink: 0;
+  width: 200.1px;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  display: inline-block;
+}
+.TdTwWhitespaceNowrap_38_870 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1px 1.238px 1px 19.672px;
+  display: flex;
+}
+.generated_1_38_871 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 13.7px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.Tr_38_872 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 240.01px;
+  height: 22px;
+  padding-right: 957.594px;
+  display: flex;
+}
+.ThTwWhitespaceNowrap_38_873 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 200.1px;
+  height: 22px;
+  padding: 1px 0;
+  display: flex;
+}
+.TotalFat_0g_38_874 {
+  color: #ffa13c;
+  flex-shrink: 0;
+  width: 200.1px;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  display: inline-block;
+}
+.TdTwWhitespaceNowrap_38_875 {
+  box-sizing: border-box;
+  border-top: 1px solid #ffa13c;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1px 0 1px 19.672px;
+  display: flex;
+}
+.generated_0_38_876 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 13.7px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  display: inline-block;
+}
+.DailyValue_38_877 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 11.8px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  display: inline-block;
+}
+.TrTwBorderB_7px_38_878 {
+  box-sizing: border-box;
+  border-bottom: 7px solid #ffa13c;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 78.125px;
+  width: 167px;
+  height: 34px;
+  padding: 0 961.906px 4.5px 0;
+  display: flex;
+}
+.Calories_38_879,
+.generated_90_38_880 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 29.4px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 28px;
+  display: inline-block;
+}
+.DivTwMaxW_630px_38_881 {
+  flex-shrink: 0;
+  width: 630px;
+  height: 460px;
+}
+.Paragraph_38_883 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 630px;
+  height: 140px;
+  padding-bottom: 200px;
+  display: flex;
+}
+.IngredientsCarbonatedWaterCaneSugarCitricAcidSodiumBenzoate_38_884,
+.PreservesFreshnessFdCYellow_6NaturalFlavorsOrangeOils_38_885,
+.HempExtract_38_886 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 17.3px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  display: inline-block;
+}
+.Paragraph_38_889 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 630px;
+  height: 84px;
+  padding: 0 7.219px 1937.66px 0;
+  display: flex;
+}
+.ThatOldSchoolOrangeFlavorBrightSweetAndCrispNowWith_10mgThc_38_890 {
+  color: #ffa13c;
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  display: inline-block;
+}
+.SweetOrangeSoda_38_893 {
+  color: #ffa13c;
+  font-family: Kantumruy Pro;
+  font-size: 44.2px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+  display: inline-block;
+}
+.Rectangle_25_216_20 {
+  background: #fff;
+  flex-shrink: 0;
+  width: 1425px;
+  height: 194px;
+}
+.IconTopWaveDesktop_38_896 {
+  flex-shrink: 0;
+  width: 1425px;
+  height: 60px;
+  overflow: hidden;
+}
+
+```
+
+---
+
+```src/components/assets/Rectangle_25.tsx
+import React from 'react';
+export default function Rectangle_25() {
+  return <svg width="1425" height="194" viewBox="0 0 1425 194" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0H1425V194H0V0Z" fill="white"/>
+</svg>
+;
+}
+```
+
+---
+
+```src/components/assets/IconTopWaveDesktop.tsx
+import React from 'react';
+export default function IconTopWaveDesktop() {
+  return ;
+}
+```
+
+---
+
+```src/components/DivShopifySectionProductIngredientsSection.tsx
+import React from 'react';
+import styles from '../styles/DivShopifySectionProductIngredientsSection.module.css';
+import Rectangle_25 from './assets/Rectangle_25';
+import IconTopWaveDesktop from './assets/IconTopWaveDesktop';
+
+export default function DivShopifySectionProductIngredientsSection() {
+  return (
+    <div className={styles.DivShopifySectionProductIngredientsSection_38_795}>
+      <div className={styles.DivProductIngredientsSection_38_796}>
+        <div className={styles.Rectangle_9_204_379}></div>
+        <div className={styles.DivTwMxAuto_38_797}>
+          <div className={styles.ListTwGrid_38_798}>
+            <div className={styles.ItemTwFlex_38_799}><span className={styles.PlantDerivedThc_38_800}>Plant-Derived
+                THC</span>
+              <div className={styles.ImageTwMaxW_15_38_801}></div>
+            </div>
+            <div className={styles.ItemTwFlex_38_802}>
+              <div className={styles.ParagraphTwPt_5_38_803}><span className={styles.MadeWithCaneSugar_38_807}>Made with
+                  Cane Sugar</span></div>
+              <div className={styles.ImageTwMaxW_15_38_808}></div>
+            </div>
+            <div className={styles.ItemTwFlex_38_809}><span className={styles.Vegan_38_810}>Vegan</span>
+              <div className={styles.ImageTwMaxW_15_38_811}></div>
+            </div>
+            <div className={styles.ItemTwFlex_38_812}><span className={styles.GlutenFree_38_813}>Gluten-Free</span>
+              <div className={styles.ImageTwMaxW_15_38_814}></div>
+            </div>
+            <div className={styles.ItemTwFlex_38_815}><span className={styles.FilteredWater_38_816}>Filtered
+                Water</span>
+              <div className={styles.ImageTwMaxW_15_38_817}></div>
+            </div>
+          </div>
+          <div className={styles.SectionTwW_250px_38_824}>
+            <div className={styles.DivTwOverflowAuto_38_826}>
+              <div className={styles.DivTwMt_1_38_827}><span className={styles.NotASignificantSourceOfSaturatedFat_38_828}>Not a significant source of saturated fat, </span><span className={styles.TransFatCholesterolVitaminDCalcium_38_829}>trans fat, cholesterol, vitamin D, calcium, </span><span className={styles.IronPotassiumAndVitaminA_38_830}>iron, potassium and vitamin A.</span></div>
+              <div className={styles.DivTwBorderB_10px_38_831}>
+                <div className={styles.DivTwBorderB_38_832}><span className={styles.NutritionFacts_38_833}>Nutrition Facts</span></div><span className={styles.ServingsPerContainer_38_834}>2 servings per container</span>
+                <div className={styles.Tr_38_835}><span className={styles.ServingSize_38_836}>Serving size</span><span className={styles.FlOz_355mL_38_837}>6 fl oz (355mL)</span></div>
+              </div>
+              <div className={styles.TablePerformanceFactsTable_38_838}><span className={styles.AmountPerServing_38_839}>Amount per serving</span>
+                <div className={styles.Tbody_38_840}>
+                  <div className={styles.TrTwBorderB_10px_38_841}>
+                    <div className={styles.ThTwWhitespaceNowrap_38_842}><span className={styles.Protein_0g_38_843}>Protein 0g</span></div>
+                    <div className={styles.TdTwBorder_0_38_844}><span className={styles.generated_0_208_305}>0%</span></div>
+                  </div>
+                  <div className={styles.Tr_38_845}>
+                    <div className={styles.TdTwWhitespaceNowrap_38_846}><span className={styles.generated_46_38_847}>46%</span></div>
+                    <div className={styles.ThTwWhitespaceNowrap_38_848}><span className={styles.Includes_23gAddedSugars_38_849}>Includes 23g Added Sugars</span></div>
+                    <div className={styles.TdTwW_4_38_850}></div>
+                  </div>
+                  <div className={styles.Tr_38_851}>
+                    <div className={styles.TdTwBorder_0_38_852}></div>
+                    <div className={styles.ThTwWhitespaceNowrap_38_853}><span className={styles.TotalSugars_23g_38_854}>Total Sugars 23g</span></div>
+                    <div className={styles.TdTwW_4_38_855}></div>
+                  </div>
+                  <div className={styles.Tr_38_856}>
+                    <div className={styles.TdTwWhitespaceNowrap_38_857}><span className={styles.generated_32_38_858}>32%</span></div>
+                    <div className={styles.ThTwWhitespaceNowrap_38_859}><span className={styles.DietaryFiber_0g_38_860}>Dietary Fiber 0g</span></div>
+                    <div className={styles.TdTwW_4_38_861}></div>
+                  </div>
+                  <div className={styles.Tr_38_862}>
+                    <div className={styles.ThTwWhitespaceNowrap_38_863}><span className={styles.TotalCarbohydrate_24g_38_864}>Total Carbohydrate 24g</span></div>
+                    <div className={styles.TdTwWhitespaceNowrap_38_865}><span className={styles.generated_9_38_866}>9%</span></div>
+                  </div>
+                  <div className={styles.Tr_38_867}>
+                    <div className={styles.ThTwWhitespaceNowrap_38_868}><span className={styles.Sodium_10mg_38_869}>Sodium 10mg</span></div>
+                    <div className={styles.TdTwWhitespaceNowrap_38_870}><span className={styles.generated_1_38_871}>1%</span></div>
+                  </div>
+                  <div className={styles.Tr_38_872}>
+                    <div className={styles.ThTwWhitespaceNowrap_38_873}><span className={styles.TotalFat_0g_38_874}>Total Fat 0g</span></div>
+                    <div className={styles.TdTwWhitespaceNowrap_38_875}><span className={styles.generated_0_38_876}>0%</span></div>
+                  </div><span className={styles.DailyValue_38_877}>% Daily Value*</span>
+                  <div className={styles.TrTwBorderB_7px_38_878}><span className={styles.Calories_38_879}>Calories</span><span className={styles.generated_90_38_880}>90</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.DivTwMaxW_630px_38_881}>
+            <div className={styles.Paragraph_38_883}><span className={styles.IngredientsCarbonatedWaterCaneSugarCitricAcidSodiumBenzoate_38_884}>Ingredients: Carbonated Water, Cane Sugar, Citric Acid, Sodium Benzoate</span><span className={styles.PreservesFreshnessFdCYellow_6NaturalFlavorsOrangeOils_38_885}>(preserves freshness), FD&#x26;C Yellow #6, Natural Flavors (orange oils), </span><span className={styles.HempExtract_38_886}>hemp extract</span></div>
+            <div className={styles.Paragraph_38_889}><span className={styles.ThatOldSchoolOrangeFlavorBrightSweetAndCrispNowWith_10mgThc_38_890}>That old school orange flavor, bright, sweet and crisp, now with 10mg THC. </span></div><span className={styles.SweetOrangeSoda_38_893}>Sweet Orange Soda</span>
+          </div>
+        </div>
+        <div className={styles.Rectangle_25_216_20}>
+          <Rectangle_25 />
+        </div>
+      </div>
+      <div className={styles.IconTopWaveDesktop_38_896}>
+        <IconTopWaveDesktop />
+      </div>
+    </div>
+  );
+}
+```
+

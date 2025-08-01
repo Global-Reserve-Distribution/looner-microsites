@@ -10,8 +10,8 @@ import { OlipopStyleGrid } from "./OlipopStyleGrid";
 import { RecommendedFlavors } from "./RecommendedFlavors";
 import { StickyCartFooter } from "./StickyCartFooter";
 import { IconicFlavorsBadges } from "./IconicFlavorsBadges";
-import { NutritionLabel } from "./NutritionLabel";
-import { WaterHeroSection } from "./WaterHeroSection";
+import FigmaIngredientsSection from "./FigmaIngredientsSection";
+import ReviewsSection from "./ReviewsSection";
 import { ProductHeader } from "./ProductHeader";
 
 import {
@@ -550,129 +550,18 @@ function ProductPageContent({ config }: ProductPageProps) {
             </div>
           </div>
 
-          {/* Product Information Wave Section */}
-          <div className="relative">
-            {/* Top Waves */}
-            <div className="w-full overflow-hidden">
-              <svg
-                className="relative block w-full h-16"
-                data-name="Layer 1"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1200 120"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                  fill={selectedFlavor?.secondaryColor || config.defaultSecondaryColor}
-                ></path>
-              </svg>
-            </div>
 
-            {/* Main Information Section */}
-            <div
-              className="py-12 lg:py-16"
-              style={{
-                backgroundColor: selectedFlavor?.secondaryColor || config.defaultSecondaryColor,
-              }}
-            >
-              <div className="max-w-6xl mx-auto px-6">
-                <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
-                  {/* Product Description */}
-                  <div className="lg:col-span-2">
-                    <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                      {config.sectionTitle}
-                    </h2>
-                    <div className="prose prose-lg text-gray-700 mb-8">
-                      <p>
-                        {selectedFlavor?.description || config.sectionDescription}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Dosage Information */}
-                  <div
-                    className="bg-white p-6 rounded-xl border-2 border-gray-300"
-                    style={{ fontFamily: "Arial, sans-serif" }}
-                  >
-                    <div className={`text-center border-b-4 ${config.dosageInfo.borderColor} pb-2 mb-4`}>
-                      <h3 className={`text-2xl font-bold ${config.dosageInfo.textColor}`}>
-                        {config.dosageInfo.title}
-                      </h3>
-                      <p className="text-sm text-gray-600">{config.dosageInfo.subtitle}</p>
-                    </div>
-                    <div className="space-y-3 text-sm">
-                      <div className="flex justify-between py-2 border-b border-gray-200">
-                        <span className="font-semibold">Onset Time:</span>
-                        <span>{config.dosageInfo.onsetTime}</span>
-                      </div>
-                      <div className="flex justify-between py-2 border-b border-gray-200">
-                        <span className="font-semibold">Duration:</span>
-                        <span>{config.dosageInfo.duration}</span>
-                      </div>
-                      <div className="flex justify-between py-2 border-b border-gray-200">
-                        <span className="font-semibold">Experience:</span>
-                        <span>{config.dosageInfo.experience}</span>
-                      </div>
-                      <div className="flex justify-between py-2 border-b border-gray-200">
-                        <span className="font-semibold">Best For:</span>
-                        <span>{config.dosageInfo.bestFor}</span>
-                      </div>
-                      <div className={`${config.dosageInfo.backgroundClass} p-3 rounded-lg mt-4`}>
-                        <p className={`text-xs ${config.dosageInfo.textColor} font-medium`}>
-                          {config.dosageInfo.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Feature Icons */}
-                <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mt-12">
-                  {config.features.map((feature, index) => (
-                    <div key={index} className="text-center">
-                      <div className="text-3xl mb-2">{feature.icon}</div>
-                      <p className="text-sm font-medium text-gray-700">
-                        {feature.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Waves - Transition from colored section to white */}
-            <div className="w-full overflow-hidden bg-white">
-              <svg
-                className="relative block w-full h-16 transform rotate-180"
-                data-name="Layer 1"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1200 120"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                  fill={selectedFlavor?.secondaryColor || config.defaultSecondaryColor}
-                ></path>
-              </svg>
-            </div>
-          </div>
 
           {/* Iconic Flavors Badges */}
           <IconicFlavorsBadges />
 
-          {/* Water Hero Section */}
-          <WaterHeroSection />
-
-          {/* Nutrition Label Section */}
-          <div className="py-8 md:py-12 lg:py-16 bg-white">
-            <div className="max-w-6xl mx-auto px-4 md:px-6">
-              <NutritionLabel 
-                productName={selectedFlavor?.displayName || selectedFlavor?.title || "LOONER THC Beverage"}
-                flavorDescription={selectedFlavor?.shortDescription || selectedFlavor?.description || "Premium cannabis-infused beverage with natural flavors and precise THC dosing."}
-                ingredients="Carbonated Water, Cane Sugar, Citric Acid, Sodium Benzoate (preserves freshness), Natural Flavors, Hemp Extract"
-              />
-            </div>
+          {/* Figma Ingredients Section */}
+          <div className="flex justify-center">
+            <FigmaIngredientsSection />
           </div>
+
+          {/* Reviews Section */}
+          <ReviewsSection />
 
           {/* Recommended Flavors */}
           <div className="py-8 md:py-12 lg:py-16 bg-white">
