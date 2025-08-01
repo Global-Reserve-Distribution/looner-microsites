@@ -36,7 +36,7 @@ function ProductContent({ config, products }: ProductPageProps) {
   const product = products?.[0];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-transparent">
       {/* Header */}
       <div className="bg-black text-white text-center py-2 text-sm">
         LOONER THC BEVERAGES + FREE SHIPPING $100+ →
