@@ -60,6 +60,7 @@ The application is built on Next.js 15 (App Router, React 19, TypeScript) and st
   - Updated product name color to use dynamic primaryColor from Shopify product metafields (like image grid)
   - Applied Futura Bold font and #2C2C2C color to subtitle text matching Figma typography specs
   - Made subtitle configurable per page type (10mg Soda, 50mg Soda, Cannabis Edibles)
+  - Fixed gap between header and flavor picker to exactly 78px as specified in Figma code
   - Used exact Figma colors: dynamic primaryColor for product title, #2C2C2C for subtitle, #14433d for badges, #003a5d for borders
 
 - **MOBILE RESPONSIVE OPTIMIZATION** (August 1, 2025): Made all new components fully mobile responsive

@@ -516,7 +516,7 @@ function ProductPageContent({ config }: ProductPageProps) {
             </div>
 
             {/* Right Column: Product Info & Selection */}
-            <div className="order-2 lg:order-2 space-y-6 lg:space-y-8">
+            <div className="order-2 lg:order-2 space-y-6 lg:space-y-[78px]">
               {/* Product Header with Stars and Badges */}
               <div className="hidden lg:block">
                 <ProductHeader 
