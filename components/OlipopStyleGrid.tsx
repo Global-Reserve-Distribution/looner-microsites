@@ -83,10 +83,9 @@ export function OlipopStyleGrid({ selectedFlavor }: OlipopStyleGridProps) {
           </div>
         </div>
 
-        {/* Middle Section: Video */}
-        <div className="w-full aspect-[622/353] rounded-2xl overflow-hidden flex items-center justify-center"
-             style={{ backgroundColor: selectedFlavor?.secondaryColor || "#E9D5FF" }}>
-          <div className="text-white text-2xl font-bold">Video Coming Soon</div>
+        {/* Middle Section: Video Coming Soon */}
+        <div className="w-full aspect-[622/353] rounded-2xl overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#ffa13c] to-[#ffbd4e]">
+          <div className="text-white text-2xl font-bold drop-shadow-lg">Video Coming Soon</div>
         </div>
 
         {/* Bottom Section: Two image cards */}

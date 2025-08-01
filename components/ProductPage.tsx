@@ -563,10 +563,7 @@ function ProductPageContent({ config }: ProductPageProps) {
           {/* Iconic Flavors Badges */}
           <IconicFlavorsBadges />
 
-          {/* Video Coming Soon Section */}
-          <div className="w-full max-w-[1425px] mx-auto px-4 py-8">
-            <VideoComingSoon />
-          </div>
+
 
           {/* Water Hero Section */}
           <WaterHeroSection />
