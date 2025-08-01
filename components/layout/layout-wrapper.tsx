@@ -1,6 +1,5 @@
 import FigmaHeaderWrapper from '../FigmaHeaderWrapper';
 import Footer from './footer';
-import Image from 'next/image';
 
 export default async function LayoutWrapper({
   children
@@ -9,17 +8,13 @@ export default async function LayoutWrapper({
 }) {
   return (
     <div className="min-h-screen relative">
-      {/* High-quality background image */}
-      <div className="fixed inset-0 z-0">
-        <Image
-          src="/lake-background-figma.png"
-          alt="Lake background"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-        />
-      </div>
+      {/* High-quality SVG background */}
+      <div 
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/lake-background.svg')"
+        }}
+      />
       
       {/* Header */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">

@@ -1,0 +1,73 @@
+<svg width="1425" height="900" viewBox="0 0 1425 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sky gradient -->
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e6f7ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#b3e5fc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#81d4fa;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Water gradient -->
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4dd0e1;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#26c6da;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00bcd4;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Forest gradient -->
+    <linearGradient id="forestGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2e7d32;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#388e3c;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#43a047;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4caf50;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="1425" height="200" fill="url(#skyGradient)"/>
+  
+  <!-- Forest treeline with organic curves -->
+  <path d="M0,120 C50,100 100,110 150,95 C200,80 250,90 300,85 C350,80 400,85 450,75 C500,65 550,70 600,65 C650,60 700,65 750,55 C800,45 850,50 900,45 C950,40 1000,45 1050,40 C1100,35 1150,40 1200,35 C1250,30 1300,35 1350,30 C1400,25 1425,30 1425,30 L1425,200 L0,200 Z" fill="url(#forestGradient)"/>
+  
+  <!-- Additional forest layers for depth -->
+  <path d="M0,140 C80,125 160,135 240,120 C320,105 400,115 480,100 C560,85 640,95 720,80 C800,65 880,75 960,60 C1040,45 1120,55 1200,40 C1280,25 1360,35 1425,20 L1425,200 L0,200 Z" fill="#1b5e20" opacity="0.7"/>
+  
+  <!-- Tree silhouettes for detail -->
+  <g fill="#0d4818" opacity="0.8">
+    <!-- Scattered evergreen trees -->
+    <path d="M120,160 L125,140 L130,160 Z"/>
+    <path d="M180,155 L186,130 L192,155 Z"/>
+    <path d="M240,165 L247,135 L254,165 Z"/>
+    <path d="M320,150 L328,120 L336,150 Z"/>
+    <path d="M420,170 L429,140 L438,170 Z"/>
+    <path d="M520,145 L529,115 L538,145 Z"/>
+    <path d="M620,160 L629,130 L638,160 Z"/>
+    <path d="M720,155 L729,125 L738,155 Z"/>
+    <path d="M820,165 L829,135 L838,165 Z"/>
+    <path d="M920,150 L929,120 L938,150 Z"/>
+    <path d="M1020,170 L1029,140 L1038,170 Z"/>
+    <path d="M1120,145 L1129,115 L1138,145 Z"/>
+    <path d="M1220,160 L1229,130 L1238,160 Z"/>
+    <path d="M1320,155 L1329,125 L1338,155 Z"/>
+  </g>
+  
+  <!-- Water surface -->
+  <rect y="200" width="1425" height="700" fill="url(#waterGradient)"/>
+  
+  <!-- Water ripples and reflections -->
+  <g opacity="0.3">
+    <ellipse cx="200" cy="400" rx="30" ry="8" fill="white"/>
+    <ellipse cx="400" cy="350" rx="25" ry="6" fill="white"/>
+    <ellipse cx="600" cy="450" rx="35" ry="10" fill="white"/>
+    <ellipse cx="800" cy="380" rx="28" ry="7" fill="white"/>
+    <ellipse cx="1000" cy="420" rx="32" ry="9" fill="white"/>
+    <ellipse cx="1200" cy="360" rx="27" ry="6" fill="white"/>
+  </g>
+  
+  <!-- Subtle water texture -->
+  <g opacity="0.1">
+    <path d="M0,300 Q200,290 400,300 T800,300 Q1000,290 1200,300 T1425,300" stroke="white" stroke-width="2" fill="none"/>
+    <path d="M0,400 Q150,390 300,400 T600,400 Q750,390 900,400 T1200,400 Q1300,390 1425,400" stroke="white" stroke-width="1.5" fill="none"/>
+    <path d="M0,500 Q250,490 500,500 T1000,500 Q1200,490 1425,500" stroke="white" stroke-width="1" fill="none"/>
+  </g>
+</svg>
