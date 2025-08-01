@@ -2,10 +2,12 @@ import React from 'react';
 
 export function WaterHeroSection() {
   return (
-    <div className="w-full h-[403px] flex justify-center items-center overflow-hidden">
+    <div className="w-full flex justify-center items-center overflow-hidden">
       <div 
-        className="w-full h-[453px] bg-cover bg-center bg-no-repeat flex-shrink-0"
+        className="bg-cover bg-center bg-no-repeat flex-shrink-0"
         style={{
+          width: '1425px',
+          height: '403px',
           backgroundImage: 'url(/water-hero-can.png)',
           backgroundColor: '#d3d3d3'
         }}
