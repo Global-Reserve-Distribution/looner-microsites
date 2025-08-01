@@ -75,7 +75,7 @@ async function getNavigationData() {
         const { displayName } = extractMetafields(product);
         return {
           name: displayName && displayName.trim() !== "" ? displayName : product.title.replace(/\s*-.*$/, ''),
-          href: getProductRoute(product),
+          href: getProductRoute(product) || '/products/sodas/10mg',
           imageSrc: product.featuredImage?.url || '/placeholder-product.jpg',
           thcContent: extractTHCContent(product)
         };
@@ -92,7 +92,7 @@ async function getNavigationData() {
         const { displayName } = extractMetafields(product);
         return {
           name: displayName && displayName.trim() !== "" ? displayName : product.title.replace(/\s+/g, '-'),
-          href: getProductRoute(product),
+          href: getProductRoute(product) || '/products/gummies',
           imageSrc: product.featuredImage?.url || '/placeholder-product.jpg',
           thcContent: extractTHCContent(product)
         };
@@ -167,7 +167,7 @@ async function getNavigationData() {
                 const { displayName } = extractMetafields(product);
                 return {
                   name: screenshotName,
-                  href: getProductRoute(product),
+                  href: getProductRoute(product) || '/products/sodas/10mg',
                   imageSrc: product.featuredImage?.url || '/logo.webp',
                   thcContent: extractTHCContent(product) || '10mg'
                 };
@@ -179,7 +179,7 @@ async function getNavigationData() {
             const { displayName } = extractMetafields(product);
             return {
               name: screenshotName,
-              href: getProductRoute(product),
+              href: getProductRoute(product) || '/products/sodas/10mg',
               imageSrc: product.featuredImage?.url || '/logo.webp',
               thcContent: extractTHCContent(product) || '10mg'
             };
@@ -190,7 +190,7 @@ async function getNavigationData() {
             const { displayName } = extractMetafields(product);
             return {
               name: screenshotName,
-              href: getProductRoute(product),
+              href: getProductRoute(product) || '/products/sodas/10mg',
               imageSrc: product.featuredImage?.url || '/logo.webp',
               thcContent: extractTHCContent(product) || '10mg'
             };
