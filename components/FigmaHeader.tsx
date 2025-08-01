@@ -133,10 +133,10 @@ export function FigmaHeaderClient({ navigation }: FigmaHeaderClientProps) {
           </Popover>
 
           <Link 
-            href="/testing" 
+            href="/learn" 
             className="text-[#14433d] font-semibold text-[15.1px] leading-[30px] hover:opacity-70 transition-opacity"
           >
-            Testing
+            Learn
           </Link>
           <Link 
             href="/contact" 
