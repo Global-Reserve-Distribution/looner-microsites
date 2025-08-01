@@ -1,15 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import {
-  ProductImageGallery,
-  NutritionPanel, 
-  IngredientIcons,
-  ReviewsSummary,
-  BrandStorySection,
-  LocalSourcingSection,
-  RelatedFlavors
-} from './product-page';
 
 interface SimpleProductPageProps {
   config: {
@@ -276,70 +267,7 @@ export default function SimpleProductPage({ config, products }: SimpleProductPag
         </div>
       </div>
 
-      {/* Figma-Based Sections */}
-      
-      {/* Lifestyle Images */}
-      <ProductImageGallery 
-        images={[
-          "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Looner_Classic_Lemonade_Mockup.png?v=1753176292",
-          "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/LoonerGrape50mg.png?v=1753176313",
-          "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Canna_Express_Mango-Website.png?v=1753176336"
-        ]}
-      />
 
-      {/* Ingredient Icons */}
-      <IngredientIcons 
-        icons={[
-          { label: "Plant-Based", icon: "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Looner_Classic_Lemonade_Mockup.png?v=1753176292" },
-          { label: "Low Sugar", icon: "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/LoonerGrape50mg.png?v=1753176313" },
-          { label: "No Gluten", icon: "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Canna_Express_Mango-Website.png?v=1753176336" }
-        ]}
-      />
-
-      {/* Customer Reviews */}
-      <ReviewsSummary 
-        reviews={[
-          { name: "Taylor", rating: 5, quote: "Obsessed with this flavor. Perfect balance of THC and taste!" },
-          { name: "Alex", rating: 4, quote: "Refreshing and light. Great for social occasions." },
-          { name: "Jordan", rating: 5, quote: "Best cannabis beverage I've tried. Will definitely reorder." },
-          { name: "Casey", rating: 4, quote: "Love the natural ingredients. Clean buzz without the crash." }
-        ]}
-        averageRating={4.9}
-      />
-
-      {/* Brand Story */}
-      <BrandStorySection />
-
-      {/* Local Sourcing */}
-      <LocalSourcingSection 
-        images={[
-          "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Looner_Classic_Lemonade_Mockup.png?v=1753176292",
-          "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/LoonerGrape50mg.png?v=1753176313", 
-          "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Canna_Express_Mango-Website.png?v=1753176336",
-          "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Looner_Classic_Lemonade_Mockup.png?v=1753176292"
-        ]}
-      />
-
-      {/* Related Flavors */}
-      <RelatedFlavors 
-        products={[
-          { 
-            name: "Sweet Orange", 
-            slug: "sweet-orange", 
-            image: "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Looner_Classic_Lemonade_Mockup.png?v=1753176292" 
-          },
-          { 
-            name: "Lime Mint", 
-            slug: "lime-mint", 
-            image: "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/LoonerGrape50mg.png?v=1753176313" 
-          },
-          { 
-            name: "Cherry Cola", 
-            slug: "cherry-cola", 
-            image: "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Canna_Express_Mango-Website.png?v=1753176336" 
-          }
-        ]}
-      />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8 text-center">
