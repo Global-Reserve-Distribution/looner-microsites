@@ -1,0 +1,190 @@
+Implement the following design in React. Use the following files generated from a Figma design as a specification and guide:
+
+```src/styles/DivSiteHeader.module.css
+@import "https://fonts.googleapis.com/css?family=Inter:0,700;0,undefined&display=swap";
+.DivSiteHeader_38_1327 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 1320px;
+  height: 70px;
+  display: flex;
+}
+.DivTwColSpan_2_38_1328 {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: -0.00811768px;
+  width: 228.18px;
+  padding-right: 0.008px;
+  display: flex;
+}
+.DivSiteHeaderIconsWrapper_38_1329 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 29px;
+  height: 48px;
+  padding: 9px 11px 9px 0;
+  display: flex;
+}
+.Icon_38_1330 {
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+}
+.LinkSiteHeaderIcon_38_1332 {
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.59375px;
+  width: 28px;
+  height: 30px;
+  display: flex;
+}
+.SpanIconFallbackText_38_1333 {
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: center;
+  height: 1px;
+  display: flex;
+  overflow: hidden;
+}
+.LogIn_38_1334 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 16.6px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  display: inline-block;
+}
+.Icon_38_1335 {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+}
+.ListSiteNav_38_1337 {
+  flex-shrink: 0;
+  align-items: center;
+  width: 132.18px;
+  height: 31px;
+  padding: 0 40.18px 1px 0;
+  display: flex;
+}
+.FindInStore_38_1338 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 15.1px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  display: inline-block;
+}
+.ImageJs_38_1339 {
+  background: #d3d3d3 url(<path-to-image>) 50% / contain no-repeat;
+  flex-shrink: 0;
+  width: 128px;
+  height: 44px;
+  overflow: hidden;
+}
+.ListSiteNav_38_1340 {
+  flex-flow: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  gap: -0.798752px;
+  padding-right: 40.879px;
+  display: flex;
+}
+.ItemSiteNavHasDropdown_38_1341 {
+  align-items: center;
+  height: 71px;
+  padding: 20px 40.58px 21px 0;
+  display: flex;
+}
+.Shop_38_1342 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 15.1px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  display: inline-block;
+}
+.ItemSiteNavHasDropdown_38_1343 {
+  align-items: center;
+  height: 71px;
+  padding: 20px 41.66px 21px 0;
+  display: flex;
+}
+.Learn_38_1344,
+.Subscribe_38_1345 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 15.1px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  display: inline-block;
+}
+
+```
+
+---
+
+```src/components/assets/Icon.tsx
+import React from 'react';
+export default function Icon() {
+  return <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clipPath="url(#clip0_38_1335)">
+<path fillRule="evenodd" clipRule="evenodd" d="M13.244 0.609863C6.36504 0.609863 0.769043 6.20636 0.769043 13.0849C0.769043 19.9634 6.36504 25.5604 13.244 25.5604C20.123 25.5604 25.7195 19.9634 25.7195 13.0849C25.7195 6.20636 20.123 0.609863 13.244 0.609863ZM20.2645 21.0804C19.6555 17.4774 17.085 14.7044 13.9135 14.3594C16.1015 14.0349 17.7825 12.1539 17.7825 9.87536C17.7825 7.36936 15.7505 5.33736 13.244 5.33736C10.7375 5.33736 8.70604 7.36936 8.70604 9.87536C8.70604 12.1539 10.3865 14.0349 12.5745 14.3594C9.40304 14.7044 6.83254 17.4774 6.22354 21.0804C4.00204 19.1279 2.59604 16.2684 2.59604 13.0849C2.59604 7.21386 7.37254 2.43686 13.244 2.43686C19.1155 2.43686 23.892 7.21386 23.892 13.0849C23.892 16.2684 22.486 19.1279 20.2645 21.0804Z" fill="#14433D"/>
+</g>
+<defs>
+<clipPath id="clip0_38_1335">
+<rect width="28" height="28" fill="white" transform="translate(0.5 0.59375)"/>
+</clipPath>
+</defs>
+</svg>
+;
+}
+```
+
+---
+
+```src/components/DivSiteHeader.tsx
+import React from 'react';
+import styles from '../styles/DivSiteHeader.module.css';
+import Icon from './assets/Icon';
+
+export default function DivSiteHeader() {
+  return (
+    <div className={styles.DivSiteHeader_38_1327}>
+      <div className={styles.DivTwColSpan_2_38_1328}>
+        <div className={styles.DivSiteHeaderIconsWrapper_38_1329}>
+          <div className={styles.Icon_38_1330}>
+            <Icon />
+          </div>
+          <div className={styles.LinkSiteHeaderIcon_38_1332}>
+            <div className={styles.SpanIconFallbackText_38_1333}><span className={styles.LogIn_38_1334}>Log in</span></div>
+            <div className={styles.Icon_38_1335}>
+              <Icon />
+            </div>
+          </div>
+        </div>
+        <div className={styles.ListSiteNav_38_1337}><span className={styles.FindInStore_38_1338}>Find In Store</span></div>
+      </div>
+      <div className={styles.ImageJs_38_1339}></div>
+      <div className={styles.ListSiteNav_38_1340}>
+        <div className={styles.ItemSiteNavHasDropdown_38_1341}><span className={styles.Shop_38_1342}>Shop</span></div>
+        <div className={styles.ItemSiteNavHasDropdown_38_1343}><span className={styles.Learn_38_1344}>Learn</span></div><span className={styles.Subscribe_38_1345}>Subscribe</span>
+      </div>
+    </div>
+  );
+}
+```
+

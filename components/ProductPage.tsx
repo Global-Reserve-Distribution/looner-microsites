@@ -13,6 +13,7 @@ import { IconicFlavorsBadges } from "./IconicFlavorsBadges";
 import { NutritionLabel } from "./NutritionLabel";
 import { WaterHeroSection } from "./WaterHeroSection";
 import { ProductHeader } from "./ProductHeader";
+import { FigmaHeader } from "./FigmaHeader";
 import {
   fetchProducts,
   fetchProductsWithAdminCategories,
@@ -484,9 +485,15 @@ function ProductPageContent({ config }: ProductPageProps) {
   }
 
   return (
-    <>
+    <div className="relative">
+      {/* Fixed Header that sits on top */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+        <FigmaHeader />
+      </div>
+      
+      {/* Main Content with top padding to account for fixed header */}
       <main 
-        className="relative overflow-hidden min-h-screen transition-all duration-500"
+        className="relative overflow-hidden min-h-screen transition-all duration-500 pt-[70px]"
         style={{
           backgroundImage: 'url(/lake-background.png)',
           backgroundSize: 'cover',
@@ -711,7 +718,7 @@ function ProductPageContent({ config }: ProductPageProps) {
           productImage={selectedFlavor?.images?.[0]}
         />
       </main>
-    </>
+    </div>
   );
 }
 
