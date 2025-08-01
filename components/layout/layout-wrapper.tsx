@@ -10,11 +10,10 @@ export default async function LayoutWrapper({
     <div className="min-h-screen relative">
       {/* High-quality SVG background */}
       <div 
-        className="fixed inset-0 z-0 bg-cover bg-no-repeat bg-fixed"
+        className="absolute inset-0 z-0 bg-cover bg-no-repeat"
         style={{
           backgroundImage: "url('/lake-background-figma.svg')",
-          backgroundPosition: 'center top',
-          backgroundAttachment: 'fixed'
+          backgroundPosition: 'center top'
         }}
       />
       
