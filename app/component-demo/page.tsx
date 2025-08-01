@@ -11,7 +11,15 @@ import {
   ProductDescription,
   FeatureIcons,
   YouMayAlsoLike,
-  Footer
+  Footer,
+  // New Figma-based components
+  ProductImageGallery,
+  NutritionPanel,
+  IngredientIcons,
+  ReviewsSummary,
+  BrandStorySection,
+  LocalSourcingSection,
+  RelatedFlavors
 } from '../../components/product-page';
 import { FlavorPickerVariants } from '../../components/FlavorPickerVariants';
 import { InteractiveFlavorSelector } from '../../components/product/interactive-flavor-selector';
@@ -130,6 +138,98 @@ export default function ComponentDemo() {
         <section className="border border-gray-200 p-4 rounded-lg">
           <h2 className="text-xl font-semibold mb-4">Footer Component</h2>
           <Footer />
+        </section>
+
+        {/* NEW FIGMA-BASED COMPONENTS */}
+        <div className="border-t-4 border-orange-400 pt-8">
+          <h1 className="text-2xl font-bold text-center mb-8 text-orange-600">New Figma-Based Components</h1>
+        </div>
+
+        {/* ProductImageGallery */}
+        <section className="border border-gray-200 p-4 rounded-lg">
+          <h2 className="text-xl font-semibold mb-4">ProductImageGallery Component</h2>
+          <ProductImageGallery 
+            images={[
+              "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Looner_Classic_Lemonade_Mockup.png?v=1753176292",
+              "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/LoonerGrape50mg.png?v=1753176313",
+              "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Canna_Express_Mango-Website.png?v=1753176336"
+            ]}
+          />
+        </section>
+
+        {/* NutritionPanel */}
+        <section className="border border-gray-200 p-4 rounded-lg">
+          <h2 className="text-xl font-semibold mb-4">NutritionPanel Component</h2>
+          <NutritionPanel src="https://via.placeholder.com/300x400/f8f9fa/6c757d?text=Nutrition+Facts" />
+        </section>
+
+        {/* IngredientIcons */}
+        <section className="border border-gray-200 p-4 rounded-lg">
+          <h2 className="text-xl font-semibold mb-4">IngredientIcons Component</h2>
+          <IngredientIcons 
+            icons={[
+              { label: "Plant-Based", icon: "https://via.placeholder.com/64x64/22c55e/ffffff?text=🌿" },
+              { label: "Low Sugar", icon: "https://via.placeholder.com/64x64/f59e0b/ffffff?text=🍬" },
+              { label: "No Gluten", icon: "https://via.placeholder.com/64x64/dc2626/ffffff?text=🚫" }
+            ]}
+          />
+        </section>
+
+        {/* ReviewsSummary */}
+        <section className="border border-gray-200 p-4 rounded-lg">
+          <h2 className="text-xl font-semibold mb-4">ReviewsSummary Component</h2>
+          <ReviewsSummary 
+            reviews={[
+              { name: "Taylor", rating: 5, quote: "Obsessed with this flavor. Perfect balance of THC and taste!" },
+              { name: "Alex", rating: 4, quote: "Refreshing and light. Great for social occasions." },
+              { name: "Jordan", rating: 5, quote: "Best cannabis beverage I've tried. Will definitely reorder." },
+              { name: "Casey", rating: 4, quote: "Love the natural ingredients. Clean buzz without the crash." }
+            ]}
+            averageRating={4.9}
+          />
+        </section>
+
+        {/* BrandStorySection */}
+        <section className="border border-gray-200 p-4 rounded-lg">
+          <h2 className="text-xl font-semibold mb-4">BrandStorySection Component</h2>
+          <BrandStorySection />
+        </section>
+
+        {/* LocalSourcingSection */}
+        <section className="border border-gray-200 p-4 rounded-lg">
+          <h2 className="text-xl font-semibold mb-4">LocalSourcingSection Component</h2>
+          <LocalSourcingSection 
+            images={[
+              "https://via.placeholder.com/300x300/10b981/ffffff?text=MN+Farm+1",
+              "https://via.placeholder.com/300x300/3b82f6/ffffff?text=MN+Farm+2", 
+              "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=MN+Farm+3",
+              "https://via.placeholder.com/300x300/f59e0b/ffffff?text=MN+Farm+4"
+            ]}
+          />
+        </section>
+
+        {/* RelatedFlavors */}
+        <section className="border border-gray-200 p-4 rounded-lg">
+          <h2 className="text-xl font-semibold mb-4">RelatedFlavors Component</h2>
+          <RelatedFlavors 
+            products={[
+              { 
+                name: "Sweet Orange", 
+                slug: "sweet-orange", 
+                image: "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Looner_Classic_Lemonade_Mockup.png?v=1753176292" 
+              },
+              { 
+                name: "Lime Mint", 
+                slug: "lime-mint", 
+                image: "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/LoonerGrape50mg.png?v=1753176313" 
+              },
+              { 
+                name: "Cherry Cola", 
+                slug: "cherry-cola", 
+                image: "https://cdn.shopify.com/s/files/1/0770/5513/1883/files/Canna_Express_Mango-Website.png?v=1753176336" 
+              }
+            ]}
+          />
         </section>
       </div>
     </div>

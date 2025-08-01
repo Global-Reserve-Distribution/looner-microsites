@@ -13,3 +13,12 @@ export { default as ProductDescription } from './ProductDescription';
 export { default as FeatureIcons } from './FeatureIcons';
 export { default as YouMayAlsoLike } from './YouMayAlsoLike';
 export { default as Footer } from './Footer';
+
+// New Figma-based components from build plan
+export { default as ProductImageGallery } from './ProductImageGallery';
+export { default as NutritionPanel } from './NutritionPanel';
+export { default as IngredientIcons } from './IngredientIcons';
+export { default as ReviewsSummary } from './ReviewsSummary';
+export { default as BrandStorySection } from './BrandStorySection';
+export { default as LocalSourcingSection } from './LocalSourcingSection';
+export { default as RelatedFlavors } from './RelatedFlavors';
