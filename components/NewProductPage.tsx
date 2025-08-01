@@ -1,178 +1,93 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect, useRef, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
-import { AddToCartButton } from "./AddToCartButton";
-import { useCart } from "../hooks/useCart";
-import Image from "next/image";
-import Link from "next/link";
-
-interface ProductPageConfig {
-  productType: 'soda-10mg' | 'soda-50mg' | 'edibles' | 'gummies';
-  title: string;
-  description: string;
-  sectionTitle: string;
-  sectionDescription: string;
-  defaultColor: string;
-  defaultSecondaryColor: string;
-  dosageInfo: {
-    title: string;
-    subtitle: string;
-    borderColor: string;
-    textColor: string;
-    onsetTime: string;
-    duration: string;
-    experience: string;
-    bestFor: string;
-    backgroundClass: string;
-    description: string;
-  };
-  features: Array<{ icon: string; label: string }>;
+import React, { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+// Removed cart import temporarily for testing
+// Temporary simplified add to cart button
+function AddToCartButton({ children, className, ...props }: any) {
+  return (
+    <button 
+      className={className}
+      onClick={() => console.log('Add to cart clicked')}
+      {...props}
+    >
+      {children}
+    </button>
+  );
 }
 
 interface ProductPageProps {
-  config: ProductPageConfig;
+  config: {
+    title: string;
+    subtitle: string;
+    heroTitle: string;
+    heroSubtitle: string;
+    purchaseText: string;
+    backgroundClass: string;
+    products: any[];
+  };
   products: any[];
 }
 
-// Flavor variants with colors matching the Figma design
 const FLAVOR_VARIANTS = [
-  { id: 'half-half', name: 'Half & Half', color: '#cd9848', bgColor: '#cd9848' },
-  { id: 'peach-lemonade', name: 'Peach Lemonade', color: '#f68d67', bgColor: '#f68d67' },
-  { id: 'classic-lemonade', name: 'Classic Lemonade', color: '#ffc629', bgColor: '#ffc629' },
-  { id: 'pink-lemonade', name: 'Pink Lemonade', color: '#f37a8b', bgColor: '#f37a8b' },
-  { id: 'mule-mocktail', name: 'Mule Mocktail', color: '#95cba8', bgColor: '#95cba8' },
-  { id: 'cherry-cola', name: 'Cherry Cola', color: '#ae252f', bgColor: '#ae252f' },
+  { id: 'half-half', name: 'Half & Half', color: '#cd9848' },
+  { id: 'peach-lemonade', name: 'Peach Lemonade', color: '#ff7f9b' },
+  { id: 'classic-lemonade', name: 'Classic Lemonade', color: '#ffd700' },
+  { id: 'pink-lemonade', name: 'Pink Lemonade', color: '#ff69b4' },
+  { id: 'mule-mocktail', name: 'Mule Mocktail', color: '#95cba8' },
+  { id: 'cherry-cola', name: 'Cherry Cola', color: '#ae252f' },
 ];
 
-function ProductGallery({ selectedFlavor, products }: { selectedFlavor: string; products: any[] }) {
-  const mainProduct = products?.[0] || {};
-  const selectedVariant = FLAVOR_VARIANTS.find(v => v.id === selectedFlavor) || FLAVOR_VARIANTS[0];
-
+function FlavorSelector({ selectedFlavor, onFlavorChange }: { 
+  selectedFlavor: string; 
+  onFlavorChange: (flavor: string) => void; 
+}) {
   return (
-    <div className="w-[642px] h-[1094px] overflow-hidden">
-      {/* Main Product Images */}
-      <div className="flex gap-5 mb-5">
-        <div className="w-[301px] h-[301px] bg-gray-300 rounded-2xl overflow-hidden">
-          {mainProduct?.featuredImage?.url ? (
-            <img
-              src={mainProduct.featuredImage.url}
-              alt={mainProduct.title || 'Product'}
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-              <span className="text-gray-400">Product Image</span>
-            </div>
-          )}
-        </div>
-        <div className="w-[301px] h-[301px] bg-gray-300 rounded-2xl overflow-hidden">
-          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-            <span className="text-gray-400">Product Image 2</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Video Section */}
-      <div className="w-[622px] h-[353px] bg-gray-300 rounded-2xl mb-5 overflow-hidden">
-        <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-          <span className="text-gray-400">Product Video</span>
-        </div>
-      </div>
-
-      {/* Product Features Section */}
-      <div className="flex gap-5">
-        {/* Main Product Display */}
-        <div 
-          className="w-[442px] h-[400px] rounded-2xl flex items-center justify-center"
-          style={{ backgroundColor: selectedVariant?.color || FLAVOR_VARIANTS[0]?.color || '#cd9848' }}
-        >
-          <div className="w-[395px] h-[418px] bg-gray-300 overflow-hidden">
-            {mainProduct?.featuredImage?.url ? (
-              <img
-                src={mainProduct.featuredImage.url}
-                alt={mainProduct.title || 'Product'}
-                className="w-full h-full object-contain"
-              />
-            ) : (
-              <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                <span className="text-gray-400">Main Product</span>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Feature Cards */}
-        <div className="flex flex-col gap-5 w-[160px]">
-          <div className="bg-[#faa81e] rounded-2xl w-[160px] h-[95px] flex items-center justify-center text-center">
-            <span className="text-white font-bold text-[18.6px] leading-[23px]">
-              10mg<br />THC
-            </span>
-          </div>
-          <div className="bg-[#faa81e] rounded-2xl w-[160px] h-[120px] flex items-center justify-center text-center p-4">
-            <span className="text-white font-bold text-[18.6px] leading-[20px]">
-              Made with<br />Cane Sugar
-            </span>
-          </div>
-          <div className="bg-[#faa81e] rounded-2xl w-[160px] h-[120px] flex items-center justify-center text-center">
-            <span className="text-white font-bold text-[18.6px] leading-[23px]">
-              Gluten<br />Free
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function FlavorSelector({ selectedFlavor, onFlavorChange }: { selectedFlavor: string; onFlavorChange: (flavor: string) => void }) {
-  return (
-    <div className="grid grid-cols-4 gap-2 mb-6">
-      {FLAVOR_VARIANTS.map((variant) => (
-        <button
-          key={variant.id}
-          onClick={() => onFlavorChange(variant.id)}
-          className={`w-[108px] h-[106px] border rounded-lg overflow-hidden ${
-            selectedFlavor === variant.id ? 'border-[#14433d] border-2' : 'border-[#14433d40]'
-          }`}
-        >
-          <div 
-            className="w-full h-[53.5px] flex items-center justify-center"
-            style={{ backgroundColor: variant.color }}
+    <div className="mb-8">
+      <h3 className="text-lg font-medium text-gray-900 mb-4">Our Flavors</h3>
+      <div className="grid grid-cols-3 gap-4">
+        {FLAVOR_VARIANTS.map((flavor) => (
+          <button
+            key={flavor.id}
+            onClick={() => onFlavorChange(flavor.id)}
+            className={`p-4 rounded-lg border-2 text-center transition-all ${
+              selectedFlavor === flavor.id 
+                ? 'border-gray-900 bg-gray-50' 
+                : 'border-gray-200 hover:border-gray-300'
+            }`}
           >
-            <div className="w-full h-full bg-gray-300">
-              {/* Flavor image would go here */}
-            </div>
-          </div>
-          <div className="bg-white rounded-b-lg p-2 h-[52.5px] flex items-center justify-center">
-            <p className="text-[#14433d] text-[13px] font-bold leading-[19.25px] text-center">
-              {variant.name}
-            </p>
-          </div>
-        </button>
-      ))}
+            <div 
+              className="w-16 h-16 rounded-full mx-auto mb-2"
+              style={{ backgroundColor: flavor.color }}
+            />
+            <span className="text-sm font-medium text-gray-900">
+              {flavor.name}
+            </span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
 
-function PurchaseSection({ product }: { product: any }) {
+function PurchaseOptions({ product }: { product: any }) {
   const [quantity, setQuantity] = useState(1);
   const [purchaseType, setPurchaseType] = useState<'one-time' | 'subscription'>('one-time');
   
   const firstVariant = product?.variants?.[0];
-  const price = typeof firstVariant?.price === 'object' 
-    ? firstVariant?.price?.amount || '59'
-    : firstVariant?.price || '59';
+  const basePrice = typeof firstVariant?.price === 'object' 
+    ? parseFloat(firstVariant?.price?.amount || '19.99')
+    : parseFloat(firstVariant?.price || '19.99');
+  
+  const subscriptionPrice = Math.floor(basePrice * 0.85); // 15% off for subscription
+  const currentPrice = purchaseType === 'subscription' ? subscriptionPrice : basePrice;
 
   return (
-    <div className="w-[480px]">
-      {/* Purchase Options */}
-      <div className="mb-6">
-        <div className="space-y-3">
-          {/* One-time Purchase */}
-          <label className={`flex items-center border-2 rounded-lg p-4 cursor-pointer ${
-            purchaseType === 'one-time' ? 'border-[#22423d]' : 'border-[#22423d] opacity-60'
-          }`}>
+    <div className="space-y-6">
+      {/* Purchase Type Selection */}
+      <div className="space-y-3">
+        <label className="flex items-center justify-between p-4 border-2 border-gray-300 rounded-lg cursor-pointer">
+          <div className="flex items-center">
             <input
               type="radio"
               name="purchaseType"
@@ -181,25 +96,20 @@ function PurchaseSection({ product }: { product: any }) {
               onChange={(e) => setPurchaseType(e.target.value as 'one-time')}
               className="mr-3"
             />
-            <div className="flex-1">
-              <div className="font-bold text-[#14433d] text-[15.1px] mb-1">One-time Purchase</div>
-              <div className="flex items-center gap-2">
-                <span className="text-[11.4px] text-[#14433d]">12 Cans</span>
-                <div className="flex items-center gap-2">
-                  <span className="text-[13px] font-bold text-[#14433d]">${price}</span>
-                  <span className="text-[11.4px] text-[#14433d] line-through">$99</span>
-                </div>
+            <div>
+              <div className="font-semibold text-gray-900">One-time Purchase</div>
+              <div className="text-sm text-gray-600">
+                12 Cans <span className="font-semibold">${basePrice}</span> <span className="line-through text-gray-400">$99</span>
               </div>
             </div>
-            <div className="bg-[#fdda79] px-3 py-1 rounded text-[13px] font-bold text-[#14433d]">
-              Save 15%
-            </div>
-          </label>
+          </div>
+          <div className="bg-yellow-200 px-2 py-1 rounded text-xs font-semibold">
+            Save 15%
+          </div>
+        </label>
 
-          {/* Subscription */}
-          <label className={`flex items-center border-2 rounded-lg p-4 cursor-pointer ${
-            purchaseType === 'subscription' ? 'border-[#22423d]' : 'border-[#22423d] opacity-60'
-          }`}>
+        <label className="flex items-center justify-between p-4 border-2 border-gray-300 rounded-lg cursor-pointer">
+          <div className="flex items-center">
             <input
               type="radio"
               name="purchaseType"
@@ -208,37 +118,33 @@ function PurchaseSection({ product }: { product: any }) {
               onChange={(e) => setPurchaseType(e.target.value as 'subscription')}
               className="mr-3"
             />
-            <div className="flex-1">
-              <div className="font-bold text-[#14433d] text-[15.1px] mb-1">Subscribe & Save</div>
-              <div className="flex items-center gap-2">
-                <span className="text-[11.4px] text-[#14433d]">12 Cans</span>
-                <div className="flex items-center gap-2">
-                  <span className="text-[13px] font-bold text-[#14433d]">${(parseFloat(price) * 0.85).toFixed(0)}</span>
-                  <span className="text-[11.4px] text-[#14433d] line-through">${price}</span>
-                </div>
+            <div>
+              <div className="font-semibold text-gray-900">Subscribe & Save</div>
+              <div className="text-sm text-gray-600">
+                12 Cans <span className="font-semibold">${subscriptionPrice}</span> <span className="line-through text-gray-400">${basePrice}</span>
               </div>
             </div>
-            <div className="bg-[#fdda79] px-3 py-1 rounded text-[13px] font-bold text-[#14433d]">
-              Save 15%
-            </div>
-          </label>
-        </div>
+          </div>
+          <div className="bg-yellow-200 px-2 py-1 rounded text-xs font-semibold">
+            Save 15%
+          </div>
+        </label>
       </div>
 
       {/* Quantity Selector */}
-      <div className="flex items-center gap-4 mb-6">
-        <span className="text-[#14433d] font-medium">Quantity:</span>
+      <div className="flex items-center gap-4">
+        <span className="font-medium text-gray-900">Quantity:</span>
         <div className="flex items-center border border-gray-300 rounded">
           <button
             onClick={() => setQuantity(Math.max(1, quantity - 1))}
-            className="px-3 py-1 text-[#14433d] hover:bg-gray-100"
+            className="px-3 py-1 text-gray-700 hover:bg-gray-100"
           >
             -
           </button>
-          <span className="px-4 py-1 text-[#14433d] font-medium">{quantity}</span>
+          <span className="px-4 py-1 font-medium">{quantity}</span>
           <button
             onClick={() => setQuantity(quantity + 1)}
-            className="px-3 py-1 text-[#14433d] hover:bg-gray-100"
+            className="px-3 py-1 text-gray-700 hover:bg-gray-100"
           >
             +
           </button>
@@ -250,20 +156,74 @@ function PurchaseSection({ product }: { product: any }) {
         merchandiseId={firstVariant?.id || ''}
         quantity={quantity}
         productTitle={product?.title}
-        productPrice={`$${price}`}
+        productPrice={`$${currentPrice}`}
         variant="primary"
-        className="w-full bg-[#14433d] text-white py-4 rounded-full text-lg font-semibold hover:bg-[#14433d]/90 transition-colors"
+        className="w-full bg-black text-white py-3 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-colors"
       >
-        Add to Cart - ${(parseFloat(price) * quantity).toFixed(0)}
+        Add to Cart - ${(currentPrice * quantity).toFixed(0)}
       </AddToCartButton>
     </div>
   );
 }
 
-function ProductPageContent({ config, products }: ProductPageProps) {
+function NutritionFacts() {
+  return (
+    <div className="bg-white border border-gray-300 p-6 rounded-lg">
+      <h3 className="font-bold text-lg mb-4 border-b border-gray-300 pb-2">
+        Nutrition Facts
+      </h3>
+      <div className="space-y-2 text-sm">
+        <div className="flex justify-between border-b border-gray-200 pb-1">
+          <span>1 Servings Per Container</span>
+        </div>
+        <div className="flex justify-between font-semibold">
+          <span>Serving Size</span>
+          <span>12 fl oz (355mL)</span>
+        </div>
+        <div className="border-b-4 border-gray-900 pb-2 mb-2">
+          <span className="font-bold">Amount Per Serving</span>
+        </div>
+        <div className="flex justify-between font-bold text-lg">
+          <span>Calories 90</span>
+        </div>
+        <div className="space-y-1">
+          <div className="flex justify-between">
+            <span>Total Fat 0g</span>
+            <span className="font-bold">0%</span>
+          </div>
+          <div className="flex justify-between">
+            <span>Sodium 10mg</span>
+            <span className="font-bold">1%</span>
+          </div>
+          <div className="flex justify-between">
+            <span>Total Carbohydrate 24g</span>
+            <span className="font-bold">9%</span>
+          </div>
+          <div className="flex justify-between pl-4">
+            <span>Dietary Fiber 0g</span>
+            <span className="font-bold">0%</span>
+          </div>
+          <div className="flex justify-between pl-4">
+            <span>Total Sugars 23g</span>
+            <span className="font-bold">46%</span>
+          </div>
+          <div className="flex justify-between pl-8">
+            <span>Includes 23g Added Sugars</span>
+            <span className="font-bold">46%</span>
+          </div>
+          <div className="flex justify-between">
+            <span>Protein 0g</span>
+            <span className="font-bold">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProductContent({ config, products }: ProductPageProps) {
   const [selectedFlavor, setSelectedFlavor] = useState(FLAVOR_VARIANTS[0]?.id || 'half-half');
   const searchParams = useSearchParams();
-  const { cart } = useCart();
 
   const mainProduct = products?.[0] || {};
 
@@ -279,145 +239,92 @@ function ProductPageContent({ config, products }: ProductPageProps) {
     }
   }, [searchParams]);
 
-  const selectedVariant = FLAVOR_VARIANTS.find(v => v?.id === selectedFlavor) || FLAVOR_VARIANTS[0];
-
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#e3edd0' }}>
-      {/* Hero/Main Section */}
-      <div className="bg-[#fffbf5] pb-16">
-        <div className="max-w-7xl mx-auto px-6 pt-16">
-          <div className="flex gap-[78px]">
-            {/* Product Gallery - Left Side */}
-            <ProductGallery selectedFlavor={selectedFlavor} products={products} />
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <div className="bg-gray-50 py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+              {config.heroTitle || '10mg Soda Products'}
+            </h1>
+            <p className="text-xl text-gray-600">
+              {config.heroSubtitle || 'Perfect 10mg THC soda.'}
+            </p>
+          </div>
 
-            {/* Product Info - Right Side */}
-            <div className="w-[480px] space-y-8">
-              {/* Product Title */}
-              <div>
-                <h1 className="text-[44.2px] font-bold leading-[48px] text-[#ffa13c] mb-4">
-                  {config.title}
-                </h1>
-                <p className="text-[17px] leading-[28px] text-[#ffa13c] mb-6">
-                  {config.description}
-                </p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Left Column - Product Info */}
+            <div className="lg:col-span-1">
+              <div className="space-y-8">
+                {/* Product Image */}
+                <div className="text-center">
+                  <div className="bg-gray-200 w-64 h-64 mx-auto rounded-lg flex items-center justify-center mb-4">
+                    {mainProduct?.featuredImage?.url ? (
+                      <img
+                        src={mainProduct.featuredImage.url}
+                        alt={mainProduct.title || 'Product'}
+                        className="w-full h-full object-contain rounded-lg"
+                      />
+                    ) : (
+                      <span className="text-gray-400">Product Image</span>
+                    )}
+                  </div>
+                  <div className="bg-gray-200 w-32 h-32 mx-auto rounded-lg flex items-center justify-center">
+                    <span className="text-gray-400 text-sm">Product Image 2</span>
+                  </div>
+                </div>
               </div>
+            </div>
 
-              {/* Flavor Tabs */}
-              <div className="flex gap-1 mb-6">
-                <button className="bg-white px-[70px] py-3 rounded-t-lg font-bold text-[#14433d] text-[16.6px]">
-                  Our Flavors
-                </button>
-                <button className="bg-[#c1c1c1] px-[60px] py-3 rounded-t-lg font-bold text-[#14433d] text-[16.6px]">
-                  Variety Packs
-                </button>
-              </div>
+            {/* Middle Column - Flavors & Purchase */}
+            <div className="lg:col-span-1">
+              <FlavorSelector 
+                selectedFlavor={selectedFlavor}
+                onFlavorChange={setSelectedFlavor}
+              />
+              <PurchaseOptions product={mainProduct} />
+            </div>
 
-              {/* Flavor Selector */}
-              <div className="bg-white rounded-b-lg p-6">
-                <FlavorSelector 
-                  selectedFlavor={selectedFlavor} 
-                  onFlavorChange={setSelectedFlavor} 
-                />
-                
-                {/* Purchase Section */}
-                <PurchaseSection product={mainProduct} />
+            {/* Right Column - Variety Packs placeholder */}
+            <div className="lg:col-span-1">
+              <h3 className="text-lg font-medium text-gray-900 mb-4">Variety Packs</h3>
+              <div className="bg-gray-100 p-8 rounded-lg text-center">
+                <span className="text-gray-500">Coming Soon</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Wave Transition */}
-      <div className="w-full h-[60px]">
-        <svg viewBox="0 0 1425 60" className="w-full h-full" fill="#fffbf5">
-          <path d="M0,0 C150,60 300,60 450,30 C600,0 750,0 900,30 C1050,60 1200,60 1350,30 L1425,30 L1425,0 Z" />
-        </svg>
-      </div>
-
-      {/* Ingredients Section */}
-      <div className="bg-[#b2fffb] py-16">
-        <div className="max-w-[1100px] mx-auto px-6">
-          <div className="flex gap-12">
-            {/* Nutrition Facts */}
-            <div className="w-[250px]">
-              <div className="bg-white border-4 border-[#ffa13c] rounded-[25px] p-4">
-                <div className="border-b-4 border-[#ffa13c] pb-2 mb-4">
-                  <h3 className="text-[29.4px] font-black text-[#ffa13c] leading-[28px]">
-                    Nutrition Facts
-                  </h3>
-                  <p className="text-[13px] text-[#ffa13c]">1 Servings Per Container</p>
-                </div>
-                
-                <div className="space-y-1 text-[13px] text-[#ffa13c]">
-                  <div className="flex justify-between">
-                    <span>Serving Size</span>
-                    <span className="font-bold">12 fl oz (355mL)</span>
-                  </div>
-                  <div className="border-t border-[#ffa13c] pt-1">
-                    <p className="text-[11.8px] font-bold">Amount Per Serving</p>
-                  </div>
-                  <div className="border-t-4 border-[#ffa13c] pt-1">
-                    <div className="flex justify-between items-center">
-                      <span className="text-[29.4px] font-black">Calories</span>
-                      <span className="text-[29.4px] font-black">90</span>
-                    </div>
-                  </div>
-                  <div className="border-t-4 border-[#ffa13c] pt-1 space-y-1">
-                    <div className="flex justify-between">
-                      <span>Total Fat 0g</span>
-                      <span className="font-bold">0%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Sodium 10mg</span>
-                      <span className="font-bold">1%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Total Carbohydrate 24g</span>
-                      <span className="font-bold">9%</span>
-                    </div>
-                    <div className="flex justify-between pl-4">
-                      <span>Dietary Fiber 0g</span>
-                      <span className="font-bold">0%</span>
-                    </div>
-                    <div className="flex justify-between pl-4">
-                      <span>Total Sugars 23g</span>
-                      <span className="font-bold">46%</span>
-                    </div>
-                    <div className="flex justify-between pl-8">
-                      <span>Includes 23g Added Sugars</span>
-                      <span className="font-bold">46%</span>
-                    </div>
-                    <div className="border-t-4 border-[#ffa13c] pt-1">
-                      <div className="flex justify-between">
-                        <span>Protein 0g</span>
-                        <span className="font-bold">0%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      {/* Product Details Section */}
+      <div className="py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Left - Nutrition Facts */}
+            <div>
+              <NutritionFacts />
             </div>
 
-            {/* Product Info & Ingredients */}
-            <div className="flex-1 max-w-[630px]">
-              <h2 className="text-[44.2px] font-bold leading-[48px] text-[#ffa13c] mb-6">
+            {/* Right - Product Description */}
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-gray-900">
                 Sweet Orange Soda
               </h2>
-              
-              <p className="text-[17px] leading-[28px] text-[#ffa13c] mb-8">
+              <p className="text-lg text-gray-600">
                 That old-school orange flavor! Bright, sweet, and crisp. Now with 10mg THC.
               </p>
-
-              <div className="mb-8">
-                <h3 className="text-[17.3px] font-medium text-[#ffa13c] mb-4">Ingredients:</h3>
-                <p className="text-[17.3px] leading-[28px] text-[#ffa13c]">
+              
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Ingredients:</h3>
+                <p className="text-gray-600">
                   Carbonated Water, Cane Sugar, Citric Acid, Sodium Benzoate (preserves freshness), 
                   FD&C Yellow #6, Natural Flavors, Orange Oils, Hemp Extract
                 </p>
               </div>
 
-              {/* Features Grid */}
-              <div className="grid grid-cols-5 gap-2">
+              {/* Product Features */}
+              <div className="grid grid-cols-5 gap-4 pt-8">
                 {[
                   { label: 'Plant-Derived THC', icon: '🌿' },
                   { label: 'Made with Cane Sugar', icon: '🌾' },
@@ -425,11 +332,9 @@ function ProductPageContent({ config, products }: ProductPageProps) {
                   { label: 'Gluten Free', icon: '✨' },
                   { label: 'Filtered Water', icon: '💧' },
                 ].map((feature, index) => (
-                  <div key={index} className="flex flex-col items-center gap-3 p-4">
-                    <div className="w-[60px] h-[60px] bg-gray-300 rounded-full flex items-center justify-center text-2xl">
-                      {feature.icon}
-                    </div>
-                    <span className="text-[16.6px] font-bold text-[#14433d] text-center leading-[20px]">
+                  <div key={index} className="text-center">
+                    <div className="text-2xl mb-2">{feature.icon}</div>
+                    <span className="text-xs font-medium text-gray-700">
                       {feature.label}
                     </span>
                   </div>
@@ -440,22 +345,15 @@ function ProductPageContent({ config, products }: ProductPageProps) {
         </div>
       </div>
 
-      {/* Wave Transition */}
-      <div className="w-full h-[60px]">
-        <svg viewBox="0 0 1425 60" className="w-full h-full" fill="#b2fffb">
-          <path d="M0,60 C150,0 300,0 450,30 C600,60 750,60 900,30 C1050,0 1200,0 1350,30 L1425,30 L1425,60 Z" />
-        </svg>
-      </div>
-
       {/* You May Also Like Section */}
-      <div className="bg-white py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-[#14433d] mb-12">
+      <div className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
             You May Also Like
           </h2>
           <div className="grid grid-cols-4 gap-6">
             {(products || []).slice(1, 5).map((product, index) => (
-              <div key={product?.id || index} className="bg-[#f3f4f6] rounded-lg p-4 text-center">
+              <div key={product?.id || index} className="bg-white rounded-lg p-6 text-center shadow-sm">
                 <div className="w-full h-32 bg-gray-200 rounded mb-4 flex items-center justify-center">
                   {product?.featuredImage?.url ? (
                     <img
@@ -467,27 +365,45 @@ function ProductPageContent({ config, products }: ProductPageProps) {
                     <span className="text-gray-400">Product</span>
                   )}
                 </div>
-                <h3 className="font-semibold text-[#14433d] text-sm mb-2">
+                <h3 className="font-semibold text-gray-900 text-sm mb-2">
                   {product?.title || 'Product Name'}
                 </h3>
-                <p className="text-[#14433d] text-xs">
+                <p className="text-gray-900 font-bold">
                   ${typeof product?.variants?.[0]?.price === 'object' 
-                    ? product?.variants?.[0]?.price?.amount || '35'
-                    : product?.variants?.[0]?.price || '35'}
+                    ? product?.variants?.[0]?.price?.amount || '19.99'
+                    : product?.variants?.[0]?.price || '19.99'}
                 </p>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Footer Section */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <div className="flex items-center justify-center mb-6">
+            <span className="text-2xl mr-2">🌿</span>
+            <span className="text-xl font-bold">LOONER THC BEVERAGES</span>
+          </div>
+          <button className="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+            Shop Now
+          </button>
+          <div className="mt-8 text-sm text-gray-400">
+            <p>© 2025 LOONER. All rights reserved.</p>
+            <p className="mt-2">Browse THC Beverages</p>
+            <p>Premium Cannabis Beverages</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
 
 export default function NewProductPage(props: ProductPageProps) {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <ProductPageContent {...props} />
+    <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center">Loading...</div>}>
+      <ProductContent {...props} />
     </Suspense>
   );
 }
