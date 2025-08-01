@@ -1,7 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { Fragment } from 'react';
+import { Popover, Transition } from '@headlessui/react';
+import Image from 'next/image';
 
 // User profile icon component
 const UserIcon = () => (
@@ -35,19 +38,102 @@ const ShoppingBagIcon = () => (
   </svg>
 );
 
-export function FigmaHeader() {
+interface NavigationItem {
+  name: string;
+  href: string;
+  imageSrc: string;
+  thcContent?: string;
+}
+
+interface NavigationSection {
+  id: string;
+  name: string;
+  items: NavigationItem[];
+}
+
+interface NavigationCategory {
+  id: string;
+  name: string;
+  sections: NavigationSection[];
+}
+
+interface NavigationData {
+  categories: NavigationCategory[];
+}
+
+interface FigmaHeaderClientProps {
+  navigation: NavigationData;
+}
+
+export function FigmaHeaderClient({ navigation }: FigmaHeaderClientProps) {
   return (
     <header className="w-full h-[70px] bg-white border-b border-gray-100">
       <div className="max-w-[1320px] mx-auto h-full flex items-center justify-between px-6">
         {/* Left Section: Navigation Links */}
         <nav className="flex items-center gap-10">
-          <Link 
-            href="/shop" 
-            className="text-[#14433d] font-semibold text-[15.1px] leading-[30px] hover:opacity-70 transition-opacity"
-            style={{ fontFamily: 'Inter, sans-serif' }}
-          >
-            Shop
-          </Link>
+          <Popover className="relative">
+            {({ open }) => (
+              <>
+                <Popover.Button className="text-[#14433d] font-semibold text-[15.1px] leading-[30px] hover:opacity-70 transition-opacity focus:outline-none">
+                  Shop
+                </Popover.Button>
+
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-200"
+                  enterFrom="opacity-0 translate-y-1"
+                  enterTo="opacity-100 translate-y-0"
+                  leave="transition ease-in duration-150"
+                  leaveFrom="opacity-100 translate-y-0"
+                  leaveTo="opacity-0 translate-y-1"
+                >
+                  <Popover.Panel className="absolute left-0 z-50 mt-3 w-[600px] transform">
+                    <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6">
+                      <div className="grid grid-cols-2 gap-8">
+                        {navigation.categories[0].sections.map((section) => (
+                          <div key={section.name}>
+                            <h3 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4 pb-2 border-b border-gray-200">
+                              {section.name}
+                            </h3>
+                            <ul className="space-y-3">
+                              {section.items.map((item) => (
+                                <li key={item.name}>
+                                  <Link
+                                    href={item.href}
+                                    className="group flex items-center space-x-3 py-2 hover:bg-gray-50 rounded transition-colors"
+                                  >
+                                    <div className="flex-shrink-0">
+                                      <div className="w-10 h-12 bg-white rounded flex items-center justify-center overflow-hidden border border-gray-200">
+                                        <Image
+                                          src={item.imageSrc}
+                                          alt={item.name}
+                                          width={40}
+                                          height={48}
+                                          className="object-contain w-full h-full"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="flex flex-col">
+                                      <span className="text-sm font-medium text-gray-900 group-hover:text-gray-700">
+                                        {item.name}
+                                      </span>
+                                      {item.thcContent && (
+                                        <span className="text-xs text-gray-500">{item.thcContent}</span>
+                                      )}
+                                    </div>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </Popover.Panel>
+                </Transition>
+              </>
+            )}
+          </Popover>
           <Link 
             href="/learn" 
             className="text-[#14433d] font-semibold text-[15.1px] leading-[30px] hover:opacity-70 transition-opacity"
@@ -104,7 +190,6 @@ export function FigmaHeader() {
             </div>
           </div>
         </div>
-      </div>
     </header>
   );
 }

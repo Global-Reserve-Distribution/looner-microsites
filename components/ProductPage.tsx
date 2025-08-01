@@ -13,7 +13,7 @@ import { IconicFlavorsBadges } from "./IconicFlavorsBadges";
 import { NutritionLabel } from "./NutritionLabel";
 import { WaterHeroSection } from "./WaterHeroSection";
 import { ProductHeader } from "./ProductHeader";
-import { FigmaHeader } from "./FigmaHeader";
+import FigmaHeaderWrapper from "./FigmaHeaderWrapper";
 import {
   fetchProducts,
   fetchProductsWithAdminCategories,
@@ -488,7 +488,7 @@ function ProductPageContent({ config }: ProductPageProps) {
     <div className="relative">
       {/* Fixed Header that sits on top */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-        <FigmaHeader />
+        <FigmaHeaderWrapper />
       </div>
       
       {/* Main Content with top padding to account for fixed header */}
