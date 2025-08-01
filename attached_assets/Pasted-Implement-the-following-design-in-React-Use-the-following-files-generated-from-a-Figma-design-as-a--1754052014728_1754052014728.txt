@@ -1,0 +1,218 @@
+Implement the following design in React. Use the following files generated from a Figma design as a specification and guide:
+
+```src/styles/DivOliProductIntro.module.css
+@import "https://fonts.googleapis.com/css?family=Inter:0,700;0,400&display=swap";
+@import "https://fonts.googleapis.com/css?family=Poppins:0,800&display=swap";
+@import "https://fonts.googleapis.com/css?family=Inter:0,700;0,400&display=swap";
+.DivOliProductIntro_38_1160 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 480px;
+  height: 123px;
+  padding-bottom: 126px;
+  display: flex;
+}
+.DivTwFlex_38_1161 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11.5px;
+  width: 480px;
+  padding: 0 2.938px 90px 0;
+  display: flex;
+}
+.DivTwMb_3_38_1162 {
+  align-items: flex-start;
+  gap: 4px;
+  width: 298.4px;
+  height: 22px;
+  padding-right: 780.469px;
+  display: flex;
+}
+.DivBazaarvoiceProductSummary_38_1163 {
+  background: #fff;
+  border-radius: 100px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 129.46px;
+  height: 22px;
+  display: flex;
+}
+.ButtonBvMainContainerRowFlex_38_1164 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #003a5d;
+  border-radius: 100px;
+  flex-flow: row;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 129.46px;
+  height: 22px;
+  display: flex;
+}
+.DivBvNumReviewsComponentContainer_38_1165 {
+  justify-content: center;
+  align-items: center;
+  padding: 2px 0.257px 0 3.203px;
+  display: inline-flex;
+}
+.generated_249_38_1166 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 12.8px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+  display: inline-block;
+}
+.SpanBvOffscreenText_38_1167 {
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  width: 1px;
+  height: 224px;
+  padding-bottom: 144.5px;
+  display: flex;
+  overflow: hidden;
+}
+._3_38_1168,
+.Out_38_1169,
+.Of_38_1170,
+.generated_5_38_1171,
+.Stars_38_1172,
+.Average_38_1173,
+.Rating_38_1174,
+.Value_38_1175,
+.Read_38_1176,
+.generated_249_38_1177,
+.Reviews_38_1178,
+.Same_38_1179,
+.Page_38_1180,
+.Link_38_1181 {
+  color: #000;
+  font-family: Inter;
+  font-size: 15.1px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  display: inline-block;
+}
+.DivBvStarsComponentContainer_38_1182 {
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 4px;
+  width: 54px;
+  height: 10px;
+  padding-right: 830.5px;
+  display: flex;
+  overflow: hidden;
+}
+.Icon_38_1183,
+.Icon_38_1185,
+.Icon_38_1187,
+.Icon_38_1189 {
+  flex-shrink: 0;
+  width: 11px;
+  height: 10px;
+}
+.Icon_38_1191 {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+}
+.DivTwRounded_100px_38_1193 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #003a5d;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 11.9px 4px 8px;
+  display: flex;
+}
+.SingleFlavor_38_1194 {
+  color: #14433d;
+  font-family: Inter;
+  font-size: 12.8px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+  display: inline-block;
+}
+.SweetOrange_38_1197 {
+  color: #fba91d;
+  width: 394px;
+  font-family: Poppins;
+  font-size: 54.3px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 60px;
+  display: inline-block;
+}
+
+```
+
+---
+
+```src/components/assets/Icon.tsx
+import React from 'react';
+export default function Icon() {
+  return <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.4471 3.60036C10.3833 3.41826 10.213 3.29276 10.0173 3.28359H6.94038L5.96359 0.31747C5.89403 0.118612 5.69862 -0.0107194 5.48496 0.000699649C5.2758 -0.000776857 5.08989 0.131386 5.02587 0.327069L4.04907 3.29319H0.981947C0.775924 3.2918 0.592112 3.42012 0.525632 3.61176C0.459152 3.8034 0.524923 4.01534 0.68891 4.13791L3.17973 5.99053L2.20294 8.97585C2.13394 9.17183 2.20369 9.3891 2.37465 9.51069C2.54561 9.63227 2.77743 9.62947 2.9453 9.5038L5.55333 7.58398L8.17113 9.5038C8.25267 9.56477 8.35196 9.59841 8.4544 9.59979C8.61035 9.60194 8.75759 9.52929 8.84898 9.40508C8.94036 9.28088 8.96444 9.12071 8.9135 8.97585L7.9367 5.99053L10.3787 4.12831C10.5103 3.98314 10.5375 3.77331 10.4471 3.60036Z" fill="url(#paint0_linear_38_1191)"/>
+<defs>
+<linearGradient id="paint0_linear_38_1191" x1="289.7" y1="0" x2="1000.5" y2="0" gradientUnits="userSpaceOnUse">
+<stop stopColor="#14433D"/>
+<stop offset="0.01" stopColor="#D3DAD9"/>
+</linearGradient>
+</defs>
+</svg>
+;
+}
+```
+
+---
+
+```src/components/DivOliProductIntro.tsx
+import React from 'react';
+import styles from '../styles/DivOliProductIntro.module.css';
+import Icon from './assets/Icon';
+
+export default function DivOliProductIntro() {
+  return (
+    <div className={styles.DivOliProductIntro_38_1160}>
+      <div className={styles.DivTwFlex_38_1161}>
+        <div className={styles.DivTwMb_3_38_1162}>
+          <div className={styles.DivBazaarvoiceProductSummary_38_1163}>
+            <div className={styles.ButtonBvMainContainerRowFlex_38_1164}>
+              <div className={styles.DivBvNumReviewsComponentContainer_38_1165}><span className={styles.generated_249_38_1166}>(249)</span></div>
+              <div className={styles.SpanBvOffscreenText_38_1167}><span className={styles._3_38_1168}>4.3 </span><span className={styles.Out_38_1169}>out </span><span className={styles.Of_38_1170}>of </span><span className={styles.generated_5_38_1171}>5 </span><span className={styles.Stars_38_1172}>stars, </span><span className={styles.Average_38_1173}>average </span><span className={styles.Rating_38_1174}>rating </span><span className={styles.Value_38_1175}>value. </span><span className={styles.Read_38_1176}>Read </span><span className={styles.generated_249_38_1177}>249 </span><span className={styles.Reviews_38_1178}>Reviews. </span><span className={styles.Same_38_1179}>Same </span><span className={styles.Page_38_1180}>page </span><span className={styles.Link_38_1181}>link.</span></div>
+              <div className={styles.DivBvStarsComponentContainer_38_1182}>
+                <div className={styles.Icon_38_1183}>
+                  <Icon />
+                </div>
+                <div className={styles.Icon_38_1185}>
+                  <Icon />
+                </div>
+                <div className={styles.Icon_38_1187}>
+                  <Icon />
+                </div>
+                <div className={styles.Icon_38_1189}>
+                  <Icon />
+                </div>
+                <div className={styles.Icon_38_1191}>
+                  <Icon />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.DivTwRounded_100px_38_1193}><span className={styles.SingleFlavor_38_1194}>Single Flavor</span></div>
+        </div><span className={styles.SweetOrange_38_1197}>Sweet Orange</span>
+      </div>
+    </div>
+  );
+}
+```
+

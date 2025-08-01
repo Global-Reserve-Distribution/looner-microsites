@@ -11,6 +11,7 @@ import { StickyCartFooter } from "./StickyCartFooter";
 import { IconicFlavorsBadges } from "./IconicFlavorsBadges";
 import { NutritionLabel } from "./NutritionLabel";
 import { WaterHeroSection } from "./WaterHeroSection";
+import { ProductHeader } from "./ProductHeader";
 import {
   fetchProducts,
   fetchProductsWithAdminCategories,
@@ -496,14 +497,14 @@ function ProductPageContent({ config }: ProductPageProps) {
         <div className="absolute inset-0 bg-white/20 backdrop-blur-[0.5px]" />
 
         <div className="relative z-10">
-          {/* Mobile Title - Only visible on mobile, positioned at very top */}
+          {/* Mobile Header - Only visible on mobile, positioned at very top */}
           <div className="lg:hidden px-4 pt-4 pb-6">
-            <h1 className="text-4xl font-serif text-gray-900 mb-2">
-              {selectedFlavor?.displayName || selectedFlavor?.title}
-            </h1>
-            <p className="text-lg text-gray-600">
-              {selectedFlavor?.shortDescription || selectedFlavor?.description || config.description}
-            </p>
+            <ProductHeader 
+              productName={selectedFlavor?.displayName || selectedFlavor?.title || "Sweet Orange"}
+              reviewCount={249}
+              rating={4.3}
+              showSingleFlavorBadge={true}
+            />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-4 lg:gap-8 py-4 lg:py-6 px-4 lg:px-6 max-w-[1400px] mx-auto">
@@ -514,14 +515,14 @@ function ProductPageContent({ config }: ProductPageProps) {
 
             {/* Right Column: Product Info & Selection */}
             <div className="order-2 lg:order-2 space-y-6 lg:space-y-8">
-              {/* Desktop Title - Only visible on desktop */}
+              {/* Product Header with Stars and Badges */}
               <div className="hidden lg:block">
-                <h1 className="text-4xl lg:text-5xl font-serif text-gray-900 mb-3">
-                  {selectedFlavor?.displayName || selectedFlavor?.title}
-                </h1>
-                <p className="text-lg lg:text-xl text-gray-600 mb-6">
-                  {selectedFlavor?.shortDescription || selectedFlavor?.description || config.description}
-                </p>
+                <ProductHeader 
+                  productName={selectedFlavor?.displayName || selectedFlavor?.title || "Sweet Orange"}
+                  reviewCount={249}
+                  rating={4.3}
+                  showSingleFlavorBadge={true}
+                />
               </div>
 
               {/* Flavor Picker with Tabs */}
