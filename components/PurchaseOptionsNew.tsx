@@ -87,7 +87,7 @@ export function PurchaseOptionsNew({ flavor, variant, onVariantChange, onAddToCa
   const oneTimeOption = purchaseOptions.find(opt => opt.type === 'one-time')!;
 
   return (
-    <div className="w-full max-w-[480px] space-y-4">
+    <div className="w-full space-y-4">
       {/* Subscribe & Save Option */}
       <div
         className={`relative bg-white border-2 rounded-[10px] cursor-pointer transition-all ${
@@ -108,42 +108,8 @@ export function PurchaseOptionsNew({ flavor, variant, onVariantChange, onAddToCa
         </div>
 
         <div className="p-3">
-          {/* Benefits Row */}
-          <div className="flex items-start gap-4 mb-3">
-            <div className="flex items-center gap-1">
-              <DollarIcon />
-              <p 
-                className="text-[#14433d] text-[11.4px] leading-4 w-[110px]"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                <span>Save 15% on every </span>
-                <span>subscription</span>
-              </p>
-            </div>
-            <div className="flex items-center gap-1">
-              <TruckIcon />
-              <p 
-                className="text-[#14433d] text-[11.4px] leading-4 w-[110px]"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                <span>Free shipping in </span>
-                <span>the contiguous US</span>
-              </p>
-            </div>
-            <div className="flex items-center gap-1">
-              <CancelIcon />
-              <p 
-                className="text-[#14433d] text-[11.4px] leading-4 w-[110px]"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                <span>No commitment, </span>
-                <span>cancel anytime</span>
-              </p>
-            </div>
-          </div>
-
           {/* Selection Row */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 mb-3">
             <RadioButton selected={selectedOption === 'subscription'} />
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
@@ -184,6 +150,40 @@ export function PurchaseOptionsNew({ flavor, variant, onVariantChange, onAddToCa
                   </span>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Benefits Row */}
+          <div className="flex items-start gap-4 mt-3">
+            <div className="flex items-center gap-1">
+              <DollarIcon />
+              <p 
+                className="text-[#14433d] text-[11.4px] leading-4 w-[110px]"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                <span>Save 15% on every </span>
+                <span>subscription</span>
+              </p>
+            </div>
+            <div className="flex items-center gap-1">
+              <TruckIcon />
+              <p 
+                className="text-[#14433d] text-[11.4px] leading-4 w-[110px]"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                <span>Free shipping in </span>
+                <span>the contiguous US</span>
+              </p>
+            </div>
+            <div className="flex items-center gap-1">
+              <CancelIcon />
+              <p 
+                className="text-[#14433d] text-[11.4px] leading-4 w-[110px]"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                <span>No commitment, </span>
+                <span>cancel anytime</span>
+              </p>
             </div>
           </div>
         </div>

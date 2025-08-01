@@ -56,22 +56,7 @@ export function AddToCartButtons({
   };
 
   return (
-    <div className="w-full max-w-[472px] space-y-4">
-      {/* Find Me In Store Button */}
-      <button
-        onClick={onFindInStore}
-        className="w-full bg-white rounded-[50px] border-0 flex items-center justify-center gap-2 h-12 px-4"
-        style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}
-      >
-        <LocationIcon />
-        <span 
-          className="text-[#14433d] font-bold text-[16.6px] leading-7"
-          style={{ fontFamily: 'Inter, sans-serif' }}
-        >
-          Find Me In Store
-        </span>
-      </button>
-
+    <div className="w-full space-y-4">
       {/* Quantity and Add to Cart Row */}
       <div className="flex items-center gap-2">
         {/* Quantity Selector */}
@@ -120,6 +105,21 @@ export function AddToCartButtons({
           </span>
         </button>
       </div>
+
+      {/* Find Me In Store Button */}
+      <button
+        onClick={onFindInStore}
+        className="w-full bg-white rounded-[50px] border-0 flex items-center justify-center gap-2 h-12 px-4"
+        style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}
+      >
+        <LocationIcon />
+        <span 
+          className="text-[#14433d] font-bold text-[16.6px] leading-7"
+          style={{ fontFamily: 'Inter, sans-serif' }}
+        >
+          Find Me In Store
+        </span>
+      </button>
 
       {/* Additional Info Section */}
       <div className="text-center space-y-2 pt-4">
