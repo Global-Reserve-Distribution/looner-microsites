@@ -8,6 +8,8 @@ import { FlavorBackground } from "./FlavorBackground";
 import { OlipopStyleGrid } from "./OlipopStyleGrid";
 import { RecommendedFlavors } from "./RecommendedFlavors";
 import { StickyCartFooter } from "./StickyCartFooter";
+import { IconicFlavorsBadges } from "./IconicFlavorsBadges";
+import { NutritionLabel } from "./NutritionLabel";
 import {
   fetchProducts,
   fetchProductsWithAdminCategories,
@@ -651,6 +653,20 @@ function ProductPageContent({ config }: ProductPageProps) {
                   fill={selectedFlavor?.secondaryColor || config.defaultSecondaryColor}
                 ></path>
               </svg>
+            </div>
+          </div>
+
+          {/* Iconic Flavors Badges */}
+          <IconicFlavorsBadges />
+
+          {/* Nutrition Label Section */}
+          <div className="py-12 lg:py-16 bg-white">
+            <div className="max-w-6xl mx-auto px-6">
+              <NutritionLabel 
+                productName={selectedFlavor?.displayName || selectedFlavor?.title || "LOONER THC Beverage"}
+                flavorDescription={selectedFlavor?.shortDescription || selectedFlavor?.description || "Premium cannabis-infused beverage with natural flavors and precise THC dosing."}
+                ingredients="Carbonated Water, Cane Sugar, Citric Acid, Sodium Benzoate (preserves freshness), Natural Flavors, Hemp Extract"
+              />
             </div>
           </div>
 
